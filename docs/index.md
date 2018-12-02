@@ -16,7 +16,7 @@ title: Spaced Repetition System (Algorithms)
       {% if page.url contains "exercises" and page.url contains language %}
 
         <li class="list-group-item">
-          <a href="{{ page.url }}">{{ page.title }}</a>
+          <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
         </li>
 
       {% endif %}
