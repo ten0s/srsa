@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" id="question-tab" data-toggle="tab" role="tab" href="#question">Question</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="solution-tab" data-toggle="tab" href="#solution" role="tab">Solution</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="question" role="tabpanel">
+
+    <p>{{ page.question_text }}</p>
+
+    <div class="embed-responsive embed-responsive-1by1">
+
+      <iframe src="https://glot.io/snippets/{{ page.question_id }}/embed"
+              scrolling="no"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts"
+              class="embed-responsive-item">
+      </iframe>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="solution" role="tabpanel">
+    <div class="embed-responsive embed-responsive-1by1">
+
+      <iframe src="https://glot.io/snippets/{{ page.solution_id }}/embed"
+              scrolling="no"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts"
+              class="embed-responsive-item">
+      </iframe>
+
+    </div>
+  </div>
+</div>
