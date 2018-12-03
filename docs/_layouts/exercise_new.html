@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ "/assets/lib/bootstrap/bootstrap-4.1.3.min.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/editor.css" | relative_url }}">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <br>
+      <p>{{ page.question_text }}</p>
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="question-tab" data-toggle="tab" role="tab" href="#question">Question</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="solution-tab" data-toggle="tab" role="tab" href="#solution">Solution</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="question" role="tabpanel">
+
+            <div id="question-editor" class="editor">
+              public class Main {
+                public static void main(String[] args) {
+                    System.out.println("Hello question!");
+                }
+              }
+            </div>
+        </div>
+        <div class="tab-pane fade" id="solution" role="tabpanel">
+
+          <div id="solution-editor" class="editor">
+            public class Main {
+              public static void main(String[] args) {
+                System.out.println("Hello solution!");
+              }
+            }
+          </div>
+
+        </div>
+      </div>
+      <br>
+      <button id="btn-run" class="btn btn-primary">Run</button>
+      <br>
+      <br>
+      <ul id="res-info" class="list-group">
+        <li class="list-group-item list-group-item-info">Info</li>
+        <li class="list-group-item"><pre id="res-info-msg"></pre></li>
+      </ul>
+
+      <ul id="res-stdout" class="list-group">
+        <li class="list-group-item list-group-item-info">Stdout</li>
+        <li class="list-group-item"><pre id="res-stdout-msg"></pre></li>
+      </ul>
+
+      <ul id="res-stderr"class="list-group">
+        <li class="list-group-item list-group-item-warning">Stderr</li>
+        <li class="list-group-item"><pre id ="res-stderr-msg"></pre></li>
+      </ul>
+
+      <ul id="res-error"class="list-group">
+        <li class="list-group-item list-group-item-danger">Error</li>
+        <li class="list-group-item"><pre id="res-error-msg"></pre></li>
+      </ul>
+
+      <script src="{{ "/assets/lib/jquery/jquery-3.3.1.min.js" | relative_url }}"></script>
+      <script src="{{ "/assets/lib/bootstrap/bootstrap-4.1.3.min.js" | relative_url }}"></script>
+
+      <script src="{{ "/assets/lib/ace/src-noconflict/ace.js" | relative_url }}"></script>
+      <script>
+       infoOff();
+       stdoutOff();
+       stderrOff();
+       errorOff();
+
+       var qEditor = ace.edit("question-editor");
+       qEditor.setTheme("ace/theme/monokai");
+       qEditor.setFontSize(15);
+       qEditor.session.setMode("ace/mode/java");
+
+       var sEditor = ace.edit("solution-editor");
+       sEditor.setTheme("ace/theme/monokai");
+       sEditor.setFontSize(15);
+       sEditor.session.setMode("ace/mode/java");
+
+       function infoOn(msg) {
+           $("#res-info").show();
+           $("#res-info-msg").text(msg);
+       }
+
+       function infoOff() {
+           $("#res-info").hide();
+       }
+
+       function stdoutOn(msg) {
+           $("#res-stdout").show();
+           $("#res-stdout-msg").text(msg);
+       }
+
+       function stdoutOff() {
+           $("#res-stdout").hide();
+       }
+
+       function stderrOn(msg) {
+           $("#res-stderr").show();
+           $("#res-stderr-msg").text(msg);
+       }
+
+       function stderrOff() {
+           $("#res-stderr").hide();
+       }
+
+       function errorOn(msg) {
+           $("#res-error").show();
+           $("#res-error-msg").text(msg);
+       }
+
+       function errorOff() {
+           $("#res-error").hide();
+       }
+
+       $("#btn-run").click(function () {
+           var editor = $("#question-tab").hasClass("active") ? qEditor : sEditor;
+           $.ajax({
+               // run.glot.io doesn't support cors, workaround with https://cors-anywhere.herokuapp.com/
+               url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/java/latest",
+               type: "POST",
+               headers: {
+                   "Authorization": "Token 79e87d40-2dd7-4f81-a5e2-3fcde4179330",
+                   "Content-Type": "application/json"
+               },
+               data: JSON.stringify({
+                   files: [{name: "Main.java", content: editor.getValue()}],
+                   command: "javac Main.java && java Main"
+               })
+           }).done(function (data) {
+               console.log(data);
+               infoOff();
+               if (data.stdout) {
+                   stdoutOn(data.stdout);
+               }
+               if (data.stderr) {
+                   stderrOn(data.stderr);
+               }
+               if (data.error) {
+                   errorOn(data.error);
+               }
+           });
+           infoOn("Running...");
+           stdoutOff();
+           stderrOff();
+           errorOff();
+       });
+
+      </script>
+
+  </body>
+</html>
