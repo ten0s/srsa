@@ -13,24 +13,24 @@ public class Main {
         try {
             Assert.assertArrayEquals(new int[] {}, Node.toIntArray(reverse(null)));
 
-            Node n = new Node();
+            Node<Integer> n = new Node<>();
             n.item = 1;
 
             Assert.assertArrayEquals(new int[] {1}, Node.toIntArray(reverse(n)));
 
-            Node n2 = new Node();
+            Node<Integer> n2 = new Node<>();
             n2.item = 2;
             n.next = n2;
 
-            Node n3 = new Node();
+            Node<Integer> n3 = new Node<>();
             n3.item = 3;
             n2.next = n3;
 
-            Node n4 = new Node();
+            Node<Integer> n4 = new Node<>();
             n4.item = 4;
             n3.next = n4;
 
-            Node n5 = new Node();
+            Node<Integer> n5 = new Node<>();
             n5.item = 5;
             n4.next = n5;
 
