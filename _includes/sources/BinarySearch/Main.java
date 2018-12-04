@@ -1,7 +1,7 @@
 public class Main {
     // find index of key in a sorted array
     public static int indexOf(int key, int[] a) {
-        //SOLUTION_BEGIN
+        // SOLUTION_BEGIN
         int lo = 0;
         int hi = a.length - 1;
         while (lo <= hi) {
@@ -12,7 +12,7 @@ public class Main {
             else return mid;
         }
         return -1;
-        //SOLUTION_END
+        // SOLUTION_END
     }
 
     public static void main(String[] args) throws Throwable {

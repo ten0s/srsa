@@ -6,7 +6,7 @@ public class Node<T> {
 
 public class Main {
     public static Node reverse(Node node) {
-        //SOLUTION_BEGIN
+        // SOLUTION_BEGIN
         Node prev = null;
         Node curr = node;
         Node next = null;
@@ -17,7 +17,7 @@ public class Main {
             curr = next;
         }
         return prev;
-        //SOLUTION_END
+        // SOLUTION_END
     }
 
     public static void main(String[] args) throws Throwable {
