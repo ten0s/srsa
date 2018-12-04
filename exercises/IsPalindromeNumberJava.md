@@ -1,7 +1,11 @@
 ---
-layout: exercise
+layout: exercise_new
 title: Is Palindrome Number
 question_text: Is the number a palindrome?
-question_id: f77n3iek2k
-solution_id: f75g139a94
+solution_file: /sources/IsPalindromeNumber/Main.java
+library_files:
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Assert.java ArrayUtil.java && java Main
 ---
