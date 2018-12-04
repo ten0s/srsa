@@ -1,7 +1,12 @@
 ---
-layout: exercise
+layout: exercise_new
 title: List Stack
 question_text: Implement stack using a single-linked list
-question_id: f78p78k88y
-solution_id: f78p6idy3g
+solution_file: /sources/ListStack/Main.java
+library_files:
+- /sources/lib/Node.java
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Node.java Assert.java ArrayUtil.java && java Main
 ---

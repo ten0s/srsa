@@ -1,6 +1,6 @@
 public class Node<T> {
     public T item;
-    public Node next;
+    public Node<T> next;
 
     public static int[] toIntArray(Node node) {
         int size = 0;
