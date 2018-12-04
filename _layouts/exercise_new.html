@@ -24,12 +24,10 @@
 
       <div class="tab-content">
         <div class="tab-pane fade show active" id="question" role="tabpanel">
-          {% capture question_code %}{% include {{ page.question_file }} %}{% endcapture %}
-          <div id="question-editor" class="editor">{{ question_code | escape }}</div>
+          <div id="question-editor" class="editor"></div>
         </div>
         <div class="tab-pane fade" id="solution" role="tabpanel">
-          {% capture solution_code %}{% include {{ page.solution_file }} %}{% endcapture %}
-          <div id="solution-editor" class="editor">{{ solution_code | escape }}</div>
+          <div id="solution-editor" class="editor"></div>
         </div>
       </div>
       <br>
@@ -70,11 +68,15 @@
        qEditor.setTheme("ace/theme/monokai");
        qEditor.setFontSize(15);
        qEditor.session.setMode("ace/mode/{{ page.language }}");
+       var question_text = `{% include {{ page.solution_file }} %}`;
+       qEditor.setValue(question_text.replace(/\/\/SOLUTION_BEGIN.*\/\/SOLUTION_END/sgi, ""));
 
        var sEditor = ace.edit("solution-editor");
        sEditor.setTheme("ace/theme/monokai");
        sEditor.setFontSize(15);
        sEditor.session.setMode("ace/mode/{{ page.language }}");
+       var solution_text = `{% include {{ page.solution_file }} %}`;
+       sEditor.setValue(solution_text.replace(/\s*(\/\/SOLUTION_BEGIN|\/\/SOLUTION_END)/gi, ""));
 
        function infoOn(msg) {
            $("#res-info").show();
@@ -125,12 +127,10 @@
                },
                data: JSON.stringify({
                    files: [
-                       // question_file and solution_file base names MUST be equal
-                       {name: "{{ page.question_file | split: '/' | last }}",
+                       {name: "{{ page.solution_file | split: '/' | last }}",
                         content: editor.getValue()},
                        {% for file in page.library_files %}
                        {name: "{{ file | split: '/' | last }}",
-                        // uses ES6 template literals
                         content: `{% include {{ file }} %}`},
                        {% endfor %}
 

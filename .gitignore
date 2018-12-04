@@ -1,3 +1,4 @@
 _site
 _includes/sources/lib/*.class
+_includes/sources/*/*.class
 _includes/sources/*/*/*.class

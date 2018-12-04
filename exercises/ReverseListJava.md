@@ -2,8 +2,7 @@
 layout: exercise_new
 title: Reverse List
 question_text: Reverse destructively the single-linked list
-question_file: /sources/ReverseList/question/Main.java
-solution_file: /sources/ReverseList/solution/Main.java
+solution_file: /sources/ReverseList/Main.java
 library_files:
 - /sources/lib/Node.java
 - /sources/lib/Assert.java
