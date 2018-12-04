@@ -1,1 +1,2 @@
-src/*/*/*.class
+_site
+_include/sources/*/*/*.class
