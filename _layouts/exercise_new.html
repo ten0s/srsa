@@ -24,7 +24,7 @@
 
       <div class="tab-content">
         <div class="tab-pane fade show active" id="question" role="tabpanel">
-          {% capture question_code %}{% include {{ page.solution_file }} %}{% endcapture %}
+          {% capture question_code %}{% include {{ page.question_file }} %}{% endcapture %}
           <div id="question-editor" class="editor">{{ question_code | escape }}</div>
         </div>
         <div class="tab-pane fade" id="solution" role="tabpanel">

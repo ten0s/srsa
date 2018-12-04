@@ -9,5 +9,5 @@ library_files:
 - /sources/lib/Assert.java
 - /sources/lib/ArrayUtil.java
 language: java
-command: javac Main.java Node.java Assert.java ArrayUtil.java && java -ea Main
+command: javac Main.java Node.java Assert.java ArrayUtil.java && java Main
 ---
