@@ -10,16 +10,11 @@ class Main {
         //SOLUTION_END
     }
 
-    public static void main(String[] args) {
-        try {
-            Assert.assertTrue(isPalindrome(""));
-            Assert.assertTrue(isPalindrome("a"));
-            Assert.assertTrue(isPalindrome("abcba"));
-            Assert.assertFalse(isPalindrome("abcde"));
-            System.out.println("OK");
-        } catch (Throwable e) {
-            System.out.println("FAIL");
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws Throwable {
+        Assert.assertTrue(isPalindrome(""));
+        Assert.assertTrue(isPalindrome("a"));
+        Assert.assertTrue(isPalindrome("abcba"));
+        Assert.assertFalse(isPalindrome("abcde"));
+        System.out.println("OK");
     }
 }
