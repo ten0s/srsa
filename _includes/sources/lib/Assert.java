@@ -22,6 +22,13 @@ public class Assert {
         }
     }
 
+    public static void assertEquals(String exp, String act) throws Throwable {
+        if (!exp.equals(act)) {
+            System.err.println("Expected: " + exp + ", but saw: " + act);
+            throw new Throwable();
+        }
+    }
+
     public static void assertArrayEquals(int[] exp, int[] act) throws Throwable {
         if (!Arrays.equals(exp, act)) {
             System.out.println("Expected: " + ArrayUtil.toString(exp) +

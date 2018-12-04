@@ -1,7 +1,11 @@
 ---
-layout: exercise
+layout: exercise_new
 title: Array Stack
 question_text: Implement stack using a dynamic array
-question_id: f78oe84po7
-solution_id: f78oepg0nr
+solution_file: /sources/ArrayStack/Main.java
+library_files:
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Assert.java ArrayUtil.java && java Main
 ---

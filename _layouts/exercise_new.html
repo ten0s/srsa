@@ -66,7 +66,7 @@
 
        var solution_raw = `{% include {{ page.solution_file }} %}`;
        var question_text = solution_raw.replace(
-           /\/\/\s*SOLUTION_BEGIN.*\/\/\s*SOLUTION_END/sgi, "");
+           /\/\/\s*SOLUTION_BEGIN.*?\/\/\s*SOLUTION_END/sgi, "");
        var solution_text = solution_raw.replace(
            /\s*(\/\/\s*SOLUTION_BEGIN|\/\/\s*SOLUTION_END)/gi, "");
 

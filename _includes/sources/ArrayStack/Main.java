@@ -3,7 +3,9 @@ import java.util.NoSuchElementException;
 public class Main {
     static class ArrayStack<Item> {
         private Item[] a;
+        // SOLUTION_BEGIN
         private int n;
+        // SOLUTION_END
 
         @SuppressWarnings("unchecked")
         public ArrayStack() {
@@ -11,11 +13,14 @@ public class Main {
         }
 
         public void push(Item item) {
+            // SOLUTION_BEGIN
             if (n == a.length) resize(2 * a.length);
             a[n++] = item;
+            // SOLUTION_END
         }
 
         public Item pop() {
+            // SOLUTION_BEGIN
             if (n == 0) {
                 throw new NoSuchElementException();
             }
@@ -24,14 +29,19 @@ public class Main {
             Item item = a[--n];
             a[n] = null;
             return item;
+            // SOLUTION_END
         }
 
         public boolean isEmpty() {
+            // SOLUTION_BEGIN
             return n == 0;
+            // SOLUTION_END
         }
 
         public int size() {
+            // SOLUTION_BEGIN
             return n;
+            // SOLUTION_END
         }
 
         @SuppressWarnings("unchecked")
@@ -43,29 +53,24 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
+        ArrayStack<String> s = new ArrayStack<>();
+        Assert.assertTrue(s.isEmpty());
+        Assert.assertEquals(0, s.size());
+        s.push("1");
+        s.push("2");
+        s.push("3");
+        Assert.assertFalse(s.isEmpty());
+        Assert.assertEquals(3, s.size());
+        Assert.assertEquals("3", s.pop());
+        Assert.assertEquals("2", s.pop());
+        Assert.assertEquals("1", s.pop());
+        Assert.assertTrue(s.isEmpty());
+        Assert.assertEquals(0, s.size());
         try {
-            ArrayStack<String> s = new ArrayStack<>();
-            assert s.isEmpty();
-            assert 0 == s.size();
-            s.push("1");
-            s.push("2");
-            s.push("3");
-            assert !s.isEmpty();
-            assert 3 == s.size();
-            assert "3".equals(s.pop());
-            assert "2".equals(s.pop());
-            assert "1".equals(s.pop());
-            assert s.isEmpty();
-            assert 0 == s.size();
-            try {
-                s.pop();
-                assert false;
-            } catch (NoSuchElementException e) {}
-            System.out.println("OK");
-        } catch (Throwable e) {
-            System.out.println("FAIL");
-            e.printStackTrace();
-        }
+            s.pop();
+            Assert.assertTrue(false);
+        } catch (NoSuchElementException e) {}
+        System.out.println("OK");
     }
 }
