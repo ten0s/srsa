@@ -7,7 +7,7 @@ public class Main {
         private int tail;
 
         @SuppressWarnings("unchecked")
-            public ArrayQueue() {
+        public ArrayQueue() {
             a = (Item[]) new Object[2];
         }
 
@@ -37,9 +37,13 @@ public class Main {
             return item;
         }
 
-        public boolean isEmpty() { return tail == head; }
+        public boolean isEmpty() {
+            return tail == head;
+        }
 
-        public int size() { return tail - head; }
+        public int size() {
+            return tail - head;
+        }
 
         private void relocate() {
             for (int i = head; i < tail; i++) {
