@@ -6,34 +6,18 @@ public class Main {
         Node next;
     }
 
-    public static Node delete(int key, Node node) {
-        if (node == null) {
-            return node;
-        }
-        if (node.item == key) {
-            node = node.next;
-            return node;
-        }
-        Node n = node;
-        while (n.next != null) {
-            if (n.next.item == key) {
-                n.next = n.next.next;
-                break;
-            } else {
-                n = n.next;
-            }
-        }
-        return node;
+    public static Node reverse(Node node) {
+
     }
 
     public static void main(String[] args) {
         try {
-            Node n = null;
-            n = delete(1, n);
-            assertArrayEquals(new int[] {}, toArray(n));
+            assertArrayEquals(new int[] {}, toArray(reverse(null)));
 
-            n = new Node();
+            Node n = new Node();
             n.item = 1;
+
+            assertArrayEquals(new int[] {1}, toArray(reverse(n)));
 
             Node n2 = new Node();
             n2.item = 2;
@@ -52,18 +36,7 @@ public class Main {
             n4.next = n5;
 
             assertArrayEquals(new int[] {1,2,3,4,5}, toArray(n));
-
-            n = delete(1, n);
-            assertArrayEquals(new int[] {2,3,4,5}, toArray(n));
-
-            n = delete(3, n);
-            assertArrayEquals(new int[] {2,4,5}, toArray(n));
-
-            n = delete(5, n);
-            assertArrayEquals(new int[] {2,4}, toArray(n));
-
-            n = delete(6, n);
-            assertArrayEquals(new int[] {2,4}, toArray(n));
+            assertArrayEquals(new int[] {5,4,3,2,1}, toArray(reverse(n)));
 
             System.out.println("OK");
         } catch (Throwable e) {
