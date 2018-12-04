@@ -24,10 +24,10 @@
 
       <div class="tab-content">
         <div class="tab-pane fade show active" id="question" role="tabpanel">
-            <div id="question-editor" class="editor">{% include {{ page.question_path }} %}</div>
+            <div id="question-editor" class="editor">{% include {{ page.question_file }} %}</div>
         </div>
         <div class="tab-pane fade" id="solution" role="tabpanel">
-          <div id="solution-editor" class="editor">{% include {{ page.solution_path }} %}</div>
+          <div id="solution-editor" class="editor">{% include {{ page.solution_file }} %}</div>
         </div>
       </div>
       <br>
@@ -122,8 +122,17 @@
                    "Content-Type": "application/json"
                },
                data: JSON.stringify({
-                   // question_path and solution_path MUST be equal
-                   files: [{name: "{{ page.question_path | split: '/' | last }}", content: editor.getValue()}],
+                   files: [
+                       // question_file and solution_file base names MUST be equal
+                       {name: "{{ page.question_file | split: '/' | last }}",
+                        content: editor.getValue()},
+                       {% for file in page.library_files %}
+                       {name: "{{ file | split: '/' | last }}",
+                        // uses ES6 template literals
+                        content: `{% include {{ file }} %}`},
+                       {% endfor %}
+
+                   ],
                    command: "{{ page.command }}"
                })
            }).done(function (data) {
