@@ -67,12 +67,12 @@
        var qEditor = ace.edit("question-editor");
        qEditor.setTheme("ace/theme/monokai");
        qEditor.setFontSize(15);
-       qEditor.session.setMode("ace/mode/java");
+       qEditor.session.setMode("ace/mode/{{ page.language }}");
 
        var sEditor = ace.edit("solution-editor");
        sEditor.setTheme("ace/theme/monokai");
        sEditor.setFontSize(15);
-       sEditor.session.setMode("ace/mode/java");
+       sEditor.session.setMode("ace/mode/{{ page.language }}");
 
        function infoOn(msg) {
            $("#res-info").show();
@@ -113,16 +113,18 @@
        $("#btn-run").click(function () {
            var editor = $("#question-tab").hasClass("active") ? qEditor : sEditor;
            $.ajax({
-               // run.glot.io doesn't support cors, workaround with https://cors-anywhere.herokuapp.com/
-               url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/java/latest",
+               // run.glot.io doesn't support cors
+               // workaround through https://cors-anywhere.herokuapp.com/
+               url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/{{ page.language }}/{{ page.version | default:'latest' }}",
                type: "POST",
                headers: {
                    "Authorization": "Token 79e87d40-2dd7-4f81-a5e2-3fcde4179330",
                    "Content-Type": "application/json"
                },
                data: JSON.stringify({
-                   files: [{name: "Main.java", content: editor.getValue()}],
-                   command: "javac Main.java && java Main"
+                   // question_path and solution_path MUST be equal
+                   files: [{name: "{{ page.question_path | split: '/' | last }}", content: editor.getValue()}],
+                   command: "{{ page.command }}"
                })
            }).done(function (data) {
                console.log(data);
