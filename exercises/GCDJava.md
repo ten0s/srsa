@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Greatest common divisor
 question_text: Implement GCD
 solution_file: /sources/GCD/Main.java

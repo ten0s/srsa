@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Reverse List
 question_text: Reverse destructively the single-linked list
 solution_file: /sources/ReverseList/Main.java

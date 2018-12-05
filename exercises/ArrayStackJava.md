@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Array Stack
 question_text: Implement stack using a dynamic array
 solution_file: /sources/ArrayStack/Main.java

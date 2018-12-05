@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Is Palindrome Number
 question_text: Is the number a palindrome?
 solution_file: /sources/IsPalindromeNumber/Main.java

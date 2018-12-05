@@ -1,39 +1,166 @@
----
-layout: default
----
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" id="question-tab" data-toggle="tab" role="tab" href="#question">Question</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="solution-tab" data-toggle="tab" href="#solution" role="tab">Solution</a>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ "/assets/lib/bootstrap/bootstrap-4.1.3.min.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/editor.css" | relative_url }}">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div class="container">
 
-<div class="tab-content">
-  <div class="tab-pane fade show active" id="question" role="tabpanel">
+      <br>
+      <p>{{ page.question_text }}</p>
 
-    <p>{{ page.question_text }}</p>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="question-tab" data-toggle="tab" role="tab" href="#question">Question</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="solution-tab" data-toggle="tab" role="tab" href="#solution">Solution</a>
+        </li>
+      </ul>
 
-    <div class="embed-responsive embed-responsive-1by1">
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="question" role="tabpanel">
+          <div id="question-editor" class="editor"></div>
+        </div>
+        <div class="tab-pane fade" id="solution" role="tabpanel">
+          <div id="solution-editor" class="editor"></div>
+        </div>
+      </div>
+      <br>
+      <button id="btn-run" class="btn btn-primary">Run</button>
+      <br>
+      <br>
+      <ul id="res-info" class="list-group">
+        <li class="list-group-item list-group-item-info">Info</li>
+        <li class="list-group-item"><pre id="res-info-msg"></pre></li>
+      </ul>
 
-      <iframe src="https://glot.io/snippets/{{ page.question_id }}/embed"
-              scrolling="no"
-              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts"
-              class="embed-responsive-item">
-      </iframe>
+      <ul id="res-stdout" class="list-group">
+        <li class="list-group-item list-group-item-info">Stdout</li>
+        <li class="list-group-item"><pre id="res-stdout-msg"></pre></li>
+      </ul>
 
-    </div>
-  </div>
-  <div class="tab-pane fade" id="solution" role="tabpanel">
-    <div class="embed-responsive embed-responsive-1by1">
+      <ul id="res-stderr"class="list-group">
+        <li class="list-group-item list-group-item-warning">Stderr</li>
+        <li class="list-group-item"><pre id ="res-stderr-msg"></pre></li>
+      </ul>
 
-      <iframe src="https://glot.io/snippets/{{ page.solution_id }}/embed"
-              scrolling="no"
-              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts"
-              class="embed-responsive-item">
-      </iframe>
+      <ul id="res-error"class="list-group">
+        <li class="list-group-item list-group-item-danger">Error</li>
+        <li class="list-group-item"><pre id="res-error-msg"></pre></li>
+      </ul>
 
-    </div>
-  </div>
-</div>
+      <script src="{{ "/assets/lib/jquery/jquery-3.3.1.min.js" | relative_url }}"></script>
+      <script src="{{ "/assets/lib/bootstrap/bootstrap-4.1.3.min.js" | relative_url }}"></script>
+
+      <script src="{{ "/assets/lib/ace/src-noconflict/ace.js" | relative_url }}"></script>
+      <script>
+       infoOff();
+       stdoutOff();
+       stderrOff();
+       errorOff();
+
+       var solution_raw = `{% include {{ page.solution_file }} %}`;
+       var question_text = solution_raw.replace(
+           /\/\/\s*SOLUTION_BEGIN.*?\/\/\s*SOLUTION_END/sgi, "");
+       var solution_text = solution_raw.replace(
+           /\s*(\/\/\s*SOLUTION_BEGIN|\/\/\s*SOLUTION_END)/gi, "");
+
+       var qEditor = ace.edit("question-editor");
+       qEditor.setValue(question_text, -1);
+       qEditor.setTheme("ace/theme/monokai");
+       qEditor.setFontSize(15);
+       qEditor.session.setMode("ace/mode/{{ page.language }}");
+
+       var sEditor = ace.edit("solution-editor");
+       sEditor.setValue(solution_text, -1);
+       sEditor.setTheme("ace/theme/monokai");
+       sEditor.setFontSize(15);
+       sEditor.session.setMode("ace/mode/{{ page.language }}");
+
+       function infoOn(msg) {
+           $("#res-info").show();
+           $("#res-info-msg").text(msg);
+       }
+
+       function infoOff() {
+           $("#res-info").hide();
+       }
+
+       function stdoutOn(msg) {
+           $("#res-stdout").show();
+           $("#res-stdout-msg").text(msg);
+       }
+
+       function stdoutOff() {
+           $("#res-stdout").hide();
+       }
+
+       function stderrOn(msg) {
+           $("#res-stderr").show();
+           $("#res-stderr-msg").text(msg);
+       }
+
+       function stderrOff() {
+           $("#res-stderr").hide();
+       }
+
+       function errorOn(msg) {
+           $("#res-error").show();
+           $("#res-error-msg").text(msg);
+       }
+
+       function errorOff() {
+           $("#res-error").hide();
+       }
+
+       $("#btn-run").click(function () {
+           var editor = $("#question-tab").hasClass("active") ? qEditor : sEditor;
+           $.ajax({
+               // run.glot.io doesn't support cors
+               // workaround through https://cors-anywhere.herokuapp.com/
+               url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/{{ page.language }}/{{ page.version | default:'latest' }}",
+               type: "POST",
+               headers: {
+                   "Authorization": "Token 79e87d40-2dd7-4f81-a5e2-3fcde4179330",
+                   "Content-Type": "application/json"
+               },
+               data: JSON.stringify({
+                   files: [
+                       {name: "{{ page.solution_file | split: '/' | last }}",
+                        content: editor.getValue()},
+                       {% for file in page.library_files %}
+                       {name: "{{ file | split: '/' | last }}",
+                        content: `{% include {{ file }} %}`},
+                       {% endfor %}
+
+                   ],
+                   command: "{{ page.command }}"
+               })
+           }).done(function (data) {
+               console.log(data);
+               infoOff();
+               if (data.stdout) {
+                   stdoutOn(data.stdout);
+               }
+               if (data.stderr) {
+                   stderrOn(data.stderr);
+               }
+               if (data.error) {
+                   errorOn(data.error);
+               }
+           });
+           infoOn("Running...");
+           stdoutOff();
+           stderrOff();
+           errorOff();
+       });
+
+      </script>
+
+  </body>
+</html>

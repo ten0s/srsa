@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Iterator
 question_text: Add iterator to a class
 solution_file: /sources/Iterator/Main.java

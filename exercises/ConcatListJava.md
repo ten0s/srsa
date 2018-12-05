@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Concat List
 question_text: Concatenate two single-linked lists
 solution_file: /sources/ConcatList/Main.java

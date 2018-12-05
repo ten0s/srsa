@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Shuffle Array
 question_text: Implement shuffle of an array
 solution_file: /sources/ShuffleArray/Main.java

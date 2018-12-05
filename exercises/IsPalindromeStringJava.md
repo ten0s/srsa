@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Is Palindrome String
 question_text: Is the string a palindrome?
 solution_file: /sources/IsPalindromeString/Main.java

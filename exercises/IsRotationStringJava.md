@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Is Rotation String
 question_text: Check if one string is a rotation of the other?
 solution_file: /sources/IsRotationString/Main.java

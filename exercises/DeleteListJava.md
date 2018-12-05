@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Delete List
 question_text: Delete an item from the single-linked list
 solution_file: /sources/DeleteList/Main.java

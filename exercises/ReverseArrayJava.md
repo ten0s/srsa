@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Reverse Array
 question_text: Reverse an array
 solution_file: /sources/ReverseArray/Main.java

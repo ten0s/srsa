@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Member List
 question_text: If an item is the member of the single-linked list
 solution_file: /sources/MemberList/Main.java

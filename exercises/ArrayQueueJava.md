@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Array Queue
 question_text: Implement queue using a dynamic array
 solution_file: /sources/ArrayQueue/Main.java

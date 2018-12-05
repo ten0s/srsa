@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Rotate String
 question_text: Rotate the string by n characters
 solution_file: /sources/IsRotationString/Main.java

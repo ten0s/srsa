@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: List Stack
 question_text: Implement stack using a single-linked list
 solution_file: /sources/ListStack/Main.java

@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: List Queue
 question_text: Implement queue using a single-linked list
 solution_file: /sources/ListQueue/Main.java

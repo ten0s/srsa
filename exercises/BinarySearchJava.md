@@ -1,5 +1,5 @@
 ---
-layout: exercise_new
+layout: exercise
 title: Binary Search
 question_text: Implement Binary Search of an array
 solution_file: /sources/BinarySearch/Main.java
