@@ -1,7 +1,11 @@
 ---
-layout: exercise
+layout: exercise_new
 title: Iterator
 question_text: Add iterator to a class
-question_id: f78natzvgr
-solution_id: f78na94hz2
+solution_file: /sources/Iterator/Main.java
+library_files:
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Assert.java ArrayUtil.java && java Main
 ---

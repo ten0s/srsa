@@ -1,7 +1,11 @@
 ---
-layout: exercise
+layout: exercise_new
 title: Greatest common divisor
 question_text: Implement GCD
-question_id: f77wgr9xg5
-solution_id: f77wg0720j
+solution_file: /sources/GCD/Main.java
+library_files:
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Assert.java ArrayUtil.java && java Main
 ---

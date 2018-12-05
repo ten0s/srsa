@@ -17,6 +17,7 @@ public class Main {
             return a.length;
         }
 
+        // SOLUTION_BEGIN
         public Iterator<Item> iterator() {
             return new ArrayIterator();
         }
@@ -40,20 +41,16 @@ public class Main {
                 throw new UnsupportedOperationException();
             }
         }
+        // SOLUTION_END
     }
 
-    public static void main(String[] args) {
-        try {
-            Array<Integer> arr = new Array<>(new Integer[] {1,2,3,4,5});
-            int sum = 0;
-            for (int i : arr) {
-                sum += i;
-            }
-            assert 15 == sum;
-            System.out.println("OK");
-        } catch (Throwable e) {
-            System.out.println("FAIL");
-            e.printStackTrace();
+    public static void main(String[] args) throws Throwable {
+        Array<Integer> arr = new Array<>(new Integer[] {1,2,3,4,5});
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
         }
+        Assert.assertEquals(15, sum);
+        System.out.println("OK");
     }
 }

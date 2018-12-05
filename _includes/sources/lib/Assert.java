@@ -36,4 +36,12 @@ public class Assert {
             throw new Throwable();
         }
     }
+
+    public static void assertArrayEquals(Object[] exp, Object[] act) throws Throwable {
+        if (!Arrays.equals(exp, act)) {
+            System.out.println("Expected: " + ArrayUtil.toString(exp) +
+                               ", but saw: " + ArrayUtil.toString(act));
+            throw new Throwable();
+        }
+    }
 }
