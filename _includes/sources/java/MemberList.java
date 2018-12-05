@@ -5,7 +5,7 @@ public class Node<T> {
 }
 */
 
-public class Main {
+public class MemberList {
     public static <T extends Comparable<T>>boolean isMember(T key, Node<T> node) {
         // SOLUTION_BEGIN
         for (Node<T> n = node; n != null; n = n.next) {

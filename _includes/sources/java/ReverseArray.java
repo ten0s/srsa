@@ -1,4 +1,4 @@
-class Main {
+class ReverseArray {
     public static int[] reverse(int[] a) {
         // SOLUTION_BEGIN
         int n = a.length;

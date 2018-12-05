@@ -5,7 +5,7 @@ public class Node<T> {
 }
 */
 
-public class Main {
+public class DeleteList {
     public static <T extends Comparable<T>> Node<T> delete(T key, Node<T> node) {
         // SOLUTION_BEGIN
         if (node == null) {
@@ -45,26 +45,30 @@ public class Main {
         n2.next = n3;
 
         Node<Integer> n4 = new Node<>();
-        n4.item = 4;
+        n4.item = 3;
         n3.next = n4;
 
         Node<Integer> n5 = new Node<>();
-        n5.item = 5;
+        n5.item = 4;
         n4.next = n5;
 
-        Assert.assertArrayEquals(new int[] {1,2,3,4,5}, Node.toIntArray(n));
+        Node<Integer> n6 = new Node<>();
+        n6.item = 5;
+        n5.next = n6;
+
+        Assert.assertArrayEquals(new int[] {1,2,3,3,4,5}, Node.toIntArray(n));
 
         n = delete(1, n);
-        Assert.assertArrayEquals(new int[] {2,3,4,5}, Node.toIntArray(n));
+        Assert.assertArrayEquals(new int[] {2,3,3,4,5}, Node.toIntArray(n));
 
         n = delete(3, n);
-        Assert.assertArrayEquals(new int[] {2,4,5}, Node.toIntArray(n));
+        Assert.assertArrayEquals(new int[] {2,3,4,5}, Node.toIntArray(n));
 
         n = delete(5, n);
-        Assert.assertArrayEquals(new int[] {2,4}, Node.toIntArray(n));
+        Assert.assertArrayEquals(new int[] {2,3,4}, Node.toIntArray(n));
 
         n = delete(6, n);
-        Assert.assertArrayEquals(new int[] {2,4}, Node.toIntArray(n));
+        Assert.assertArrayEquals(new int[] {2,3,4}, Node.toIntArray(n));
 
         System.out.println("OK");
     }

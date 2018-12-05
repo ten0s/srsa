@@ -1,4 +1,4 @@
-public class Main {
+public class GCD {
     public static int gcd(int a, int b) {
         // SOLUTION_BEGIN
         if (b == 0) {

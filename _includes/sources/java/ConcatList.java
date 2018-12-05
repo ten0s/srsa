@@ -5,15 +5,19 @@ public class Node<T> {
 }
 */
 
-public class Main {
+public class ConcatList {
     public static <T> Node<T> concat(Node<T> n1, Node<T> n2) {
         // SOLUTION_BEGIN
-        if (n1 == null)
+        if (n1 == null) {
             return n2;
-        if (n2 == null)
+        }
+        if (n2 == null) {
             return n1;
+        }
         Node<T> n = n1;
-        while (n.next != null) { n = n.next; }
+        while (n.next != null) {
+            n = n.next;
+        }
         n.next = n2;
         return n1;
         // SOLUTION_END

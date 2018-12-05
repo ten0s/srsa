@@ -1,4 +1,4 @@
-public class Main {
+public class RotateString {
     public static String rotate(int n, String s) {
         // SOLUTION_BEGIN
         int len = s.length();

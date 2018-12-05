@@ -2,10 +2,10 @@
 layout: exercise
 title: Shuffle Array
 question_text: Implement shuffle of an array
-solution_file: /sources/ShuffleArray/Main.java
+solution_file: /sources/java/ShuffleArray.java
 library_files:
-- /sources/lib/Assert.java
-- /sources/lib/ArrayUtil.java
+- /sources/java/Assert.java
+- /sources/java/ArrayUtil.java
 language: java
-command: javac Main.java Assert.java ArrayUtil.java && java Main
+command: javac ShuffleArray.java Assert.java ArrayUtil.java && java ShuffleArray
 ---

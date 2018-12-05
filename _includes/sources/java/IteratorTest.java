@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Main {
+public class IteratorTest {
     static class Array<Item> implements Iterable<Item> {
         private Item[] a;
 

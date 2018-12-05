@@ -1,5 +1,4 @@
-public class Main {
-    // find index of key in a sorted array
+public class BinarySearch {
     public static int indexOf(int key, int[] a) {
         // SOLUTION_BEGIN
         int lo = 0;

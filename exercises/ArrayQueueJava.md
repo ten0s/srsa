@@ -2,10 +2,10 @@
 layout: exercise
 title: Array Queue
 question_text: Implement queue using a dynamic array
-solution_file: /sources/ArrayQueue/Main.java
+solution_file: /sources/java/ArrayQueue.java
 library_files:
-- /sources/lib/Assert.java
-- /sources/lib/ArrayUtil.java
+- /sources/java/Assert.java
+- /sources/java/ArrayUtil.java
 language: java
-command: javac Main.java Assert.java ArrayUtil.java && java Main
+command: javac ArrayQueue.java Assert.java ArrayUtil.java && java ArrayQueue
 ---

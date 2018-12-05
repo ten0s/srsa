@@ -1,4 +1,4 @@
-class Main {
+class IsPalindromeNumber {
     public static boolean isPalindrome(int n) {
         // SOLUTION_BEGIN
         if (n < 0) return isPalindrome(-n);

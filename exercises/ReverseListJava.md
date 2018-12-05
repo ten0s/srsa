@@ -2,11 +2,11 @@
 layout: exercise
 title: Reverse List
 question_text: Reverse destructively the single-linked list
-solution_file: /sources/ReverseList/Main.java
+solution_file: /sources/java/ReverseList.java
 library_files:
-- /sources/lib/Node.java
-- /sources/lib/Assert.java
-- /sources/lib/ArrayUtil.java
+- /sources/java/Node.java
+- /sources/java/Assert.java
+- /sources/java/ArrayUtil.java
 language: java
-command: javac Main.java Node.java Assert.java ArrayUtil.java && java Main
+command: javac ReverseList.java Node.java Assert.java ArrayUtil.java && java ReverseList
 ---

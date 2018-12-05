@@ -1,4 +1,4 @@
-public class Main {
+public class IsRotationString {
     public static boolean isRotation(String s1, String s2) {
         // SOLUTION_BEGIN
         if (s1.length() != s2.length())

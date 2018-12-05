@@ -4,12 +4,12 @@ public class Node<T> {
     Node<T> next;
 */
 
-public class Main {
-    public static Node reverse(Node node) {
+public class ReverseList {
+    public static <T> Node<T> reverse(Node<T> node) {
         // SOLUTION_BEGIN
-        Node prev = null;
-        Node curr = node;
-        Node next = null;
+        Node<T> prev = null;
+        Node<T> curr = node;
+        Node<T> next = null;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
