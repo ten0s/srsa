@@ -3,10 +3,8 @@ import java.util.NoSuchElementException;
 public class Main {
     static class ArrayQueue<Item> {
         private Item[] a;
-        // SOLUTION_BEGIN
         private int head;
         private int tail;
-        // SOLUTION_END
 
         @SuppressWarnings("unchecked")
         public ArrayQueue() {

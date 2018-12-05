@@ -10,6 +10,8 @@ public class Main {
         // SOLUTION_BEGIN
         if (n1 == null)
             return n2;
+        if (n2 == null)
+            return n1;
         Node<T> n = n1;
         while (n.next != null) { n = n.next; }
         n.next = n2;

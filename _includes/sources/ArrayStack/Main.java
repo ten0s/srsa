@@ -3,9 +3,7 @@ import java.util.NoSuchElementException;
 public class Main {
     static class ArrayStack<Item> {
         private Item[] a;
-        // SOLUTION_BEGIN
         private int n;
-        // SOLUTION_END
 
         @SuppressWarnings("unchecked")
         public ArrayStack() {
