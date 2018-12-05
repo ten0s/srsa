@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 if [[ $# -ne 1 ]]; then
     echo "Usage: $(basename $0) <all | NAME>"
@@ -29,7 +29,7 @@ function run() {
 }
 
 function run_all() {
-    for path in $(find $EXE_DIR -name '*.md'); do
+    for path in $(find $EXE_DIR -name '*.md' | sort); do
         file=$(basename $path)
         exercise=${file%.md}
         run $exercise
