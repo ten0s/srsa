@@ -1,7 +1,11 @@
 ---
-layout: exercise
+layout: exercise_new
 title: Is Rotation String
 question_text: Check if one string is a rotation of the other?
-question_id: f77vq65guo
-solution_id: f77vpeh9jq
+solution_file: /sources/IsRotationString/Main.java
+library_files:
+- /sources/lib/Assert.java
+- /sources/lib/ArrayUtil.java
+language: java
+command: javac Main.java Assert.java ArrayUtil.java && java Main
 ---
