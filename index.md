@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Spaced Repetition System (Algorithms)
+title: Algorithms
 ---
 
 {% assign languages = "java, erlang" | split: ", " %}
