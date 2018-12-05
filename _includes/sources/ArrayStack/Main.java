@@ -21,7 +21,7 @@ public class Main {
 
         public Item pop() {
             // SOLUTION_BEGIN
-            if (n == 0) {
+            if (isEmpty()) {
                 throw new NoSuchElementException();
             }
 
@@ -34,7 +34,7 @@ public class Main {
 
         public boolean isEmpty() {
             // SOLUTION_BEGIN
-            return n == 0;
+            return size() == 0;
             // SOLUTION_END
         }
 
