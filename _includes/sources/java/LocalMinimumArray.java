@@ -34,34 +34,34 @@ public class LocalMinimumArray {
     }
 
     // SOLUTION_BEGIN
-    private static int indexOf(int[] a, int start, int end) {
-        if (start > end) {
+    private static int indexOf(int[] a, int lo, int hi) {
+        if (lo > hi) {
             return -1;
         }
 
-        if (start == end) {
-            return start;
+        if (lo == hi) {
+            return lo;
         }
 
-        if (end - start == 1) {
-            int diff = a[start] - a[end];
+        if (hi - lo == 1) {
+            int diff = a[lo] - a[hi];
             if (diff < 0) {
-                return start;
+                return lo;
             } else if (diff > 0) {
-                return end;
+                return hi;
             } else {
                 // Some not distinct values
                 throw new IllegalArgumentException();
             }
         }
 
-        int mid = (start + end) / 2;
+        int mid = lo + (hi - lo) / 2;
         if (a[mid-1] > a[mid] && a[mid] < a[mid+1]) {
             return mid;
         } else if (a[mid-1] < a[mid]) {
-            return indexOf(a, start, mid-1);
+            return indexOf(a, lo, mid-1);
         } else {
-            return indexOf(a, mid+1, end);
+            return indexOf(a, mid+1, hi);
         }
     }
     // SOLUTION_END
