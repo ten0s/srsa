@@ -67,15 +67,15 @@ public class LocalMinimumArray {
     // SOLUTION_END
 
     public static void main(String[] args) throws Throwable {
-        Assert.assertEquals(-1, LocalMinimumArray.indexOf(new int[] {}));
-        Assert.assertEquals(0, LocalMinimumArray.indexOf(new int[] {1}));
-        Assert.assertEquals(0, LocalMinimumArray.indexOf(new int[] {1,2}));
-        Assert.assertEquals(1, LocalMinimumArray.indexOf(new int[] {2,1}));
-        Assert.assertEquals(1, LocalMinimumArray.indexOf(new int[] {2,1,3}));
-        Assert.assertEquals(0, LocalMinimumArray.indexOf(new int[] {1,2,3,4,5}));
-        Assert.assertEquals(4, LocalMinimumArray.indexOf(new int[] {5,4,3,2,1}));
-        Assert.assertEquals(0, LocalMinimumArray.indexOf(new int[] {4,5,6,9,8,10,12}));
-        Assert.assertEquals(2, LocalMinimumArray.indexOf(new int[] {9,7,2,8,5,6,3,4}));
+        Assert.assertEquals(-1, indexOf(new int[] {}));
+        Assert.assertEquals(0, indexOf(new int[] {1}));
+        Assert.assertEquals(0, indexOf(new int[] {1,2}));
+        Assert.assertEquals(1, indexOf(new int[] {2,1}));
+        Assert.assertEquals(1, indexOf(new int[] {2,1,3}));
+        Assert.assertEquals(0, indexOf(new int[] {1,2,3,4,5}));
+        Assert.assertEquals(4, indexOf(new int[] {5,4,3,2,1}));
+        Assert.assertEquals(0, indexOf(new int[] {4,5,6,9,8,10,12}));
+        Assert.assertEquals(2, indexOf(new int[] {9,7,2,8,5,6,3,4}));
         System.out.println("OK");
     }
 }
