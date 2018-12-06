@@ -1,4 +1,4 @@
-public class BinarySearch {
+public class BinarySearchArray {
     public static int indexOf(int key, int[] a) {
         // SOLUTION_BEGIN
         int lo = 0;
@@ -19,6 +19,8 @@ public class BinarySearch {
         Assert.assertEquals(0, indexOf(1, new int[] {1,2,3,4,5,6,7,8,9,10}));
         Assert.assertEquals(9, indexOf(10, new int[] {1,2,3,4,5,6,7,8,9,10}));
         Assert.assertEquals(5, indexOf(6, new int[] {1,2,3,4,5,6,7,8,9,10}));
+        Assert.assertEquals(-1, indexOf(0, new int[] {1,2,3,4,5,6,7,8,9,10}));
+        Assert.assertEquals(-1, indexOf(11, new int[] {1,2,3,4,5,6,7,8,9,10}));
         System.out.println("OK");
     }
 }
