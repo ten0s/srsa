@@ -1,5 +1,6 @@
--module(main).
+-module(reverse_list).
 -export([main/1]).
+-include_lib("eunit/include/eunit.hrl").
 
 -spec reverse([T]) -> [T].
 %% SOLUTION_BEGIN
@@ -13,6 +14,11 @@ reverse([], Acc) ->
 %% SOLUTION_END
 
 main(_) ->
+    case eunit:test(?MODULE) of
+    ok -> halt(0);
+    _  -> halt(1)
+    end.
+
+reverse_test() ->
     [] = reverse([]),
-    [3,2,1] = reverse([1,2,3]),
-    io:format("OK~n", []).
+    [3,2,1] = reverse([1,2,3]).
