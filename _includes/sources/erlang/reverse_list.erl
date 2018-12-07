@@ -20,5 +20,5 @@ main(_) ->
     end.
 
 reverse_test() ->
-    [] = reverse([]),
-    [3,2,1] = reverse([1,2,3]).
+    ?assertEqual([], reverse([])),
+    ?assertEqual([3,2,1], reverse([1,2,3])).

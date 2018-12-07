@@ -57,17 +57,17 @@ main(_) ->
 
 queue_test() ->
     Q0 = new(),
-    true = is_empty(Q0),
+    ?assert(is_empty(Q0)),
     Q1 = {[1], []} = enqueue(1, Q0),
-    false = is_empty(Q1),
+    ?assertNot(is_empty(Q1)),
     Q2 = {[1], [2]} = enqueue(2, Q1),
     Q3 = {[1], [3,2]} = enqueue(3, Q2),
-    1 = peek(Q3),
+    ?assertEqual(1, peek(Q3)),
     {1, Q4 = {[2,3], []}} = dequeue(Q3),
     Q5 = {[2,3], [4]} = enqueue(4, Q4),
     {2, Q6} = dequeue(Q5),
     {3, Q7 = {[4], []}} = dequeue(Q6),
     {4, Q8} = dequeue(Q7),
-    true = is_empty(Q8),
-    {'EXIT', {empty, _}} = (catch peek(Q8)),
-    {'EXIT', {empty, _}} = (catch dequeue(Q8)).
+    ?assert(is_empty(Q8)),
+    ?assertError(empty, peek(Q8)),
+    ?assertError(empty, dequeue(Q8)).
