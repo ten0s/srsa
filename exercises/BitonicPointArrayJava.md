@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Bitonic Point in Array
-question_text: Find Bitonic point in an array of distinct integers
+question_text: Find maximum in a bitonic array of distinct integers
 solution_file: /sources/java/BitonicPointArray.java
 library_files:
 - /sources/java/Assert.java
