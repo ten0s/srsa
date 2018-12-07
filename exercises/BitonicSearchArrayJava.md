@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Bitonic Search in Array
-question_text: Bitonic search in an array of distinct integers in ~ 2lg(n) time
+question_text: Search in a bitonic array of distinct integers in ~2lg(n) time
 solution_file: /sources/java/BitonicSearchArray.java
 library_files:
 - /sources/java/Assert.java

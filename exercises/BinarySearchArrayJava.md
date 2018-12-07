@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Binary Search in Array
-question_text: Binary Search in an array of integers
+question_text: Search in an ordered array of integers in lg(n) time
 solution_file: /sources/java/BinarySearchArray.java
 library_files:
 - /sources/java/Assert.java
