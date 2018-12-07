@@ -7,7 +7,6 @@ public class BitonicPointArray {
 
     // SOLUTION_BEGIN
     private static int indexOf(int[] a, int lo, int hi) {
-private static int indexOf(int[] a, int lo, int hi) {
         int diff = hi - lo;
         if (diff < 0)
             return -1;
