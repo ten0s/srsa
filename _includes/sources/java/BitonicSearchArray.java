@@ -2,7 +2,7 @@
 /*
 The simple idea is: as long as middle is less than key at either side of maximum
 we still search in bitonic array, but as soon as middle is greater than key we do
-binary search in both sides. Draw /\ graph and check.
+binary search at both sides. Draw /\ graph and check.
 
 https://stackoverflow.com/questions/19372930/given-a-bitonic-array-and-element-x-in-the-array-find-the-index-of-x-in-2logn
 Assuming the array is first in ascending order and then in descending order:
