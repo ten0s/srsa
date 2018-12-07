@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Merge lists
+title: Merge Lists
 question_text: >-
   You have two sorted arrays, where each element is an interval.
   Now, merge the two array, overlapping intervals can be merged
