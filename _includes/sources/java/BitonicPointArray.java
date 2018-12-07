@@ -7,33 +7,31 @@ public class BitonicPointArray {
 
     // SOLUTION_BEGIN
     private static int indexOf(int[] a, int lo, int hi) {
-        if (lo > hi) {
+private static int indexOf(int[] a, int lo, int hi) {
+        int diff = hi - lo;
+        if (diff < 0)
             return -1;
-        }
-
-        if (lo == hi) {
+        else if (diff == 0)
+            // 1 item
             return lo;
-        }
-
-        if (hi - lo == 1) {
-            int diff = a[lo] - a[hi];
-            if (diff < 0) {
-                return hi;
-            } else if (diff > 0) {
-                return lo;
+        else if (diff == 1) {
+            // 2 items
+            if (lo == 0) {
+                if (a[lo] < a[lo+1]) return lo+1;
+                else return lo;
             } else {
-                // Some not distinct values
-                throw new IllegalArgumentException();
+                if (a[hi-1] > a[hi]) return hi-1;
+                else return hi;
             }
-        }
-
-        int mid = lo + (hi - lo) / 2;
-        if (a[mid-1] < a[mid] && a[mid] > a[mid+1]) {
-            return mid;
-        } else if (a[mid-1] < a[mid]) {
-            return indexOf(a, mid+1, hi);
         } else {
-            return indexOf(a, lo, mid-1);
+            // 3+ items
+            int mid = lo + (hi - lo) / 2;
+            if (a[mid] < a[mid+1])
+                return indexOf(a, mid+1, hi);
+            else if (a[mid-1] > a[mid])
+                return indexOf(a, lo, mid-1);
+            else
+                return mid;
         }
     }
     // SOLUTION_END
