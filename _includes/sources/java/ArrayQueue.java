@@ -18,7 +18,7 @@ public class ArrayQueue<Item> {
             if (head > 0)
                 relocate();
             else
-                resize(2 * a.length);
+                resize(2*a.length);
         }
         a[tail++] = item;
         // SOLUTION_END
@@ -26,23 +26,21 @@ public class ArrayQueue<Item> {
 
     public Item dequeue() {
         // SOLUTION_BEGIN
-        if (head == tail) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
-
         Item item = a[head];
-        a[head] = null;
-
-        if (++head == tail)
-            head = tail = 0;
-
+        a[head++] = null;
+        if (size() == a.length/4) {
+            resize(a.length/2);
+        }
         return item;
         // SOLUTION_END
     }
 
     public boolean isEmpty() {
         // SOLUTION_BEGIN
-        return tail == head;
+        return size() == 0;
         // SOLUTION_END
     }
 
