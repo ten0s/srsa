@@ -5,7 +5,7 @@ public class Node<T> {
 }
 */
 
-public class ConcatList {
+public class ConcatLists {
     public static <T> Node<T> concat(Node<T> n1, Node<T> n2) {
         // SOLUTION_BEGIN
         if (n1 == null) {

@@ -1,12 +1,12 @@
 ---
 layout: exercise
-title: Concat List
+title: Concat Lists
 question_text: Concatenate two single-linked lists
-solution_file: /sources/java/ConcatList.java
+solution_file: /sources/java/ConcatLists.java
 library_files:
 - /sources/java/Node.java
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ConcatList.java Node.java Assert.java ArrayUtil.java && java ConcatList
+command: javac ConcatLists.java Node.java Assert.java ArrayUtil.java && java ConcatLists
 ---
