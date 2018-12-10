@@ -1,7 +1,7 @@
 ---
 layout: exercise
-title: Selection Sort Array
-question_text: Sort array by Selection sort
+title: Selection Sort in Array
+question_text: Sort array using Selection sort
 solution_file: /sources/java/SelectionSortArray.java
 library_files:
 - /sources/java/Assert.java
