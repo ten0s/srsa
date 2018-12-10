@@ -14,14 +14,9 @@ public class BitonicPointArray {
             // 1 item
             return lo;
         else if (diff == 1) {
-            // 2 items
-            if (lo == 0) {
-                if (a[lo] < a[lo+1]) return lo+1;
-                else return lo;
-            } else {
-                if (a[hi-1] > a[hi]) return hi-1;
-                else return hi;
-            }
+            // 2 items a[lo] and a[hi]
+            if (a[lo] < a[hi]) return hi;
+            else return lo;
         } else {
             // 3+ items
             int mid = lo + (hi - lo) / 2;
