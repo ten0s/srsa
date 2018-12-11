@@ -3,7 +3,6 @@ class InsertionSortArray {
         // SOLUTION_BEGIN
         int n = a.length;
         for (int i = 1; i < n; i++) {
-            int min = i;
             for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
                 swap(a, j, j-1);
             }
