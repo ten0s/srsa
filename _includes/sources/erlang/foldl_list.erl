@@ -4,8 +4,8 @@
 
 -spec foldl(fun ((T, Acc) -> Acc), Acc, [T]) -> Acc.
 %% SOLUTION_BEGIN
-foldl(_Fun2, Acc0, []) ->
-    Acc0;
+foldl(_Fun2, Acc, []) ->
+    Acc;
 foldl(Fun2, Acc, [X | Xs]) ->
     foldl(Fun2, Fun2(X, Acc), Xs).
 %% SOLUTION_END
