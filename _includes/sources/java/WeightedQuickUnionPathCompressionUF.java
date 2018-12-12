@@ -34,11 +34,19 @@ public class WeightedQuickUnionPathCompressionUF {
 
     public int find(int p) {
         // SOLUTION_BEGIN
+        // https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Path_compression
+        // Path compression (every node on the path points to the root)
+        if (p != id[p]) {
+            id[p] = find(id[p]);
+            p = id[p];
+        }
+        /*
+        // Path halving (every other node on the path points to its grandparent)
         while (p != id[p]) {
-            // one-pass path compression
             id[p] = id[id[p]];
             p = id[p];
         }
+        */
         return p;
         // SOLUTION_END
     }
