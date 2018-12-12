@@ -17,10 +17,11 @@ public class ShuffleArray {
     }
 
     public static void main(String[] args) throws Throwable {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Assert.assertFalse(
-                Arrays.equals(new Integer[] {1,2,3,4,5},
-                              shuffle(new Integer[] {1,2,3,4,5})));
+                Arrays.equals(
+                    new Integer[] {1,2,3,4,5,6,7,8,9,10},
+                    shuffle(new Integer[] {1,2,3,4,5,6,7,8,9,10})));
         }
         System.out.println("OK");
     }

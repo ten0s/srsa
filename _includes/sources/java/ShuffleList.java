@@ -46,13 +46,14 @@ class ShuffleList {
     // SOLUTION_END
 
     public static void main(String[] args) throws Throwable {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Assert.assertFalse(
-                Arrays.equals(new int[] {1,2,3,4,5},
-                              Node.toIntArray(
-                                  shuffle(
-                                      Node.fromIntArray(
-                                          new int[] {1,2,3,4,5})))));
+                Arrays.equals(
+                    new int[] {1,2,3,4,5,6,7,8,9,10},
+                    Node.toIntArray(
+                        shuffle(
+                            Node.fromIntArray(
+                                new int[] {1,2,3,4,5,6,7,8,9,10})))));
         }
         System.out.println("OK");
     }
