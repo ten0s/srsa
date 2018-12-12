@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Shuffle Array
-question_text: Implement shuffle of an array
+question_text: Shuffle array
 solution_file: /sources/java/ShuffleArray.java
 library_files:
 - /sources/java/Assert.java
