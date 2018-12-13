@@ -1,7 +1,7 @@
 ---
 layout: exercise
-title: Append List
-question_text: Append elements of the second list to the end of the first
+title: Append List(s)
+question_text: Append list(s)
 solution_file: /sources/erlang/append_list.erl
 library_files:
 language: erlang
