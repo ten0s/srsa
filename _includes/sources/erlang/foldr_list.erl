@@ -16,7 +16,7 @@ main(_) ->
     _  -> halt(1)
     end.
 
-append_test() ->
+foldr_test() ->
     L = [1,2,3,4,5],
     ?assertEqual(length(L), foldr(fun (_, Acc) -> 1 + Acc end, 0, L)),
     ?assertEqual(L, foldr(fun (X, Acc) -> [X | Acc] end, [], L)),

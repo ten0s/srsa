@@ -16,7 +16,7 @@ main(_) ->
     _  -> halt(1)
     end.
 
-append_test() ->
+foldl_test() ->
     L = [1,2,3,4,5],
     ?assertEqual(length(L), foldl(fun (_, Acc) -> 1 + Acc end, 0, L)),
     ?assertEqual(lists:reverse(L), foldl(fun (X, Acc) -> [X | Acc] end, [], L)),

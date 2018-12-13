@@ -33,7 +33,7 @@ main(_) ->
     _  -> halt(1)
     end.
 
-append_test() ->
+sort_test() ->
     ?assertEqual([], sort([])),
     ?assertEqual([1], sort([1])),
     ?assertEqual([1,2,3,4,5], sort([1,2,3,4,5])),
