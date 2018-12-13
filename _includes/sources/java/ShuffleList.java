@@ -16,7 +16,7 @@ public class Pair<A, B> {
 */
 
 class ShuffleList {
-    public static <T extends Comparable<T>> Node<T> shuffle(Node<T> node) {
+    public static <T> Node<T> shuffle(Node<T> node) {
         // SOLUTION_BEGIN
         int length = Node.length(node);
         if (length == 0 || length == 1)
@@ -29,13 +29,12 @@ class ShuffleList {
     }
 
     // SOLUTION_BEGIN
-    private static <T extends Comparable<T>> Node<T> merge(Node<T> left, Node<T> right) {
+    private static <T> Node<T> merge(Node<T> left, Node<T> right) {
         if (left == null)
             return right;
         if (right == null)
             return left;
-        boolean peekLeft = Math.random() <= 0.5;
-        if (peekLeft) {
+        if (Math.random() < 0.5) {
             left.next = merge(left.next, right);
             return left;
         } else {

@@ -16,6 +16,7 @@ class MergeSortTopDownArray {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private static <T extends Comparable<T>> void merge(T[] a, T[] aux, int lo, int mid, int hi) {
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++)
@@ -28,15 +29,10 @@ class MergeSortTopDownArray {
             else                           a[k] = aux[i++];
         }
     }
+    // SOLUTION_END
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;
-    }
-
-    private static <T extends Comparable<T>> void swap(T[] a, int i, int j) {
-        T tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
     }
 
     public static void main(String[] args) throws Throwable {

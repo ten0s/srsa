@@ -30,12 +30,6 @@ class MergeSortBottomUpArray {
         return v.compareTo(w) < 0;
     }
 
-    private static <T extends Comparable<T>> void swap(T[] a, int i, int j) {
-        T tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-    }
-
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new Integer[]{},
                                  sort(new Integer[] {}));
