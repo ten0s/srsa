@@ -23,8 +23,8 @@ public class ShuffleArray {
         int[] sumsAsc  = new int[asc.length];
         int[] sumsDesc = new int[asc.length];
         for (int i = 0; i < N; i++) {
-            final int[] shuffledAsc = shuffle(asc);
-            final int[] shuffledDesc = shuffle(desc);
+            final int[] shuffledAsc = shuffle(ArrayUtil.copy(asc));
+            final int[] shuffledDesc = shuffle(ArrayUtil.copy(desc));
             for (int j = 0; j < asc.length; j++) {
                 sumsAsc[j]  += shuffledAsc[j];
                 sumsDesc[j] += shuffledDesc[j];
