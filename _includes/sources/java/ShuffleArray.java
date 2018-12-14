@@ -7,7 +7,7 @@ public class ShuffleArray {
         int n = a.length;
         for (int i = 0; i < n; i++) {
             // choose uniformly [0, i]
-            int r = (int) Math.random() * (i + 1);
+            int r = (int) (Math.random() * (i + 1));
             T tmp = a[i];
             a[i] = a[r];
             a[r] = tmp;
