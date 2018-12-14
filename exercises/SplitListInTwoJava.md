@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Split List into Two Lists
-question_text: Split list in two lists using the "Runner" technique
+question_text: Split list into two lists using the "Runner" technique
 solution_file: /sources/java/SplitListInTwo.java
 library_files:
 - /sources/java/Node.java
