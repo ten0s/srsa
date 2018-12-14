@@ -45,7 +45,7 @@ class MergeSortTopDownArray {
         Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
                                  sort(new Integer[] {1,2,3,4,5,6}));
         Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
-                                 sort(ShuffleArray.shuffle(new Integer[] {1,2,3,4,5,6})));
+                                 sort(ArrayUtil.shuffle(new Integer[] {1,2,3,4,5,6})));
         System.out.println("OK");
     }
 }

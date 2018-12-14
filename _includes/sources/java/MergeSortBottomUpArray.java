@@ -31,16 +31,16 @@ class MergeSortBottomUpArray {
     }
 
     public static void main(String[] args) throws Throwable {
-        Assert.assertArrayEquals(new Integer[]{},
+        Assert.assertArrayEquals(new Integer[] {},
                                  sort(new Integer[] {}));
-        Assert.assertArrayEquals(new Integer[]{1},
+        Assert.assertArrayEquals(new Integer[] {1},
                                  sort(new Integer[] {1}));
-        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
+        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
                                  sort(new Integer[] {6,5,4,3,2,1}));
-        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
+        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
                                  sort(new Integer[] {1,2,3,4,5,6}));
-        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
-                                 sort(ShuffleArray.shuffle(new Integer[] {1,2,3,4,5,6})));
+        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
+                                 sort(ArrayUtil.shuffle(new Integer[] {1,2,3,4,5,6})));
         System.out.println("OK");
     }
 }

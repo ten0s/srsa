@@ -6,7 +6,6 @@ solution_file: /sources/java/MergeSortTopDownArray.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/ShuffleArray.java
 language: java
-command: javac MergeSortTopDownArray.java Assert.java ArrayUtil.java ShuffleArray.java && java MergeSortTopDownArray
+command: javac MergeSortTopDownArray.java Assert.java ArrayUtil.java && java MergeSortTopDownArray
 ---

@@ -1,6 +1,6 @@
 class QuickSortArray {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
-        ShuffleArray.shuffle(a);
+        ArrayUtil.shuffle(a);
         return sort(a, 0, a.length-1);
     }
 
@@ -54,7 +54,7 @@ class QuickSortArray {
         Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
                                  sort(new Integer[] {1,2,3,4,5,6}));
         Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
-                                 sort(ShuffleArray.shuffle(new Integer[] {1,2,3,4,5,6})));
+                                 sort(ArrayUtil.shuffle(new Integer[] {1,2,3,4,5,6})));
         System.out.println("OK");
     }
 }

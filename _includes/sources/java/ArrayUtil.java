@@ -12,6 +12,19 @@ public class ArrayUtil {
         return a;
     }
 
+    public static <T> T[] shuffle(T[] a) {
+        // Knuth's shuffle O(n)
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            // choose uniformly [0, i]
+            int r = (int) (Math.random() * (i + 1));
+            T tmp = a[i];
+            a[i] = a[r];
+            a[r] = tmp;
+        }
+        return a;
+    }
+
     public static int[] copy(int[] a) {
         int[] b = new int[a.length];
         for (int i = 0; i < a.length; i++)
