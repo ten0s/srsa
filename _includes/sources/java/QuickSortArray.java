@@ -7,9 +7,9 @@ class QuickSortArray {
     private static <T extends Comparable<T>> T[] sort(T[] a, int lo, int hi) {
         // SOLUTION_BEGIN
         if (lo >= hi) return a;
-        int j = partition(a, lo, hi);
-        sort(a, lo, j-1);
-        sort(a, j+1, hi);
+        int p = partition(a, lo, hi);
+        sort(a, lo, p-1);
+        sort(a, p+1, hi);
         return a;
         // SOLUTION_END
     }
