@@ -8,6 +8,7 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Node.java
 - /sources/java/Pair.java
+- /sources/java/Histogram.java
 language: java
-command: javac ShuffleList.java Assert.java ArrayUtil.java Node.java Pair.java && java ShuffleList
+command: javac ShuffleList.java Assert.java ArrayUtil.java Node.java Pair.java Histogram.java && java ShuffleList
 ---

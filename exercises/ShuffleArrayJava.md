@@ -6,6 +6,7 @@ solution_file: /sources/java/ShuffleArray.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
+- /sources/java/Histogram.java
 language: java
-command: javac ShuffleArray.java Assert.java ArrayUtil.java && java ShuffleArray
+command: javac ShuffleArray.java Assert.java ArrayUtil.java Histogram.java && java ShuffleArray
 ---
