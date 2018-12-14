@@ -17,20 +17,9 @@ public class MemberList {
     }
 
     public static void main(String[] args) throws Throwable {
-        Node<Integer> n = null;
-        Assert.assertFalse(isMember(1, n));
+        Assert.assertFalse(isMember(1, null));
 
-        n = new Node<>();
-        n.item = 1;
-
-        Node<Integer> n2 = new Node<>();
-        n2.item = 2;
-        n.next = n2;
-
-        Node<Integer> n3 = new Node<>();
-        n3.item = 3;
-        n2.next = n3;
-
+        Node<Integer> n = Node.fromIntArray(new int[] {1,2,3});
         Assert.assertTrue(isMember(1, n));
         Assert.assertTrue(isMember(2, n));
         Assert.assertTrue(isMember(3, n));
