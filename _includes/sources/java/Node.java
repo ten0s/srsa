@@ -40,11 +40,7 @@ public class Node<T> {
     }
 
     public static int[] toIntArray(Node<Integer> node) {
-        int size = 0;
-        for (Node n = node; n != null; n = n.next) {
-            size++;
-        }
-        int[] a = new int[size];
+        int[] a = new int[length(node)];
         int i = 0;
         for (Node<Integer> n = node; n != null; n = n.next) {
 			a[i++] = n.item;
