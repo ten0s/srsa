@@ -9,23 +9,39 @@ public class Node<T> {
         return length;
     }
 
+    public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
+        if (node == null) {
+            throw new IllegalArgumentException("Empty list");
+        }
+        Node<T> slow = node;
+        Node<T> fast = node;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Pair<Node<T>, Node<T>> subs = new Pair<>();
+        subs.first = node;
+        subs.second = slow.next;
+        slow.next = null;
+        return subs;
+    }
+
     public static <T> Pair<Node<T>, Node<T>> split(int size, Node<T> node) {
         if (node == null) {
             throw new IllegalArgumentException("Empty list");
         }
-        Pair<Node<T>, Node<T>> sub = new Pair<>();
-        sub.first = node;
         Node<T> n = node;
         for (int i = 1; i < size && n != null; i++) {
             n = n.next;
         }
         if (n == null) {
             throw new IllegalArgumentException("Wrong list length");
-        } else {
-            sub.second = n.next;
-            n.next = null;
         }
-        return sub;
+        Pair<Node<T>, Node<T>> subs = new Pair<>();
+        subs.first = node;
+        subs.second = n.next;
+        n.next = null;
+        return subs;
     }
 
     public static Node<Integer> fromIntArray(int[] a) {
@@ -52,28 +68,41 @@ public class Node<T> {
         Assert.assertEquals(0, length(fromIntArray(new int[] {})));
         Assert.assertEquals(3, length(fromIntArray(new int[] {1,2,3})));
 
-        Pair<Node<Integer>, Node<Integer>> sub = new Pair<>();
+        Pair<Node<Integer>, Node<Integer>> subs = new Pair<>();
 
-        Node<Integer> list = null;
         try {
-            split(1, list);
+            split(null);
             Assert.assertTrue(false);
         } catch (IllegalArgumentException e) {}
 
-        list = Node.fromIntArray(new int[] {1,2,3});
+        subs = split(Node.fromIntArray(new int[] {1}));
+        Assert.assertArrayEquals(new int[] {1}, Node.toIntArray(subs.first));
+        Assert.assertNull(subs.second);
+
+        subs = split(Node.fromIntArray(new int[] {1,2}));
+        Assert.assertArrayEquals(new int[] {1}, Node.toIntArray(subs.first));
+        Assert.assertArrayEquals(new int[] {2}, Node.toIntArray(subs.second));
+
+        subs = split(Node.fromIntArray(new int[] {1,2,3}));
+        Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(subs.first));
+        Assert.assertArrayEquals(new int[] {3}, Node.toIntArray(subs.second));
+
         try {
-            split(4, list);
+            split(1, null);
             Assert.assertTrue(false);
         } catch (IllegalArgumentException e) {}
 
-        list = Node.fromIntArray(new int[] {1,2,3});
-        sub = split(3, list);
-        Assert.assertArrayEquals(new int[] {1,2,3}, Node.toIntArray(sub.first));
-        Assert.assertNull(sub.second);
+        try {
+            split(4, Node.fromIntArray(new int[] {1,2,3}));
+            Assert.assertTrue(false);
+        } catch (IllegalArgumentException e) {}
 
-        list = Node.fromIntArray(new int[] {1,2,3,4});
-        sub = split(2, list);
-        Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(sub.first));
-        Assert.assertArrayEquals(new int[] {3,4}, Node.toIntArray(sub.second));
+        subs = split(3, Node.fromIntArray(new int[] {1,2,3}));
+        Assert.assertArrayEquals(new int[] {1,2,3}, Node.toIntArray(subs.first));
+        Assert.assertNull(subs.second);
+
+        subs = split(2, Node.fromIntArray(new int[] {1,2,3,4}));
+        Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(subs.first));
+        Assert.assertArrayEquals(new int[] {3,4}, Node.toIntArray(subs.second));
     }
 }
