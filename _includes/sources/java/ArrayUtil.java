@@ -1,4 +1,17 @@
 public class ArrayUtil {
+    public static int[] shuffle(int[] a) {
+        // Knuth's shuffle O(n)
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            // choose uniformly [0, i]
+            int r = (int) (Math.random() * (i + 1));
+            int tmp = a[i];
+            a[i] = a[r];
+            a[r] = tmp;
+        }
+        return a;
+    }
+
     public static String toString(int[] a) {
         String s = "[";
         for (int i = 0; i < a.length; i++) {
