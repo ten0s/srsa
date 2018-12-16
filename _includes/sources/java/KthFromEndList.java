@@ -1,0 +1,55 @@
+/*
+public class Node<T> {
+    T item;
+    Node<T> next;
+}
+*/
+
+public class KthFromEndList {
+    public static <T> T kth(int k, Node<T> node) {
+        // SOLUTION_BEGIN
+        Node<T> slow = node;
+        Node<T> fast = skip(k, node);
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow.item;
+        // SOLUTION_END
+    }
+
+    // SOLUTION_BEGIN
+    public static <T> Node<T> skip(int k, Node<T> node) {
+        while (k > 0 && node != null) {
+            k--;
+            node = node.next;
+        }
+        if (k > 0) {
+            throw new IllegalArgumentException("Wrong list length");
+        }
+        return node;
+    }
+    // SOLUTION_END
+
+    public static void main(String[] args) throws Throwable {
+        Node<Integer> list = Node.fromIntArray(new int[] {1,2,3,4,5,6,7,8,9,10});
+
+        try {
+            kth(1, null);
+            Assert.assertTrue(false);
+        } catch (IllegalArgumentException e) {}
+
+        try {
+            kth(11, list);
+            Assert.assertTrue(false);
+        } catch (IllegalArgumentException e) {}
+
+        Assert.assertEquals(10, (int) kth(1, list));
+        Assert.assertEquals(9, (int) kth(2, list));
+        Assert.assertEquals(5, (int) kth(6, list));
+        Assert.assertEquals(2, (int) kth(9, list));
+        Assert.assertEquals(1, (int) kth(10, list));
+
+        System.out.println("OK");
+    }
+}
