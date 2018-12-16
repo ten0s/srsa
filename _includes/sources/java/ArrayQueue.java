@@ -1,13 +1,14 @@
 import java.util.NoSuchElementException;
 
 public class ArrayQueue<Item> {
+    private final int MIN_CAPACITY = 2;
     private Item[] a;
     private int head;
     private int tail;
 
     @SuppressWarnings("unchecked")
     public ArrayQueue() {
-        a = (Item[]) new Object[2];
+        a = (Item[]) new Object[MIN_CAPACITY];
     }
 
     public void enqueue(Item item) {
@@ -31,8 +32,8 @@ public class ArrayQueue<Item> {
         }
         Item item = a[head];
         a[head++] = null;
-        if (size() == a.length/4) {
-            resize(a.length/2);
+        if (size() <= a.length/4) {
+            resize(Math.max(MIN_CAPACITY, a.length/2));
         }
         return item;
         // SOLUTION_END
@@ -70,20 +71,48 @@ public class ArrayQueue<Item> {
         a = b;
     }
 
+    private int capacity() {
+        return a.length;
+    }
+
     public static void main(String[] args) throws Throwable {
         ArrayQueue<String> q = new ArrayQueue<>();
         Assert.assertTrue(q.isEmpty());
         Assert.assertEquals(0, q.size());
+        Assert.assertEquals(q.MIN_CAPACITY, q.capacity());
+
         q.enqueue("1");
         q.enqueue("2");
-        Assert.assertFalse(q.isEmpty());
-        Assert.assertEquals(2, q.size());
-        Assert.assertEquals("1", q.dequeue());
         q.enqueue("3");
+        q.enqueue("4");
+        Assert.assertFalse(q.isEmpty());
+        Assert.assertEquals(4, q.size());
+        Assert.assertEquals(4, q.capacity());
+
+        // check relocate
+        Assert.assertEquals("1", q.dequeue());
+        q.enqueue("5");
+        Assert.assertEquals(4, q.size());
+        Assert.assertEquals(4, q.capacity());
+
+        // check resize up
+        q.enqueue("6");
+        Assert.assertEquals(5, q.size());
+        Assert.assertEquals(8, q.capacity());
+
+        // check resize down
         Assert.assertEquals("2", q.dequeue());
         Assert.assertEquals("3", q.dequeue());
+        Assert.assertEquals("4", q.dequeue());
+        Assert.assertEquals(2, q.size());
+        Assert.assertEquals(4, q.capacity());
+
+        Assert.assertEquals("5", q.dequeue());
+        Assert.assertEquals("6", q.dequeue());
         Assert.assertTrue(q.isEmpty());
         Assert.assertEquals(0, q.size());
+        Assert.assertEquals(q.MIN_CAPACITY, q.capacity());
+
         try {
             q.dequeue();
             Assert.assertTrue(false);

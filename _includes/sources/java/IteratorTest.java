@@ -30,7 +30,7 @@ public class IteratorTest {
             }
 
             public Item next() {
-                if (c < a.length) {
+                if (hasNext()) {
                     return a[c++];
                 } else {
                     throw new NoSuchElementException();
@@ -46,11 +46,24 @@ public class IteratorTest {
 
     public static void main(String[] args) throws Throwable {
         Array<Integer> arr = new Array<>(new Integer[] {1,2,3,4,5});
+
+        // test foreach
         int sum = 0;
-        for (int i : arr) {
-            sum += i;
-        }
+        for (int i : arr) { sum += i; }
         Assert.assertEquals(15, sum);
+
+        // test iterator
+        Iterator<Integer> it = arr.iterator();
+        try {
+            it.remove();
+            Assert.assertTrue(false);
+        } catch (UnsupportedOperationException e) {}
+        while (it.hasNext()) it.next();
+        try {
+            it.next();
+            Assert.assertTrue(false);
+        } catch (NoSuchElementException e) {}
+
         System.out.println("OK");
     }
 }

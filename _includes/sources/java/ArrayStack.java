@@ -1,12 +1,13 @@
 import java.util.NoSuchElementException;
 
 public class ArrayStack<Item> {
+    private final int MIN_CAPACITY = 2;
     private Item[] a;
     private int n;
 
     @SuppressWarnings("unchecked")
     public ArrayStack() {
-        a = (Item[]) new Object[2];
+        a = (Item[]) new Object[MIN_CAPACITY];
     }
 
     public void push(Item item) {
@@ -22,9 +23,11 @@ public class ArrayStack<Item> {
             throw new NoSuchElementException();
         }
 
-        if (n <= a.length / 4) resize(a.length / 2);
         Item item = a[--n];
         a[n] = null;
+        if (size() <= a.length/4) {
+            resize(Math.max(MIN_CAPACITY, a.length/2));
+        }
         return item;
         // SOLUTION_END
     }
@@ -49,20 +52,35 @@ public class ArrayStack<Item> {
         a = b;
     }
 
+    private int capacity() {
+        return a.length;
+    }
+
     public static void main(String[] args) throws Throwable {
         ArrayStack<String> s = new ArrayStack<>();
         Assert.assertTrue(s.isEmpty());
         Assert.assertEquals(0, s.size());
+        Assert.assertEquals(s.MIN_CAPACITY, s.capacity());
+
         s.push("1");
         s.push("2");
         s.push("3");
+        s.push("4");
+        s.push("5");
         Assert.assertFalse(s.isEmpty());
-        Assert.assertEquals(3, s.size());
+        Assert.assertEquals(5, s.size());
+        Assert.assertEquals(8, s.capacity());
+
+        Assert.assertEquals("5", s.pop());
+        Assert.assertEquals("4", s.pop());
         Assert.assertEquals("3", s.pop());
+        Assert.assertEquals(4, s.capacity());
+
         Assert.assertEquals("2", s.pop());
         Assert.assertEquals("1", s.pop());
         Assert.assertTrue(s.isEmpty());
         Assert.assertEquals(0, s.size());
+        Assert.assertEquals(s.MIN_CAPACITY, s.capacity());
         try {
             s.pop();
             Assert.assertTrue(false);
