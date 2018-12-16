@@ -22,7 +22,7 @@ class RandomizedQuickSelectArray {
         if (lo >= hi) return a[lo];
         int p = partition(a, lo, hi);
         if      (k < p) return kth(k, a, lo, p-1);
-        else if (k > p) return kth(k, a, p+1, hi);
+        else if (p < k) return kth(k, a, p+1, hi);
         else            return a[p];
     }
     // SOLUTION_END
