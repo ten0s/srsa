@@ -17,7 +17,6 @@ class IsPalindromeNumber {
     public static void main(String[] args) throws Throwable {
         Assert.assertTrue(isPalindrome(-3));
         Assert.assertTrue(isPalindrome(3));
-        Assert.assertTrue(isPalindrome(121));
         Assert.assertTrue(isPalindrome(232));
         Assert.assertTrue(isPalindrome(24542));
         Assert.assertFalse(isPalindrome(123));
