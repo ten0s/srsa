@@ -9,5 +9,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac SplitListInTwo.java Node.java Pair.java Assert.java ArrayUtil.java && java SplitListInTwo
+command: javac SplitListInTwo.java && java SplitListInTwo
 ---

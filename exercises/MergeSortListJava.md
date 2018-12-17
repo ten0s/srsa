@@ -10,5 +10,5 @@ library_files:
 - /sources/java/Pair.java
 - /sources/java/ShuffleList.java
 language: java
-command: javac MergeSortList.java Assert.java ArrayUtil.java Node.java Pair.java ShuffleList.java && java MergeSortList
+command: javac MergeSortList.java && java MergeSortList
 ---

@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac InsertionSortArray.java Assert.java ArrayUtil.java && java InsertionSortArray
+command: javac InsertionSortArray.java && java InsertionSortArray
 ---

@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac IteratorTest.java Assert.java ArrayUtil.java && java IteratorTest
+command: javac IteratorTest.java && java IteratorTest
 ---

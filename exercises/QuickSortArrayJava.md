@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac QuickSortArray.java Assert.java ArrayUtil.java && java QuickSortArray
+command: javac QuickSortArray.java && java QuickSortArray
 ---

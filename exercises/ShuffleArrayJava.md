@@ -8,5 +8,5 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Histogram.java
 language: java
-command: javac ShuffleArray.java Assert.java ArrayUtil.java Histogram.java && java ShuffleArray
+command: javac ShuffleArray.java && java ShuffleArray
 ---

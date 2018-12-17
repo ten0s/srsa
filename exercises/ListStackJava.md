@@ -9,5 +9,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ListStack.java Node.java Pair.java Assert.java ArrayUtil.java && java ListStack
+command: javac ListStack.java && java ListStack
 ---

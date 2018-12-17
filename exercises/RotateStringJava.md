@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac RotateString.java Assert.java ArrayUtil.java && java RotateString
+command: javac RotateString.java && java RotateString
 ---

@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac BinarySearchArray.java Assert.java ArrayUtil.java && java BinarySearchArray
+command: javac BinarySearchArray.java && java BinarySearchArray
 ---

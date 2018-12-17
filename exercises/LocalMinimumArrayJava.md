@@ -11,5 +11,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac LocalMinimumArray.java Assert.java ArrayUtil.java && java LocalMinimumArray
+command: javac LocalMinimumArray.java && java LocalMinimumArray
 ---

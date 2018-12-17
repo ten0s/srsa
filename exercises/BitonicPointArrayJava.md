@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac BitonicPointArray.java Assert.java ArrayUtil.java && java BitonicPointArray
+command: javac BitonicPointArray.java && java BitonicPointArray
 ---

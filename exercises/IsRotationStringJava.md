@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac IsRotationString.java Assert.java ArrayUtil.java && java IsRotationString
+command: javac IsRotationString.java && java IsRotationString
 ---

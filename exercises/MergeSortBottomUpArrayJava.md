@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac MergeSortBottomUpArray.java Assert.java ArrayUtil.java && java MergeSortBottomUpArray
+command: javac MergeSortBottomUpArray.java && java MergeSortBottomUpArray
 ---

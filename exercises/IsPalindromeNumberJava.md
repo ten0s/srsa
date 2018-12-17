@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac IsPalindromeNumber.java Assert.java ArrayUtil.java && java IsPalindromeNumber
+command: javac IsPalindromeNumber.java && java IsPalindromeNumber
 ---

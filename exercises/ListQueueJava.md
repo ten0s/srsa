@@ -9,5 +9,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ListQueue.java Node.java Pair.java Assert.java ArrayUtil.java && java ListQueue
+command: javac ListQueue.java && java ListQueue
 ---

@@ -8,5 +8,5 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Pair.java
 language: java
-command: javac WeightedQuickUnionPathCompressionUF.java Assert.java ArrayUtil.java Pair.java && java WeightedQuickUnionPathCompressionUF
+command: javac WeightedQuickUnionPathCompressionUF.java && java WeightedQuickUnionPathCompressionUF
 ---

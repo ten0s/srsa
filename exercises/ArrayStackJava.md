@@ -7,5 +7,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ArrayStack.java Assert.java ArrayUtil.java && java ArrayStack
+command: javac ArrayStack.java && java ArrayStack
 ---

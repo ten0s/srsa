@@ -9,5 +9,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac DeleteList.java Node.java Pair.java Assert.java ArrayUtil.java && java DeleteList
+command: javac DeleteList.java && java DeleteList
 ---
