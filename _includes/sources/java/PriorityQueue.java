@@ -13,7 +13,8 @@ public class PriorityQueue {
 
         protected void push(Key v) {
             // SOLUTION_BEGIN
-            if (++n == capacity()) resize(2*capacity()+1);
+            n++;
+            if (n == capacity()) resize(2*capacity()+1);
             pq[n] = v;
             swim(n);
             // SOLUTION_END
@@ -25,7 +26,7 @@ public class PriorityQueue {
             Key v = pq[1];
             pq[1] = pq[n];
             pq[n] = null;
-            if (n <= capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
+            if (n == capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
             n--;
             sink(1);
             return v;
