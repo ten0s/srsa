@@ -4,26 +4,20 @@
 
 -spec sort([T]) -> [T].
 %% SOLUTION_BEGIN
+sort([]) ->
+    [];
 sort(Xs) ->
-    sort(Xs, []).
+    {Min, Ys} = min_del(Xs, []),
+    [Min | sort(Ys)].
 
-sort([], Acc) ->
-    Acc;
-sort(L, Acc) ->
-    {Max, M} = max_del(L),
-    sort(M, [Max | Acc]).
-
-max_del(L) ->
-    max_del(L, []).
-
-max_del([Max], Acc) ->
-    {Max, Acc};
-max_del([A, B | L], Acc) ->
-    case A > B of
+min_del([Min], Acc) ->
+    {Min, Acc};
+min_del([A, B | L], Acc) ->
+    case A =< B of
     true ->
-        max_del([A | L], [B | Acc]);
+        min_del([A | L], [B | Acc]);
     false ->
-        max_del([B | L], [A | Acc])
+        min_del([B | L], [A | Acc])
     end.
 %% SOLUTION_END
 
