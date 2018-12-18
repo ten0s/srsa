@@ -64,6 +64,27 @@ public class Node<T> {
         return a;
     }
 
+    public static <T> Node<T> fromArray(T[] a) {
+        Node<T> prev = null;
+        for (int i = a.length-1; i >= 0; i--) {
+            Node<T> node = new Node<>();
+            node.item = a[i];
+            node.next = prev;
+            prev = node;
+        }
+        return prev;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T[] toArray(Node<T> node) {
+        T[] a = (T[]) new Object[length(node)];
+        int i = 0;
+        for (Node<T> n = node; n != null; n = n.next) {
+			a[i++] = n.item;
+		}
+        return a;
+    }
+
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(0, length(fromIntArray(new int[] {})));
         Assert.assertEquals(3, length(fromIntArray(new int[] {1,2,3})));

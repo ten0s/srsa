@@ -5,8 +5,7 @@ public class Node<T> {
     T item;
     Node<T> next;
 
-    public static <T> int length(Node<T> node);
-    public static <T> Pair<Node<T>, Node<T>> split(int size, Node<T> node);
+    public static <T> Pair<Node<T>, Node<T>> split(Node<T> node);
 }
 
 public class Pair<A, B> {
@@ -18,10 +17,9 @@ public class Pair<A, B> {
 class MergeSortList {
     public static <T extends Comparable<T>> Node<T> sort(Node<T> node) {
         // SOLUTION_BEGIN
-        int length = Node.length(node);
-        if (length == 0 || length == 1)
+        if (node == null || node.next == null)
             return node;
-        Pair<Node<T>, Node<T>> sub = Node.split(length % 2, node);
+        Pair<Node<T>, Node<T>> sub = Node.split(node);
         Node<T> left = sort(sub.first);
         Node<T> right = sort(sub.second);
         return merge(left, right);

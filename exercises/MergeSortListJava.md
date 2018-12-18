@@ -9,6 +9,7 @@ library_files:
 - /sources/java/Node.java
 - /sources/java/Pair.java
 - /sources/java/ShuffleList.java
+- /sources/java/Histogram.java
 language: java
 command: javac MergeSortList.java && java MergeSortList
 ---
