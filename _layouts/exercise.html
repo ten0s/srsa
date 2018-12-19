@@ -142,16 +142,20 @@
                    command: `{{ page.command }}`
                })
            }).done(function (data) {
-               console.log(data);
-               infoOff();
-               if (data.stdout) {
-                   stdoutOn(data.stdout);
-               }
-               if (data.stderr) {
-                   stderrOn(data.stderr);
-               }
-               if (data.error) {
-                   errorOn(data.error);
+               if (data) {
+                   console.log(data);
+                   infoOff();
+                   if (data.stdout) {
+                       stdoutOn(data.stdout);
+                   }
+                   if (data.stderr) {
+                       stderrOn(data.stderr);
+                   }
+                   if (data.error) {
+                       errorOn(data.error);
+                   }
+               } else {
+                   errorOn("Empty response from server");
                }
            });
            infoOn("Running...");
