@@ -14,7 +14,7 @@ public class PriorityQueue {
         protected void push(Key v) {
             // SOLUTION_BEGIN
             n++;
-            if (n == capacity()) resize(2*capacity()+1);
+            if (n > capacity()) resize(2*capacity()+1);
             pq[n] = v;
             swim(n);
             // SOLUTION_END
@@ -50,6 +50,8 @@ public class PriorityQueue {
 
         // SOLUTION_BEGIN
         private void swim(int k) {
+            // while i'm not at root and parent is less than me
+            // swap me with parent and move up
             while (k > 1 && less(k/2, k)) {
                 swap(k/2, k);
                 k = k/2;
@@ -57,10 +59,14 @@ public class PriorityQueue {
         }
 
         private void sink(int k) {
+            // while my right child is inside the tree
             while (2*k <= n) {
                 int i = 2*k;
+                // if two children, choose max child
                 if (i < n && less(i, i+1)) ++i;
+                // stop, if i'm not less than child
                 if (!less(k, i)) break;
+                // swap me with child and move down
                 swap(k, i);
                 k = i;
             }
