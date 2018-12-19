@@ -49,6 +49,10 @@ public class SplitListInTwo {
         Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(subs.first));
         Assert.assertArrayEquals(new int[] {3}, Node.toIntArray(subs.second));
 
+        subs = split(Node.fromIntArray(new int[] {1,2,3,4}));
+        Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(subs.first));
+        Assert.assertArrayEquals(new int[] {3,4}, Node.toIntArray(subs.second));
+
         System.out.println("OK");
     }
 }
