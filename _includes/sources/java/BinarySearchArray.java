@@ -1,8 +1,7 @@
 public class BinarySearchArray {
     public static int indexOf(int key, int[] a) {
         // SOLUTION_BEGIN
-        int lo = 0;
-        int hi = a.length - 1;
+        int lo = 0, hi = a.length - 1;
         while (lo <= hi) {
             // Key is in a[lo..hi] or not present.
             int mid = lo + (hi - lo) / 2;
