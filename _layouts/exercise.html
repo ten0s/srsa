@@ -142,9 +142,9 @@
                    command: `{{ page.command }}`
                })
            }).done(function (data) {
+               infoOff();
                if (data) {
                    console.log(data);
-                   infoOff();
                    if (data.stdout) {
                        stdoutOn(data.stdout);
                    }
