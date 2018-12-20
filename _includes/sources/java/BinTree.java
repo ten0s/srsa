@@ -12,13 +12,14 @@ public class BinTree {
     }
 
     public static <T> void println(Node<T> n) {
-        println(1, n);
+        println(0, n);
     }
 
     private static <T> void println(int offset, Node<T> n) {
         if (n == null) return;
         println(offset+1, n.right);
-        System.out.printf("%" + 2*offset + "s\n", n.item);
+        for (int i = 0; i < offset; i++) System.out.print("  ");
+        System.out.println(n.item);
         println(offset+1, n.left);
     }
 
