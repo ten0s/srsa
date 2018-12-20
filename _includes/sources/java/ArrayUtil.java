@@ -55,4 +55,12 @@ public class ArrayUtil {
         s += "]";
         return s;
     }
+
+    public static void println(int[] a) {
+        System.out.println(toString(a));
+    }
+
+    public static void println(Object[] a) {
+        System.out.println(toString(a));
+    }
 }

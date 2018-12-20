@@ -1,12 +1,12 @@
 /*
-public class BinTree.Node<?,?> {
-    public Node<?,?> left;
-    public Node<?,?> right;
+public class BinTree.Node<?> {
+    public Node<?> left;
+    public Node<?> right;
 }
 */
 
 public class BinTreeSize {
-    public static int size(BinTree.Node<?,?> root) {
+    public static int size(BinTree.Node<?> root) {
         // SOLUTION_BEGIN
         if (root == null) {
             return 0;
@@ -16,7 +16,7 @@ public class BinTreeSize {
     }
 
     public static void main(String[] args) throws Throwable {
-        BinTree.Node<Integer, ?> tree = null;
+        BinTree.Node<Integer> tree = null;
         Assert.assertEquals(0, size(tree));
 
         tree = new BinTree.Node<>(3);
