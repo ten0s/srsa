@@ -11,7 +11,7 @@ public class Node<T> {
 
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
         if (node == null) {
-            throw new IllegalArgumentException("Empty list");
+            throw new IllegalArgumentException("List is empty");
         }
         Node<T> slow = node;
         Node<T> fast = node;
@@ -28,14 +28,14 @@ public class Node<T> {
 
     public static <T> Pair<Node<T>, Node<T>> split(int size, Node<T> node) {
         if (node == null) {
-            throw new IllegalArgumentException("Empty list");
+            throw new IllegalArgumentException("List is empty");
         }
         Node<T> n = node;
         for (int i = 1; i < size && n != null; i++) {
             n = n.next;
         }
         if (n == null) {
-            throw new IllegalArgumentException("Wrong list length");
+            throw new IllegalArgumentException("List is too short");
         }
         Pair<Node<T>, Node<T>> subs = new Pair<>();
         subs.first = node;
