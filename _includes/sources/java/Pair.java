@@ -7,4 +7,8 @@ public class Pair<A, B> {
         this.first = first;
         this.second = second;
     }
+
+    public String toString() {
+        return "Pair{first=" + first + "," + "second=" + second + "}";
+    }
 }
