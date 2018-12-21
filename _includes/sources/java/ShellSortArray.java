@@ -6,7 +6,7 @@ class ShellSortArray {
         while (h < n/3) h = 3*h + 1; // 1, 4, 13, 40, 121, ...
         while (h >= 1) {
             for (int i = h; i < n; i++) {
-                for (int j = i; j >= h && less(a[j], a[j-h]); j -= h) {
+                for (int j = i; j-h >= 0 && less(a[j], a[j-h]); j = j-h) {
                     swap(a, j, j-h);
                 }
             }
