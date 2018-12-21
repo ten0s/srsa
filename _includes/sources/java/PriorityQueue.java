@@ -136,11 +136,11 @@ public class PriorityQueue {
         Assert.assertEquals(10, pq.size());
         Assert.assertEquals(16, pq.capacity());
 
-        Assert.assertEquals(10, (int)pq.max());
-        Assert.assertEquals(10, (int)pq.delMax());
+        Assert.assertEquals(10, pq.max());
+        Assert.assertEquals(10, pq.delMax());
         for (int i = 0; i < 8; i++) pq.delMax();
-        Assert.assertEquals(1, (int)pq.max());
-        Assert.assertEquals(1, (int)pq.delMax());
+        Assert.assertEquals(1, pq.max());
+        Assert.assertEquals(1, pq.delMax());
 
         Assert.assertTrue(pq.isEmpty());
         Assert.assertEquals(0, pq.size());
@@ -157,6 +157,5 @@ public class PriorityQueue {
         } catch (NoSuchElementException e) {}
 
         System.out.println("OK");
-
     }
 }

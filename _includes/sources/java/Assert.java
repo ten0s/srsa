@@ -29,6 +29,14 @@ public class Assert {
         }
     }
 
+    public static void assertEquals(Integer exp, int act) throws Throwable {
+        assertEquals((int)exp, act);
+    }
+
+    public static void assertEquals(int exp, Integer act) throws Throwable {
+        assertEquals(exp, (int)act);
+    }
+
     public static void assertEquals(int exp, int act) throws Throwable {
         if (exp != act) {
             System.err.println("Expected: " + exp + ", but saw: " + act);

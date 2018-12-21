@@ -44,11 +44,11 @@ public class KthFromEndList {
             Assert.assertTrue(false);
         } catch (IllegalArgumentException e) {}
 
-        Assert.assertEquals(10, (int) kth(1, list));
-        Assert.assertEquals(9, (int) kth(2, list));
-        Assert.assertEquals(5, (int) kth(6, list));
-        Assert.assertEquals(2, (int) kth(9, list));
-        Assert.assertEquals(1, (int) kth(10, list));
+        Assert.assertEquals(10, kth(1, list));
+        Assert.assertEquals(9, kth(2, list));
+        Assert.assertEquals(5, kth(6, list));
+        Assert.assertEquals(2, kth(9, list));
+        Assert.assertEquals(1, kth(10, list));
 
         System.out.println("OK");
     }
