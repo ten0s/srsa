@@ -13,10 +13,10 @@ class MergeSortBottomUpArray {
 
     // SOLUTION_BEGIN
     private static <T extends Comparable<T>> void merge(T[] a, T[] aux, int lo, int mid, int hi) {
-        int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++)
             aux[k] = a[k];
 
+        int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             if      (i > mid)              a[k] = aux[j++];
             else if (j > hi)               a[k] = aux[i++];
