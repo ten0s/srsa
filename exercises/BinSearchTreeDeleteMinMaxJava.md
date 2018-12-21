@@ -1,7 +1,13 @@
 ---
 layout: exercise
 title: Binary Search Tree Delete Min/Max
-question_text: Delete min/max from binary search tree
+question_text: >-
+  Delete min/max from binary search tree
+  <pre>
+        +--2--+
+        |     |
+        1     3
+  </pre>
 solution_file: /sources/java/BinSearchTreeDeleteMinMax.java
 library_files:
 - /sources/java/BinTree.java
