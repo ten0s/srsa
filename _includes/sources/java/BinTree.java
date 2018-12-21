@@ -23,6 +23,11 @@ public class BinTree {
         println(offset+1, n.left);
     }
 
+    public static <T> int size(Node<T> n) {
+        if (n == null) return 0;
+        return n.size;
+    }
+
     public static <T> Node<T> fromArray(T[] a) {
         return fromArray(a, 0, a.length-1);
     }
@@ -33,6 +38,7 @@ public class BinTree {
         Node<T> root = new Node<>(a[mid]);
         root.left  = fromArray(a, lo, mid-1);
         root.right = fromArray(a, mid+1, hi);
+        root.size = 1 + size(root.left) + size(root.right);
         return root;
     }
 
@@ -74,5 +80,9 @@ public class BinTree {
     public static void main(String[] args) throws Throwable {
         int[] a = new int[] {0,1,2,3,4,5,6,7,8,9};
         Assert.assertArrayEquals(a, toIntArray(fromIntArray(a)));
+
+        Assert.assertEquals(0, size(null));
+        Assert.assertEquals(10, size(fromIntArray(a)));
+        Assert.assertEquals(10, fromIntArray(a).size);
     }
 }
