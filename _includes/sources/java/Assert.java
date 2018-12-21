@@ -58,6 +58,22 @@ public class Assert {
         }
     }
 
+    public static void assertArrayEquals(Integer[] exp, int[] act) throws Throwable {
+        int[] e = new int[exp.length];
+        for (int i = 0; i < exp.length; i++) {
+            e[i] = exp[i];
+        }
+        assertArrayEquals(e, act);
+    }
+
+    public static void assertArrayEquals(int[] exp, Integer[] act) throws Throwable {
+        int[] a = new int[act.length];
+        for (int i = 0; i < act.length; i++) {
+            a[i] = exp[i];
+        }
+        assertArrayEquals(exp, a);
+    }
+
     public static void assertArrayEquals(int[] exp, int[] act) throws Throwable {
         if (!Arrays.equals(exp, act)) {
             System.out.println("Expected: " + ArrayUtil.toString(exp) +
