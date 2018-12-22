@@ -9,23 +9,23 @@ public class BinTree.Node<T> {
 */
 
 public class BinSearchTreeMinMax {
-    public static <K extends Comparable<K>> K min(BinTree.Node<K> node) {
+    public static <K extends Comparable<K>> K min(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (node == null)
+        if (n == null)
             throw new NoSuchElementException();
-        if (node.left == null)
-            return node.item;
-        return min(node.left);
+        if (n.left == null)
+            return n.item;
+        return min(n.left);
         // SOLUTION_END
     }
 
-    public static <K extends Comparable<K>> K max(BinTree.Node<K> node) {
+    public static <K extends Comparable<K>> K max(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (node == null)
+        if (n == null)
             throw new NoSuchElementException();
-        if (node.right == null)
-            return node.item;
-        return max(node.right);
+        if (n.right == null)
+            return n.item;
+        return max(n.right);
         // SOLUTION_END
     }
 
