@@ -42,7 +42,6 @@ public class BinSearchTreeFloorCeiling {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1,3,5,6,7,9});
-        //BinTree.println(tree);
 
         // test floor
         try { floor(1, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}

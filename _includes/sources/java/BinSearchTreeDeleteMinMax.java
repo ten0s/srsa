@@ -9,44 +9,45 @@ public class BinTree.Node<T> {
 */
 
 public class BinSearchTreeDeleteMinMax {
-    public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> node) {
+    public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (node == null)
+        if (n == null)
             throw new NoSuchElementException();
-        if (node.left == null)
-            return null;
-        node.left = deleteMin(node.left);
-        return node;
+        if (n.left == null)
+            return n.right;
+        n.left = deleteMin(n.left);
+        return n;
         // SOLUTION_END
     }
 
-    public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> node) {
+    public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (node == null)
+        if (n == null)
             throw new NoSuchElementException();
-        if (node.right == null)
-            return null;
-        node.right = deleteMax(node.right);
-        return node;
+        if (n.right == null)
+            return n.left;
+        n.right = deleteMax(n.right);
+        return n;
         // SOLUTION_END
     }
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
+        BinTree.Node<Integer> tree;
 
         try { deleteMin(null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertArrayEquals(new int[] {2,3},
-                                 BinTree.toIntArray(
-                                     deleteMin(
-                                         BinTree.fromIntArray(
-                                             new int[] {1,2,3}))));
+        tree = BinTree.fromIntArray(new int[] {1,2,3,4,5,6,7});
+        tree = deleteMin(tree);
+        Assert.assertArrayEquals(new int[] {2,3,4,5,6,7}, BinTree.toIntArray(tree));
+        tree = deleteMin(tree);
+        Assert.assertArrayEquals(new int[] {3,4,5,6,7}, BinTree.toIntArray(tree));
 
         try { deleteMax(null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertArrayEquals(new int[] {1,2},
-                                 BinTree.toIntArray(
-                                     deleteMax(
-                                         BinTree.fromIntArray(
-                                             new int[] {1,2,3}))));
+        tree = BinTree.fromIntArray(new int[] {1,2,3,4,5,6,7});
+        tree = deleteMax(tree);
+        Assert.assertArrayEquals(new int[] {1,2,3,4,5,6}, BinTree.toIntArray(tree));
+        tree = deleteMax(tree);
+        Assert.assertArrayEquals(new int[] {1,2,3,4,5}, BinTree.toIntArray(tree));
 
         System.out.println("OK");
     }
