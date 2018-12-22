@@ -11,4 +11,13 @@ public class Entry<K, V> {
     public String toString() {
         return "Entry{key=" + key + "," + "val=" + val + "}";
     }
+
+    public boolean equals(Object x) {
+        if (this == x) return true;
+        if (x == null) return false;
+        if (this.getClass() != x.getClass()) return false;
+        Entry that = (Entry) x;
+        return this.key.equals(that.key) &&
+               this.val.equals(that.val);
+    }
 }

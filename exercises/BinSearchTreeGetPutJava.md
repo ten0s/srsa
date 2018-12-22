@@ -1,7 +1,15 @@
 ---
 layout: exercise
 title: Binary Search Tree Get/Put
-question_text: Get/Put from/to binary search tree
+question_text: >-
+  Get/Put from/to binary search tree
+    <pre>
+           +------(4,four)-----+
+           |                   |
+     +--(2,two)--+       +--(6,six)--+
+     |           |       |           |
+  (1,one)   (3,three) (5,five)   (7,seven)
+  </pre>
 solution_file: /sources/java/BinSearchTreeGetPut.java
 library_files:
 - /sources/java/BinTree.java

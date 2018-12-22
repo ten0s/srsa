@@ -11,4 +11,13 @@ public class Pair<A, B> {
     public String toString() {
         return "Pair{first=" + first + "," + "second=" + second + "}";
     }
+
+    public boolean equals(Object x) {
+        if (this == x) return true;
+        if (x == null) return false;
+        if (this.getClass() != x.getClass()) return false;
+        Pair that = (Pair) x;
+        return this.first.equals(that.first) &&
+               this.second.equals(that.second);
+    }
 }

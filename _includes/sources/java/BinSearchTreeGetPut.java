@@ -49,9 +49,10 @@ public class BinSearchTreeGetPut {
                 new Entry<>(6, "six"),
                 new Entry<>(7, "seven")
         };
-        BinTree.Node<Entry<Integer, String>> tree = BinTree.fromArray(arr);
+        BinTree.Node<Entry<Integer, String>> tree;
 
         // test get
+        tree = BinTree.fromArray(arr);
         Assert.assertNull(get(1, null));
         Assert.assertNull(get(0, tree));
         Assert.assertEquals("one", get(1, tree));
@@ -62,6 +63,7 @@ public class BinSearchTreeGetPut {
         Assert.assertNull(get(8, tree));
 
         // test put
+        tree = null;
         tree = put(4, "four", tree);
         tree = put(2, "two", tree);
         tree = put(6, "six", tree);
