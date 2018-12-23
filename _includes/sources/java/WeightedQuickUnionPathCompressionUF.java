@@ -3,18 +3,18 @@ import java.util.ArrayList;
 
 public class WeightedQuickUnionPathCompressionUF {
     // SOLUTION_BEGIN
-    private int[] id;
-    private int[] sz;
+    private int[] parent;
+    private int[] size;
     private int count;
     // SOLUTION_END
 
     public WeightedQuickUnionPathCompressionUF(int n) {
         // SOLUTION_BEGIN
-        id = new int[n];
-        sz = new int[n];
+        parent = new int[n];
+        size = new int[n];
         for (int i = 0; i < n; i++) {
-            id[i] = i;
-            sz[i] = 1;
+            parent[i] = i;
+            size[i] = 1;
         }
         count = n;
         // SOLUTION_END
@@ -36,15 +36,15 @@ public class WeightedQuickUnionPathCompressionUF {
         // SOLUTION_BEGIN
         // https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Path_compression
         // Path compression (every node on the path points to the root)
-        if (p != id[p]) {
-            id[p] = find(id[p]);
-            p = id[p];
+        if (p != parent[p]) {
+            parent[p] = find(parent[p]);
+            p = parent[p];
         }
         /*
         // Path halving (every other node on the path points to its grandparent)
-        while (p != id[p]) {
-            id[p] = id[id[p]];
-            p = id[p];
+        while (p != parent[p]) {
+            parent[p] = parent[parent[p]];
+            p = parent[p];
         }
         */
         return p;
@@ -53,11 +53,16 @@ public class WeightedQuickUnionPathCompressionUF {
 
     public void union(int p, int q) {
         // SOLUTION_BEGIN
-        int i = find(p);
-        int j = find(q);
-        if (i == j) return;
-        if (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
-        else               { id[j] = i; sz[i] += sz[j]; }
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ) return;
+        if (size[rootP] < size[rootQ]) {
+            parent[rootP] = rootQ;
+            size[rootQ] += size[rootP];
+        } else {
+            parent[rootQ] = rootP;
+            size[rootP] += size[rootQ];
+        }
         count--;
         // SOLUTION_END
     }
@@ -78,7 +83,7 @@ public class WeightedQuickUnionPathCompressionUF {
         pairs.add(new Pair<Integer,Integer>(1,0));
         pairs.add(new Pair<Integer,Integer>(6,7));
         for (Pair<Integer,Integer> p : pairs) {
-            //System.out.println(p.first + " " + p.second + " " + ArrayUtil.toString(uf.id));
+            //System.out.println(p.first + " " + p.second + " " + ArrayUtil.toString(uf.parent));
             if (!uf.connected(p.first, p.second)) {
                 uf.union(p.first, p.second);
             }
