@@ -5,7 +5,7 @@ public class BinTree.Node<T> {
     public T item;
     public Node<T> left;
     public Node<T> right;
-    public int size(Node<T> node);
+    public static int size(Node<T> node);
 }
 */
 
