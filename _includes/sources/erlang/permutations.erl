@@ -17,6 +17,6 @@ main(_) ->
     end.
 
 perms_test() ->
-    ?assertEqual([], perms([])),
+    ?assertEqual([[]], perms([])),
     ?assertEqual([[b,u,g],[b,g,u],[u,b,g],[u,g,b],[g,b,u],[g,u,b]],
                  perms([b,u,g])).
