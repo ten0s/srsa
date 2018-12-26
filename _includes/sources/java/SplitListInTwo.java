@@ -16,8 +16,7 @@ public class SplitListInTwo {
         if (node == null) {
             throw new IllegalArgumentException();
         }
-        Node<T> slow = node;
-        Node<T> fast = node;
+        Node<T> slow = node, fast = node;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
