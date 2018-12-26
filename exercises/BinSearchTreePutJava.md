@@ -1,8 +1,8 @@
 ---
 layout: exercise
-title: Red-Black BST Put
+title: Binary Search Tree Put
 question_text: >-
-  Put K/V to Red-Black BST
+  Put K/V to binary search tree
     <pre>
            +------(4,four)-----+
            |                   |
@@ -10,8 +10,7 @@ question_text: >-
      |           |       |           |
   (1,one)   (3,three) (5,five)   (7,seven)
   </pre>
-  <img src="../assets/images/red-black-bst-ops.png">
-solution_file: /sources/java/RedBlackBSTPut.java
+solution_file: /sources/java/BinSearchTreePut.java
 library_files:
 - /sources/java/BinTree.java
 - /sources/java/Entry.java
@@ -21,5 +20,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac RedBlackBSTPut.java && java RedBlackBSTPut
+command: javac BinSearchTreePut.java && java BinSearchTreePut
 ---

@@ -1,4 +1,7 @@
 public class BinTree {
+    public static final boolean RED   = true;
+    public static final boolean BLACK = false;
+
     public static class Node<T> {
         public T item;
         public Node<T> left;

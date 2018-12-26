@@ -1,8 +1,8 @@
 ---
 layout: exercise
-title: Binary Search Tree Get/Put
+title: Binary Search Tree Get
 question_text: >-
-  Get/Put from/to binary search tree
+  Get K/V from binary search tree
     <pre>
            +------(4,four)-----+
            |                   |
@@ -10,7 +10,7 @@ question_text: >-
      |           |       |           |
   (1,one)   (3,three) (5,five)   (7,seven)
   </pre>
-solution_file: /sources/java/BinSearchTreeGetPut.java
+solution_file: /sources/java/BinSearchTreeGet.java
 library_files:
 - /sources/java/BinTree.java
 - /sources/java/Entry.java
@@ -20,5 +20,5 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac BinSearchTreeGetPut.java && java BinSearchTreeGetPut
+command: javac BinSearchTreeGet.java && java BinSearchTreeGet
 ---
