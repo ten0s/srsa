@@ -10,7 +10,7 @@ question_text: >-
      |           |       |           |
   (1,one)   (3,three) (5,five)   (7,seven)
   </pre>
-  <img src="/assets/images/red-black-bst-ops.png">
+  <img src="../assets/images/red-black-bst-ops.png">
 solution_file: /sources/java/BinSearchTreeGetPut.java
 library_files:
 - /sources/java/BinTree.java
