@@ -60,7 +60,6 @@ public class BinSearchTreePut {
         Assert.assertArrayEquals(arr, BinTree.toArray(tree));
         Assert.assertEquals(10, BinTree.size(tree));
         Assert.assertEquals(7, BinTree.height(tree));
-        BinTree.println(tree);
 
         System.out.println("OK");
     }
