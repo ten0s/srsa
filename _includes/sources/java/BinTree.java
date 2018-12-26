@@ -7,10 +7,17 @@ public class BinTree {
         public Node<T> left;
         public Node<T> right;
         public int size;
+        public boolean color;
 
         public Node(T item) {
             this.item = item;
             this.size = 1;
+        }
+
+        public Node(T item, boolean color) {
+            this.item = item;
+            this.size = 1;
+            this.color = color;
         }
     }
 
@@ -26,9 +33,14 @@ public class BinTree {
         println(offset+1, n.left);
     }
 
-    public static <T> int size(Node<T> n) {
+    public static int size(Node<?> n) {
         if (n == null) return 0;
         return n.size;
+    }
+
+    public static int height(Node<?> n) {
+        if (n == null) return 0;
+        return 1 + Math.max(height(n.left), height(n.right));
     }
 
     public static <T> Node<T> fromArray(T[] a) {

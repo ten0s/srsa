@@ -2,7 +2,7 @@
 layout: exercise
 title: Red-Black BST Put
 question_text: >-
-  Put K/V to Red-Black BST
+  Put K/V into Red-Black BST
     <pre>
            +------(4,four)-----+
            |                   |
