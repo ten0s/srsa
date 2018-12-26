@@ -7,8 +7,10 @@ public class BinTree {
         public T item;
         public Node<T> left;
         public Node<T> right;
+        public int size;
         boolean color;
         public Node(T item, boolean color);
+        public int size(Node<T> node);
     }
 }
 

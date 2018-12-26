@@ -3,7 +3,9 @@ public class BinTree.Node<T> {
     public T item;
     public Node<T> left;
     public Node<T> right;
+    public int size;
     public Node(T item);
+    public int size(Node<T> node);
 }
 
 public class Entry<K, V> {
