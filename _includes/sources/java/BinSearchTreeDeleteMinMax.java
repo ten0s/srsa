@@ -11,22 +11,28 @@ public class BinTree.Node<T> {
 public class BinSearchTreeDeleteMinMax {
     public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (n == null)
+        if (n == null) {
             throw new NoSuchElementException();
-        if (n.left == null)
-            return n.right;
-        n.left = deleteMin(n.left);
+        }
+        if (n.left != null) {
+            n.left = deleteMin(n.left);
+        } else {
+            n = n.right;
+        }
         return n;
         // SOLUTION_END
     }
 
     public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> n) {
         // SOLUTION_BEGIN
-        if (n == null)
+        if (n == null) {
             throw new NoSuchElementException();
-        if (n.right == null)
-            return n.left;
-        n.right = deleteMax(n.right);
+        }
+        if (n.right != null) {
+            n.right = deleteMax(n.right);
+        } else {
+            n = n.left;
+        }
         return n;
         // SOLUTION_END
     }
