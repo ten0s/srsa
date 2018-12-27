@@ -22,7 +22,7 @@ public class PriorityQueue {
 
         protected Key pop() {
             // SOLUTION_BEGIN
-            checkEmpty();
+            ensureNotEmpty();
             Key v = pq[1];
             pq[1] = pq[n];
             pq[n] = null;
@@ -35,7 +35,7 @@ public class PriorityQueue {
 
         protected Key peek() {
             // SOLUTION_BEGIN
-            checkEmpty();
+            ensureNotEmpty();
             return pq[1];
             // SOLUTION_END
         }
@@ -96,7 +96,7 @@ public class PriorityQueue {
             return pq.length - 1;
         }
 
-        private void checkEmpty() {
+        private void ensureNotEmpty() {
             if (isEmpty()) {
                 throw new NoSuchElementException();
             }
