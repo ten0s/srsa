@@ -7,17 +7,20 @@
 sort([]) ->
     [];
 sort(Xs) ->
-    {Min, Ys} = min_del(Xs, []),
+    {Min, Ys} = min_rest(Xs),
     [Min | sort(Ys)].
 
-min_del([Min], Acc) ->
+min_rest([X | Xs]) ->
+    min_rest(X, Xs, []).
+
+min_rest(Min, [], Acc) ->
     {Min, Acc};
-min_del([A, B | L], Acc) ->
-    case A =< B of
+min_rest(Min, [X | Xs], Acc) ->
+    case Min =< X of
     true ->
-        min_del([A | L], [B | Acc]);
+        min_rest(Min, Xs, [X | Acc]);
     false ->
-        min_del([B | L], [A | Acc])
+        min_rest(X, Xs, [Min | Acc])
     end.
 %% SOLUTION_END
 
