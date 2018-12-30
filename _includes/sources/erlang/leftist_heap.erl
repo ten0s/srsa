@@ -53,12 +53,12 @@ merge(nil, H) ->
     H;
 merge(H, nil) ->
     H;
-merge({X, _, XL, XR} = XH, {Y, _, YL, YR} = YH) ->
-    case X =< Y of
+merge({T1, _, L1, R1} = H1, {T2, _, L2, R2} = H2) ->
+    case T1 =< T2 of
     true ->
-        make(X, XL, merge(XR, YH));
+        make(T1, L1, merge(R1, H2));
     false ->
-        make(Y, YL, merge(XH, YR))
+        make(T2, L2, merge(H1, R2))
     end.
 
 %% O(1)
@@ -87,8 +87,8 @@ rank({_, R, _, _}) ->
 %% SOLUTION_BEGIN
 from_list([]) ->
     nil;
-from_list(L) ->
-    from_queue(queue:from_list([{T, 0, nil, nil} || T <- L])).
+from_list(Ts) ->
+    from_queue(queue:from_list([{T, 0, nil, nil} || T <- Ts])).
 
 from_queue(Q) ->
     { {value, H1}, Q1} = queue:out(Q),
