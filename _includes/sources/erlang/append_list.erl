@@ -14,8 +14,10 @@ append([X | Xs], Ys) ->
 
 -spec append([[T]]) -> [T].
 %% SOLUTION_BEGIN
-append(Xss) ->
-    [X || Xs <- Xss, X <- Xs].
+append([]) ->
+    [];
+append([L | Ls]) ->
+    append(L, append(Ls)).
 %% SOLUTION_END
 
 main(_) ->
