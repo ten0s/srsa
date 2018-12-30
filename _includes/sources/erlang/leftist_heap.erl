@@ -38,12 +38,12 @@ min({T, _, _, _}) ->
 %% SOLUTION_END
 
 %% O(lg(n))
--spec deleteMin(heap(T)) -> {T, heap(T)} | error(empty).
+-spec deleteMin(heap(T)) -> heap(T) | error(empty).
 %% SOLUTION_BEGIN
 deleteMin(nil) ->
     error(empty);
-deleteMin({T, _, L, R}) ->
-    {T, merge(L, R)}.
+deleteMin({_, _, L, R}) ->
+    merge(L, R).
 %% SOLUTION_END
 
 %% O(lg(n))
@@ -106,7 +106,7 @@ from_queue(Q) ->
 to_list(nil) ->
     [];
 to_list(H) ->
-    {Min, H1} = deleteMin(H),
+    {Min, H1} = {min(H), deleteMin(H)},
     [Min | to_list(H1)].
 %% SOLUTION_END
 
@@ -124,11 +124,11 @@ heap_test() ->
     H2 = insert(2, H1),
     H3 = insert(3, H2),
     ?assertEqual(1, min(H3)),
-    {1, H4} = deleteMin(H3),
+    {1, H4} = {min(H3), deleteMin(H3)},
     H5 = insert(4, H4),
-    {2, H6} = deleteMin(H5),
-    {3, H7} = deleteMin(H6),
-    {4, H8} = deleteMin(H7),
+    {2, H6} = {min(H5), deleteMin(H5)},
+    {3, H7} = {min(H6), deleteMin(H6)},
+    {4, H8} = {min(H7), deleteMin(H7)},
     ?assert(is_empty(H8)),
     ?assertError(empty, min(H8)),
     ?assertError(empty, deleteMin(H8)),
