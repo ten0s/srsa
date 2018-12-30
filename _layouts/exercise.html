@@ -70,17 +70,23 @@
        var solution_src = solution_raw.replace(
            /\s*([\/%]+\s*SOLUTION_BEGIN|[\/%]+\s*SOLUTION_END)/gi, "");
 
+       var lang2mode = {
+           "c"  : "c_cpp",
+           "c++": "c_cpp",
+       };
+       var mode = lang2mode["{{ page.language }}"] || "{{ page.language }}";
+
        var qEditor = ace.edit("question-editor");
        qEditor.setValue(question_src, -1);
        qEditor.setTheme("ace/theme/monokai");
        qEditor.setFontSize(15);
-       qEditor.session.setMode("ace/mode/{{ page.language }}");
+       qEditor.session.setMode("ace/mode/" + mode);
 
        var sEditor = ace.edit("solution-editor");
        sEditor.setValue(solution_src, -1);
        sEditor.setTheme("ace/theme/monokai");
        sEditor.setFontSize(15);
-       sEditor.session.setMode("ace/mode/{{ page.language }}");
+       sEditor.session.setMode("ace/mode/" + mode);
 
        function infoOn(msg) {
            $("#res-info").show();
