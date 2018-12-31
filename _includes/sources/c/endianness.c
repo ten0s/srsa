@@ -15,11 +15,7 @@ end_t endianness() {
         uint32_t u32;
         uint64_t u64;
     } u = { .u64 = 0x4A };
-    if (u.u8 == u.u16 && u.u8 == u.u32 && u.u8 == u.u64) {
-        return LITTLE;
-    } else {
-        return BIG;
-    }
+    return (u.u8 == u.u16 && u.u8 == u.u32 && u.u8 == u.u64) ? LITTLE : BIG;
     // SOLUTION_END
 }
 
