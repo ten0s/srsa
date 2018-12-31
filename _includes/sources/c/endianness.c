@@ -10,7 +10,10 @@ typedef enum {
 end_t endianness() {
     // SOLUTION_BEGIN
     union u_t {
-        uint8_t u8; uint16_t u16; uint32_t u32; uint64_t u64;
+        uint8_t  u8;
+        uint16_t u16;
+        uint32_t u32;
+        uint64_t u64;
     } u = { .u64 = 0x4A };
     if (u.u8 == u.u16 && u.u8 == u.u32 && u.u8 == u.u64) {
         return LITTLE;
