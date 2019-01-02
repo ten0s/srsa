@@ -22,13 +22,11 @@ Assuming the array is first in ascending order and then in descending order:
 
 public class BitonicSearchArray {
     public static int bitonicSearch(int key, int[] a) {
-        // SOLUTION_BEGIN
         return bitonicSearch(key, a, 0, a.length-1);
-        // SOLUTION_END
     }
 
-    // SOLUTION_BEGIN
     private static int bitonicSearch(int key, int[] a, int lo, int hi) {
+        // SOLUTION_BEGIN
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (a[mid] < key) {
@@ -50,9 +48,11 @@ public class BitonicSearchArray {
         } else {
             return mid;
         }
+        // SOLUTION_END
     }
 
     public static int binarySearchASC(int key, int[] a, int lo, int hi) {
+        // SOLUTION_BEGIN
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -62,9 +62,11 @@ public class BitonicSearchArray {
         } else {
             return mid;
         }
+        // SOLUTION_END
     }
 
     public static int binarySearchDESC(int key, int[] a, int lo, int hi) {
+        // SOLUTION_BEGIN
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -74,8 +76,8 @@ public class BitonicSearchArray {
         } else {
             return mid;
         }
+        // SOLUTION_END
     }
-    // SOLUTION_END
 
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, bitonicSearch(0, new int[] {1,3,5,7,6,4,2}));
