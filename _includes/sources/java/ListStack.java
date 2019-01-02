@@ -13,8 +13,6 @@ public class ListStack<Item> {
     int size;
     // SOLUTION_END
 
-    public ListStack() {}
-
     public boolean isEmpty() {
         // SOLUTION_BEGIN
         return size == 0;

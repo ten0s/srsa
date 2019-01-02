@@ -14,8 +14,6 @@ public class ListQueue<Item> {
     int size;
     // SOLUTION_END
 
-    public ListQueue() {}
-
     public boolean isEmpty() {
         // SOLUTION_BEGIN
         return size == 0;
