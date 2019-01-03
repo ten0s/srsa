@@ -29,20 +29,15 @@ class RandomizedQuickSelectArray {
 
     // SOLUTION_BEGIN
     private static int partition(int[] a, int lo, int hi) {
-        int i = lo, j = hi+1;
         // choose pivot randomly
         int r = lo + (int) (Math.random() * (hi - lo + 1));
         swap(a, lo, r);
         int v = a[lo];
+        int i = lo, j = hi+1;
         while (true) {
-            while (a[++i] < v)
-                if (i == hi) break;
-
-            while (v < a[--j])
-                if (j == lo) break;
-
-            if (i >= j)
-                break;
+            while (a[++i] < v) if (i == hi) break;
+            while (v < a[--j]) if (j == lo) break;
+            if (i >= j) break;
             swap(a, i, j);
         }
         swap(a, lo, j);
