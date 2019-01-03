@@ -56,14 +56,14 @@ merge(H, nil) ->
 merge({T1, _, L1, R1} = H1, {T2, _, L2, R2} = H2) ->
     case T1 =< T2 of
     true ->
-        make(T1, L1, merge(R1, H2));
+        balance(T1, L1, merge(R1, H2));
     false ->
-        make(T2, L2, merge(H1, R2))
+        balance(T2, L2, merge(H1, R2))
     end.
 
 %% O(1)
--spec make(T, heap(T), heap(T)) -> heap(T).
-make(T, H1, H2) ->
+-spec balance(T, heap(T), heap(T)) -> heap(T).
+balance(T, H1, H2) ->
     R1 = rank(H1),
     R2 = rank(H2),
     case R1 >= R2 of
