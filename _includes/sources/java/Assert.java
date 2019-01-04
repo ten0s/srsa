@@ -44,6 +44,21 @@ public class Assert {
         }
     }
 
+    public static void assertEquals(Long exp, long act) throws Throwable {
+        assertEquals((long)exp, act);
+    }
+
+    public static void assertEquals(long exp, Long act) throws Throwable {
+        assertEquals(exp, (long)act);
+    }
+
+    public static void assertEquals(long exp, long act) throws Throwable {
+        if (exp != act) {
+            System.err.println("Expected: " + exp + ", but saw: " + act);
+            throw new Throwable();
+        }
+    }
+
     public static void assertEquals(String exp, String act) throws Throwable {
         if (!exp.equals(act)) {
             System.err.println("Expected: " + exp + ", but saw: " + act);
