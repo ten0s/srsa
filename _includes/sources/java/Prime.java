@@ -14,10 +14,7 @@ public class Prime {
     public static long nextPrime(long n) {
         // SOLUTION_BEGIN
         if (n < 2) return 2;
-        long p = n + 1;
-        if (p % 2 == 0) {
-            p += 1;
-        }
+        long p = (n % 2 == 0 ? n + 1 : n + 2);
         while (!isPrime(p)) {
             p += 2;
         }
