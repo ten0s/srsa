@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class EqualsTest {
     static class Entry<K, V> {
         public K key;
@@ -22,6 +24,10 @@ public class EqualsTest {
             return this.key.equals(that.key) &&
                 this.val.equals(that.val);
         }
+
+        public int hashCode() {
+            return Objects.hash(key, val);
+        }
         // SOLUTION_END
     }
 
@@ -33,6 +39,7 @@ public class EqualsTest {
         Assert.assertFalse(e1.equals(null));
         Assert.assertFalse(e1.equals(new Pair<>(1, "one")));
         Assert.assertTrue(e1.equals(e2));
+        Assert.assertTrue(e1.hashCode() == e2.hashCode());
         Assert.assertFalse(e1.equals(e3));
         System.out.println("OK");
     }
