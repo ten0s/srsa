@@ -1,8 +1,8 @@
 public class Prime {
-    public static boolean isPrime(long n) {
+    public static boolean isPrime(int n) {
         // SOLUTION_BEGIN
         if (n < 2) return false;
-        for (long f = 2; f*f <= n; f++) {
+        for (int f = 2; f*f <= n; f++) {
             if (n % f == 0) {
                 return false;
             }
@@ -11,10 +11,10 @@ public class Prime {
         // SOLUTION_END
     }
 
-    public static long nextPrime(long n) {
+    public static int nextPrime(int n) {
         // SOLUTION_BEGIN
         if (n < 2) return 2;
-        long p = (n % 2 == 0 ? n + 1 : n + 2);
+        int p = n % 2 == 0 ? n + 1 : n + 2;
         while (!isPrime(p)) {
             p += 2;
         }
