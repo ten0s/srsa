@@ -2,7 +2,6 @@ import java.lang.reflect.Array;
 
 /*
 public class Prime {
-    public static boolean isPrime(int n;
     public static int nextPrime(int n);
 }
 */
