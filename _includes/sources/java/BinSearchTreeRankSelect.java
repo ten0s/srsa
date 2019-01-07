@@ -23,9 +23,9 @@ public class BinSearchTreeRankSelect {
     public static <K extends Comparable<K>> BinTree.Node<K> select(int k, BinTree.Node<K> n) {
         // SOLUTION_BEGIN
         if (n == null) return null;
-        int t = BinTree.size(n.left);
-        if      (t > k) return select(k, n.left);
-        else if (t < k) return select(k-t-1, n.right);
+        int r = BinTree.size(n.left);
+        if      (r > k) return select(k, n.left);
+        else if (r < k) return select(k-r-1, n.right);
         else            return n;
         // SOLUTION_END
     }
