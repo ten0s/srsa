@@ -117,12 +117,14 @@ public class HashTable<Key , Value> {
         HashTable<Integer, Integer> t = new HashTable<>();
         Assert.assertTrue(t.isEmpty());
         Assert.assertEquals(0, t.size());
+        Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1));
         for (int i = 0; i < 1000; i++) {
             t.put(i, i^2);
         }
         Assert.assertFalse(t.isEmpty());
         Assert.assertEquals(1000, t.size());
+        Assert.assertTrue(Prime.isPrime(t.m));
         for (int i = 0; i < 1000; i++) {
             Assert.assertEquals(i^2, t.get(i));
         }
@@ -132,6 +134,7 @@ public class HashTable<Key , Value> {
         }
         Assert.assertTrue(t.isEmpty());
         Assert.assertEquals(0, t.size());
+        Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1));
         System.out.println("OK");
     }
