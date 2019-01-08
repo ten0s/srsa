@@ -11,17 +11,13 @@ public class DeleteList {
         if (node == null) {
             return node;
         }
-        if (node.item.compareTo(key) == 0) {
-            node = node.next;
-            return node;
+        if (key.compareTo(node.item) == 0) {
+            return node.next;
         }
-        Node<T> n = node;
-        while (n.next != null) {
-            if (n.next.item.compareTo(key) == 0) {
+        for (Node<T> n = node; n.next != null; n = n.next) {
+            if (key.compareTo(n.next.item) == 0) {
                 n.next = n.next.next;
                 break;
-            } else {
-                n = n.next;
             }
         }
         return node;

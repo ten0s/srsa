@@ -19,7 +19,7 @@ public class BinSearchTreeDelete {
             if (n.left == null)  return n.right;
             if (n.right == null) return n.left;
             BinTree.Node<K> t = n;
-            n = min(n.right);              // n = max(n.left);
+            n = min(t.right);              // n = max(t.left);
             n.right = deleteMin(t.right);  // n.left = deleteMax(t.left)
             n.left = t.left;               // n.right = t.right;
         }
