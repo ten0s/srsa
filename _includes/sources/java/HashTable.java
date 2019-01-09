@@ -102,40 +102,40 @@ public class HashTable<Key , Value> {
     }
 
     public boolean isEmpty() {
-        // SOLUTION_BEGIN
         return size() == 0;
-        // SOLUTION_END
     }
 
     public int size() {
-        // SOLUTION_BEGIN
         return n;
-        // SOLUTION_END
     }
 
     public static void main(String[] args) throws Throwable {
         HashTable<Integer, Integer> t = new HashTable<>();
-        Assert.assertTrue(t.isEmpty());
+
         Assert.assertEquals(0, t.size());
+        Assert.assertTrue(t.isEmpty());
         Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1));
+
         for (int i = 0; i < 1000; i++) {
+            t.put(i, i);
+            Assert.assertEquals(i, t.get(i));
             t.put(i, i^2);
-        }
-        Assert.assertFalse(t.isEmpty());
-        Assert.assertEquals(1000, t.size());
-        Assert.assertTrue(Prime.isPrime(t.m));
-        for (int i = 0; i < 1000; i++) {
             Assert.assertEquals(i^2, t.get(i));
         }
+        Assert.assertEquals(1000, t.size());
+        Assert.assertFalse(t.isEmpty());
+        Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1001));
+
         for (int i = 0; i < 1000; i++) {
             t.delete(i);
         }
-        Assert.assertTrue(t.isEmpty());
         Assert.assertEquals(0, t.size());
+        Assert.assertTrue(t.isEmpty());
         Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1));
+
         System.out.println("OK");
     }
 }
