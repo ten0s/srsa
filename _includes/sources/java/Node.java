@@ -1,9 +1,36 @@
+import java.util.NoSuchElementException;
+
 public class Node<T> {
     public T item;
     public Node<T> next;
 
-    public static <T> void println(Node<T> node) {
-        ArrayUtil.println(toArray(node));
+    public static <T> Node<T> empty() {
+        return null;
+    }
+
+    public static <T> Node<T> cons(T value, Node<T> list) {
+        Node<T> head = new Node<>();
+        head.item = value;
+        head.next = list;
+        return head;
+    }
+
+    public static <T> T head(Node<T> list) {
+        if (isEmpty(list)) {
+            throw new NoSuchElementException();
+        }
+        return list.item;
+    }
+
+    public static <T> Node<T> tail(Node<T> list) {
+        if (isEmpty(list)) {
+            throw new NoSuchElementException();
+        }
+        return list.next;
+    }
+
+    public static <T> boolean isEmpty(Node<T> list) {
+        return list == empty();
     }
 
     public static <T> int length(Node<T> node) {
@@ -11,6 +38,27 @@ public class Node<T> {
         for (Node<T> n = node; n != null; n = n.next)
             length++;
         return length;
+    }
+
+    public static <T extends Comparable<T>> T max(Node<T> list) {
+        if (isEmpty(list)) {
+            throw new NoSuchElementException();
+        }
+        T me = head(list);
+        Node<T> tail = tail(list);
+        if (isEmpty(tail)) {
+            return me;
+        }
+        T they = max(tail);
+        if (me.compareTo(they) >= 0) {
+            return me;
+        } else {
+            return they;
+        }
+    }
+
+    public static <T> void println(Node<T> node) {
+        ArrayUtil.println(toArray(node));
     }
 
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
