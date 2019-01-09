@@ -1,3 +1,5 @@
+import java.util.function.BiFunction;
+
 public class BinTree {
     public static final boolean RED   = true;
     public static final boolean BLACK = false;
@@ -33,6 +35,39 @@ public class BinTree {
         println(offset+1, n.left);
     }
 
+    public static <T, R> R preOrder(BiFunction<T, R, R> fun, R init, Node<T> tree) {
+        if (tree == null) {
+            return init;
+        } else {
+            R n = fun.apply(tree.item, init);
+            R l = inOrder(fun, n, tree.left);
+            R r = inOrder(fun, l, tree.right);
+            return r;
+        }
+    }
+
+    public static <T, R> R inOrder(BiFunction<T, R, R> fun, R init, Node<T> tree) {
+        if (tree == null) {
+            return init;
+        } else {
+            R l = inOrder(fun, init, tree.left);
+            R n = fun.apply(tree.item, l);
+            R r = inOrder(fun, n, tree.right);
+            return r;
+        }
+    }
+
+    public static <T, R> R postOrder(BiFunction<T, R, R> fun, R init, Node<T> tree) {
+        if (tree == null) {
+            return init;
+        } else {
+            R l = inOrder(fun, init, tree.left);
+            R r = inOrder(fun, l, tree.right);
+            R n = fun.apply(tree.item, r);
+            return n;
+        }
+    }
+
     public static int size(Node<?> n) {
         if (n == null) return 0;
         return n.size;
@@ -65,22 +100,25 @@ public class BinTree {
         return fromArray(b);
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> T[] toArray(Node<T> n) {
-        ListQueue<T> q = new ListQueue<>();
-        inOrder(q, n);
-        T[] a = (T[]) new Object[q.size()];
-        for (int i = 0; i < a.length; i++) {
-            a[i] = q.dequeue();
-        }
-        return a;
-    }
-
     private static <T> void inOrder(ListQueue<T> q, Node<T> n) {
         if (n == null) return;
         inOrder(q, n.left);
         q.enqueue(n.item);
         inOrder(q, n.right);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T[] toArray(Node<T> n) {
+        ListQueue<T> q = inOrder(
+            (item, queue) -> {
+                queue.enqueue(item);
+                return queue;
+            }, new ListQueue<>(), n);
+        T[] a = (T[]) new Object[q.size()];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = q.dequeue();
+        }
+        return a;
     }
 
     public static int[] toIntArray(Node<Integer> n) {
@@ -99,5 +137,10 @@ public class BinTree {
         Assert.assertEquals(0, size(null));
         Assert.assertEquals(10, size(fromIntArray(a)));
         Assert.assertEquals(10, fromIntArray(a).size);
+
+        BinTree.Node<Integer> t = fromIntArray(new int[] {0,1,2,3,4,5,6,7,8,9});
+        Assert.assertEquals(45,  preOrder((x, acc) -> x + acc, 0, t));
+        Assert.assertEquals(45,   inOrder((x, acc) -> x + acc, 0, t));
+        Assert.assertEquals(45, postOrder((x, acc) -> x + acc, 0, t));
     }
 }
