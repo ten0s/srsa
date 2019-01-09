@@ -8,10 +8,6 @@ sort([]) ->
     [];
 sort([X]) ->
     [X];
-sort([X, Y]) when X =< Y ->
-    [X, Y];
-sort([X, Y]) ->
-    [Y, X];
 sort(L) ->
     {L1, L2} = lists:split(length(L) div 2, L),
     merge(sort(L1), sort(L2)).
