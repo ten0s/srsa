@@ -20,7 +20,14 @@ title: Exercises
 
 <ul class="list-group">
   {% for language in languages %}
-    <li class="list-group-item" active>{{ language | capitalize }}</li>
+    {% assign index = 0 %}
+    {% for page in site.pages %}
+      {% if page.url contains "exercises" and page.language == language %}
+          {% assign index = index | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    <li class="list-group-item" active>{{ language | capitalize }} ({{ index }})</li>
     {% for page in site.pages %}
       {% if page.url contains "exercises" and page.language == language %}
         <li class="list-group-item">
