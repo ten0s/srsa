@@ -13,8 +13,7 @@ public class PriorityQueue {
 
         protected void push(Key v) {
             // SOLUTION_BEGIN
-            n++;
-            if (n > capacity()) resize(2*capacity()+1);
+            if (++n > capacity()) resize(2*capacity()+1);
             pq[n] = v;
             swim(n);
             // SOLUTION_END
@@ -26,8 +25,7 @@ public class PriorityQueue {
             Key v = pq[1];
             pq[1] = pq[n];
             pq[n] = null;
-            if (n == capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
-            n--;
+            if (--n <= capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
             sink(1);
             return v;
             // SOLUTION_END
@@ -61,14 +59,14 @@ public class PriorityQueue {
         private void sink(int k) {
             // while my right child is inside the tree
             while (2*k <= n) {
-                int i = 2*k;
+                int j = 2*k;
                 // if two children, choose max child
-                if (i < n && less(i, i+1)) ++i;
+                if (j < n && less(j, j+1)) ++j;
                 // stop, if i'm not less than child
-                if (!less(k, i)) break;
+                if (!less(k, j)) break;
                 // swap me with child and move down
-                swap(k, i);
-                k = i;
+                swap(k, j);
+                k = j;
             }
         }
         // SOLUTION_END
@@ -86,7 +84,8 @@ public class PriorityQueue {
         @SuppressWarnings("unchecked")
         private void resize(int capacity) {
             Key[] pq2 = (Key[]) new Comparable[capacity];
-            for (int i = 1; i < n; i++) {
+            int m = Math.min(n, pq.length-1);
+            for (int i = 1; i <= m; i++) {
                 pq2[i] = pq[i];
             }
             pq = pq2;
