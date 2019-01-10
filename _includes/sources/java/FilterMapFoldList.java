@@ -35,21 +35,30 @@ public class FilterMapFoldList {
         if (Node.isEmpty(list)) {
             return Node.empty();
         } else {
-            T item = Node.head(list);
-            R res = fun.apply(item);
-            return Node.cons(res, map(fun, Node.tail(list)));
+            return Node.cons(fun.apply(Node.head(list)), map(fun, Node.tail(list)));
         }
         // SOLUTION_END
     }
 
-    public static <T, R> R fold(BiFunction<T, R, R> fun, R init, Node<T> list) {
+    public static <T, R> R foldl(BiFunction<T, R, R> fun, R init, Node<T> list) {
         // SOLUTION_BEGIN
         if (Node.isEmpty(list)) {
             return init;
         } else {
-            T item = Node.head(list);
-            R acc = fun.apply(item, init);
-            return fold(fun, acc, Node.tail(list));
+            return foldl(fun,
+                         fun.apply(Node.head(list), init),
+                         Node.tail(list));
+        }
+        // SOLUTION_END
+    }
+
+    public static <T, R> R foldr(BiFunction<T, R, R> fun, R init, Node<T> list) {
+        // SOLUTION_BEGIN
+        if (Node.isEmpty(list)) {
+            return init;
+        } else {
+            return fun.apply(Node.head(list),
+                             foldr(fun, init, Node.tail(list)));
         }
         // SOLUTION_END
     }
@@ -62,11 +71,17 @@ public class FilterMapFoldList {
         // map
         Assert.assertArrayEquals(new int[] {2,4,6,8,10},
                                  Node.toIntArray(map(i -> 2 * i, intList)));
-        // fold
-        Assert.assertEquals(Node.length(intList), fold((i, acc) -> 1 + acc, 0, intList));
-        Assert.assertEquals(Node.max(intList), fold(Math::max, Integer.MIN_VALUE, intList));
+        // fold{l,r}
+        Assert.assertEquals(Node.length(intList), foldl((i, acc) -> 1 + acc, 0, intList));
+        Assert.assertEquals(Node.length(intList), foldr((i, acc) -> 1 + acc, 0, intList));
+
+        Assert.assertEquals(Node.max(intList), foldl(Math::max, Integer.MIN_VALUE, intList));
+        Assert.assertEquals(Node.max(intList), foldr(Math::max, Integer.MIN_VALUE, intList));
+
         Assert.assertArrayEquals(new int[] {5,4,3,2,1},
-                                 Node.toIntArray(fold(Node::cons, Node.empty(), intList)));
+                                 Node.toIntArray(foldl(Node::cons, Node.empty(), intList)));
+        Assert.assertArrayEquals(new int[] {1,2,3,4,5},
+                                 Node.toIntArray(foldr(Node::cons, Node.empty(), intList)));
         System.out.println("OK");
     }
 }

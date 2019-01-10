@@ -4,20 +4,20 @@
 
 -spec sort([T]) -> [T].
 %% SOLUTION_BEGIN
+sort([]) ->
+    [];
 sort([P | Xs]) ->
     {L, E, G} = partition(P, Xs, {[], [P], []}),
-    sort(L) ++ E ++ sort(G);
-sort([]) ->
-    [].
+    sort(L) ++ E ++ sort(G).
 
-partition(_P, [], {L, E, G}) ->
-    {L, E, G};
-partition(P, [X | Xs], {L, E, G}) when X < P ->
-    partition(P, Xs, {[X | L], E, G});
-partition(P, [X | Xs], {L, E, G}) when X =:= P ->
-    partition(P, Xs, {L, [X | E], G});
+partition(_, [], LEG) ->
+    LEG;
 partition(P, [X | Xs], {L, E, G}) ->
-    partition(P, Xs, {L, E, [X | G]}).
+    if
+        X < P -> partition(P, Xs, {[X | L], E, G});
+        X > P -> partition(P, Xs, {L, E, [X | G]});
+        true  -> partition(P, Xs, {L, [X | E], G})
+    end.
 %% SOLUTION_END
 
 main(_) ->
