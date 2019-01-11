@@ -6,7 +6,7 @@ public class Prime {
 }
 */
 
-public class HashTable<Key , Value> {
+public class HashMap<Key , Value> {
     private final static int MIN_CAPACITY = 31;
     private class Node {
         Key key;
@@ -24,12 +24,12 @@ public class HashTable<Key , Value> {
     private int m;    // buckets count
     private int n;    // items count
 
-    public HashTable() {
+    public HashMap() {
         this(MIN_CAPACITY);
     }
 
     @SuppressWarnings("unchecked")
-    private HashTable(int m) {
+    private HashMap(int m) {
         this.m = m;
         this.a = (Node[]) Array.newInstance(Node.class, m);
     }
@@ -42,7 +42,7 @@ public class HashTable<Key , Value> {
 
     private void resize(int capacity) {
         // SOLUTION_BEGIN
-        HashTable<Key, Value> t = new HashTable<>(capacity);
+        HashMap<Key, Value> t = new HashMap<>(capacity);
         for (int i = 0; i < m; i++) {
             for (Node x = a[i]; x != null; x = x.next) {
                 t.put(x.key, x.val);
@@ -110,7 +110,7 @@ public class HashTable<Key , Value> {
     }
 
     public static void main(String[] args) throws Throwable {
-        HashTable<Integer, Integer> t = new HashTable<>();
+        HashMap<Integer, Integer> t = new HashMap<>();
 
         Assert.assertEquals(0, t.size());
         Assert.assertTrue(t.isEmpty());
