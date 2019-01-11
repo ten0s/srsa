@@ -163,6 +163,20 @@
                } else {
                    errorOn("Empty response from server");
                }
+           }).fail(function (xhr) {
+               infoOff();
+               var err = xhr.responseJSON;
+               if (err) {
+                   console.log(err);
+                   if (err.message) {
+                       errorOn(err.message);
+                   } else {
+                       errorOn("Unknown response from server. See log");
+                   }
+               } else {
+                   console.log(xhr);
+                   errorOn("Unknown response from server. See log");
+               }
            });
            infoOn("Running...");
            stdoutOff();
