@@ -3,3 +3,4 @@ _includes/sources/c/a.out
 _includes/sources/erlang/*.beam
 _includes/sources/erlang/*.dump
 _includes/sources/java/*.class
+.idea
