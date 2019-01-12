@@ -63,13 +63,20 @@ public class Graph {
 
     public String toDot() {
         String s = "graph {" + System.lineSeparator();
-        HashSet<String> set = new HashSet<>();
+        HashSet<Integer> nodes = new HashSet<>();
+        HashSet<String> pairs = new HashSet<>();
         for (int v = 0; v < V; v++) {
             for (int w : adj(v)) {
-                if (!set.contains(w + "-" + v)) {
+                nodes.add(w);
+                if (!pairs.contains(w + "-" + v)) {
                     s += "  " + v + " -- " + w + ";" + System.lineSeparator();
-                    set.add(v + "-" + w);
+                    pairs.add(v + "-" + w);
                 }
+            }
+        }
+        for (int v = 0; v < V; v++) {
+            if (!nodes.contains(v)) {
+                s += "  " + v + System.lineSeparator();
             }
         }
         s += "}" + System.lineSeparator();
@@ -77,35 +84,35 @@ public class Graph {
     }
 
     public static void main(String[] args) throws Throwable {
-        Graph g = new Graph(10);
-        Assert.assertEquals(10, g.V());
-        Assert.assertEquals(0, g.E());
+        Graph G = new Graph(10);
+        Assert.assertEquals(10, G.V());
+        Assert.assertEquals(0, G.E());
 
-        g.addEdge(0, 1);
-        g.addEdge(0, 7);
-        g.addEdge(1, 2);
-        g.addEdge(1, 3);
-        g.addEdge(1, 7);
-        g.addEdge(1, 8);
-        g.addEdge(2, 3);
-        g.addEdge(3, 4);
-        g.addEdge(3, 5);
-        g.addEdge(3, 8);
-        g.addEdge(4, 5);
-        g.addEdge(5, 6);
-        g.addEdge(5, 7);
-        g.addEdge(5, 8);
-        g.addEdge(6, 7);
-        g.addEdge(7, 8);
-        //System.out.println(g.toDot());
+        G.addEdge(0, 1);
+        G.addEdge(0, 7);
+        G.addEdge(1, 2);
+        G.addEdge(1, 3);
+        G.addEdge(1, 7);
+        G.addEdge(1, 8);
+        G.addEdge(2, 3);
+        G.addEdge(3, 4);
+        G.addEdge(3, 5);
+        G.addEdge(3, 8);
+        G.addEdge(4, 5);
+        G.addEdge(5, 6);
+        G.addEdge(5, 7);
+        G.addEdge(5, 8);
+        G.addEdge(6, 7);
+        G.addEdge(7, 8);
+        //System.out.println(G.toDot());
 
-        Assert.assertEquals(10, g.V());
-        Assert.assertEquals(16, g.E());
-        int degree0 = 0; for (int v : g.adj(0)) degree0++;
+        Assert.assertEquals(10, G.V());
+        Assert.assertEquals(16, G.E());
+        int degree0 = 0; for (int v : G.adj(0)) degree0++;
         Assert.assertEquals(2, degree0);
-        int degree1 = 0; for (int v : g.adj(1)) degree1++;
+        int degree1 = 0; for (int v : G.adj(1)) degree1++;
         Assert.assertEquals(5, degree1);
-        int degree8 = 0; for (int v : g.adj(8)) degree8++;
+        int degree8 = 0; for (int v : G.adj(8)) degree8++;
         Assert.assertEquals(4, degree8);
 
         System.out.println("OK");

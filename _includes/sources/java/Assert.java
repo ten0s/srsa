@@ -59,6 +59,36 @@ public class Assert {
         }
     }
 
+    public static void assertEquals(Float exp, float act, float eps) throws Throwable {
+        assertEquals((float)exp, act, eps);
+    }
+
+    public static void assertEquals(float exp, Float act, float eps) throws Throwable {
+        assertEquals(exp, (float)act, eps);
+    }
+
+    public static void assertEquals(float exp, float act, float eps) throws Throwable {
+        if (Math.abs(exp - act) > eps) {
+            System.err.println("Expected: " + exp + ", but saw: " + act);
+            throw new Throwable();
+        }
+    }
+
+    public static void assertEquals(Double exp, double act, double eps) throws Throwable {
+        assertEquals((double)exp, act, eps);
+    }
+
+    public static void assertEquals(double exp, Double act, double eps) throws Throwable {
+        assertEquals(exp, (double)act, eps);
+    }
+
+    public static void assertEquals(double exp, double act, double eps) throws Throwable {
+        if (Math.abs(exp - act) > eps) {
+            System.err.println("Expected: " + exp + ", but saw: " + act);
+            throw new Throwable();
+        }
+    }
+
     public static void assertEquals(String exp, String act) throws Throwable {
         if (!exp.equals(act)) {
             System.err.println("Expected: " + exp + ", but saw: " + act);
