@@ -17,7 +17,7 @@ new() ->
 %% SOLUTION_BEGIN
 is_empty(nil) ->
     true;
-is_empty(_) ->
+is_empty({_, _, _, _}) ->
     false.
 %% SOLUTION_END
 
