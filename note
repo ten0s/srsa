@@ -6,6 +6,11 @@ ANKI_CONNECT_VER=6
 EXE_DIR=exercises
 EXE_URL="https://ten0s.github.io/srsa/exercises"
 
+##
+# API info
+# https://foosoft.net/projects/anki-connect/#notes
+##
+
 if [[ $# -ne 1 ]]; then
     echo "Usage: $(basename $0) <all | NAME>"
     echo "Example:"
@@ -41,7 +46,6 @@ function can-add-note() {
     language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
 
     echo "Checking $name..."
-    # https://foosoft.net/projects/anki-connect/#notes
     anki-api <<EOF | [[ $(jq ".result[0]") == "true" ]]
     {
       "action": "canAddNotes",
@@ -71,7 +75,7 @@ function add-note() {
     language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
 
     echo "Adding $name..."
-    # https://foosoft.net/projects/anki-connect/#notes
+
     anki-api <<EOF
     {
       "action": "addNote",
@@ -102,7 +106,6 @@ function get-note-id() {
     language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
 
     echo "Getting id of $name..."
-    # https://foosoft.net/projects/anki-connect/#notes
     anki-api <<EOF | jq .result[0]
     {
       "action": "findNotes",
@@ -123,8 +126,6 @@ function change-note() {
     echo $id
 
     echo "Changing $name..."
-    # https://foosoft.net/projects/anki-connect/#notes
-    #"<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
     anki-api <<EOF
     {
       "action": "updateNoteFields",
@@ -133,7 +134,7 @@ function change-note() {
         "note": {
           "id": $id,
           "fields": {
-            "Front": "hello"
+            "Front": "<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
           }
         }
       }
