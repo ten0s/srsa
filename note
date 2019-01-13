@@ -147,6 +147,7 @@ ensure-exercise $name
 if can-add-note $name; then
     add-note $name
 else
+    # Doesn't seem to work :(
     change-note $name
 fi
 echo
