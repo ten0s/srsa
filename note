@@ -4,48 +4,149 @@ ANKI_HOST=localhost
 ANKI_PORT=8765
 ANKI_CONNECT_VER=6
 EXE_DIR=./exercises
-EXE_URL="https://ten0s.github.io/srs/exercises"
+EXE_URL="https://ten0s.github.io/srsa/exercises"
 
 if [[ $# -ne 1 ]]; then
     echo "Usage: $(basename $0) <all | NAME>"
     echo "Example:"
-    echo "$ $(basename $0) AppendListErlang.md"
+    echo "$ $(basename $0) java/ArrayQueue.md"
     exit 1
 fi
 
-nc -z $ANKI_HOST $ANKI_PORT || (echo "Anki is NOT running"; exit 1)
+function ensure-anki() {
+    nc -z $ANKI_HOST $ANKI_PORT || (echo "Anki is NOT running"; exit 1)
+}
 
-name=$1
-exercise="$EXE_DIR/$name"
-if [[ ! -f $exercise ]]; then
-    echo "$exercise not found"
-    exit 1
-fi
-echo "Adding $name to Anki..."
-title=$(sed -En 's/title:\s*(.*)/\1/p' $exercise)
-language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
+function ensure-exercise() {
+    exercise="$EXE_DIR/$1"
+    if [[ ! -f $exercise ]]; then
+        echo "$exercise not found"
+        exit 1
+    fi
+    echo $exercise
+}
 
-# https://foosoft.net/projects/anki-connect/#notes
-curl $ANKI_HOST:$ANKI_PORT -X POST -d @- <<EOF
-{
-    "action": "addNote",
-    "version": $ANKI_CONNECT_VER,
-    "params": {
-        "note": {
+function anki-api() {
+    res=$(curl -s $ANKI_HOST:$ANKI_PORT -X POST -d @-)
+    echo $res
+    error=$(echo $res | jq .error)
+    if [[  "$error" != "null" ]]; then
+        exit 1
+    fi
+}
+
+function can-add-note() {
+    exercise="$EXE_DIR/$1"
+    title=$(sed -En 's/title:\s*(.*)/\1/p' $exercise)
+    language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
+
+    echo "Checking $name..."
+    # https://foosoft.net/projects/anki-connect/#notes
+    anki-api <<EOF | [[ $(jq ".result[0]") == "true" ]]
+    {
+      "action": "canAddNotes",
+      "version": $ANKI_CONNECT_VER,
+      "params": {
+        "notes": [
+          {
             "deckName": "Algorithms",
             "modelName": "Basic",
             "fields": {
-                "Front": "<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
-                "Back": ""
-            },
-            "options": {
-                "allowDuplicate": false
+              "Front": "<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
+              "Back": ""
             },
             "tags": [
-                "$language"
+              "$language"
             ]
-        }
+          }
+        ]
+      }
     }
-}
 EOF
+}
+
+function add-note() {
+    exercise="$EXE_DIR/$1"
+    title=$(sed -En 's/title:\s*(.*)/\1/p' $exercise)
+    language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
+
+    echo "Adding $name..."
+    # https://foosoft.net/projects/anki-connect/#notes
+    anki-api <<EOF
+    {
+      "action": "addNote",
+      "version": $ANKI_CONNECT_VER,
+      "params": {
+        "note": {
+          "deckName": "Algorithms",
+          "modelName": "Basic",
+          "fields": {
+            "Front": "<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
+            "Back": ""
+          },
+          "options": {
+            "allowDuplicate": false
+          },
+          "tags": [
+            "$language"
+          ]
+        }
+      }
+    }
+EOF
+}
+
+function get-note-id() {
+    exercise="$EXE_DIR/$1"
+    title=$(sed -En 's/title:\s*(.*)/\1/p' $exercise)
+    language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
+
+    echo "Getting id of $name..."
+    # https://foosoft.net/projects/anki-connect/#notes
+    anki-api <<EOF | jq .result[0]
+    {
+      "action": "findNotes",
+      "version": $ANKI_CONNECT_VER,
+      "params": {
+        "query": "deck:Algorithms ${title} in ${language^}"
+      }
+    }
+EOF
+}
+
+function change-note() {
+    exercise="$EXE_DIR/$1"
+    title=$(sed -En 's/title:\s*(.*)/\1/p' $exercise)
+    language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
+
+    id=$(get-note-id $name)
+    echo $id
+
+    echo "Changing $name..."
+    # https://foosoft.net/projects/anki-connect/#notes
+    #"<a href=\"${EXE_URL}/${name%.md}.html\" target=\"_top\">${title} in ${language^}</a>",
+    anki-api <<EOF
+    {
+      "action": "updateNoteFields",
+      "version": $ANKI_CONNECT_VER,
+      "params": {
+        "note": {
+          "id": $id,
+          "fields": {
+            "Front": "hello"
+          }
+        }
+      }
+    }
+EOF
+}
+
+ensure-anki
+name=$1
+ensure-exercise $name
+if can-add-note $name; then
+    add-note $name
+else
+    change-note $name
+fi
 echo

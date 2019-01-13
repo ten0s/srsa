@@ -4,12 +4,12 @@ if [[ $# -ne 1 ]]; then
     echo "Usage: $(basename $0) <all | NAME>"
     echo "Examples:"
     echo "$ $(basename $0) all"
-    echo "$ $(basename $0) ArrayQueueJava.md"
+    echo "$ $(basename $0) java/ArrayQueue.md"
     exit 1
 fi
 
 EXE_DIR=./exercises
-SRC_DIR=./_includes/sources
+SRC_DIR=./sources
 
 function run() {
     local name=$1
