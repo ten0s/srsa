@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: List length
+title: List Length
 question_text: Determine single-linked list length
 solution_file: /sources/python/length_list.py
 library_files:
