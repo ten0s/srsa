@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Delete List
+title: Delete for List
 question_text: Delete one item from the single-linked list
 solution_file: /sources/java/DeleteList.java
 library_files:

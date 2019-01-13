@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Is Palindrome Number
+title: Is Number a Palindrome
 question_text: Is the number a palindrome?
 solution_file: /sources/java/IsPalindromeNumber.java
 library_files:

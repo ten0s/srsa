@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Member List
+title: Member of List
 question_text: Determine if an item is the member of the single-linked list
 solution_file: /sources/java/MemberList.java
 library_files:

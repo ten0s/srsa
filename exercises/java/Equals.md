@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Equals and hash code
+title: Equals and Hash Code
 question_text: Implement correctly the equals and hashCode methods
 solution_file: /sources/java/EqualsTest.java
 library_files:

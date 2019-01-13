@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Is Palindrome String
+title: Is String a Palindrome
 question_text: Is the string a palindrome?
 solution_file: /sources/java/IsPalindromeString.java
 library_files:

@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Is Rotation String
+title: Is String a Rotation of the Other
 question_text: Check if one string is a rotation of the other?
 solution_file: /sources/java/IsRotationString.java
 library_files:

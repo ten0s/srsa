@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Selection sort
+title: Selection Sort
 question_text: Sort list using Selection sort
 solution_file: /sources/erlang/selection_sort.erl
 library_files:

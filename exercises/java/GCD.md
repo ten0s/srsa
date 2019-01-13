@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Greatest common divisor
+title: GCD
 question_text: Implement GCD
 solution_file: /sources/java/GCD.java
 library_files:
