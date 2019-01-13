@@ -17,7 +17,7 @@ new() ->
 %% SOLUTION_BEGIN
 is_empty({[], _}) ->
     true;
-is_empty(_) ->
+is_empty({_, _}) ->
     false.
 %% SOLUTION_END
 
