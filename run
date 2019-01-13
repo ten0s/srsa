@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 if [[ $# -ne 1 ]]; then
-    echo "Usage: $(basename $0) <all | <LANG> | NAME>"
+    echo "Usage: $(basename $0) <all | LANG | LANG/NAME>"
     echo "Examples:"
     echo "$ $(basename $0) all"
     echo "$ $(basename $0) java"

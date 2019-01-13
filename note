@@ -1,25 +1,32 @@
 #!/bin/bash -e
 
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $(basename $0) <LANG/NAME>"
+    echo "Example:"
+    echo "$ $(basename $0) java/ArrayQueue.md"
+    exit 1
+fi
+
 ANKI_HOST=localhost
 ANKI_PORT=8765
 ANKI_CONNECT_VER=6
 EXE_DIR=exercises
 EXE_URL="https://ten0s.github.io/srsa/exercises"
 
+if [[ -f srsa.conf ]]; then
+    source srsa.conf
+fi
+
 ##
 # API info
 # https://foosoft.net/projects/anki-connect/#notes
 ##
 
-if [[ $# -ne 1 ]]; then
-    echo "Usage: $(basename $0) <NAME>"
-    echo "Example:"
-    echo "$ $(basename $0) java/ArrayQueue.md"
-    exit 1
-fi
-
 function ensure-anki() {
-    nc -z $ANKI_HOST $ANKI_PORT || (echo "Anki is NOT running"; exit 1)
+    if ! nc -z $ANKI_HOST $ANKI_PORT; then
+        echo "Anki is NOT running"
+        exit 1
+    fi
 }
 
 function ensure-exercise() {

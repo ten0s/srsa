@@ -11,9 +11,9 @@
 opts[k++]=-it
 opts[k++]=--rm
 opts[k++]=--volume="$PWD:/srv/jekyll"
-if [[ `echo $@ | grep serve` ]]; then
+if echo "$@" | grep serve; then
     opts[k++]=--publish=4000:4000
 fi
 
-export JEKYLL_VERSION=3.8
-docker run ${opts[@]} jekyll/jekyll:$JEKYLL_VERSION jekyll "$@"
+JEKYLL_VERSION=3.8
+docker run "${opts[@]}" jekyll/jekyll:$JEKYLL_VERSION jekyll "$@"
