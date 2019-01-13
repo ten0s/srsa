@@ -12,7 +12,7 @@ EXE_URL="https://ten0s.github.io/srsa/exercises"
 ##
 
 if [[ $# -ne 1 ]]; then
-    echo "Usage: $(basename $0) <all | NAME>"
+    echo "Usage: $(basename $0) <NAME>"
     echo "Example:"
     echo "$ $(basename $0) java/ArrayQueue.md"
     exit 1
