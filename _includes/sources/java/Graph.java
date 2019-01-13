@@ -37,8 +37,13 @@ public class Graph {
 
     public void addEdge(int v, int w) {
         // SOLUTION_BEGIN
-        adj[v].add(w);
-        adj[w].add(v);
+        if (v != w) {
+            adj[v].add(w);
+            adj[w].add(v);
+        } else {
+            // add self-loop once
+            adj[v].add(v);
+        }
         E++;
         // SOLUTION_END
     }

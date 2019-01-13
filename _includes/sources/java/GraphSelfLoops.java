@@ -15,8 +15,7 @@ public class GraphSelfLoops {
                 if (v == w) count++;
             }
         }
-        // each edge counted twice
-        return count/2;
+        return count;
         // SOLUTION_END
     }
 
@@ -47,6 +46,8 @@ public class GraphSelfLoops {
         G2.addEdge(0, 1);
         G2.addEdge(0, 2);
         G2.addEdge(1, 2);
+        //System.out.println(G2);
+        //System.out.println(G2.toDot());
         Assert.assertEquals(1, selfLoops(G2));
 
         System.out.println("OK");
