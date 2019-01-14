@@ -89,6 +89,7 @@ public class Graph {
     }
 
     public static void main(String[] args) throws Throwable {
+        // /sources/data/graph1.txt
         Graph G = new Graph(10);
         Assert.assertEquals(10, G.V());
         Assert.assertEquals(0, G.E());
