@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Merge sort
+title: Merge Sort
 question_text: Sort list using Merge sort
 solution_file: /sources/erlang/merge_sort.erl
 library_files:

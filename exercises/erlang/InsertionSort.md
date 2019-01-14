@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Insertion sort
+title: Insertion Sort
 question_text: Sort list using Insertion sort
 solution_file: /sources/erlang/insertion_sort.erl
 library_files:
