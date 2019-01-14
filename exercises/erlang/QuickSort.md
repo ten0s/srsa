@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Quick sort
+title: Quick Sort
 question_text: Sort list using schematic Quick sort
 solution_file: /sources/erlang/quick_sort.erl
 library_files:
