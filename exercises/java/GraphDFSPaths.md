@@ -2,7 +2,7 @@
 layout: exercise
 title: Graph DFS Paths
 question_text: >-
-  Is there a path froms to a given target vertex v? If so, find find such a path
+  Is there a path from to a given target vertex v? If so, find such a path
   <p><img relative_src="/assets/images/tinyG.png"></p>
 solution_file: /sources/java/GraphDFSPaths.java
 library_files:
