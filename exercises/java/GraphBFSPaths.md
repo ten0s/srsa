@@ -2,7 +2,8 @@
 layout: exercise
 title: Graph BFS Paths
 question_text: >-
-  Is there a path from to a given target vertex v? If so, find such a <i>shortest</i> path
+  Is there a path from <i>s</i> to a given target vertex <i>v</i>?
+  If so, find such a <i>shortest</i> path
   <p><img relative_src="/assets/images/tinyG.png"></p>
 solution_file: /sources/java/GraphBFSPaths.java
 library_files:
