@@ -1,8 +1,8 @@
-function fix_img_relative_srcs() {
-    $("img[relative_src]").each(function () {
-        var img = $(this);
-        var src = img.attr("relative_src");
-        img.attr("src", relative_url(src));
+function fix_relative_srcs() {
+    $("[relative_src]").each(function () {
+        var tag = $(this);
+        var src = tag.attr("relative_src");
+        tag.attr("src", relative_url(src));
     });
 }
 
