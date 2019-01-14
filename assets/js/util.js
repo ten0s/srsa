@@ -11,6 +11,6 @@ function relative_url(url) {
     if (prefix === "exercises") {
         return url;
     } else {
-        return prefix + "/" + url;
+        return "/" + prefix + "/" + url;
     }
 }
