@@ -3,7 +3,7 @@ layout: exercise
 title: Graph degree
 question_text: >-
   Compute degree in a graph
-  <p><img src="../assets/images/graph1.png"></p>
+  <p><img src="/assets/images/graph1.png"></p>
 solution_file: /sources/java/GraphDegree.java
 library_files:
 - /sources/java/Assert.java
