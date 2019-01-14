@@ -42,6 +42,7 @@ public class HashMap<Key , Value> {
 
     private void resize(int capacity) {
         // SOLUTION_BEGIN
+        if (this.m == capacity) return;
         HashMap<Key, Value> t = new HashMap<>(capacity);
         for (int i = 0; i < m; i++) {
             for (Node x = a[i]; x != null; x = x.next) {
@@ -114,14 +115,14 @@ public class HashMap<Key , Value> {
 
         Assert.assertEquals(0, t.size());
         Assert.assertTrue(t.isEmpty());
-        Assert.assertTrue(Prime.isPrime(t.m));
+        Assert.assertEquals(MIN_CAPACITY, t.m);
         Assert.assertNull(t.get(1));
 
         for (int i = 0; i < 1000; i++) {
             t.put(i, i);
             Assert.assertEquals(i, t.get(i));
-            t.put(i, i^2);
-            Assert.assertEquals(i^2, t.get(i));
+            t.put(i, i*i);
+            Assert.assertEquals(i*i, t.get(i));
         }
         Assert.assertEquals(1000, t.size());
         Assert.assertFalse(t.isEmpty());
@@ -133,7 +134,7 @@ public class HashMap<Key , Value> {
         }
         Assert.assertEquals(0, t.size());
         Assert.assertTrue(t.isEmpty());
-        Assert.assertTrue(Prime.isPrime(t.m));
+        Assert.assertEquals(MIN_CAPACITY, t.m);
         Assert.assertNull(t.get(1));
 
         System.out.println("OK");
