@@ -1,7 +1,10 @@
 ---
 layout: exercise
 title: Graph self-loops
-question_text: Count self-loops in a graph
+question_text: >-
+  Count self-loops in a graph
+  <p><img src="../assets/images/graph1.png"></p>
+  <p><img src="../assets/images/graph2.png"></p>
 solution_file: /sources/java/GraphSelfLoops.java
 library_files:
 - /sources/java/Assert.java

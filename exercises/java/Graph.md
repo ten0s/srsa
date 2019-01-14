@@ -1,7 +1,9 @@
 ---
 layout: exercise
 title: Graph
-question_text: Implement graph using adjacency lists
+question_text: >-
+  Implement graph using adjacency lists
+  <p><img src="../assets/images/graph1.png"></p>
 solution_file: /sources/java/Graph.java
 library_files:
 - /sources/java/Assert.java
