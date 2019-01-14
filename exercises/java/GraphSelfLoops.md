@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Graph self-loops
+title: Graph Self-Loops
 question_text: >-
   Count self-loops in a graph
   <p><img relative_src="/assets/images/graph1.png"></p>

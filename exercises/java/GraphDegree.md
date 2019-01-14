@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Graph degree
+title: Graph Degree
 question_text: >-
   Compute degree in a graph
   <p><img relative_src="/assets/images/graph1.png"></p>

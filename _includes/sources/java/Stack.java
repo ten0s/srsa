@@ -67,25 +67,4 @@ public class Stack<Item> implements Iterable<Item> {
             throw new UnsupportedOperationException();
         }
     }
-
-    public static void main(String[] args) throws Throwable {
-        ListStack<String> s = new ListStack<>();
-        Assert.assertTrue(s.isEmpty());
-        Assert.assertEquals(0, s.size());
-        s.push("1");
-        s.push("2");
-        s.push("3");
-        Assert.assertFalse(s.isEmpty());
-        Assert.assertEquals(3, s.size());
-        Assert.assertEquals("3", s.pop());
-        Assert.assertEquals("2", s.pop());
-        Assert.assertEquals("1", s.pop());
-        Assert.assertTrue(s.isEmpty());
-        Assert.assertEquals(0, s.size());
-        try {
-            s.pop();
-            Assert.assertTrue(false);
-        } catch (NoSuchElementException e) {}
-        System.out.println("OK");
-    }
 }
