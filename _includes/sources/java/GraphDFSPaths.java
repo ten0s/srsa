@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.Collections;
+
 /*
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
@@ -41,7 +44,13 @@ public class GraphDFSPaths {
 
     public Iterable<Integer> pathTo(int v) {
         // SOLUTION_BEGIN
-        if (!hasPathTo(v)) return null;
+        if (!hasPathTo(v)) {
+            return new Iterable<Integer>() {
+                public Iterator<Integer> iterator() {
+                    return Collections.emptyIterator();
+                }
+            };
+        }
         Stack<Integer> path = new Stack<Integer>();
         for (int x = v; x != s; x = edgeTo[x]) {
             path.push(x);
@@ -52,10 +61,9 @@ public class GraphDFSPaths {
     }
 
     private static String pathToString(int v, GraphDFSPaths ps) {
-        //if (!ps.hasPathTo(v)) return "";
-        String s = null;
+        String s = "";
         for (int x : ps.pathTo(v)) {
-            if (s == null) {
+            if (s.equals("")) {
                 s = "" + x;
             } else {
                 s += "-" + x;
@@ -88,9 +96,18 @@ public class GraphDFSPaths {
         Assert.assertTrue(ps0.hasPathTo(3));
         Assert.assertTrue(ps0.hasPathTo(4));
         Assert.assertTrue(ps0.hasPathTo(5));
+
+        int l = 0;
+        for (int x : ps0.pathTo(5)) { l++; }
+        Assert.assertEquals(4, l);
         Assert.assertEquals("0-6-4-5", pathToString(5, ps0));
+
         Assert.assertTrue(ps0.hasPathTo(6));
+
         Assert.assertFalse(ps0.hasPathTo(7));
+        for (int x : ps0.pathTo(7)) {}
+        Assert.assertEquals("", pathToString(7, ps0));
+
         Assert.assertFalse(ps0.hasPathTo(9));
 
         GraphDFSPaths ps9 = new GraphDFSPaths(9, G);
