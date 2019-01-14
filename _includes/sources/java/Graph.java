@@ -109,6 +109,7 @@ public class Graph {
         G.addEdge(5, 8);
         G.addEdge(6, 7);
         G.addEdge(7, 8);
+        //System.out.println(G);
         //System.out.println(G.toDot());
 
         Assert.assertEquals(10, G.V());

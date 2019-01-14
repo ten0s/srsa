@@ -9,8 +9,8 @@ public class Node<T> {
 
 public class ListStack<Item> {
     // SOLUTION_BEGIN
-    Node<Item> first;
-    int size;
+    private Node<Item> first;
+    private int size;
     // SOLUTION_END
 
     public boolean isEmpty() {

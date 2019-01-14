@@ -9,9 +9,9 @@ public class Node<T> {
 
 public class ListQueue<Item> {
     // SOLUTION_BEGIN
-    Node<Item> first;
-    Node<Item> last;
-    int size;
+    private Node<Item> first;
+    private Node<Item> last;
+    private int size;
     // SOLUTION_END
 
     public boolean isEmpty() {
