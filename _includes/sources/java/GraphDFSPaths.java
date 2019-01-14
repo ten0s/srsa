@@ -51,7 +51,7 @@ public class GraphDFSPaths {
                 }
             };
         }
-        Stack<Integer> path = new Stack<Integer>();
+        Stack<Integer> path = new Stack<>();
         for (int x = v; x != s; x = edgeTo[x]) {
             path.push(x);
         }
