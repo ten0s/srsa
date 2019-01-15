@@ -18,14 +18,14 @@ public class public class Stack<Item> implements Iterable<Item> {
 public class GraphBFSPaths {
     // SOLUTION_BEGIN
     private boolean[] marked;
-    private int[] edgeTo;
+    private int[] parent;
     private final int s;
     // SOLUTION_END
 
     public GraphBFSPaths(int s, Graph G) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
-        edgeTo = new int[G.V()];
+        parent = new int[G.V()];
         this.s = s;
         bfs(s, G);
         // SOLUTION_END
@@ -41,7 +41,7 @@ public class GraphBFSPaths {
             for (int w : G.adj(v)) {
                 if (!marked[w]) {
                     marked[w] = true;
-                    edgeTo[w] = v;
+                    parent[w] = v;
                     queue.enqueue(w);
                 }
             }
@@ -65,7 +65,7 @@ public class GraphBFSPaths {
             };
         }
         Stack<Integer> path = new Stack<>();
-        for (int x = v; x != s; x = edgeTo[x]) {
+        for (int x = v; x != s; x = parent[x]) {
             path.push(x);
         }
         path.push(s);

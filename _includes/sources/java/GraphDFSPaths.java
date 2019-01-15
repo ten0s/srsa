@@ -11,14 +11,14 @@ public class public class Stack<Item> implements Iterable<Item> {
 public class GraphDFSPaths {
     // SOLUTION_BEGIN
     private boolean[] marked;
-    private int[] edgeTo;
+    private int[] parent;
     private final int s;
     // SOLUTION_END
 
     public GraphDFSPaths(int s, Graph G) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
-        edgeTo = new int[G.V()];
+        parent = new int[G.V()];
         this.s = s;
         dfs(s, G);
         // SOLUTION_END
@@ -29,7 +29,7 @@ public class GraphDFSPaths {
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
-                edgeTo[w] = v;
+                parent[w] = v;
                 dfs(w, G);
             }
         }
@@ -52,7 +52,7 @@ public class GraphDFSPaths {
             };
         }
         Stack<Integer> path = new Stack<>();
-        for (int x = v; x != s; x = edgeTo[x]) {
+        for (int x = v; x != s; x = parent[x]) {
             path.push(x);
         }
         path.push(s);
