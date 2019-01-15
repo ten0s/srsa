@@ -57,10 +57,10 @@ public class PriorityQueue {
         }
 
         private void sink(int k) {
-            // while my right child is inside the tree
+            // while left child is in the tree
             while (2*k <= n) {
                 int j = 2*k;
-                // if two children, choose max child
+                // if right child is in the tree, choose max child
                 if (j < n && less(j, j+1)) ++j;
                 // stop, if i'm not less than child
                 if (!less(k, j)) break;
