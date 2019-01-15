@@ -4,7 +4,7 @@ title: Graph DFS Paths
 question_text: >-
   Is there a path from <i>s</i> to a given target vertex <i>v</i>?
   If so, find such a path
-  <p><img relative_src="/assets/images/tinyG.png"></p>
+  <p><img relative_src="/assets/images/tinyG.png" title="tinyG"></p>
 solution_file: /sources/java/GraphDFSPaths.java
 library_files:
 - /sources/java/Assert.java

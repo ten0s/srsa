@@ -3,7 +3,7 @@ layout: exercise
 title: Graph
 question_text: >-
   Implement graph using adjacency lists
-  <p><img relative_src="/assets/images/graph1.png"></p>
+  <p><img relative_src="/assets/images/graph1.png" title="graph1"></p>
 solution_file: /sources/java/Graph.java
 library_files:
 - /sources/java/Assert.java
