@@ -3,8 +3,12 @@ layout: exercise
 title: Graph Self-Loops
 question_text: >-
   Count self-loops in a graph
-  <p><img relative_src="/assets/images/graph1.png" title="graph1"></p>
-  <p><img relative_src="/assets/images/graph2.png" title="graph2"></p>
+  <table border="1">
+    <tr>
+      <td><img relative_src="/assets/images/graph1.png" title="graph1"></td>
+      <td><img relative_src="/assets/images/graph2.png" title="graph2"></td>
+    </tr>
+  </table>
 solution_file: /sources/java/GraphSelfLoops.java
 library_files:
 - /sources/java/Assert.java

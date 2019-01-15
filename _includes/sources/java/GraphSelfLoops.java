@@ -21,26 +21,26 @@ public class GraphSelfLoops {
 
     public static void main(String[] args) throws Throwable {
         // /sources/data/graph1.txt
-        Graph G = new Graph(10);
-        G.addEdge(0, 1);
-        G.addEdge(0, 7);
-        G.addEdge(1, 2);
-        G.addEdge(1, 3);
-        G.addEdge(1, 7);
-        G.addEdge(1, 8);
-        G.addEdge(2, 3);
-        G.addEdge(3, 4);
-        G.addEdge(3, 5);
-        G.addEdge(3, 8);
-        G.addEdge(4, 5);
-        G.addEdge(5, 6);
-        G.addEdge(5, 7);
-        G.addEdge(5, 8);
-        G.addEdge(6, 7);
-        G.addEdge(7, 8);
-        //System.out.println(G);
-        //System.out.println(G.toDot());
-        Assert.assertEquals(0, selfLoops(G));
+        Graph G1 = new Graph(10);
+        G1.addEdge(0, 1);
+        G1.addEdge(0, 7);
+        G1.addEdge(1, 2);
+        G1.addEdge(1, 3);
+        G1.addEdge(1, 7);
+        G1.addEdge(1, 8);
+        G1.addEdge(2, 3);
+        G1.addEdge(3, 4);
+        G1.addEdge(3, 5);
+        G1.addEdge(3, 8);
+        G1.addEdge(4, 5);
+        G1.addEdge(5, 6);
+        G1.addEdge(5, 7);
+        G1.addEdge(5, 8);
+        G1.addEdge(6, 7);
+        G1.addEdge(7, 8);
+        //System.out.println(G1);
+        //System.out.println(G1.toDot());
+        Assert.assertEquals(0, selfLoops(G1));
 
         // /sources/data/graph2.txt
         Graph G2 = new Graph(3);
