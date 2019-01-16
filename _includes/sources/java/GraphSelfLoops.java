@@ -15,7 +15,8 @@ public class GraphSelfLoops {
                 if (v == w) count++;
             }
         }
-        return count;
+        // each edge added twice
+        return count/2;
         // SOLUTION_END
     }
 
