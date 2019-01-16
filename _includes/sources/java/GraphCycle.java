@@ -32,7 +32,7 @@ public class GraphCycle {
                 dfs(v, w, G);
             } else {
                 // if vertex is marked and
-                // is NOT our parent
+                // is NOT our grandparent
                 if (w != u) {
                     hasCycle = true;
                 }
