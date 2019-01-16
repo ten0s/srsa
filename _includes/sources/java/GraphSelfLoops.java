@@ -21,7 +21,7 @@ public class GraphSelfLoops {
     }
 
     public static void main(String[] args) throws Throwable {
-        // /sources/data/graph1.txt
+        // /data/graph1.txt
         Graph G1 = new Graph(10);
         G1.addEdge(0, 1);
         G1.addEdge(0, 7);
@@ -43,7 +43,7 @@ public class GraphSelfLoops {
         //System.out.println(G1.toDot());
         Assert.assertEquals(0, selfLoops(G1));
 
-        // /sources/data/graph2.txt
+        // /data/graph2.txt
         Graph G2 = new Graph(3);
         G2.addEdge(0, 0);
         G2.addEdge(0, 1);

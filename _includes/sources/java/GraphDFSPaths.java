@@ -73,7 +73,7 @@ public class GraphDFSPaths {
     }
 
     public static void main(String[] args) throws Throwable {
-        // /sources/data/tinyG.txt
+        // /data/tinyG.txt
         Graph G = new Graph(13);
         G.addEdge(0, 5);
         G.addEdge(4, 3);

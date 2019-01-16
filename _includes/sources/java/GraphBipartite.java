@@ -20,12 +20,6 @@ public class GraphBipartite {
         // SOLUTION_END
     }
 
-    public boolean isBipartite() {
-        // SOLUTION_BEGIN
-        return isBipartite;
-        // SOLUTION_END
-    }
-
     private void dfs(int v, Graph G) {
         // SOLUTION_BEGIN
         marked[v] = true;
@@ -42,8 +36,14 @@ public class GraphBipartite {
         // SOLUTION_END
     }
 
+    public boolean isBipartite() {
+        // SOLUTION_BEGIN
+        return isBipartite;
+        // SOLUTION_END
+    }
+
     public static void main(String[] args) throws Throwable {
-        // /sources/data/graph1.txt
+        // /data/graph1.txt
         Graph G = new Graph(10);
         G.addEdge(0, 1);
         G.addEdge(0, 7);
@@ -64,8 +64,8 @@ public class GraphBipartite {
         GraphBipartite b = new GraphBipartite(G);
         Assert.assertFalse(b.isBipartite());
 
-        // /sources/data/graph4.txt
-        // /sources/data/graph-bipartite.txt
+        // /data/graph4.txt
+        // /data/graph-bipartite.txt
         Graph G4 = new Graph(7);
         G4.addEdge(0, 1);
         G4.addEdge(0, 2);

@@ -18,12 +18,6 @@ public class GraphCycle {
         // SOLUTION_END
     }
 
-    public boolean hasCycle() {
-        // SOLUTION_BEGIN
-        return hasCycle;
-        // SOLUTION_END
-    }
-
     private void dfs(int u, int v, Graph G) {
         // SOLUTION_BEGIN
         marked[v] = true;
@@ -41,8 +35,14 @@ public class GraphCycle {
         // SOLUTION_END
     }
 
+    public boolean hasCycle() {
+        // SOLUTION_BEGIN
+        return hasCycle;
+        // SOLUTION_END
+    }
+
     public static void main(String[] args) throws Throwable {
-        // /sources/data/graph3.txt
+        // /data/graph3.txt
         Graph G3 = new Graph(6);
         G3.addEdge(0, 2);
         G3.addEdge(1, 2);
@@ -52,7 +52,7 @@ public class GraphCycle {
         GraphCycle c3 = new GraphCycle(G3);
         Assert.assertFalse(c3.hasCycle());
 
-        // /sources/data/graph4.txt
+        // /data/graph4.txt
         Graph G4 = new Graph(7);
         G4.addEdge(0, 1);
         G4.addEdge(0, 2);

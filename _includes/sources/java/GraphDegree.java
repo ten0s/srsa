@@ -33,7 +33,7 @@ public class GraphDegree {
     }
 
     public static void main(String[] args) throws Throwable {
-        // /sources/data/graph1.txt
+        // /data/graph1.txt
         Graph G = new Graph(10);
         G.addEdge(0, 1);
         G.addEdge(0, 7);

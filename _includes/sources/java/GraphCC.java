@@ -21,6 +21,18 @@ public class GraphCC {
         // SOLUTION_END
     }
 
+    private void dfs(int v, Graph G) {
+        // SOLUTION_BEGIN
+        marked[v] = true;
+        id[v] = count;
+        for (int w : G.adj(v)) {
+            if (!marked[w]) {
+                dfs(w, G);
+            }
+        }
+        // SOLUTION_END
+    }
+
     public boolean connected(int v, int w) {
         // SOLUTION_BEGIN
         return id(v) == id(w);
@@ -39,20 +51,8 @@ public class GraphCC {
         // SOLUTION_END
     }
 
-    private void dfs(int v, Graph G) {
-        // SOLUTION_BEGIN
-        marked[v] = true;
-        id[v] = count;
-        for (int w : G.adj(v)) {
-            if (!marked[w]) {
-                dfs(w, G);
-            }
-        }
-        // SOLUTION_END
-    }
-
     public static void main(String[] args) throws Throwable {
-        // /sources/data/tinyG.txt
+        // /data/tinyG.txt
         Graph G = new Graph(13);
         G.addEdge(0, 5);
         G.addEdge(4, 3);
