@@ -22,16 +22,16 @@ public class GraphBFSPaths {
     private final int s;
     // SOLUTION_END
 
-    public GraphBFSPaths(int s, Graph G) {
+    public GraphBFSPaths(Graph G, int s) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
         parent = new int[G.V()];
         this.s = s;
-        bfs(s, G);
+        bfs(G, s);
         // SOLUTION_END
     }
 
-    private void bfs(int s, Graph G) {
+    private void bfs(Graph G, int s) {
         // SOLUTION_BEGIN
         Queue<Integer> queue = new Queue<>();
         marked[s] = true;
@@ -73,7 +73,7 @@ public class GraphBFSPaths {
         // SOLUTION_END
     }
 
-    private static String pathToString(int v, GraphBFSPaths ps) {
+    private static String pathToString(GraphBFSPaths ps, int v) {
         String s = "";
         for (int x : ps.pathTo(v)) {
             if (s.equals("")) {
@@ -102,7 +102,7 @@ public class GraphBFSPaths {
         G.addEdge(9, 11);
         G.addEdge(5, 3);
 
-        GraphBFSPaths ps0 = new GraphBFSPaths(0, G);
+        GraphBFSPaths ps0 = new GraphBFSPaths(G, 0);
         Assert.assertTrue(ps0.hasPathTo(0));
         Assert.assertTrue(ps0.hasPathTo(1));
         Assert.assertTrue(ps0.hasPathTo(2));
@@ -113,17 +113,17 @@ public class GraphBFSPaths {
         int l = 0;
         for (int x : ps0.pathTo(5)) { l++; }
         Assert.assertEquals(2, l);
-        Assert.assertEquals("0-5", pathToString(5, ps0));
+        Assert.assertEquals("0-5", pathToString(ps0, 5));
 
         Assert.assertTrue(ps0.hasPathTo(6));
 
         Assert.assertFalse(ps0.hasPathTo(7));
         for (int x : ps0.pathTo(7)) {}
-        Assert.assertEquals("", pathToString(7, ps0));
+        Assert.assertEquals("", pathToString(ps0, 7));
 
         Assert.assertFalse(ps0.hasPathTo(9));
 
-        GraphBFSPaths ps9 = new GraphBFSPaths(9, G);
+        GraphBFSPaths ps9 = new GraphBFSPaths(G, 9);
         Assert.assertTrue(ps9.hasPathTo(9));
         Assert.assertTrue(ps9.hasPathTo(10));
         Assert.assertTrue(ps9.hasPathTo(11));

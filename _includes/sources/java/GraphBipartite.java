@@ -14,19 +14,19 @@ public class GraphBipartite {
         color = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
-                dfs(v, G);
+                dfs(G, v);
             }
         }
         // SOLUTION_END
     }
 
-    private void dfs(int v, Graph G) {
+    private void dfs(Graph G, int v) {
         // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 color[w] = !color[v];
-                dfs(w, G);
+                dfs(G, w);
             } else {
                 if (color[w] == color[v]) {
                     isBipartite = false;

@@ -7,7 +7,7 @@ public class Graph {
 */
 
 public class GraphDegree {
-    public static int degree(int v, Graph G) {
+    public static int degree(Graph G, int v) {
         // SOLUTION_BEGIN
         int d = 0;
         for (int w : G.adj(v)) d++;
@@ -19,7 +19,7 @@ public class GraphDegree {
         // SOLUTION_BEGIN
         int max = 0;
         for (int v = 0; v < G.V(); v++) {
-            max = Math.max(max, degree(v, G));
+            max = Math.max(max, degree(G, v));
         }
         return max;
         // SOLUTION_END
@@ -54,9 +54,9 @@ public class GraphDegree {
         //System.out.println(G);
         //System.out.println(G.toDot());
 
-        Assert.assertEquals(2, degree(0, G));
-        Assert.assertEquals(5, degree(1, G));
-        Assert.assertEquals(4, degree(8, G));
+        Assert.assertEquals(2, degree(G, 0));
+        Assert.assertEquals(5, degree(G, 1));
+        Assert.assertEquals(4, degree(G, 8));
         Assert.assertEquals(5, maxDegree(G));
         Assert.assertEquals(3.2, avgDegree(G), 0.1);
 

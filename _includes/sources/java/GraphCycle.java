@@ -12,18 +12,18 @@ public class GraphCycle {
         marked = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
-                dfs(-1, v, G);
+                dfs(G, -1, v);
             }
         }
         // SOLUTION_END
     }
 
-    private void dfs(int u, int v, Graph G) {
+    private void dfs(Graph G, int u, int v) {
         // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
-                dfs(v, w, G);
+                dfs(G, v, w);
             } else {
                 // if v's child is marked and is NOT v's parent
                 if (w != u) {

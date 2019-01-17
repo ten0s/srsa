@@ -14,20 +14,20 @@ public class GraphCC {
         id = new int[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
-                dfs(v, G);
+                dfs(G, v);
                 count++;
             }
         }
         // SOLUTION_END
     }
 
-    private void dfs(int v, Graph G) {
+    private void dfs(Graph G, int v) {
         // SOLUTION_BEGIN
         marked[v] = true;
         id[v] = count;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
-                dfs(w, G);
+                dfs(G, w);
             }
         }
         // SOLUTION_END

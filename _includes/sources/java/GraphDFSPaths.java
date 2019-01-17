@@ -15,22 +15,22 @@ public class GraphDFSPaths {
     private final int s;
     // SOLUTION_END
 
-    public GraphDFSPaths(int s, Graph G) {
+    public GraphDFSPaths(Graph G, int s) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
         parent = new int[G.V()];
         this.s = s;
-        dfs(s, G);
+        dfs(G, s);
         // SOLUTION_END
     }
 
-    private void dfs(int v, Graph G) {
+    private void dfs(Graph G, int v) {
         // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 parent[w] = v;
-                dfs(w, G);
+                dfs(G, w);
             }
         }
         // SOLUTION_END
@@ -60,7 +60,7 @@ public class GraphDFSPaths {
         // SOLUTION_END
     }
 
-    private static String pathToString(int v, GraphDFSPaths ps) {
+    private static String pathToString(GraphDFSPaths ps, int v) {
         String s = "";
         for (int x : ps.pathTo(v)) {
             if (s.equals("")) {
@@ -89,7 +89,7 @@ public class GraphDFSPaths {
         G.addEdge(9, 11);
         G.addEdge(5, 3);
 
-        GraphDFSPaths ps0 = new GraphDFSPaths(0, G);
+        GraphDFSPaths ps0 = new GraphDFSPaths(G, 0);
         Assert.assertTrue(ps0.hasPathTo(0));
         Assert.assertTrue(ps0.hasPathTo(1));
         Assert.assertTrue(ps0.hasPathTo(2));
@@ -100,17 +100,17 @@ public class GraphDFSPaths {
         int l = 0;
         for (int x : ps0.pathTo(5)) { l++; }
         Assert.assertEquals(4, l);
-        Assert.assertEquals("0-6-4-5", pathToString(5, ps0));
+        Assert.assertEquals("0-6-4-5", pathToString(ps0, 5));
 
         Assert.assertTrue(ps0.hasPathTo(6));
 
         Assert.assertFalse(ps0.hasPathTo(7));
         for (int x : ps0.pathTo(7)) {}
-        Assert.assertEquals("", pathToString(7, ps0));
+        Assert.assertEquals("", pathToString(ps0, 7));
 
         Assert.assertFalse(ps0.hasPathTo(9));
 
-        GraphDFSPaths ps9 = new GraphDFSPaths(9, G);
+        GraphDFSPaths ps9 = new GraphDFSPaths(G, 9);
         Assert.assertTrue(ps9.hasPathTo(9));
         Assert.assertTrue(ps9.hasPathTo(10));
         Assert.assertTrue(ps9.hasPathTo(11));
