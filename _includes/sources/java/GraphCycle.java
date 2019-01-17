@@ -25,8 +25,7 @@ public class GraphCycle {
             if (!marked[w]) {
                 dfs(v, w, G);
             } else {
-                // if vertex is marked and
-                // is NOT our grandparent
+                // if v's child is marked and is NOT v's parent
                 if (w != u) {
                     hasCycle = true;
                 }
