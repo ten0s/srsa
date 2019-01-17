@@ -1,5 +1,4 @@
 import java.util.Iterator;
-import java.util.Collections;
 
 /*
 public class public class Queue<Item> implements Iterable<Item> {
@@ -58,11 +57,7 @@ public class GraphBFSPaths {
     public Iterable<Integer> pathTo(int v) {
         // SOLUTION_BEGIN
         if (!hasPathTo(v)) {
-            return new Iterable<Integer>() {
-                public Iterator<Integer> iterator() {
-                    return Collections.emptyIterator();
-                }
-            };
+            return null;
         }
         Stack<Integer> path = new Stack<>();
         for (int x = v; x != s; x = edgeTo[x]) {
@@ -116,11 +111,7 @@ public class GraphBFSPaths {
         Assert.assertEquals("0-5", pathToString(ps0, 5));
 
         Assert.assertTrue(ps0.hasPathTo(6));
-
         Assert.assertFalse(ps0.hasPathTo(7));
-        for (int x : ps0.pathTo(7)) {}
-        Assert.assertEquals("", pathToString(ps0, 7));
-
         Assert.assertFalse(ps0.hasPathTo(9));
 
         GraphBFSPaths ps9 = new GraphBFSPaths(G, 9);
