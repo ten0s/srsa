@@ -15,9 +15,11 @@ public class public class Stack<Item> implements Iterable<Item> {
 */
 
 public class GraphBFSPaths {
+    private static final int INFINITY = Integer.MAX_VALUE;
     // SOLUTION_BEGIN
     private boolean[] marked;
     private int[] edgeTo;
+    private int[] distTo;
     private final int s;
     // SOLUTION_END
 
@@ -25,6 +27,10 @@ public class GraphBFSPaths {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
+        distTo = new int[G.V()];
+        for (int v = 0; v < G.V(); v++) {
+            distTo[v] = INFINITY;
+        }
         this.s = s;
         bfs(G, s);
         // SOLUTION_END
@@ -34,6 +40,7 @@ public class GraphBFSPaths {
         // SOLUTION_BEGIN
         Queue<Integer> queue = new Queue<>();
         marked[s] = true;
+        distTo[s] = 0;
         queue.enqueue(s);
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
@@ -41,6 +48,7 @@ public class GraphBFSPaths {
                 if (!marked[w]) {
                     marked[w] = true;
                     edgeTo[w] = v;
+                    distTo[w] = distTo[v] + 1;
                     queue.enqueue(w);
                 }
             }
@@ -65,6 +73,12 @@ public class GraphBFSPaths {
         }
         path.push(s);
         return path;
+        // SOLUTION_END
+    }
+
+    public int distTo(int v) {
+        // SOLUTION_BEGIN
+        return distTo[v];
         // SOLUTION_END
     }
 
@@ -99,28 +113,53 @@ public class GraphBFSPaths {
 
         GraphBFSPaths ps0 = new GraphBFSPaths(G, 0);
         Assert.assertTrue(ps0.hasPathTo(0));
-        Assert.assertTrue(ps0.hasPathTo(1));
-        Assert.assertTrue(ps0.hasPathTo(2));
-        Assert.assertTrue(ps0.hasPathTo(3));
-        Assert.assertTrue(ps0.hasPathTo(4));
-        Assert.assertTrue(ps0.hasPathTo(5));
+        Assert.assertEquals(0, ps0.distTo(0));
 
-        int l = 0;
-        for (int x : ps0.pathTo(5)) { l++; }
-        Assert.assertEquals(2, l);
+        Assert.assertTrue(ps0.hasPathTo(1));
+        Assert.assertEquals(1, ps0.distTo(1));
+
+        Assert.assertTrue(ps0.hasPathTo(2));
+        Assert.assertEquals(1, ps0.distTo(2));
+
+        Assert.assertTrue(ps0.hasPathTo(3));
+        Assert.assertEquals(2, ps0.distTo(3));
+        Assert.assertEquals("0-5-3", pathToString(ps0, 3));
+
+        Assert.assertTrue(ps0.hasPathTo(4));
+        Assert.assertEquals(2, ps0.distTo(4));
+        Assert.assertEquals("0-6-4", pathToString(ps0, 4));
+
+        Assert.assertTrue(ps0.hasPathTo(5));
+        Assert.assertEquals(1, ps0.distTo(5));
         Assert.assertEquals("0-5", pathToString(ps0, 5));
 
         Assert.assertTrue(ps0.hasPathTo(6));
+        Assert.assertEquals(1, ps0.distTo(6));
+
         Assert.assertFalse(ps0.hasPathTo(7));
+        Assert.assertEquals(INFINITY, ps0.distTo(7));
+
         Assert.assertFalse(ps0.hasPathTo(9));
+        Assert.assertEquals(INFINITY, ps0.distTo(9));
 
         GraphBFSPaths ps9 = new GraphBFSPaths(G, 9);
         Assert.assertTrue(ps9.hasPathTo(9));
+        Assert.assertEquals(0, ps9.distTo(9));
+
         Assert.assertTrue(ps9.hasPathTo(10));
+        Assert.assertEquals(1, ps9.distTo(10));
+
         Assert.assertTrue(ps9.hasPathTo(11));
+        Assert.assertEquals(1, ps9.distTo(11));
+
         Assert.assertTrue(ps9.hasPathTo(12));
+        Assert.assertEquals(1, ps9.distTo(12));
+
         Assert.assertFalse(ps9.hasPathTo(0));
+        Assert.assertEquals(INFINITY, ps9.distTo(0));
+
         Assert.assertFalse(ps9.hasPathTo(7));
+        Assert.assertEquals(INFINITY, ps9.distTo(7));
 
         System.out.println("OK");
     }

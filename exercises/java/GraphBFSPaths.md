@@ -3,7 +3,7 @@ layout: exercise
 title: Graph BFS Paths
 question_text: >-
   Is there a path from <i>s</i> to a given target vertex <i>v</i>?
-  If so, find such a <i>shortest</i> path
+  If so, find such a <i>shortest</i> path and its distance
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyG.png" title="tinyG"></td>
