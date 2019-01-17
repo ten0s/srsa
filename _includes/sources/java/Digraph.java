@@ -5,7 +5,7 @@ public class Bag<Item> implements Iterable<Item> {
 }
 */
 
-public class Graph {
+public class Digraph {
     // SOLUTION_BEGIN
     private final int V;        // number of vertices
     private int E;              // number of edges
@@ -13,7 +13,7 @@ public class Graph {
     // SOLUTION_END
 
     @SuppressWarnings("unchecked")
-    public Graph(int V) {
+    public Digraph(int V) {
         // SOLUTION_BEGIN
         this.V = V;
         adj = (Bag<Integer>[]) new Bag[V];
@@ -38,7 +38,6 @@ public class Graph {
     public void addEdge(int v, int w) {
         // SOLUTION_BEGIN
         adj[v].add(w);
-        adj[w].add(v);
         E++;
         // SOLUTION_END
     }
@@ -46,6 +45,18 @@ public class Graph {
     public Iterable<Integer> adj(int v) {
         // SOLUTION_BEGIN
         return adj[v];
+        // SOLUTION_END
+    }
+
+    public Digraph reverse() {
+        // SOLUTION_BEGIN
+        Digraph R = new Digraph(V);
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                R.addEdge(w, v);
+            }
+        }
+        return R;
         // SOLUTION_END
     }
 
@@ -62,16 +73,13 @@ public class Graph {
     }
 
     public String toDot() {
-        String s = "graph {" + System.lineSeparator();
+        String s = "digraph {" + System.lineSeparator();
         HashSet<Integer> nodes = new HashSet<>();
-        HashSet<String> pairs = new HashSet<>();
         for (int v = 0; v < V; v++) {
             for (int w : adj(v)) {
+                nodes.add(v);
                 nodes.add(w);
-                if (!pairs.contains(w + "-" + v)) {
-                    s += "  " + v + " -- " + w + ";" + System.lineSeparator();
-                    pairs.add(v + "-" + w);
-                }
+                s += "  " + v + " -> " + w + ";" + System.lineSeparator();
             }
         }
         for (int v = 0; v < V; v++) {
@@ -85,7 +93,7 @@ public class Graph {
 
     public static void main(String[] args) throws Throwable {
         // /data/graph1.txt
-        Graph G = new Graph(10);
+        Digraph G = new Digraph(10);
         Assert.assertEquals(10, G.V());
         Assert.assertEquals(0, G.E());
 
@@ -110,12 +118,25 @@ public class Graph {
 
         Assert.assertEquals(10, G.V());
         Assert.assertEquals(16, G.E());
-        int degree0 = 0; for (int v : G.adj(0)) degree0++;
-        Assert.assertEquals(2, degree0);
-        int degree1 = 0; for (int v : G.adj(1)) degree1++;
-        Assert.assertEquals(5, degree1);
-        int degree8 = 0; for (int v : G.adj(8)) degree8++;
-        Assert.assertEquals(4, degree8);
+        int outdegree0 = 0; for (int v : G.adj(0)) outdegree0++;
+        Assert.assertEquals(2, outdegree0);
+        int outdegree1 = 0; for (int v : G.adj(1)) outdegree1++;
+        Assert.assertEquals(4, outdegree1);
+        int outdegree8 = 0; for (int v : G.adj(8)) outdegree8++;
+        Assert.assertEquals(0, outdegree8);
+
+        Digraph R = G.reverse();
+        //System.out.println(R);
+        //System.out.println(R.toDot());
+
+        Assert.assertEquals(10, R.V());
+        Assert.assertEquals(16, R.E());
+        outdegree0 = 0; for (int v : R.adj(0)) outdegree0++;
+        Assert.assertEquals(0, outdegree0);
+        outdegree1 = 0; for (int v : R.adj(1)) outdegree1++;
+        Assert.assertEquals(1, outdegree1);
+        outdegree8 = 0; for (int v : R.adj(8)) outdegree8++;
+        Assert.assertEquals(4, outdegree8);
 
         System.out.println("OK");
     }
