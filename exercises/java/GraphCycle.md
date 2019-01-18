@@ -21,6 +21,7 @@ library_files:
 - /sources/java/HashSet.java
 - /sources/java/Queue.java
 - /sources/java/Prime.java
+- /sources/java/Stack.java
 language: java
 command: javac GraphCycle.java && java GraphCycle
 ---

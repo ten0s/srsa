@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 /*
 public class public class Queue<Item> implements Iterable<Item> {
     public Queue();

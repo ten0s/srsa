@@ -1,3 +1,10 @@
+/*
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+}
+*/
+
 public class GraphCycle {
     // SOLUTION_BEGIN
     private boolean[] marked;
