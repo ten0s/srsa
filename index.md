@@ -2,6 +2,10 @@
 layout: default
 title: Exercises
 ---
+<blockquote class="blockquote text-right">
+  <p>We don't rise to the level of our expectations, we fall to the level of our training</p>
+</blockquote>
+
 {% comment %}
    Build languages array
 {% endcomment %}
