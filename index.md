@@ -3,7 +3,11 @@ layout: default
 title: Exercises
 ---
 <blockquote class="blockquote text-right">
-  <p>We don't rise to the level of our expectations, we fall to the level of our training</p>
+  <p class="mb-0">In the thick of battle, you will not rise to the level of your
+     expectations, but fall to the level of your training.</p>
+  <footer class="blockquote-footer">
+     <a href="https://fs.blog/mental-models/">Farnam Street: Mental Models</a>
+  </footer>
 </blockquote>
 
 {% comment %}

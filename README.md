@@ -1,1 +1,3 @@
-We don't rise to the level of our expectations, we fall to the level of our training
+In the thick of battle, you will not rise to the level of your expectations, but fall to the level of your training.
+
+-- [Farnam Street: Mental Models](https://fs.blog/mental-models/)
