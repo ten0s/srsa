@@ -1,6 +1,3 @@
-import java.util.Iterator;
-import java.util.Collections;
-
 public class GraphCycle {
     // SOLUTION_BEGIN
     private boolean[] marked;
