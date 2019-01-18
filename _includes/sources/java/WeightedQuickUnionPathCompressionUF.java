@@ -67,6 +67,13 @@ public class WeightedQuickUnionPathCompressionUF {
         // SOLUTION_END
     }
 
+    // size of p's component
+    public int size(int p) {
+        // SOLUTION_BEGIN
+        return size[find(p)];
+        // SOLUTION_END
+    }
+
     public static void main(String[] args) throws Throwable {
         int n = 10;
         WeightedQuickUnionPathCompressionUF uf = new WeightedQuickUnionPathCompressionUF(n);
@@ -89,9 +96,14 @@ public class WeightedQuickUnionPathCompressionUF {
             }
         }
         Assert.assertEquals(2, uf.count());
+
+        Assert.assertEquals(6, uf.size(0));
+        Assert.assertEquals(4, uf.size(9));
+
         Assert.assertTrue(uf.connected(0, 7));
         Assert.assertTrue(uf.connected(4, 9));
         Assert.assertFalse(uf.connected(0, 9));
+
         System.out.println("OK");
     }
 }

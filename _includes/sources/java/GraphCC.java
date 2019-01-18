@@ -1,6 +1,3 @@
-import java.util.Iterator;
-import java.util.Collections;
-
 public class GraphCC {
     // SOLUTION_BEGIN
     private boolean[] marked;
@@ -48,9 +45,10 @@ public class GraphCC {
         // SOLUTION_END
     }
 
-    private int size(int id) {
+    // size of v's component
+    private int size(int v) {
         // SOLUTION_BEGIN
-        return size[id];
+        return size[id[v]];
         // SOLUTION_END
     }
 
@@ -82,7 +80,7 @@ public class GraphCC {
 
         // 0
         Assert.assertEquals(0, cc.id(0));
-        Assert.assertEquals(7, cc.size(cc.id(0)));
+        Assert.assertEquals(7, cc.size(0));
         for (int v = 1; v <= 6; v++) {
             Assert.assertTrue(cc.connected(0, v));
         }
@@ -91,13 +89,13 @@ public class GraphCC {
 
         // 1
         Assert.assertEquals(1, cc.id(7));
-        Assert.assertEquals(2, cc.size(cc.id(7)));
+        Assert.assertEquals(2, cc.size(7));
         Assert.assertTrue(cc.connected(7, 8));
         Assert.assertFalse(cc.connected(7, 9));
 
         // 2
         Assert.assertEquals(2, cc.id(9));
-        Assert.assertEquals(4, cc.size(cc.id(9)));
+        Assert.assertEquals(4, cc.size(9));
         for (int v = 10; v <= 12; v++) {
             Assert.assertTrue(cc.connected(9, v));
         }
