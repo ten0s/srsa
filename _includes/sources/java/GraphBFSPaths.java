@@ -82,18 +82,6 @@ public class GraphBFSPaths {
         // SOLUTION_END
     }
 
-    private static String pathToString(GraphBFSPaths ps, int v) {
-        String s = "";
-        for (int x : ps.pathTo(v)) {
-            if (s.equals("")) {
-                s = "" + x;
-            } else {
-                s += "-" + x;
-            }
-        }
-        return s;
-    }
-
     public static void main(String[] args) throws Throwable {
         // /data/tinyG.txt
         Graph G = new Graph(13);
@@ -123,15 +111,15 @@ public class GraphBFSPaths {
 
         Assert.assertTrue(ps0.hasPathTo(3));
         Assert.assertEquals(2, ps0.distTo(3));
-        Assert.assertEquals("0-5-3", pathToString(ps0, 3));
+        Assert.assertEquals("0-5-3", GraphUtil.pathToString(ps0.pathTo(3)));
 
         Assert.assertTrue(ps0.hasPathTo(4));
         Assert.assertEquals(2, ps0.distTo(4));
-        Assert.assertEquals("0-6-4", pathToString(ps0, 4));
+        Assert.assertEquals("0-6-4", GraphUtil.pathToString(ps0.pathTo(4)));
 
         Assert.assertTrue(ps0.hasPathTo(5));
         Assert.assertEquals(1, ps0.distTo(5));
-        Assert.assertEquals("0-5", pathToString(ps0, 5));
+        Assert.assertEquals("0-5", GraphUtil.pathToString(ps0.pathTo(5)));
 
         Assert.assertTrue(ps0.hasPathTo(6));
         Assert.assertEquals(1, ps0.distTo(6));
