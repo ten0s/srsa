@@ -5,6 +5,7 @@ public class GraphCC {
     // SOLUTION_BEGIN
     private boolean[] marked;
     private int[] id;
+    private int[] size;
     private int count;
     // SOLUTION_END
 
@@ -12,6 +13,7 @@ public class GraphCC {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
         id = new int[G.V()];
+        size = new int[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
                 dfs(G, v);
@@ -25,6 +27,7 @@ public class GraphCC {
         // SOLUTION_BEGIN
         marked[v] = true;
         id[v] = count;
+        size[count]++;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 dfs(G, w);
@@ -42,6 +45,12 @@ public class GraphCC {
     public int id(int v) {
         // SOLUTION_BEGIN
         return id[v];
+        // SOLUTION_END
+    }
+
+    private int size(int id) {
+        // SOLUTION_BEGIN
+        return size[id];
         // SOLUTION_END
     }
 
@@ -73,6 +82,7 @@ public class GraphCC {
 
         // 0
         Assert.assertEquals(0, cc.id(0));
+        Assert.assertEquals(7, cc.size(cc.id(0)));
         for (int v = 1; v <= 6; v++) {
             Assert.assertTrue(cc.connected(0, v));
         }
@@ -81,11 +91,13 @@ public class GraphCC {
 
         // 1
         Assert.assertEquals(1, cc.id(7));
+        Assert.assertEquals(2, cc.size(cc.id(7)));
         Assert.assertTrue(cc.connected(7, 8));
         Assert.assertFalse(cc.connected(7, 9));
 
         // 2
         Assert.assertEquals(2, cc.id(9));
+        Assert.assertEquals(4, cc.size(cc.id(9)));
         for (int v = 10; v <= 12; v++) {
             Assert.assertTrue(cc.connected(9, v));
         }
