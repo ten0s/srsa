@@ -1,5 +1,7 @@
+// SOLUTION_BEGIN
 import java.util.Iterator;
 import java.util.Collections;
+// SOLUTION_END
 
 public class EmptyIterable {
     static class Test<Item> {
