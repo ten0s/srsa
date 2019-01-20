@@ -1,15 +1,13 @@
 import java.util.NoSuchElementException;
 
-/*
-public class Node<T> {
-    T item;
-    Node<T> next;
-}
-*/
-
 public class ListStack<Item> {
     // SOLUTION_BEGIN
-    private Node<Item> first;
+    private class Node {
+        Item item;
+        Node next;
+    }
+
+    private Node first;
     private int size;
     // SOLUTION_END
 
@@ -27,8 +25,8 @@ public class ListStack<Item> {
 
     public void push(Item item) {
         // SOLUTION_BEGIN
-        Node<Item> oldfirst = first;
-        first = new Node<Item>();
+        Node oldfirst = first;
+        first = new Node();
         first.item = item;
         first.next = oldfirst;
         size++;

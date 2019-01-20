@@ -1,16 +1,14 @@
 import java.util.NoSuchElementException;
 
-/*
-public class Node<T> {
-    T item;
-    Node<T> next;
-}
-*/
-
 public class ListQueue<Item> {
     // SOLUTION_BEGIN
-    private Node<Item> first;
-    private Node<Item> last;
+    private class Node {
+        Item item;
+        Node next;
+    }
+
+    private Node first;
+    private Node last;
     private int size;
     // SOLUTION_END
 
@@ -28,8 +26,8 @@ public class ListQueue<Item> {
 
     public void enqueue(Item item) {
         // SOLUTION_BEGIN
-        Node<Item> oldlast = last;
-        last = new Node<Item>();
+        Node oldlast = last;
+        last = new Node();
         last.item = item;
         if (oldlast == null) {
             first = last;
