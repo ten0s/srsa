@@ -12,8 +12,8 @@ def odds(min, max):
 
 class Test(unittest.TestCase):
     def test(self):
-        self.assertEqual(evens(1, 10), [2, 4, 6, 8, 10])
-        self.assertEqual(odds(1, 10), [1, 3, 5, 7, 9])
+        self.assertEqual([2, 4, 6, 8, 10], evens(1, 10))
+        self.assertEqual([1, 3, 5, 7, 9], odds(1, 10))
 
 if __name__ == "__main__":
     unittest.main()
