@@ -13,8 +13,8 @@ public class BinTreeTraversal {
         // SOLUTION_BEGIN
         if (tree == null) return init;
         R n = fun.apply(tree.item, init);
-        R l = inOrder(fun, n, tree.left);
-        R r = inOrder(fun, l, tree.right);
+        R l = preOrder(fun, n, tree.left);
+        R r = preOrder(fun, l, tree.right);
         return r;
         // SOLUTION_END
     }
@@ -32,8 +32,8 @@ public class BinTreeTraversal {
     public static <T, R> R postOrder(BiFunction<T, R, R> fun, R init, BinTree.Node<T> tree) {
         // SOLUTION_BEGIN
         if (tree == null) return init;
-        R l = inOrder(fun, init, tree.left);
-        R r = inOrder(fun, l, tree.right);
+        R l = postOrder(fun, init, tree.left);
+        R r = postOrder(fun, l, tree.right);
         R n = fun.apply(tree.item, r);
         return n;
         // SOLUTION_END
@@ -41,11 +41,15 @@ public class BinTreeTraversal {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
-        BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1,2,3,4,5,6,7});
-
+        BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1, 2, 3, 4, 5, 6 ,7});
         Assert.assertEquals(28,  preOrder((x, acc) -> x + acc, 0, tree));
         Assert.assertEquals(28,   inOrder((x, acc) -> x + acc, 0, tree));
         Assert.assertEquals(28, postOrder((x, acc) -> x + acc, 0, tree));
+
+        BinTree.Node<String> tree2 = BinTree.fromArray(new String[] {"1", "2", "3", "4", "5", "6", "7"});
+        Assert.assertEquals("4213657",  preOrder((x, acc) -> acc + x, "", tree2));
+        Assert.assertEquals("1234567",   inOrder((x, acc) -> acc + x, "", tree2));
+        Assert.assertEquals("1325764", postOrder((x, acc) -> acc + x, "", tree2));
 
         System.out.println("OK");
     }
