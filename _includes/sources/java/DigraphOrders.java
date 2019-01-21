@@ -15,7 +15,7 @@ public class DigraphOrders {
     private boolean[] marked;
     private Queue<Integer> pre;
     private Queue<Integer> post;
-    private Stack<Integer> reversedPost;
+    private Stack<Integer> revPost;
     // SOLUTION_END
 
     public DigraphOrders(Digraph G) {
@@ -23,7 +23,7 @@ public class DigraphOrders {
         marked = new boolean[G.V()];
         pre = new Queue<>();
         post = new Queue<>();
-        reversedPost = new Stack<>();
+        revPost = new Stack<>();
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
                 dfs(G, v);
@@ -42,7 +42,7 @@ public class DigraphOrders {
             }
         }
         post.enqueue(v);
-        reversedPost.push(v);
+        revPost.push(v);
     }
     // SOLUTION_END
 
@@ -60,7 +60,7 @@ public class DigraphOrders {
 
     public Iterable<Integer> reversedPostOrder() {
         // SOLUTION_BEGIN
-        return reversedPost;
+        return revPost;
         // SOLUTION_END
     }
 
