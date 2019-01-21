@@ -26,8 +26,8 @@ public class DigraphCycle {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void dfs(Digraph G, int v) {
-        // SOLUTION_BEGIN
         marked[v] = true;
         onStack[v] = true;
         for (int w : G.adj(v)) {
@@ -46,8 +46,8 @@ public class DigraphCycle {
             }
         }
         onStack[v] = false;
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean hasCycle() {
         // SOLUTION_BEGIN
