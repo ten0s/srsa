@@ -23,15 +23,15 @@ public class IteratorTest {
         }
 
         private class ArrayIterator implements Iterator<Item> {
-            int c = 0;
+            private int i = 0;
 
             public boolean hasNext() {
-                return c < a.length;
+                return i < a.length;
             }
 
             public Item next() {
                 if (hasNext()) {
-                    return a[c++];
+                    return a[i++];
                 } else {
                     throw new NoSuchElementException();
                 }
