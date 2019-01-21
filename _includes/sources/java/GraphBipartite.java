@@ -17,8 +17,8 @@ public class GraphBipartite {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void dfs(Graph G, int v) {
-        // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
@@ -30,8 +30,8 @@ public class GraphBipartite {
                 }
             }
         }
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean isBipartite() {
         // SOLUTION_BEGIN

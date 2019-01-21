@@ -21,8 +21,8 @@ public class GraphDFSPaths {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void dfs(Graph G, int v) {
-        // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
@@ -30,8 +30,8 @@ public class GraphDFSPaths {
                 dfs(G, w);
             }
         }
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean hasPathTo(int v) {
         // SOLUTION_BEGIN

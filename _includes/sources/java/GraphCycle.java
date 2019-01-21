@@ -64,8 +64,8 @@ public class GraphCycle {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void dfs(Graph G, int u, int v) {
-        // SOLUTION_BEGIN
         marked[v] = true;
         for (int w : G.adj(v)) {
             // short circuit if cycle already found
@@ -85,8 +85,8 @@ public class GraphCycle {
                 }
             }
         }
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean hasCycle() {
         // SOLUTION_BEGIN

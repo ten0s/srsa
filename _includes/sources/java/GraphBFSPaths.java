@@ -34,8 +34,8 @@ public class GraphBFSPaths {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void bfs(Graph G, int s) {
-        // SOLUTION_BEGIN
         Queue<Integer> queue = new Queue<>();
         marked[s] = true;
         distTo[s] = 0;
@@ -51,8 +51,8 @@ public class GraphBFSPaths {
                 }
             }
         }
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean hasPathTo(int v) {
         // SOLUTION_BEGIN

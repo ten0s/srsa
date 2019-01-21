@@ -20,8 +20,8 @@ public class GraphCC {
         // SOLUTION_END
     }
 
+    // SOLUTION_BEGIN
     private void dfs(Graph G, int v) {
-        // SOLUTION_BEGIN
         marked[v] = true;
         id[v] = count;
         size[count]++;
@@ -30,8 +30,8 @@ public class GraphCC {
                 dfs(G, w);
             }
         }
-        // SOLUTION_END
     }
+    // SOLUTION_END
 
     public boolean connected(int v, int w) {
         // SOLUTION_BEGIN
