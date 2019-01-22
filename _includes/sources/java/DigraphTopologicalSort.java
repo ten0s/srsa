@@ -6,6 +6,8 @@ public class DigraphCycle {
 
 public class DigraphOrders {
     public DigraphOrders(Digraph G);
+    public Iterable<Integer> preOrder();
+    public Iterable<Integer> postOrder();
     public Iterable<Integer> reversedPostOrder();
 }
 */
