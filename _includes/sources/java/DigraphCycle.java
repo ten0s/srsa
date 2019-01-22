@@ -63,12 +63,13 @@ public class DigraphCycle {
 
     public boolean checkCycle(Iterable<Integer> cycle) {
         // SOLUTION_BEGIN
-        int first = -1, last = -1;
+        int first = -1, last = -1, len = 0;
         for (int v : cycle) {
             if (first == -1) first = v;
             last = v;
+            len++;
         }
-        return first == last;
+        return first == last && len >= 1;
         // SOLUTION_END
     }
 
