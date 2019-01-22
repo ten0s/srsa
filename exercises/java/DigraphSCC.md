@@ -2,14 +2,14 @@
 layout: exercise
 title: Digraph Strongly Connected Components
 question_text: >-
-  Preprocess digraph to answer queries in <i>constant</i> time:
+  Preprocess digraph to answer the queries in <i>constant</i> time:
   <ul>
   <li>Are two vertices <i>v</i> and <i>w</i> are <i>strongly</i> connected?</li>
   <li>How many <i>strong</i> components does the digraph have?</li>
   </ul>
   <table border="1">
     <tr>
-      <td><img relative_src="/assets/images/tinyDG.png" title="tinyDG"></td>
+      <td><img relative_src="/assets/images/tinyDG-scc.png" title="tinyDG"></td>
     </tr>
   </table>
 solution_file: /sources/java/DigraphSCC.java
