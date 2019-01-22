@@ -11,7 +11,7 @@
 opts[k++]=-it
 opts[k++]=--rm
 opts[k++]=--volume="$PWD:/srv/jekyll"
-if echo "$@" | grep serve; then
+if echo "$@" | grep serve > /dev/null; then
     opts[k++]=--publish=4000:4000
 fi
 
