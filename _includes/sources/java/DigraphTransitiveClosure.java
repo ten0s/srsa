@@ -6,17 +6,23 @@ public class DigraphDFS {
 */
 
 public class DigraphTransitiveClosure {
+    // SOLUTION_BEGIN
     private DigraphDFS[] all;
+    // SOLUTION_END
 
     public DigraphTransitiveClosure(Digraph G) {
+        // SOLUTION_BEGIN
         all = new DigraphDFS[G.V()];
         for (int v = 0; v < G.V(); v++) {
             all[v] = new DigraphDFS(G, v);
         }
+        // SOLUTION_END
     }
 
     public boolean reachable(int v, int w) {
+        // SOLUTION_BEGIN
         return all[v].hasPathTo(w);
+        // SOLUTION_END
     }
 
     public static void main(String[] args) throws Throwable {
