@@ -1,4 +1,6 @@
+// SOLUTION_BEGIN
 import java.util.Objects;
+// SOLUTION_END
 
 public class EqualsTest {
     static class Entry<K, V> {
@@ -22,7 +24,7 @@ public class EqualsTest {
             if (this.getClass() != x.getClass()) return false;
             Entry that = (Entry) x;
             return this.key.equals(that.key) &&
-                this.val.equals(that.val);
+                   this.val.equals(that.val);
         }
 
         public int hashCode() {
