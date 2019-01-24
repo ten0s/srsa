@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo '<a href="evincex:///home/ten0s/anki2/algs4.pdf#<PAGE>">Review <SUBJECT>: Algorithms (4th ed.), p. <PAGE></a>'
