@@ -4,15 +4,21 @@ public class Node<T> {
     public T item;
     public Node<T> next;
 
+    public Node(T item) {
+        this.item = item;
+    }
+
+    public Node(T item, Node<T> next) {
+        this.item = item;
+        this.next = next;
+    }
+
     public static <T> Node<T> empty() {
         return null;
     }
 
-    public static <T> Node<T> cons(T value, Node<T> list) {
-        Node<T> head = new Node<>();
-        head.item = value;
-        head.next = list;
-        return head;
+    public static <T> Node<T> cons(T item, Node<T> list) {
+        return new Node<>(item, list);
     }
 
     public static <T> T head(Node<T> list) {
@@ -38,6 +44,15 @@ public class Node<T> {
         for (Node<T> n = node; n != null; n = n.next)
             length++;
         return length;
+    }
+
+    // assumes no cycle
+    public static <T> Node<T> last(Node<T> node) {
+        if (isEmpty(node)) {
+            throw new NoSuchElementException();
+        }
+        for (; node.next != null; node = node.next) {}
+        return node;
     }
 
     public static <T extends Comparable<T>> T max(Node<T> list) {
@@ -99,10 +114,7 @@ public class Node<T> {
     public static <T> Node<T> fromArray(T[] a) {
         Node<T> prev = null;
         for (int i = a.length-1; i >= 0; i--) {
-            Node<T> node = new Node<>();
-            node.item = a[i];
-            node.next = prev;
-            prev = node;
+            prev = new Node<>(a[i], prev);
         }
         return prev;
     }
@@ -137,6 +149,13 @@ public class Node<T> {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(0, length(fromIntArray(new int[] {})));
         Assert.assertEquals(3, length(fromIntArray(new int[] {1,2,3})));
+
+        try {
+            last(null);
+            Assert.assertTrue(false);
+        } catch (NoSuchElementException e) {}
+        Assert.assertEquals(1, last(fromIntArray(new int[] {1})).item);
+        Assert.assertEquals(3, last(fromIntArray(new int[] {1,2,3})).item);
 
         Pair<Node<Integer>, Node<Integer>> subs = new Pair<>();
 

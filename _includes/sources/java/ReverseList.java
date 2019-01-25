@@ -23,25 +23,17 @@ public class ReverseList {
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new int[] {}, Node.toIntArray(reverse(null)));
 
-        Node<Integer> n = new Node<>();
-        n.item = 1;
+        Node<Integer> n = new Node<>(1);
 
         Assert.assertArrayEquals(new int[] {1}, Node.toIntArray(reverse(n)));
 
-        Node<Integer> n2 = new Node<>();
-        n2.item = 2;
+        Node<Integer> n2 = new Node<>(2);
         n.next = n2;
-
-        Node<Integer> n3 = new Node<>();
-        n3.item = 3;
+        Node<Integer> n3 = new Node<>(3);
         n2.next = n3;
-
-        Node<Integer> n4 = new Node<>();
-        n4.item = 4;
+        Node<Integer> n4 = new Node<>(4);
         n3.next = n4;
-
-        Node<Integer> n5 = new Node<>();
-        n5.item = 5;
+        Node<Integer> n5 = new Node<>(5);
         n4.next = n5;
 
         Assert.assertArrayEquals(new int[] {1,2,3,4,5}, Node.toIntArray(n));
