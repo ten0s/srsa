@@ -14,7 +14,7 @@ public class Pair<A, B> {
 }
 */
 
-class MergeSortList {
+class ListMergeSort {
     public static <T extends Comparable<T>> Node<T> sort(Node<T> node) {
         // SOLUTION_BEGIN
         if (node == null || node.next == null)
