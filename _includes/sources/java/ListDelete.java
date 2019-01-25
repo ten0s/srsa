@@ -5,7 +5,7 @@ public class Node<T> {
 }
 */
 
-public class DeleteList {
+public class ListDelete {
     public static <T extends Comparable<T>> Node<T> delete(T key, Node<T> node) {
         // SOLUTION_BEGIN
         if (node == null) {

@@ -1,13 +1,13 @@
 ---
 layout: exercise
-title: Delete for List
+title: List Delete
 question_text: Delete one item from the single-linked list
-solution_file: /sources/java/DeleteList.java
+solution_file: /sources/java/ListDelete.java
 library_files:
 - /sources/java/Node.java
 - /sources/java/Pair.java
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac DeleteList.java && java DeleteList
+command: javac ListDelete.java && java ListDelete
 ---
