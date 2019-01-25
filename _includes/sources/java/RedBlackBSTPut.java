@@ -82,9 +82,9 @@ public class RedBlackBSTPut {
         assert !isRed(h);
         assert isRed(h.left);
         assert isRed(h.right);
-        h.color = BinTree.RED;
-        h.left.color = BinTree.BLACK;
-        h.right.color = BinTree.BLACK;
+        h.color = !h.color;
+        h.left.color = !h.left.color;
+        h.right.color = !h.right.color;
         // SOLUTION_END
     }
 

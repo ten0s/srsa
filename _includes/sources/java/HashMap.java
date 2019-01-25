@@ -126,6 +126,7 @@ public class HashMap<Key , Value> {
         }
         Assert.assertEquals(1000, t.size());
         Assert.assertFalse(t.isEmpty());
+        Assert.assertTrue(t.m > MIN_CAPACITY);
         Assert.assertTrue(Prime.isPrime(t.m));
         Assert.assertNull(t.get(1001));
 
