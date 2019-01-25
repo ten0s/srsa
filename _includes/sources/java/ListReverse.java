@@ -4,7 +4,7 @@ public class Node<T> {
     Node<T> next;
 */
 
-public class ReverseList {
+public class ListReverse {
     public static <T> Node<T> reverse(Node<T> node) {
         // SOLUTION_BEGIN
         Node<T> prev = null;
