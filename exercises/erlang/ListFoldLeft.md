@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Fold Left List
+title: List Fold Left
 question_text: Implement fold left of the list
 solution_file: /sources/erlang/foldl_list.erl
 library_files:

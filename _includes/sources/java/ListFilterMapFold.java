@@ -14,7 +14,7 @@ public class Node<T> {
 }
 */
 
-public class FilterMapFoldList {
+public class ListFilterMapFold {
     public static <T> Node<T> filter(Predicate<T> pred, Node<T> list) {
         // SOLUTION_BEGIN
         if (Node.isEmpty(list)) {

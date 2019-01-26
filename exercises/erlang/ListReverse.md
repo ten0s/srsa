@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Reverse List
+title: List Reverse
 question_text: Reverse the list
 solution_file: /sources/erlang/reverse_list.erl
 library_files:

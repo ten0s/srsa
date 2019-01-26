@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Append List(s)
+title: List(s) Append
 question_text: Append list(s)
 solution_file: /sources/erlang/append_list.erl
 library_files:
