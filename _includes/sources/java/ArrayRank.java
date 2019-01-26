@@ -1,4 +1,4 @@
-public class RankArray {
+public class ArrayRank {
     public static int rank(int key, int[] a) {
         // SOLUTION_BEGIN
         // * if key is in the table, returns its index, which is the same as
@@ -27,6 +27,7 @@ public class RankArray {
 
         Assert.assertEquals(5, rank(6, new int[] {1,2,3,4,5,6,7,8,9,10}));
         Assert.assertEquals(9, rank(10, new int[] {1,2,3,4,5,6,7,8,9,10}));
+        Assert.assertEquals(10, rank(11, new int[] {1,2,3,4,5,6,7,8,9,10}));
 
         Assert.assertEquals(3, rank(5, new int[] {1,3,4,6,7,8,9}));
         Assert.assertEquals(7, rank(10, new int[] {1,3,4,6,7,8,9}));
