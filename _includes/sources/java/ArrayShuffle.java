@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class ShuffleArray {
+public class ArrayShuffle {
     public static int[] shuffle(int[] a) {
         // SOLUTION_BEGIN
         // Knuth's shuffle O(n)

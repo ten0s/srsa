@@ -14,7 +14,7 @@ public class Pair<A, B> {
 }
 */
 
-class ShuffleList {
+class ListShuffle {
     public static <T> Node<T> shuffle(Node<T> node) {
         // SOLUTION_BEGIN
         if (node == null || node.next == null)

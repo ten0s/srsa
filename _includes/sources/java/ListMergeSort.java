@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /*
 public class Node<T> {
     T item;
@@ -70,7 +68,7 @@ class ListMergeSort {
         Assert.assertArrayEquals(new int[] {1,2,3,4,5,6},
                                  Node.toIntArray(
                                      sort(
-                                         ShuffleList.shuffle(
+                                         ListShuffle.shuffle(
                                              Node.fromIntArray(
                                                  new int[] {1,2,3,4,5,6})))));
         System.out.println("OK");

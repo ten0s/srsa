@@ -8,7 +8,7 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Node.java
 - /sources/java/Pair.java
-- /sources/java/ShuffleList.java
+- /sources/java/ListShuffle.java
 - /sources/java/Histogram.java
 language: java
 command: javac ListMergeSort.java && java ListMergeSort
