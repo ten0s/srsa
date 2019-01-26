@@ -1,12 +1,12 @@
-public class RotateString {
+public class StringRotate {
     public static String rotate(int n, String s) {
         // SOLUTION_BEGIN
-        int len = s.length();
-        if (len == 0) return s;
-        int m = n % len;
+        int l = s.length();
+        if (l == 0) return s;
+        int m = n % l;
         if (m == 0) return s;
         String a = s.substring(0, m);
-        String b = s.substring(m, len);
+        String b = s.substring(m, l);
         return b + a;
         // SOLUTION_END
     }
