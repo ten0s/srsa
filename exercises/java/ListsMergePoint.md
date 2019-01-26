@@ -9,6 +9,7 @@ question_text: >-
             V
     1-->2-->3-->4-->5
   </pre>
+  <a href="https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem">More Practise</a>
 solution_file: /sources/java/ListsMergePoint.java
 library_files:
 - /sources/java/Node.java
