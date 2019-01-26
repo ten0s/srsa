@@ -1,11 +1,11 @@
 ---
 layout: exercise
-title: Reverse Array
+title: Array Reverse
 question_text: Reverse an array
-solution_file: /sources/java/ReverseArray.java
+solution_file: /sources/java/ArrayReverse.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ReverseArray.java && java ReverseArray
+command: javac ArrayReverse.java && java ArrayReverse
 ---
