@@ -10,7 +10,7 @@ public class Pair<A, B> {
 }
 */
 
-public class SplitListInTwo {
+public class ListSplitInTwo {
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
         // SOLUTION_BEGIN
         if (node == null) {
