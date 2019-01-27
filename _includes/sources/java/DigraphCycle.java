@@ -69,7 +69,7 @@ public class DigraphCycle {
             last = v;
             len++;
         }
-        return first == last && len >= 1;
+        return first == last && len > 0;
         // SOLUTION_END
     }
 
