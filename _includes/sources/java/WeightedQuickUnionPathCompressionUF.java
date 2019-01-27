@@ -2,8 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class WeightedQuickUnionPathCompressionUF {
-    // SOLUTION_BEGIN
     private int[] parent;
+    // SOLUTION_BEGIN
     private int[] size;
     private int count;
     // SOLUTION_END
@@ -56,6 +56,7 @@ public class WeightedQuickUnionPathCompressionUF {
         int rootP = find(p);
         int rootQ = find(q);
         if (rootP == rootQ) return;
+        // always connect smaller tree to larger
         if (size[rootP] < size[rootQ]) {
             parent[rootP] = rootQ;
             size[rootQ] += size[rootP];
@@ -72,6 +73,23 @@ public class WeightedQuickUnionPathCompressionUF {
         // SOLUTION_BEGIN
         return size[find(p)];
         // SOLUTION_END
+    }
+
+    private int height(int p) {
+        int height = 0;
+        while (p != parent[p]) {
+            p = parent[p];
+            height++;
+        }
+        return height;
+    }
+
+    private int maxHeight() {
+        int max = 0;
+        for (int i = 0; i < parent.length; i++) {
+            max = Math.max(max, height(i));
+        }
+        return max;
     }
 
     public static void main(String[] args) throws Throwable {
@@ -103,6 +121,8 @@ public class WeightedQuickUnionPathCompressionUF {
         Assert.assertTrue(uf.connected(0, 7));
         Assert.assertTrue(uf.connected(4, 9));
         Assert.assertFalse(uf.connected(0, 9));
+
+        Assert.assertEquals(1, uf.maxHeight());
 
         System.out.println("OK");
     }
