@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Edge implements Comparable<Edge> {
     // SOLUTION_BEGIN
     private final int v;
@@ -43,6 +45,20 @@ public class Edge implements Comparable<Edge> {
 
     public String toString() {
         return String.format("%d-%d %.5f", v, w, weight);
+    }
+
+    public boolean equals(Object x) {
+        if (x == this) return true;
+        if (x == null) return false;
+        if (x.getClass() != this.getClass()) return false;
+        Edge that = (Edge) x;
+        return this.v == that.v &&
+               this.w == this.w &&
+               this.weight == that.weight;
+    }
+
+    public int hashCode() {
+        return Objects.hash(v, w, weight);
     }
 
     public static void main(String[] args) {
