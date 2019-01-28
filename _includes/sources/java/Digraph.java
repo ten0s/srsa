@@ -52,7 +52,7 @@ public class Digraph {
         // SOLUTION_BEGIN
         Digraph R = new Digraph(V);
         for (int v = 0; v < V; v++) {
-            for (int w : adj(v)) {
+            for (int w : adj[v]) {
                 R.addEdge(w, v);
             }
         }
@@ -64,7 +64,7 @@ public class Digraph {
         String s = V + " vertices, " + E + " edges" + System.lineSeparator();
         for (int v = 0; v < V; v++) {
             s += v + ": ";
-            for (int w : adj(v)) {
+            for (int w : adj[v]) {
                 s += w + " ";
             }
             s += System.lineSeparator();
@@ -76,7 +76,7 @@ public class Digraph {
         String s = "digraph {" + System.lineSeparator();
         HashSet<Integer> nodes = new HashSet<>();
         for (int v = 0; v < V; v++) {
-            for (int w : adj(v)) {
+            for (int w : adj[v]) {
                 nodes.add(v);
                 nodes.add(w);
                 s += "  " + v + " -> " + w + ";" + System.lineSeparator();
