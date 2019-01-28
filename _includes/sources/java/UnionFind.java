@@ -1,14 +1,14 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class WeightedQuickUnionPathCompressionUF {
+public class UnionFind {
     private int[] parent;
     // SOLUTION_BEGIN
     private int[] size;
     private int count;
     // SOLUTION_END
 
-    public WeightedQuickUnionPathCompressionUF(int n) {
+    public UnionFind(int n) {
         // SOLUTION_BEGIN
         parent = new int[n];
         size = new int[n];
@@ -94,7 +94,7 @@ public class WeightedQuickUnionPathCompressionUF {
 
     public static void main(String[] args) throws Throwable {
         int n = 10;
-        WeightedQuickUnionPathCompressionUF uf = new WeightedQuickUnionPathCompressionUF(n);
+        UnionFind uf = new UnionFind(n);
         List<Pair<Integer,Integer>> pairs = new ArrayList<>();
         pairs.add(new Pair<Integer,Integer>(4,3));
         pairs.add(new Pair<Integer,Integer>(3,8));
