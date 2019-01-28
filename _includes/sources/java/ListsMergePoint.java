@@ -3,6 +3,12 @@ public class Node<T> {
     T item;
     Node<T> next;
 }
+
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+    public Item pop();
+}
 */
 
 public class ListsMergePoint {
@@ -30,6 +36,29 @@ public class ListsMergePoint {
         return null;
         // SOLUTION_END
     }
+
+    // SOLUTION_BEGIN
+    public static <T> Node<T> mergePoint2(Node<T> l1, Node<T> l2) {
+        Stack<Node<T>> s1 = new Stack<>();
+        Stack<Node<T>> s2 = new Stack<>();
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                s1.push(l1);
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                s2.push(l2);
+                l2 = l2.next;
+            }
+        }
+        while (!s1.isEmpty() && !s2.isEmpty()) {
+            Node<T> n1 = s1.pop();
+            Node<T> n2 = s2.pop();
+            if (n1 != n2) return n1.next;
+        }
+        return null;
+    }
+    // SOLUTION_END
 
     public static void main(String[] args) throws Throwable {
         Assert.assertNull(mergePoint(null, Node.fromIntArray(new int[] {1,2,3})));

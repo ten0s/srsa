@@ -1,5 +1,6 @@
 /*
 public class Digraph {
+    public Iterable<Integer> adj(int v);
     public Digraph reverse()
 }
 

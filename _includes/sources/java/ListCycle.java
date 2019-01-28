@@ -23,6 +23,9 @@ public class ListCycle {
         Assert.assertFalse(hasCycle(null));
 
         Node<Integer> n1 = new Node<>(1);
+        n1.next = n1;
+        Assert.assertTrue(hasCycle(n1));
+
         Node<Integer> n2 = new Node<>(2);
         n1.next = n2;
         Node<Integer> n3 = new Node<>(3);
