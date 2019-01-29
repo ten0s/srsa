@@ -22,6 +22,7 @@ public class UnionFind {
 public class KruskalMST {
     // SOLUTION_BEGIN
     private Queue<Edge> mst;
+    private double weight;
     // SOLUTION_END
 
     public KruskalMST(EdgeWeightedGraph G) {
@@ -41,6 +42,7 @@ public class KruskalMST {
             if (!uf.connected(v, w)) {
                 uf.union(v, w);
                 mst.enqueue(e);
+                weight += e.weight();
             }
         }
         // SOLUTION_END
@@ -54,10 +56,6 @@ public class KruskalMST {
 
     public double weight() {
         // SOLUTION_BEGIN
-        double weight = 0.0;
-        for (Edge e : mst) {
-            weight += e.weight();
-        }
         return weight;
         // SOLUTION_END
     }
