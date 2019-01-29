@@ -5,8 +5,8 @@ public class public class Queue<Item> implements Iterable<Item> {
     public int size();
 }
 
-class PQMin<Key extends Comparable<Key>> {
-    public PQMin();
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
     public void insert(Key v);
     public Key delMin();
     public boolean isEmpty();

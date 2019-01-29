@@ -128,6 +128,30 @@ public class EdgeWeightedGraph {
         int degree6 = 0; for (Edge e : G.adj(6)) degree6++;
         Assert.assertEquals(4, degree6);
 
+        // the same set of edges as in /data/tinyEWG.txt
+        HashSet<Edge> set = new HashSet<>();
+        set.add(new Edge(4, 5, 0.35));
+        set.add(new Edge(4, 7, 0.37));
+        set.add(new Edge(5, 7, 0.28));
+        set.add(new Edge(0, 7, 0.16));
+        set.add(new Edge(1, 5, 0.32));
+        set.add(new Edge(0, 4, 0.38));
+        set.add(new Edge(2, 3, 0.17));
+        set.add(new Edge(1, 7, 0.19));
+        set.add(new Edge(0, 2, 0.26));
+        set.add(new Edge(1, 2, 0.36));
+        set.add(new Edge(1, 3, 0.29));
+        set.add(new Edge(2, 7, 0.34));
+        set.add(new Edge(6, 2, 0.40));
+        set.add(new Edge(3, 6, 0.52));
+        set.add(new Edge(6, 0, 0.58));
+        set.add(new Edge(6, 4, 0.93));
+        for (Edge e : G.edges()) {
+            Assert.assertTrue(set.contains(e));
+            set.delete(e);
+        }
+        Assert.assertTrue(set.isEmpty());
+
         System.out.println("OK");
     }
 }
