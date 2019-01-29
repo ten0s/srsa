@@ -1,14 +1,14 @@
 ---
 layout: exercise
-title: Prim's MST
+title: Lazy Prim's MST
 question_text: >-
-  Implement Prim's Minimum Spanning Tree
+  Implement Lazy Prim's Minimum Spanning Tree
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyEWG.png" title="tinyEWG"></td>
     </tr>
   </table>
-solution_file: /sources/java/PrimMST.java
+solution_file: /sources/java/LazyPrimMST.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
@@ -21,5 +21,5 @@ library_files:
 - /sources/java/Queue.java
 - /sources/java/Prime.java
 language: java
-command: javac PrimMST.java && java PrimMST
+command: javac LazyPrimMST.java && java LazyPrimMST
 ---

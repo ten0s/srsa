@@ -13,7 +13,7 @@ class MinPQ<Key extends Comparable<Key>> {
 }
 */
 
-public class PrimMST {
+public class LazyPrimMST {
     // SOLUTION_BEGIN
     private boolean[] marked;
     private MinPQ<Edge> pq;
@@ -21,7 +21,7 @@ public class PrimMST {
     private double weight;
     // SOLUTION_END
 
-    public PrimMST(EdgeWeightedGraph G) {
+    public LazyPrimMST(EdgeWeightedGraph G) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
         pq = new MinPQ<>();
@@ -94,7 +94,7 @@ public class PrimMST {
         set.add(new Edge(4, 5, 0.35));
         set.add(new Edge(6, 2, 0.40));
 
-        PrimMST mst = new PrimMST(G);
+        LazyPrimMST mst = new LazyPrimMST(G);
         for (Edge e : mst.edges()) {
             Assert.assertTrue(set.contains(e));
             set.delete(e);
