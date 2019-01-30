@@ -1,4 +1,7 @@
 #!/bin/bash
 
 echo '<a href="https://leetcode.com/problems/<TASK>" target="_top"><TITLE> in <LANG> (External)</a>'
+echo '<a href="https://leetcode.com/problems/<TASK>" target="_blank">More Practise</a>'
+
 echo '<a href="https://www.hackerrank.com/challenges/<TASK>/problem" target="_top"><TITLE> in <LANG> (External)</a>'
+echo '<a href="https://www.hackerrank.com/challenges/<TASK>/problem" target="_blank">More Practise</a>'
