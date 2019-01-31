@@ -5,7 +5,7 @@ public class Node<T> {
 }
 */
 
-public class KthFromEndList {
+public class ListKthFromEnd {
     public static <T> T kth(int k, Node<T> node) {
         // SOLUTION_BEGIN
         Node<T> slow = node;
