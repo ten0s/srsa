@@ -20,7 +20,7 @@ Assuming the array is first in ascending order and then in descending order:
 */
 // SOLUTION_END
 
-public class BitonicSearchArray {
+public class ArrayBitonicSearch {
     public static int bitonicSearch(int key, int[] a) {
         return bitonicSearch(key, a, 0, a.length-1);
     }

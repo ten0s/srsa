@@ -1,4 +1,4 @@
-public class BitonicPointArray {
+public class ArrayBitonicPoint {
     public static int indexOf(int[] a) {
         // SOLUTION_BEGIN
         return indexOf(a, 0, a.length-1);

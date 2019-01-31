@@ -1,11 +1,11 @@
 ---
 layout: exercise
-title: Randomized Quick Select in Array
+title: Array Randomized Quick Select
 question_text: Find Kth minimum and maximum in an unsorted array of distinct integers
-solution_file: /sources/java/RandomizedQuickSelectArray.java
+solution_file: /sources/java/Array RandomizedQuickSelect.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac RandomizedQuickSelectArray.java && java RandomizedQuickSelectArray
+command: javac ArrayRandomizedQuickSelect.java && java ArrayRandomizedQuickSelect
 ---

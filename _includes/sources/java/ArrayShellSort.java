@@ -1,4 +1,4 @@
-class ShellSortArray {
+class ArrayShellSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         // SOLUTION_BEGIN
         int n = a.length;

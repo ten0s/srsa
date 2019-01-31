@@ -1,4 +1,4 @@
-class RandomizedQuickSelectArray {
+class ArrayRandomizedQuickSelect {
     // 1st is the first
     // Nth is the last
     public static int kthMin(int k, int[] a) {

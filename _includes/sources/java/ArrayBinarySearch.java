@@ -1,4 +1,4 @@
-public class BinarySearchArray {
+public class ArrayBinarySearch {
     public static int indexOf(int key, int[] a) {
         // SOLUTION_BEGIN
         int lo = 0, hi = a.length - 1;

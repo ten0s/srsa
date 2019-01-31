@@ -1,4 +1,4 @@
-class QuickSortArray {
+class ArrayQuickSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         ArrayUtil.shuffle(a);
         return sort(a, 0, a.length-1);

@@ -1,11 +1,11 @@
 ---
 layout: exercise
-title: Shell Sort in Array
+title: Array Shell Sort
 question_text: Sort array using Shell sort
-solution_file: /sources/java/ShellSortArray.java
+solution_file: /sources/java/ArrayShellSort.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 language: java
-command: javac ShellSortArray.java && java ShellSortArray
+command: javac ArrayShellSort.java && java ArrayShellSort
 ---

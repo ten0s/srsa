@@ -1,11 +1,14 @@
-class InsertionSortArray {
+class ArraySelectionSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         // SOLUTION_BEGIN
         int n = a.length;
-        for (int i = 1; i < n; i++) {
-            for (int j = i; j-1 >= 0 && less(a[j], a[j-1]); j = j-1) {
-                swap(a, j, j-1);
+        for (int i = 0; i < n; i++) {
+            int min = i;
+            for (int j = i+1; j < n; j++) {
+                if (less(a[j], a[min]))
+                    min = j;
             }
+            swap(a, i, min);
         }
         return a;
         // SOLUTION_END
@@ -22,15 +25,15 @@ class InsertionSortArray {
     }
 
     public static void main(String[] args) throws Throwable {
-        Assert.assertArrayEquals(new Integer[] {},
+        Assert.assertArrayEquals(new Integer[]{},
                                  sort(new Integer[] {}));
-        Assert.assertArrayEquals(new Integer[] {1},
+        Assert.assertArrayEquals(new Integer[]{1},
                                  sort(new Integer[] {1}));
-        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
+        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
                                  sort(new Integer[] {6,5,4,3,2,1}));
-        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
+        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
                                  sort(new Integer[] {1,2,3,4,5,6}));
-        Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6},
+        Assert.assertArrayEquals(new Integer[]{1,2,3,4,5,6},
                                  sort(ArrayUtil.shuffle(new Integer[] {1,2,3,4,5,6})));
         System.out.println("OK");
     }
