@@ -24,7 +24,7 @@ Solve recursively in the appropriate half.
 */
 // SOLUTION_END
 
-public class LocalMinimumArray {
+public class ArrayLocalMinimum {
     public static int indexOf(int[] a) {
         // SOLUTION_BEGIN
         return indexOf(a, 0, a.length-1);

@@ -1,11 +1,11 @@
-class MergeSortBottomUpArray {
+class ArrayMergeSortBottomUp {
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         int n = a.length;
         T[] aux = (T[]) new Comparable[n];
         // SOLUTION_BEGIN
         for (int len = 1; len < n; len *= 2)
-            for (int lo = 0; lo < n-len; lo += 2*len)
+            for (int lo = 0; lo+len < n; lo += 2*len)
                 merge(a, aux, lo, lo+len-1, Math.min(lo+len+len-1, n-1));
         return a;
         // SOLUTION_END

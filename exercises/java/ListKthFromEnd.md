@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Kth Item from the End of List
+title: List Kth Item from the End
 question_text: Find Kth item from the end of list
 solution_file: /sources/java/KthFromEndList.java
 library_files:

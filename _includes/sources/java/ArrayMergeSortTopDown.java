@@ -1,4 +1,4 @@
-class MergeSortTopDownArray {
+class ArrayMergeSortTopDown {
     @SuppressWarnings("unchecked")
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         T[] aux = (T[]) new Comparable[a.length];
