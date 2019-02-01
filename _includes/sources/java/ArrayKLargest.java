@@ -1,3 +1,13 @@
+/*
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
+    public void insert(Key v);
+    public Key delMin();
+    public int size();
+    public boolean isEmpty();
+}
+*/
+
 public class ArrayKLargest {
     public static int[] largest(int k, int[] a) {
         // SOLUTION_BEGIN
