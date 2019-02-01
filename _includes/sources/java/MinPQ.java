@@ -1,16 +1,12 @@
 import java.util.NoSuchElementException;
 
 class MinPQ<Key extends Comparable<Key>> extends PQ<Key> {
-    public void insert(Key v) {
-        push(v);
-    }
-
     public Key delMin() {
-        return pop();
+        return delete();
     }
 
     public Key min() {
-        return peek();
+        return top();
     }
 
     boolean less(Key v, Key w) {

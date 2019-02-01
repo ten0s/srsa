@@ -10,13 +10,13 @@ abstract class PQ<Key extends Comparable<Key>> {
         pq = (Key[]) new Comparable[MIN_CAPACITY+1];
     }
 
-    protected void push(Key v) {
+    protected void insert(Key v) {
         if (++n > capacity()) resize(2*capacity()+1);
         pq[n] = v;
         swim(n);
     }
 
-    protected Key pop() {
+    protected Key delete() {
         ensureNotEmpty();
         Key v = pq[1];
         pq[1] = pq[n];
@@ -26,7 +26,7 @@ abstract class PQ<Key extends Comparable<Key>> {
         return v;
     }
 
-    protected Key peek() {
+    protected Key top() {
         ensureNotEmpty();
         return pq[1];
     }

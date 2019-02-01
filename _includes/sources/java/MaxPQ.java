@@ -1,16 +1,12 @@
 import java.util.NoSuchElementException;
 
 class MaxPQ<Key extends Comparable<Key>> extends PQ<Key> {
-    public void insert(Key v) {
-        push(v);
-    }
-
     public Key delMax() {
-        return pop();
+        return delete();
     }
 
     public Key max() {
-        return peek();
+        return top();
     }
 
     boolean less(Key v, Key w) {

@@ -11,7 +11,7 @@ public class PriorityQueue {
             pq = (Key[]) new Comparable[MIN_CAPACITY+1];
         }
 
-        protected void push(Key v) {
+        protected void insert(Key v) {
             // SOLUTION_BEGIN
             if (++n > capacity()) resize(2*capacity()+1);
             pq[n] = v;
@@ -19,7 +19,7 @@ public class PriorityQueue {
             // SOLUTION_END
         }
 
-        protected Key pop() {
+        protected Key delete() {
             // SOLUTION_BEGIN
             ensureNotEmpty();
             Key v = pq[1];
@@ -31,7 +31,7 @@ public class PriorityQueue {
             // SOLUTION_END
         }
 
-        protected Key peek() {
+        protected Key top() {
             // SOLUTION_BEGIN
             ensureNotEmpty();
             return pq[1];
@@ -102,10 +102,9 @@ public class PriorityQueue {
         }
     }
 
-    private static class PQMax<Key extends Comparable<Key>> extends PQ<Key> {
-        public void insert(Key v) { push(v); }
-        public Key delMax() { return pop(); }
-        public Key max() { return peek(); }
+    private static class MaxPQ<Key extends Comparable<Key>> extends PQ<Key> {
+        public Key delMax() { return delete(); }
+        public Key max() { return top(); }
 
         // SOLUTION_BEGIN
         boolean less(Key v, Key w) {
@@ -115,7 +114,7 @@ public class PriorityQueue {
     }
 
     public static void main(String[] args) throws Throwable {
-        PQMax<Integer> pq = new PQMax<>();
+        MaxPQ<Integer> pq = new MaxPQ<>();
         Assert.assertTrue(pq.isEmpty());
         Assert.assertEquals(0, pq.size());
         Assert.assertEquals(pq.MIN_CAPACITY, pq.capacity());
