@@ -19,9 +19,8 @@ public class ArrayKLargest {
             }
         }
         int[] r = new int[pq.size()];
-        int i = r.length-1;
-        while (!pq.isEmpty()) {
-            r[i--] = pq.delMin();
+        for (int i = r.length-1; i >= 0; i--) {
+            r[i] = pq.delMin();
         }
         return r;
         // SOLUTION_END
