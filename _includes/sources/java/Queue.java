@@ -13,9 +13,9 @@ public class Queue<Item> implements Iterable<Item> {
 
     public Queue() {}
 
-    public Queue(Queue<Item> queue) {
-        for (Item item : queue) {
-            this.enqueue(item);
+    public Queue(Iterable<Item> items) {
+        for (Item item : items) {
+            enqueue(item);
         }
     }
 
