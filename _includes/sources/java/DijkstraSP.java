@@ -17,7 +17,7 @@ public class DijkstraSP {
         }
         distTo[s] = 0.0;
 
-        pq.insert(s, 0.0);
+        pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
             relax(G, pq.delMin());
         }
