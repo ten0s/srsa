@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Lazy Prim's MST
+title: Edge Weighted Graph Lazy Prim's MST
 question_text: >-
   Implement Lazy Prim's Minimum Spanning Tree
   <table border="1">

@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Kruskal's MST
+title: Edge Weighted Graph Kruskal's MST
 question_text: >-
   Implement Kruskal's Minimum Spanning Tree
   <table border="1">

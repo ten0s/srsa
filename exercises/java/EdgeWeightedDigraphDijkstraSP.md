@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Dijkstra's Shortest Paths
+title: Edge Weighted Digraph Dijkstra's Shortest Paths
 question_text: >-
   Is there a directed path from a source vertex <i>s</i> to a given target vertex <i>t</i>?
   If so, find a <i>shortest</i> such path (one whose total weight is minimal).
