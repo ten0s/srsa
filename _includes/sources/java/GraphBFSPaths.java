@@ -83,55 +83,55 @@ public class GraphBFSPaths {
         G.addEdge(9, 11);
         G.addEdge(5, 3);
 
-        GraphBFSPaths ps0 = new GraphBFSPaths(G, 0);
-        Assert.assertTrue(ps0.hasPathTo(0));
-        Assert.assertEquals(0, ps0.distTo(0));
+        GraphBFSPaths sp0 = new GraphBFSPaths(G, 0);
+        Assert.assertTrue(sp0.hasPathTo(0));
+        Assert.assertEquals(0, sp0.distTo(0));
 
-        Assert.assertTrue(ps0.hasPathTo(1));
-        Assert.assertEquals(1, ps0.distTo(1));
+        Assert.assertTrue(sp0.hasPathTo(1));
+        Assert.assertEquals(1, sp0.distTo(1));
 
-        Assert.assertTrue(ps0.hasPathTo(2));
-        Assert.assertEquals(1, ps0.distTo(2));
+        Assert.assertTrue(sp0.hasPathTo(2));
+        Assert.assertEquals(1, sp0.distTo(2));
 
-        Assert.assertTrue(ps0.hasPathTo(3));
-        Assert.assertEquals(2, ps0.distTo(3));
-        Assert.assertEquals("0-5-3", GraphUtil.pathToString(ps0.pathTo(3)));
+        Assert.assertTrue(sp0.hasPathTo(3));
+        Assert.assertEquals(2, sp0.distTo(3));
+        Assert.assertEquals("0-5-3", GraphUtil.pathToString(sp0.pathTo(3)));
 
-        Assert.assertTrue(ps0.hasPathTo(4));
-        Assert.assertEquals(2, ps0.distTo(4));
-        Assert.assertEquals("0-6-4", GraphUtil.pathToString(ps0.pathTo(4)));
+        Assert.assertTrue(sp0.hasPathTo(4));
+        Assert.assertEquals(2, sp0.distTo(4));
+        Assert.assertEquals("0-6-4", GraphUtil.pathToString(sp0.pathTo(4)));
 
-        Assert.assertTrue(ps0.hasPathTo(5));
-        Assert.assertEquals(1, ps0.distTo(5));
-        Assert.assertEquals("0-5", GraphUtil.pathToString(ps0.pathTo(5)));
+        Assert.assertTrue(sp0.hasPathTo(5));
+        Assert.assertEquals(1, sp0.distTo(5));
+        Assert.assertEquals("0-5", GraphUtil.pathToString(sp0.pathTo(5)));
 
-        Assert.assertTrue(ps0.hasPathTo(6));
-        Assert.assertEquals(1, ps0.distTo(6));
+        Assert.assertTrue(sp0.hasPathTo(6));
+        Assert.assertEquals(1, sp0.distTo(6));
 
-        Assert.assertFalse(ps0.hasPathTo(7));
-        Assert.assertEquals(INFINITY, ps0.distTo(7));
+        Assert.assertFalse(sp0.hasPathTo(7));
+        Assert.assertEquals(INFINITY, sp0.distTo(7));
 
-        Assert.assertFalse(ps0.hasPathTo(9));
-        Assert.assertEquals(INFINITY, ps0.distTo(9));
+        Assert.assertFalse(sp0.hasPathTo(9));
+        Assert.assertEquals(INFINITY, sp0.distTo(9));
 
-        GraphBFSPaths ps9 = new GraphBFSPaths(G, 9);
-        Assert.assertTrue(ps9.hasPathTo(9));
-        Assert.assertEquals(0, ps9.distTo(9));
+        GraphBFSPaths sp9 = new GraphBFSPaths(G, 9);
+        Assert.assertTrue(sp9.hasPathTo(9));
+        Assert.assertEquals(0, sp9.distTo(9));
 
-        Assert.assertTrue(ps9.hasPathTo(10));
-        Assert.assertEquals(1, ps9.distTo(10));
+        Assert.assertTrue(sp9.hasPathTo(10));
+        Assert.assertEquals(1, sp9.distTo(10));
 
-        Assert.assertTrue(ps9.hasPathTo(11));
-        Assert.assertEquals(1, ps9.distTo(11));
+        Assert.assertTrue(sp9.hasPathTo(11));
+        Assert.assertEquals(1, sp9.distTo(11));
 
-        Assert.assertTrue(ps9.hasPathTo(12));
-        Assert.assertEquals(1, ps9.distTo(12));
+        Assert.assertTrue(sp9.hasPathTo(12));
+        Assert.assertEquals(1, sp9.distTo(12));
 
-        Assert.assertFalse(ps9.hasPathTo(0));
-        Assert.assertEquals(INFINITY, ps9.distTo(0));
+        Assert.assertFalse(sp9.hasPathTo(0));
+        Assert.assertEquals(INFINITY, sp9.distTo(0));
 
-        Assert.assertFalse(ps9.hasPathTo(7));
-        Assert.assertEquals(INFINITY, ps9.distTo(7));
+        Assert.assertFalse(sp9.hasPathTo(7));
+        Assert.assertEquals(INFINITY, sp9.distTo(7));
 
         System.out.println("OK");
     }

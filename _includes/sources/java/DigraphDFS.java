@@ -64,23 +64,23 @@ public class DigraphDFS {
         G.addEdge(6, 9);
         G.addEdge(7, 6);
 
-        DigraphDFS ps0 = new DigraphDFS(G, 0);
-        Assert.assertTrue(ps0.hasPathTo(0));
-        Assert.assertTrue(ps0.hasPathTo(1));
-        Assert.assertTrue(ps0.hasPathTo(2));
-        Assert.assertTrue(ps0.hasPathTo(3));
-        Assert.assertTrue(ps0.hasPathTo(4));
-        Assert.assertTrue(ps0.hasPathTo(5));
-        Assert.assertFalse(ps0.hasPathTo(6));
-        Assert.assertFalse(ps0.hasPathTo(7));
-        Assert.assertFalse(ps0.hasPathTo(9));
+        DigraphDFS sp0 = new DigraphDFS(G, 0);
+        Assert.assertTrue(sp0.hasPathTo(0));
+        Assert.assertTrue(sp0.hasPathTo(1));
+        Assert.assertTrue(sp0.hasPathTo(2));
+        Assert.assertTrue(sp0.hasPathTo(3));
+        Assert.assertTrue(sp0.hasPathTo(4));
+        Assert.assertTrue(sp0.hasPathTo(5));
+        Assert.assertFalse(sp0.hasPathTo(6));
+        Assert.assertFalse(sp0.hasPathTo(7));
+        Assert.assertFalse(sp0.hasPathTo(9));
 
         Bag<Integer> s69 = new Bag<>();
         s69.add(6); s69.add(9);
-        DigraphDFS ps69 = new DigraphDFS(G, s69);
-        Assert.assertTrue(ps69.hasPathTo(0));
-        Assert.assertTrue(ps69.hasPathTo(8));
-        Assert.assertFalse(ps69.hasPathTo(7));
+        DigraphDFS sp69 = new DigraphDFS(G, s69);
+        Assert.assertTrue(sp69.hasPathTo(0));
+        Assert.assertTrue(sp69.hasPathTo(8));
+        Assert.assertFalse(sp69.hasPathTo(7));
 
         System.out.println("OK");
     }

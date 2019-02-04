@@ -63,30 +63,30 @@ public class GraphDFSPaths {
         G.addEdge(9, 11);
         G.addEdge(5, 3);
 
-        GraphDFSPaths ps0 = new GraphDFSPaths(G, 0);
-        Assert.assertTrue(ps0.hasPathTo(0));
-        Assert.assertTrue(ps0.hasPathTo(1));
-        Assert.assertTrue(ps0.hasPathTo(2));
-        Assert.assertTrue(ps0.hasPathTo(3));
-        Assert.assertTrue(ps0.hasPathTo(4));
-        Assert.assertTrue(ps0.hasPathTo(5));
+        GraphDFSPaths sp0 = new GraphDFSPaths(G, 0);
+        Assert.assertTrue(sp0.hasPathTo(0));
+        Assert.assertTrue(sp0.hasPathTo(1));
+        Assert.assertTrue(sp0.hasPathTo(2));
+        Assert.assertTrue(sp0.hasPathTo(3));
+        Assert.assertTrue(sp0.hasPathTo(4));
+        Assert.assertTrue(sp0.hasPathTo(5));
 
         int l = 0;
-        for (int x : ps0.pathTo(5)) { l++; }
+        for (int x : sp0.pathTo(5)) { l++; }
         Assert.assertEquals(4, l);
-        Assert.assertEquals("0-6-4-5", GraphUtil.pathToString(ps0.pathTo(5)));
+        Assert.assertEquals("0-6-4-5", GraphUtil.pathToString(sp0.pathTo(5)));
 
-        Assert.assertTrue(ps0.hasPathTo(6));
-        Assert.assertFalse(ps0.hasPathTo(7));
-        Assert.assertFalse(ps0.hasPathTo(9));
+        Assert.assertTrue(sp0.hasPathTo(6));
+        Assert.assertFalse(sp0.hasPathTo(7));
+        Assert.assertFalse(sp0.hasPathTo(9));
 
-        GraphDFSPaths ps9 = new GraphDFSPaths(G, 9);
-        Assert.assertTrue(ps9.hasPathTo(9));
-        Assert.assertTrue(ps9.hasPathTo(10));
-        Assert.assertTrue(ps9.hasPathTo(11));
-        Assert.assertTrue(ps9.hasPathTo(12));
-        Assert.assertFalse(ps9.hasPathTo(0));
-        Assert.assertFalse(ps9.hasPathTo(7));
+        GraphDFSPaths sp9 = new GraphDFSPaths(G, 9);
+        Assert.assertTrue(sp9.hasPathTo(9));
+        Assert.assertTrue(sp9.hasPathTo(10));
+        Assert.assertTrue(sp9.hasPathTo(11));
+        Assert.assertTrue(sp9.hasPathTo(12));
+        Assert.assertFalse(sp9.hasPathTo(0));
+        Assert.assertFalse(sp9.hasPathTo(7));
 
         System.out.println("OK");
     }
