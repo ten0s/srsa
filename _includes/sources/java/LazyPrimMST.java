@@ -1,18 +1,3 @@
-/*
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public int size();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(Key v);
-    public Key delMin();
-    public boolean isEmpty();
-}
-*/
-
 public class LazyPrimMST {
     // SOLUTION_BEGIN
     private boolean[] marked;
@@ -106,3 +91,18 @@ public class LazyPrimMST {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Queue<Item> implements Iterable<Item> {
+    public Queue();
+    public void enqueue(Item item);
+    public int size();
+}
+
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
+    public void insert(Key v);
+    public Key delMin();
+    public boolean isEmpty();
+}
+*/

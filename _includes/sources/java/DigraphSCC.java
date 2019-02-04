@@ -1,17 +1,3 @@
-/*
-public class Digraph {
-    public Iterable<Integer> adj(int v);
-    public Digraph reverse()
-}
-
-public class DigraphOrders {
-    public DigraphOrders(Digraph G);
-    public Iterable<Integer> preOrder();
-    public Iterable<Integer> postOrder();
-    public Iterable<Integer> reversedPostOrder();
-}
-*/
-
 public class DigraphSCC {
     // SOLUTION_BEGIN
     private boolean[] marked;
@@ -137,3 +123,17 @@ public class DigraphSCC {
         System.out.println("OK");
     }
 }
+
+/*
+public class Digraph {
+    public Iterable<Integer> adj(int v);
+    public Digraph reverse()
+}
+
+public class DigraphOrders {
+    public DigraphOrders(Digraph G);
+    public Iterable<Integer> preOrder();
+    public Iterable<Integer> postOrder();
+    public Iterable<Integer> reversedPostOrder();
+}
+*/

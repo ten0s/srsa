@@ -3,12 +3,6 @@ public class Node<T> {
     T item;
     Node<T> next;
 }
-
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-    public Item pop();
-}
 */
 
 public class ListsMergePoint {
@@ -88,3 +82,11 @@ public class ListsMergePoint {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+    public Item pop();
+}
+*/

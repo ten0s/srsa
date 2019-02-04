@@ -1,23 +1,5 @@
 import java.util.Arrays;
 
-/*
-
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public Item dequeue();
-    public int size();
-}
-
-class IndexMinPQ<Key extends Comparable<Key>> {
-    public IndexMinPQ();
-    public void insert(int i, Key v);
-    public int delMin();
-    public int size();
-    public boolean isEmpty();
-}
-*/
-
 public class QueuesMerge<Item extends Comparable<Item>> {
     private Queue<Item> out;
 
@@ -65,3 +47,21 @@ public class QueuesMerge<Item extends Comparable<Item>> {
         System.out.println("OK");
     }
 }
+
+/*
+
+public class public class Queue<Item> implements Iterable<Item> {
+    public Queue();
+    public void enqueue(Item item);
+    public Item dequeue();
+    public int size();
+}
+
+class IndexMinPQ<Key extends Comparable<Key>> {
+    public IndexMinPQ();
+    public void insert(int i, Key v);
+    public int delMin();
+    public int size();
+    public boolean isEmpty();
+}
+*/

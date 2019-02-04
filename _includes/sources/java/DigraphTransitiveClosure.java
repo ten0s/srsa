@@ -1,10 +1,3 @@
-/*
-public class DigraphDFS {
-    public DigraphDFS(Digraph G, int s);
-    public boolean hasPathTo(int v);
-}
-*/
-
 public class DigraphTransitiveClosure {
     // SOLUTION_BEGIN
     private DigraphDFS[] all;
@@ -71,3 +64,10 @@ public class DigraphTransitiveClosure {
         System.out.println("OK");
     }
 }
+
+/*
+public class DigraphDFS {
+    public DigraphDFS(Digraph G, int s);
+    public boolean hasPathTo(int v);
+}
+*/

@@ -1,17 +1,3 @@
-/*
-public class Bag<Item> implements Iterable<Item> {
-    public Bag();
-    public void add(Item item);
-}
-
-public class DirectedEdge implements Comparable<DirectedEdge> {
-    public DirectedEdge(int v, int w, double weight);
-    public double weight();
-    public int from();
-    public int to();
-}
-*/
-
 public class EdgeWeightedDigraph {
     // SOLUTION_BEGIN
     private final int V;
@@ -175,3 +161,17 @@ public class EdgeWeightedDigraph {
         System.out.println("OK");
     }
 }
+
+/*
+public class Bag<Item> implements Iterable<Item> {
+    public Bag();
+    public void add(Item item);
+}
+
+public class DirectedEdge implements Comparable<DirectedEdge> {
+    public DirectedEdge(int v, int w, double weight);
+    public double weight();
+    public int from();
+    public int to();
+}
+*/

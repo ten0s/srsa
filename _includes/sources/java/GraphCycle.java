@@ -1,10 +1,3 @@
-/*
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-*/
-
 public class GraphCycle {
     // SOLUTION_BEGIN
     private boolean[] marked;
@@ -156,3 +149,10 @@ public class GraphCycle {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+}
+*/

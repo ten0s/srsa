@@ -1,15 +1,3 @@
-/*
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-}
-
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-*/
-
 public class DigraphOrders {
     // SOLUTION_BEGIN
     private boolean[] marked;
@@ -86,3 +74,15 @@ public class DigraphOrders {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Queue<Item> implements Iterable<Item> {
+    public Queue();
+    public void enqueue(Item item);
+}
+
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+}
+*/

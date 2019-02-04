@@ -1,11 +1,3 @@
-/*
-public class Graph {
-    public int V()
-    public int E();
-    public Iterable<Integer> adj(int v);
-}
-*/
-
 public class GraphSelfLoops {
     public static int selfLoops(Graph G) {
         // SOLUTION_BEGIN
@@ -56,3 +48,11 @@ public class GraphSelfLoops {
         System.out.println("OK");
     }
 }
+
+/*
+public class Graph {
+    public int V()
+    public int E();
+    public Iterable<Integer> adj(int v);
+}
+*/

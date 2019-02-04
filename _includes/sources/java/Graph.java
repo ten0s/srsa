@@ -1,10 +1,3 @@
-/*
-public class Bag<Item> implements Iterable<Item> {
-    public Bag();
-    public void add(Item item);
-}
-*/
-
 public class Graph {
     // SOLUTION_BEGIN
     private final int V;        // number of vertices
@@ -120,3 +113,10 @@ public class Graph {
         System.out.println("OK");
     }
 }
+
+/*
+public class Bag<Item> implements Iterable<Item> {
+    public Bag();
+    public void add(Item item);
+}
+*/

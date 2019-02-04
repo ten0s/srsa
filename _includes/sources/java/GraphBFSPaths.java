@@ -1,17 +1,3 @@
-/*
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public Item dequeue();
-    public boolean isEmpty();
-}
-
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-*/
-
 public class GraphBFSPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
     // SOLUTION_BEGIN
@@ -150,3 +136,17 @@ public class GraphBFSPaths {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Queue<Item> implements Iterable<Item> {
+    public Queue();
+    public void enqueue(Item item);
+    public Item dequeue();
+    public boolean isEmpty();
+}
+
+public class public class Stack<Item> implements Iterable<Item> {
+    public Stack();
+    public void push(Item item);
+}
+*/

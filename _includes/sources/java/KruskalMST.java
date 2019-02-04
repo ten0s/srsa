@@ -1,24 +1,3 @@
-/*
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public int size();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(Key v);
-    public Key delMin();
-    public boolean isEmpty();
-}
-
-public class UnionFind {
-    public UnionFind(int n);
-    public boolean connected(int p, int q);
-    public void union(int p, int q);
-}
-*/
-
 public class KruskalMST {
     // SOLUTION_BEGIN
     private Queue<Edge> mst;
@@ -103,3 +82,24 @@ public class KruskalMST {
         System.out.println("OK");
     }
 }
+
+/*
+public class public class Queue<Item> implements Iterable<Item> {
+    public Queue();
+    public void enqueue(Item item);
+    public int size();
+}
+
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
+    public void insert(Key v);
+    public Key delMin();
+    public boolean isEmpty();
+}
+
+public class UnionFind {
+    public UnionFind(int n);
+    public boolean connected(int p, int q);
+    public void union(int p, int q);
+}
+*/

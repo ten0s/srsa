@@ -1,11 +1,3 @@
-/*
-public class Graph {
-    public int V()
-    public int E();
-    public Iterable<Integer> adj(int v);
-}
-*/
-
 public class GraphDegree {
     public static int degree(Graph G, int v) {
         // SOLUTION_BEGIN
@@ -63,3 +55,11 @@ public class GraphDegree {
         System.out.println("OK");
     }
 }
+
+/*
+public class Graph {
+    public int V()
+    public int E();
+    public Iterable<Integer> adj(int v);
+}
+*/

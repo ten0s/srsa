@@ -1,17 +1,3 @@
-/*
-public class DigraphCycle {
-    public DigraphCycle(Digraph G);
-    public boolean hasCycle();
-}
-
-public class DigraphOrders {
-    public DigraphOrders(Digraph G);
-    public Iterable<Integer> preOrder();
-    public Iterable<Integer> postOrder();
-    public Iterable<Integer> reversedPostOrder();
-}
-*/
-
 public class DigraphTopologicalSort {
     // SOLUTION_BEGIN
     private Iterable<Integer> order;
@@ -78,3 +64,17 @@ public class DigraphTopologicalSort {
         System.out.println("OK");
     }
 }
+
+/*
+public class DigraphCycle {
+    public DigraphCycle(Digraph G);
+    public boolean hasCycle();
+}
+
+public class DigraphOrders {
+    public DigraphOrders(Digraph G);
+    public Iterable<Integer> preOrder();
+    public Iterable<Integer> postOrder();
+    public Iterable<Integer> reversedPostOrder();
+}
+*/
