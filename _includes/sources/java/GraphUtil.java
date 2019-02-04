@@ -10,4 +10,21 @@ public class GraphUtil {
         }
         return s;
     }
+
+    public static String directedWeightedPathToString(Iterable<DirectedEdge> path) {
+        String s = "";
+        DirectedEdge l = null;
+        for (DirectedEdge x : path) {
+            if (s.equals("")) {
+                s = "" + x.from();
+            } else {
+                s += "->" + x.from();
+            }
+            l = x;
+        }
+        if (l != null) {
+            s += "->" + l.to();
+        }
+        return s;
+    }
 }
