@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo '<a href="evincex:///home/ten0s/anki2/algs4.pdf#<PAGE>">Review[ SUBJECT]: Algorithms (4th ed.), p. <PAGE></a>'
-echo '<a href="evincex:///home/ten0s/anki2/pfds.djvu#<PAGE>">Review[ SUBJECT]: Pure Functional Data Structures, p. <PAGE></a>'
+echo '<a href="evincex:///home/ten0s/anki2/algs4.pdf#<PAGE>">Review: Algorithms (4th ed.), p. <PAGE></a>'
+echo '<a href="evincex:///home/ten0s/anki2/pfds.djvu#<PAGE>">Review: Pure Functional Data Structures, p. <PAGE></a>'
