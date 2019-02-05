@@ -25,7 +25,7 @@ public class ArrayStack<Item> {
 
         Item item = a[--n];
         a[n] = null;
-        if (size() <= a.length/4) {
+        if (n == a.length/4) {
             resize(Math.max(MIN_CAPACITY, a.length/2));
         }
         return item;
