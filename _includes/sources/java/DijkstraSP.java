@@ -124,7 +124,13 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     public void insert(int i, Key v);
     public void changeKey(int i, key v);
     public int delMin();
-    public int size();
+    public boolean isEmpty();
+}
+
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
+    public void insert(int i, Key v);
+    public int delMin();
     public boolean isEmpty();
 }
 
