@@ -1,18 +1,16 @@
-public class DijkstraSP {
+public class DijkstraSPs {
     private static final double INF = Double.POSITIVE_INFINITY;
     // SOLUTION_BEGIN
     private DirectedEdge[] edgeTo;
     private double[] distTo;
     private IndexMinPQ<Double> pq;
-    private final int t;
     // SOLUTION_END
 
-    public DijkstraSP(EdgeWeightedDigraph G, int s, int t) {
+    public DijkstraSPs(EdgeWeightedDigraph G, int s) {
         // SOLUTION_BEGIN
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
         pq = new IndexMinPQ<>(G.V());
-        this.t = t;
 
         for (int v = 0; v < G.V(); v++) {
             distTo[v] = INF;
@@ -21,9 +19,7 @@ public class DijkstraSP {
 
         pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
-            int v = pq.delMin();
-            if (v == t) return;
-            relax(G, v);
+            relax(G, pq.delMin());
         }
         // SOLUTION_END
     }
@@ -42,23 +38,23 @@ public class DijkstraSP {
     }
     // SOLUTION_END
 
-    public double dist() {
+    public double distTo(int v) {
         // SOLUTION_BEGIN
-        return distTo[t];
+        return distTo[v];
         // SOLUTION_END
     }
 
-    public boolean hasPath() {
+    public boolean hasPathTo(int v) {
         // SOLUTION_BEGIN
-        return distTo[t] < INF;
+        return distTo[v] < INF;
         // SOLUTION_END
     }
 
-    public Iterable<DirectedEdge> path() {
+    public Iterable<DirectedEdge> pathTo(int v) {
         // SOLUTION_BEGIN
-        if (!hasPath()) return null;
+        if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<>();
-        for (DirectedEdge e = edgeTo[t]; e != null; e = edgeTo[e.from()]) {
+        for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
         return path;
@@ -87,25 +83,28 @@ public class DijkstraSP {
         //System.out.println(G);
         //System.out.println(G.toDot());
 
-        DijkstraSP sp00 = new DijkstraSP(G, 0, 0);
-        Assert.assertTrue(sp00.hasPath());
-        Assert.assertEquals(0.0, sp00.dist());
-        Assert.assertEquals("", GraphUtil.directedWeightedPathToString(sp00.path()));
+        DijkstraSPs sp0 = new DijkstraSPs(G, 0);
+        Assert.assertTrue(sp0.hasPathTo(0));
+        Assert.assertEquals(0.0, sp0.distTo(0));
+        Assert.assertEquals("", GraphUtil.directedWeightedPathToString(sp0.pathTo(0)));
 
-        DijkstraSP sp01 = new DijkstraSP(G, 0, 1);
-        Assert.assertFalse(sp01.hasPath());
-        Assert.assertEquals(INF, sp01.dist());
-        Assert.assertNull(sp01.path());
+        Assert.assertFalse(sp0.hasPathTo(1));
+        Assert.assertEquals(INF, sp0.distTo(1));
+        Assert.assertNull(sp0.pathTo(1));
 
-        DijkstraSP sp02 = new DijkstraSP(G, 0, 2);
-        Assert.assertTrue(sp02.hasPath());
-        Assert.assertEquals(0.26, sp02.dist(), 10e-4);
-        Assert.assertEquals("0->2", GraphUtil.directedWeightedPathToString(sp02.path()));
+        Assert.assertTrue(sp0.hasPathTo(2));
+        Assert.assertEquals(0.26, sp0.distTo(2), 10e-4);
+        Assert.assertEquals("0->2", GraphUtil.directedWeightedPathToString(sp0.pathTo(2)));
 
-        DijkstraSP sp06 = new DijkstraSP(G, 0, 6);
-        Assert.assertTrue(sp06.hasPath());
-        Assert.assertEquals(0.95, sp06.dist(), 10e-4);
-        Assert.assertEquals("0->2->3->6", GraphUtil.directedWeightedPathToString(sp06.path()));
+        Assert.assertTrue(sp0.hasPathTo(3));
+        Assert.assertTrue(sp0.hasPathTo(4));
+        Assert.assertTrue(sp0.hasPathTo(5));
+
+        Assert.assertTrue(sp0.hasPathTo(6));
+        Assert.assertEquals(0.95, sp0.distTo(6), 10e-4);
+        Assert.assertEquals("0->2->3->6", GraphUtil.directedWeightedPathToString(sp0.pathTo(6)));
+
+        Assert.assertTrue(sp0.hasPathTo(7));
 
         System.out.println("OK");
     }
@@ -124,13 +123,6 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     public boolean contains(int i);
     public void insert(int i, Key v);
     public void changeKey(int i, key v);
-    public int delMin();
-    public boolean isEmpty();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(int i, Key v);
     public int delMin();
     public boolean isEmpty();
 }

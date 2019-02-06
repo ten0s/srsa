@@ -1,15 +1,16 @@
 ---
 layout: exercise
-title: Edge Weighted Digraph Dijkstra's Shortest Path
+title: Edge Weighted Digraph Lazy Dijkstra's Shortest Paths
 question_text: >-
-  Is there a directed path from a source vertex <i>s</i> to a target vertex <i>t</i>?
+  Is there a directed path from a source vertex <i>s</i> to a given target vertex <i>t</i>?
   If so, find a <i>shortest</i> such path (one whose total weight is minimal)
+  in O(ElogE) time and O(E) space
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyEWG-directed.png" title="tinyEWG-directed"></td>
     </tr>
   </table>
-solution_file: /sources/java/DijkstraSP.java
+solution_file: /sources/java/LazyDijkstraSPs.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
@@ -21,10 +22,8 @@ library_files:
 - /sources/java/Queue.java
 - /sources/java/Stack.java
 - /sources/java/Prime.java
-- /sources/java/IndexMinPQ.java
-- /sources/java/IndexPQ.java
 - /sources/java/MinPQ.java
 - /sources/java/PQ.java
 language: java
-command: javac DijkstraSP.java && java DijkstraSP
+command: javac LazyDijkstraSPs.java && java LazyDijkstraSPs
 ---
