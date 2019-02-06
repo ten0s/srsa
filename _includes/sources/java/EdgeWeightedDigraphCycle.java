@@ -1,15 +1,15 @@
 public class EdgeWeightedDigraphCycle {
     // SOLUTION_BEGIN
     private boolean[] marked;
-    private int[] edgeTo;
+    private DirectedEdge[] edgeTo;
     private boolean[] onStack;
-    private Stack<Integer> cycle;
+    private Stack<DirectedEdge> cycle;
     // SOLUTION_END
 
     public EdgeWeightedDigraphCycle(EdgeWeightedDigraph G) {
         // SOLUTION_BEGIN
         marked = new boolean[G.V()];
-        edgeTo = new int[G.V()];
+        edgeTo = new DirectedEdge[G.V()];
         onStack = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
@@ -28,15 +28,15 @@ public class EdgeWeightedDigraphCycle {
             if (hasCycle()) return;
             int w = e.to();
             if (!marked[w]) {
-                edgeTo[w] = v;
+                edgeTo[w] = e;
                 dfs(G, w);
             } else if (onStack[w]) {
+                edgeTo[w] = e;
                 cycle = new Stack<>();
-                for (int x = v; x != w; x = edgeTo[x]) {
+                for (DirectedEdge x = edgeTo[v]; x != e; x = edgeTo[x.from()]) {
                     cycle.push(x);
                 }
-                cycle.push(w);
-                cycle.push(v);
+                cycle.push(e);
             }
         }
         onStack[v] = false;
@@ -49,7 +49,7 @@ public class EdgeWeightedDigraphCycle {
         // SOLUTION_END
     }
 
-    public Iterable<Integer> cycle() {
+    public Iterable<DirectedEdge> cycle() {
         // SOLUTION_BEGIN
         return cycle;
         // SOLUTION_END
@@ -96,7 +96,7 @@ public class EdgeWeightedDigraphCycle {
         G4C.addEdge(new DirectedEdge(6, 0, 0.16));
         EdgeWeightedDigraphCycle c4c = new EdgeWeightedDigraphCycle(G4C);
         Assert.assertTrue(c4c.hasCycle());
-        Assert.assertEquals("6-0-2-4-6", GraphUtil.pathToString(c4c.cycle));
+        Assert.assertEquals("6->0->2->4->6", GraphUtil.directedWeightedPathToString(c4c.cycle));
 
         System.out.println("OK");
     }
