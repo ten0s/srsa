@@ -1,25 +1,26 @@
-public class DijkstraSP {
+public class LazyDijkstraSP {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
     // SOLUTION_BEGIN
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private IndexMinPQ<Double> pq;
+    private MinPQ<DirectedEdge> pq;
     // SOLUTION_END
 
-    public DijkstraSP(EdgeWeightedDigraph G, int s) {
+    public LazyDijkstraSP(EdgeWeightedDigraph G, int s) {
         // SOLUTION_BEGIN
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        pq = new IndexMinPQ<>(G.V());
+        pq = new MinPQ<>();
 
         for (int v = 0; v < G.V(); v++) {
             distTo[v] = INFINITY;
         }
         distTo[s] = 0.0;
 
-        pq.insert(s, distTo[s]);
+        relax(G, s);
         while (!pq.isEmpty()) {
-            relax(G, pq.delMin());
+            DirectedEdge e = pq.delMin();
+            relax(G, e.to());
         }
         // SOLUTION_END
     }
@@ -31,8 +32,7 @@ public class DijkstraSP {
             if (distTo[w] > distTo[v] + e.weight()) {
                 distTo[w] = distTo[v] + e.weight();
                 edgeTo[w] = e;
-                if (pq.contains(w)) pq.changeKey(w, distTo[w]);
-                else                pq.insert(w, distTo[w]);
+                pq.insert(e);
             }
         }
     }
@@ -83,7 +83,7 @@ public class DijkstraSP {
         //System.out.println(G);
         //System.out.println(G.toDot());
 
-        DijkstraSP sp0 = new DijkstraSP(G, 0);
+        LazyDijkstraSP sp0 = new LazyDijkstraSP(G, 0);
         Assert.assertTrue(sp0.hasPathTo(0));
         Assert.assertEquals(0.0, sp0.distTo(0));
         Assert.assertEquals("", GraphUtil.directedWeightedPathToString(sp0.pathTo(0)));
@@ -118,11 +118,9 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public int to();
 }
 
-class IndexMinPQ<Key extends Comparable<Key>> {
-    public IndexMinPQ();
-    public boolean contains(int i);
+class MinPQ<Key extends Comparable<Key>> {
+    public MinPQ();
     public void insert(int i, Key v);
-    public void changeKey(int i, key v);
     public int delMin();
     public boolean isEmpty();
 }
