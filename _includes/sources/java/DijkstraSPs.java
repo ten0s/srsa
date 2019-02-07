@@ -1,5 +1,5 @@
 public class DijkstraSPs {
-    private static final double INF = Double.POSITIVE_INFINITY;
+    private static final double INFINITY = Double.POSITIVE_INFINITY;
     // SOLUTION_BEGIN
     private DirectedEdge[] edgeTo;
     private double[] distTo;
@@ -13,7 +13,7 @@ public class DijkstraSPs {
         pq = new IndexMinPQ<>(G.V());
 
         for (int v = 0; v < G.V(); v++) {
-            distTo[v] = INF;
+            distTo[v] = INFINITY;
         }
         distTo[s] = 0.0;
 
@@ -46,7 +46,7 @@ public class DijkstraSPs {
 
     public boolean hasPathTo(int v) {
         // SOLUTION_BEGIN
-        return distTo[v] < INF;
+        return distTo[v] < INFINITY;
         // SOLUTION_END
     }
 
@@ -89,7 +89,7 @@ public class DijkstraSPs {
         Assert.assertEquals("", GraphUtil.directedWeightedPathToString(sp0.pathTo(0)));
 
         Assert.assertFalse(sp0.hasPathTo(1));
-        Assert.assertEquals(INF, sp0.distTo(1));
+        Assert.assertEquals(INFINITY, sp0.distTo(1));
         Assert.assertNull(sp0.pathTo(1));
 
         Assert.assertTrue(sp0.hasPathTo(2));
