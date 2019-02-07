@@ -2,7 +2,7 @@
 layout: exercise
 title: Edge Weighted Digraph Cycle
 question_text: >-
-  Does a given edge weighted digraph have a directed cycle? If so, find such a cycle
+  Does a given edge-weighted digraph have a directed cycle? If so, find such a cycle
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/ewdigraph3.png" title="ewdigraph3"></td>

@@ -2,7 +2,7 @@
 layout: exercise
 title: Edge Weighted Graph
 question_text: >-
-  Implement edge weighted graph using adjacency lists
+  Implement edge-weighted graph using adjacency lists
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyEWG.png" title="tinyEWG"></td>

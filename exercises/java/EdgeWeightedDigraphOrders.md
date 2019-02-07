@@ -2,7 +2,7 @@
 layout: exercise
 title: Edge Weighted Digraph Orders
 question_text: >-
-  Traverse edge weighted digraph in pre-order, post-order and reversed post-order
+  Traverse edge-weighted digraph in pre-order, post-order and reversed post-order
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/ewdigraph4.png" title="ewdigraph4"></td>

@@ -2,7 +2,7 @@
 layout: exercise
 title: Edge Weighted Digraph Topological Sort
 question_text: >-
-  Can a given edge weighted digraph be topologicaly sorted? If so, find such an order
+  Can a given edge-weighted digraph be topologicaly sorted? If so, find such an order
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/ewdigraph4.png" title="ewdigraph4"></td>

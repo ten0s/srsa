@@ -2,7 +2,7 @@
 layout: exercise
 title: Edge Weighted Digraph
 question_text: >-
-  Implement edge weighted digraph using adjacency lists
+  Implement edge-weighted digraph using adjacency lists
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyEWG-directed.png" title="tinyEWG-directed"></td>
