@@ -31,10 +31,18 @@ public class EdgeWeightedDigraphCycle {
                 edgeTo[w] = e;
                 dfs(G, w);
             } else if (onStack[w]) {
-                edgeTo[w] = e;
                 cycle = new Stack<>();
+                /*
+                edgeTo[w] = e;
                 for (DirectedEdge x = edgeTo[v]; x != e; x = edgeTo[x.from()]) {
                     cycle.push(x);
+                }
+                cycle.push(e);
+                */
+                DirectedEdge f = e;
+                while (f.from() != w) {
+                    f = edgeTo[f.from()];
+                    cycle.push(f);
                 }
                 cycle.push(e);
             }

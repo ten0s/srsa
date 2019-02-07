@@ -15,6 +15,7 @@ library_files:
 - /sources/java/Digraph.java
 - /sources/java/DigraphDFS.java
 - /sources/java/GraphUtil.java
+- /sources/java/DirectedEdge.java
 - /sources/java/Bag.java
 - /sources/java/HashSet.java
 - /sources/java/Queue.java

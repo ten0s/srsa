@@ -18,6 +18,7 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Digraph.java
 - /sources/java/GraphUtil.java
+- /sources/java/DirectedEdge.java
 - /sources/java/Bag.java
 - /sources/java/HashSet.java
 - /sources/java/Queue.java
