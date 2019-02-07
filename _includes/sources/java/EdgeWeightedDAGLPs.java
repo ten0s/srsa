@@ -1,4 +1,6 @@
+// SOLUTION_BEGIN
 import java.util.Iterator;
+// SOLUTION_END
 
 public class EdgeWeightedDAGLPs {
     // SOLUTION_BEGIN
