@@ -9,13 +9,11 @@ public class ListReverse {
     public static <T> Node<T> reverse(Node<T> node) {
         // SOLUTION_BEGIN
         Node<T> prev = null;
-        Node<T> curr = node;
-        Node<T> next = null;
-        while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+        while (node != null) {
+            Node<T> next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
         }
         return prev;
         // SOLUTION_END
