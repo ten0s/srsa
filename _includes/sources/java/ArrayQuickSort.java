@@ -16,8 +16,8 @@ class ArrayQuickSort {
 
     // SOLUTION_BEGIN
     private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
-        int i = lo, j = hi+1;
         T v = a[lo];
+        int i = lo, j = hi+1;
         while (true) {
             while (less(a[++i], v))
                 if (i == hi) break;
