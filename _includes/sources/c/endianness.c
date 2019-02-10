@@ -8,7 +8,7 @@ typedef enum {
 } end_t;
 
 end_t endianness() {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     union u_t {
         uint8_t  u8;
         uint16_t u16;
@@ -16,9 +16,10 @@ end_t endianness() {
         uint64_t u64;
     } u = { .u64 = 0x4A };
     return (u.u8 == u.u16 && u.u8 == u.u32 && u.u8 == u.u64) ? LITTLE : BIG;
-    // END_SOLUTION
+    //+END_SOLUTION
 }
 
+//+BEGIN_FOLD Tests {
 int main(void) {
     end_t e = endianness();
     if (e == BIG) {
@@ -30,3 +31,4 @@ int main(void) {
     }
     return 0;
 }
+//+END_FOLD }
