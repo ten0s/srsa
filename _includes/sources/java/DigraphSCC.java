@@ -126,7 +126,8 @@ public class DigraphSCC {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class Digraph {
     public Iterable<Integer> adj(int v);
     public Digraph reverse()
@@ -138,4 +139,4 @@ public class DigraphOrders {
     public Iterable<Integer> postOrder();
     public Iterable<Integer> reversedPostOrder();
 }
-*/
++END_FOLD*/

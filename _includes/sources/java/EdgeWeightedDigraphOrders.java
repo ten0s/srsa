@@ -88,7 +88,8 @@ public class EdgeWeightedDigraphOrders {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class public class Queue<Item> implements Iterable<Item> {
     public Queue();
     public void enqueue(Item item);
@@ -98,4 +99,4 @@ public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);
 }
-*/
++END_FOLD*/

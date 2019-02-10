@@ -164,7 +164,8 @@ public class EdgeWeightedDigraph {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class Bag<Item> implements Iterable<Item> {
     public Bag();
     public void add(Item item);
@@ -176,4 +177,4 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public int from();
     public int to();
 }
-*/
++END_FOLD*/

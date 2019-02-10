@@ -112,7 +112,8 @@ public class DijkstraSPs {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class DirectedEdge implements Comparable<DirectedEdge> {
     public DirectedEdge(int v, int w, double weight);
     public double weight();
@@ -133,4 +134,4 @@ public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);
 }
-*/
++END_FOLD*/

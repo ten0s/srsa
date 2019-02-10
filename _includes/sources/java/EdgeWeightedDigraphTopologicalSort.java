@@ -67,7 +67,8 @@ public class EdgeWeightedDigraphTopologicalSort {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class EdgeWeightedDigraphCycle {
     public EdgeWeightedDigraphCycle(EdgeWeightedDigraph G);
     public boolean hasCycle();
@@ -79,4 +80,4 @@ public class EdgeWeightedDigraphOrders {
     public Iterable<Integer> postOrder();
     public Iterable<Integer> reversedPostOrder();
 }
-*/
++END_FOLD*/

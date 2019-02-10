@@ -85,7 +85,8 @@ public class KruskalMST {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class public class Queue<Item> implements Iterable<Item> {
     public Queue();
     public void enqueue(Item item);
@@ -104,4 +105,4 @@ public class UnionFind {
     public boolean connected(int p, int q);
     public void union(int p, int q);
 }
-*/
++END_FOLD*/

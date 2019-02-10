@@ -107,7 +107,8 @@ public class EdgeWeightedDAGLPs {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class DirectedEdge implements Comparable<DirectedEdge> {
     public DirectedEdge(int v, int w, double weight);
     public double weight();
@@ -132,4 +133,4 @@ public class EdgeWeightedDAGSPs {
     public boolean hasPathTo(int v);
     public Iterable<DirectedEdge> pathTo(int v)
 }
-*/
++END_FOLD*/

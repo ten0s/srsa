@@ -116,9 +116,10 @@ public class DigraphCycle {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);
 }
-*/
++END_FOLD*/

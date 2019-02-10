@@ -67,7 +67,8 @@ public class DigraphTopologicalSort {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class DigraphCycle {
     public DigraphCycle(Digraph G);
     public boolean hasCycle();
@@ -79,4 +80,4 @@ public class DigraphOrders {
     public Iterable<Integer> postOrder();
     public Iterable<Integer> reversedPostOrder();
 }
-*/
++END_FOLD*/

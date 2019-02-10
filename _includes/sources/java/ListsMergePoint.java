@@ -85,10 +85,11 @@ public class ListsMergePoint {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);
     public Item pop();
 }
-*/
++END_FOLD*/

@@ -27,8 +27,8 @@ public class ArrayKLargest {
     //+END_FOLD }
 }
 
-//+BEGIN_FOLD Refs {
-/*
+// Refs
+/*+BEGIN_FOLD
 class MinPQ<Key extends Comparable<Key>> {
     public MinPQ();
     public void insert(Key v);
@@ -36,5 +36,4 @@ class MinPQ<Key extends Comparable<Key>> {
     public int size();
     public boolean isEmpty();
 }
-*/
-//+END_FOLD }
++END_FOLD*/

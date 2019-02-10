@@ -137,9 +137,10 @@ public class Digraph {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class Bag<Item> implements Iterable<Item> {
     public Bag();
     public void add(Item item);
 }
-*/
++END_FOLD*/

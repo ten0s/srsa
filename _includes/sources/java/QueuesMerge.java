@@ -50,8 +50,8 @@ public class QueuesMerge<Item extends Comparable<Item>> {
     //+END_FOLD }
 }
 
-/*
-
+// Refs
+/*+BEGIN_FOLD
 public class public class Queue<Item> implements Iterable<Item> {
     public Queue();
     public void enqueue(Item item);
@@ -66,4 +66,4 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     public int size();
     public boolean isEmpty();
 }
-*/
++END_FOLD*/

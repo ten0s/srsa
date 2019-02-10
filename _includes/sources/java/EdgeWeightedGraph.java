@@ -144,7 +144,8 @@ public class EdgeWeightedGraph {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class Bag<Item> implements Iterable<Item> {
     public Bag();
     public void add(Item item);
@@ -156,4 +157,4 @@ public class Edge implements Comparable<Edge> {
     public int either();
     public int other(int vertex);
 }
-*/
++END_FOLD*/

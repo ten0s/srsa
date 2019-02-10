@@ -94,7 +94,8 @@ public class LazyPrimMST {
     //+END_FOLD }
 }
 
-/*
+// Refs
+/*+BEGIN_FOLD
 public class public class Queue<Item> implements Iterable<Item> {
     public Queue();
     public void enqueue(Item item);
@@ -107,4 +108,4 @@ class MinPQ<Key extends Comparable<Key>> {
     public Key delMin();
     public boolean isEmpty();
 }
-*/
++END_FOLD*/
