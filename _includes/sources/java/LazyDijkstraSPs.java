@@ -1,13 +1,13 @@
 public class LazyDijkstraSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
     private MinPQ<DirectedEdge> pq;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public LazyDijkstraSPs(EdgeWeightedDigraph G, int s) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
         pq = new MinPQ<>();
@@ -22,10 +22,10 @@ public class LazyDijkstraSPs {
             DirectedEdge e = pq.delMin();
             relax(G, e.to());
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void relax(EdgeWeightedDigraph G, int v) {
         for (DirectedEdge e : G.adj(v)) {
             int w = e.to();
@@ -36,29 +36,29 @@ public class LazyDijkstraSPs {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public double distTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return distTo[v];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public boolean hasPathTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return distTo[v] < INFINITY;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<DirectedEdge> pathTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
         return path;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

@@ -1,6 +1,6 @@
-// BEGIN_SOLUTION
+//+BEGIN_SOLUTION
 import java.util.Objects;
-// END_SOLUTION
+//+END_SOLUTION
 
 public class EqualsTest {
     static class Entry<K, V> {
@@ -17,7 +17,7 @@ public class EqualsTest {
             return "Entry{key=" + key + "," + "val=" + val + "}";
         }
 
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         public boolean equals(Object x) {
             if (this == x) return true;
             if (x == null) return false;
@@ -30,7 +30,7 @@ public class EqualsTest {
         public int hashCode() {
             return Objects.hash(key, val);
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

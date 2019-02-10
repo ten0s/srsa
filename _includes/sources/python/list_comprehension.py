@@ -1,14 +1,14 @@
 import unittest
 
 def evens(min, max):
-## SOLUTION_BEGIN
+##+BEGIN_SOLUTION
     return [x for x in range(min, max+1) if x % 2 == 0]
-## SOLUTION_END
+##+END_SOLUTION
 
 def odds(min, max):
-## SOLUTION_BEGIN
+##+BEGIN_SOLUTION
     return [x for x in range(min, max+1) if x % 2]
-## SOLUTION_END
+##+END_SOLUTION
 
 class Test(unittest.TestCase):
     def test(self):

@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListDelete {
     public static <T extends Comparable<T>> Node<T> delete(T key, Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) {
             return node;
         }
@@ -21,7 +21,7 @@ public class ListDelete {
             }
         }
         return node;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

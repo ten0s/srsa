@@ -1,11 +1,11 @@
 public class KruskalMST {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private Queue<Edge> mst;
     private double weight;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public KruskalMST(EdgeWeightedGraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         mst = new Queue<>();
 
         MinPQ<Edge> pq = new MinPQ<>();
@@ -24,19 +24,19 @@ public class KruskalMST {
                 weight += e.weight();
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Edge> edges() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return mst;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public double weight() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return weight;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

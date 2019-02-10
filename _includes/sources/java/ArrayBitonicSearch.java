@@ -1,4 +1,4 @@
-// BEGIN_SOLUTION
+//+BEGIN_SOLUTION
 /*
 The simple idea is: as long as middle is less than key at either side of maximum
 we still search in bitonic array, but as soon as middle is greater than key we do
@@ -18,7 +18,7 @@ Assuming the array is first in ascending order and then in descending order:
 6. If the middle element is bigger than the desired value, then do descending
    binary search on the right subarray and ascending binary search on the left subarray.
 */
-// END_SOLUTION
+//+END_SOLUTION
 
 public class ArrayBitonicSearch {
     public static int bitonicSearch(int key, int[] a) {
@@ -26,7 +26,7 @@ public class ArrayBitonicSearch {
     }
 
     private static int bitonicSearch(int key, int[] a, int lo, int hi) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (a[mid] < key) {
@@ -48,11 +48,11 @@ public class ArrayBitonicSearch {
         } else {
             return mid;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static int binarySearchASC(int key, int[] a, int lo, int hi) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -62,11 +62,11 @@ public class ArrayBitonicSearch {
         } else {
             return mid;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static int binarySearchDESC(int key, int[] a, int lo, int hi) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -76,7 +76,7 @@ public class ArrayBitonicSearch {
         } else {
             return mid;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

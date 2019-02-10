@@ -19,7 +19,7 @@ public class BinSearchTreePut {
     public static <K extends Comparable<K>, V> BinTree.Node<Entry<K, V>> put(
         K key, V val, BinTree.Node<Entry<K, V>> node
     ) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) return new BinTree.Node<>(new Entry<>(key, val));
         int cmp = key.compareTo(node.item.key);
         if      (cmp < 0) node.left  = put(key, val, node.left);
@@ -28,7 +28,7 @@ public class BinSearchTreePut {
 
         node.size = 1 + BinTree.size(node.left) + BinTree.size(node.right);
         return node;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

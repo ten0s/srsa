@@ -25,7 +25,7 @@ public class RedBlackBSTPut {
     public static <K extends Comparable<K>, V> BinTree.Node<Entry<K, V>> put(
         K key, V val, BinTree.Node<Entry<K, V>> node
     ) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) return new BinTree.Node<>(new Entry<>(key, val), BinTree.RED);
         int cmp = key.compareTo(node.item.key);
         if      (cmp < 0) node.left  = put(key, val, node.left);
@@ -38,19 +38,19 @@ public class RedBlackBSTPut {
 
         node.size = 1 + BinTree.size(node.left) + BinTree.size(node.right);
         return node;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static boolean isRed(BinTree.Node<?> x) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         // null links are black
         if (x == null) return false;
         return x.color == BinTree.RED;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static <K, V> BinTree.Node<Entry<K, V>> rotateLeft(BinTree.Node<Entry<K, V>> h) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         assert isRed(h.right);
         BinTree.Node<Entry<K, V>> x = h.right;
         h.right = x.left;
@@ -60,11 +60,11 @@ public class RedBlackBSTPut {
         x.size = h.size;
         h.size = 1 + BinTree.size(h.left) + BinTree.size(h.right);
         return x;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static <K, V> BinTree.Node<Entry<K, V>> rotateRight(BinTree.Node<Entry<K, V>> h) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         assert isRed(h.left);
         BinTree.Node<Entry<K, V>> x = h.left;
         h.left = x.right;
@@ -74,18 +74,18 @@ public class RedBlackBSTPut {
         x.size = h.size;
         h.size = 1 + BinTree.size(h.left) + BinTree.size(h.right);
         return x;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static void flipColors(BinTree.Node<?> h) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         assert !isRed(h);
         assert isRed(h.left);
         assert isRed(h.right);
         h.color = !h.color;
         h.left.color = !h.left.color;
         h.right.color = !h.right.color;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

@@ -1,13 +1,13 @@
 class IsPalindromeString {
     public static boolean isPalindrome(String s) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int n = s.length();
         for (int i = 0; i < n/2; i++) {
             if (s.charAt(i) != s.charAt(n-i-1))
                 return false;
         }
         return true;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

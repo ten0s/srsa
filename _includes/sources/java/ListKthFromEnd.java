@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListKthFromEnd {
     public static <T> T kth(int k, Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         Node<T> slow = node;
         Node<T> fast = skip(k, node);
         while (fast != null) {
@@ -15,10 +15,10 @@ public class ListKthFromEnd {
             fast = fast.next;
         }
         return slow.item;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     public static <T> Node<T> skip(int k, Node<T> node) {
         while (k > 0 && node != null) {
             k--;
@@ -29,7 +29,7 @@ public class ListKthFromEnd {
         }
         return node;
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         Node<Integer> list = Node.fromIntArray(new int[] {1,2,3,4,5,6,7,8,9,10});

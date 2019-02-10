@@ -1,12 +1,12 @@
 public class GCD {
     public static int gcd(int a, int b) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (b == 0) {
             return Math.abs(a);
         } else {
             return gcd(b, a % b);
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

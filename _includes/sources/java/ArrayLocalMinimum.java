@@ -1,4 +1,4 @@
-// BEGIN_SOLUTION
+//+BEGIN_SOLUTION
 /*
 http://flexaired.blogspot.com/2013/02/local-minimum-of-array.html
 https://www.geeksforgeeks.org/find-local-minima-array/
@@ -22,16 +22,16 @@ reasoning there is an LM in the upper half of the array.  Similarly,
 if a[n/2] < a[n/2+1] there is an LM in the lower half of the array.
 Solve recursively in the appropriate half.
 */
-// END_SOLUTION
+//+END_SOLUTION
 
 public class ArrayLocalMinimum {
     public static int indexOf(int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return indexOf(a, 0, a.length-1);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static int indexOf(int[] a, int lo, int hi) {
         if (lo > hi) {
             return -1;
@@ -62,7 +62,7 @@ public class ArrayLocalMinimum {
             return indexOf(a, mid+1, hi);
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, indexOf(new int[] {}));

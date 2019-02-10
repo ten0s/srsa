@@ -1,13 +1,13 @@
 public class LazyPrimMST {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private MinPQ<Edge> pq;
     private Queue<Edge> mst;
     private double weight;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public LazyPrimMST(EdgeWeightedGraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         pq = new MinPQ<>();
         mst = new Queue<>();
@@ -22,10 +22,10 @@ public class LazyPrimMST {
             if (!marked[v]) visit(G, v);
             if (!marked[w]) visit(G, w);
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void visit(EdgeWeightedGraph G, int v) {
         marked[v] = true;
         for (Edge e : G.adj(v)) {
@@ -34,18 +34,18 @@ public class LazyPrimMST {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public Iterable<Edge> edges() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return mst;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public double weight() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return weight;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

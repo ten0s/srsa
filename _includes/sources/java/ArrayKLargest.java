@@ -1,6 +1,6 @@
 public class ArrayKLargest {
     public static int[] largest(int k, int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         MinPQ<Integer> pq = new MinPQ<>();
         for (int i = 0; i < a.length; i++) {
             pq.insert(a[i]);
@@ -13,7 +13,7 @@ public class ArrayKLargest {
             r[i] = pq.delMin();
         }
         return r;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

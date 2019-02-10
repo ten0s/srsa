@@ -1,27 +1,27 @@
 public class DigraphDFS {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public DigraphDFS(Digraph G, int s) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         dfs(G, s);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public DigraphDFS(Digraph G, Iterable<Integer> sources) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         for (int s : sources) {
             if (!marked[s]) {
                 dfs(G, s);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Digraph G, int v) {
         marked[v] = true;
         for (int w : G.adj(v)) {
@@ -30,12 +30,12 @@ public class DigraphDFS {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean hasPathTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return marked[v];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

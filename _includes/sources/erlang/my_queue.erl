@@ -7,47 +7,47 @@
 -type error(_E) :: no_return().
 
 -spec new() -> queue(_T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 new() ->
     {[], []}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(1)
 -spec is_empty(queue(_T)) -> boolean().
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 is_empty({[], _}) ->
     true;
 is_empty({_, _}) ->
     false.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(1)
 -spec enqueue(T, queue(T)) -> queue(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 enqueue(X, {[], _}) ->
     {[X], []};
 enqueue(X, {F, R}) ->
     {F, [X | R]}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec dequeue(queue(T)) -> {T, queue(T)} | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 dequeue({[], _}) ->
     error(empty);
 dequeue({[X], R}) ->
     {X, {lists:reverse(R), []}};
 dequeue({[X | F], R}) ->
     {X, {F, R}}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(1)
 -spec peek(queue(T)) -> T | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 peek({[], _}) ->
     error(empty);
 peek({[X | _], _}) ->
     X.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

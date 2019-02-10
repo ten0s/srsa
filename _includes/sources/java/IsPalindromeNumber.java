@@ -1,6 +1,6 @@
 class IsPalindromeNumber {
     public static boolean isPalindrome(int n) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (n < 0) return false;
         if (n < 10) return true;
         int p = (int) Math.log10(n);
@@ -8,14 +8,14 @@ class IsPalindromeNumber {
             if (digit(i, n) != digit(p-i, n)) return false;
         }
         return true;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static int digit(int i, int n) {
         return (int) (n / Math.pow(10, i)) % 10;
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         Assert.assertFalse(isPalindrome(-3));

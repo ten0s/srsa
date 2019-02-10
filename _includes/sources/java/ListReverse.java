@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListReverse {
     public static <T> Node<T> reverse(Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         Node<T> prev = null;
         while (node != null) {
             Node<T> next = node.next;
@@ -16,7 +16,7 @@ public class ListReverse {
             node = next;
         }
         return prev;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

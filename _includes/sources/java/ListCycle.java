@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListCycle {
     public static <T> boolean hasCycle(Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) return false;
         Node<T> slow = node, fast = node;
         while (fast.next != null && fast.next.next != null) {
@@ -16,7 +16,7 @@ public class ListCycle {
             if (slow == fast) return true;
         }
         return false;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

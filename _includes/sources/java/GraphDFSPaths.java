@@ -1,20 +1,20 @@
 public class GraphDFSPaths {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
     private final int s;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public GraphDFSPaths(Graph G, int s) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
         dfs(G, s);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Graph G, int v) {
         marked[v] = true;
         for (int w : G.adj(v)) {
@@ -24,16 +24,16 @@ public class GraphDFSPaths {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean hasPathTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return marked[v];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> pathTo(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (!hasPathTo(v)) {
             return null;
         }
@@ -43,7 +43,7 @@ public class GraphDFSPaths {
         }
         path.push(s);
         return path;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

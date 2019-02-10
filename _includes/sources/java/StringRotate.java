@@ -1,6 +1,6 @@
 public class StringRotate {
     public static String rotate(int n, String s) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int l = s.length();
         if (l == 0) return s;
         int m = n % l;
@@ -8,7 +8,7 @@ public class StringRotate {
         String a = s.substring(0, m);
         String b = s.substring(m, l);
         return b + a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

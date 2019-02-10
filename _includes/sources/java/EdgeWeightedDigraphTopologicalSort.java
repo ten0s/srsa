@@ -1,28 +1,28 @@
 public class EdgeWeightedDigraphTopologicalSort {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private Iterable<Integer> order;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public EdgeWeightedDigraphTopologicalSort(EdgeWeightedDigraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         EdgeWeightedDigraphCycle cycleFinder = new EdgeWeightedDigraphCycle(G);
         if (!cycleFinder.hasCycle()) {
             EdgeWeightedDigraphOrders orders = new EdgeWeightedDigraphOrders(G);
             order = orders.reversedPostOrder();
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public boolean hasOrder() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return order != null;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> order() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return order;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

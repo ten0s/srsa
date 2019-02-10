@@ -10,7 +10,7 @@ public class BinTree.Node<T> {
 
 public class BinSearchTreeFloorCeiling {
     public static <K extends Comparable<K>> BinTree.Node<K> floor(K key, BinTree.Node<K> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) throw new NoSuchElementException();
         int cmp = key.compareTo(node.item);
         if (cmp == 0) return node;
@@ -20,11 +20,11 @@ public class BinSearchTreeFloorCeiling {
         } catch (NoSuchElementException e) {
             return node;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <K extends Comparable<K>> BinTree.Node<K> ceiling(K key, BinTree.Node<K> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) throw new NoSuchElementException();
         int cmp = key.compareTo(node.item);
         if (cmp == 0) return node;
@@ -34,7 +34,7 @@ public class BinSearchTreeFloorCeiling {
         } catch (NoSuchElementException e) {
             return node;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

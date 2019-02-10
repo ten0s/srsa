@@ -1,27 +1,27 @@
 public class GraphDegree {
     public static int degree(Graph G, int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int d = 0;
         for (int w : G.adj(v)) d++;
         return d;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static int maxDegree(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int max = 0;
         for (int v = 0; v < G.V(); v++) {
             max = Math.max(max, degree(G, v));
         }
         return max;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static double avgDegree(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         // Each edge gives two degrees distributed among all vertices
         return 2.0 * G.E() / G.V();
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

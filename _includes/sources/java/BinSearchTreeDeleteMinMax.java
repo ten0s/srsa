@@ -10,7 +10,7 @@ public class BinTree.Node<T> {
 
 public class BinSearchTreeDeleteMinMax {
     public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> n) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (n == null) {
             throw new NoSuchElementException();
         }
@@ -20,11 +20,11 @@ public class BinSearchTreeDeleteMinMax {
             n = n.right;
         }
         return n;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> n) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (n == null) {
             throw new NoSuchElementException();
         }
@@ -34,7 +34,7 @@ public class BinSearchTreeDeleteMinMax {
             n = n.left;
         }
         return n;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

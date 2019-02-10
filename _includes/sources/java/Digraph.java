@@ -1,48 +1,48 @@
 public class Digraph {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private final int V;        // number of vertices
     private int E;              // number of edges
     private Bag<Integer>[] adj; // adjacency lists
-    // END_SOLUTION
+    //+END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public Digraph(int V) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         this.V = V;
         adj = (Bag<Integer>[]) new Bag[V];
         for (int v = 0; v < V; v++) {
             adj[v] = new Bag<>();
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int V() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return V;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int E() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return E;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public void addEdge(int v, int w) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         adj[v].add(w);
         E++;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> adj(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return adj[v];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Digraph reverse() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         Digraph R = new Digraph(V);
         for (int v = 0; v < V; v++) {
             for (int w : adj[v]) {
@@ -50,7 +50,7 @@ public class Digraph {
             }
         }
         return R;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public String toString() {

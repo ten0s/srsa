@@ -1,12 +1,12 @@
 public class GraphBipartite {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private boolean[] color;
     private boolean isBipartite = true;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public GraphBipartite(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         color = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
@@ -14,10 +14,10 @@ public class GraphBipartite {
                 dfs(G, v);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Graph G, int v) {
         marked[v] = true;
         for (int w : G.adj(v)) {
@@ -31,12 +31,12 @@ public class GraphBipartite {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean isBipartite() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return isBipartite;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

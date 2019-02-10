@@ -1,6 +1,6 @@
 class ArraySelectionSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int n = a.length;
         for (int i = 0; i < n; i++) {
             int min = i;
@@ -11,7 +11,7 @@ class ArraySelectionSort {
             swap(a, i, min);
         }
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {

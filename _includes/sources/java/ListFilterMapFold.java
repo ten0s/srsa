@@ -16,7 +16,7 @@ public class Node<T> {
 
 public class ListFilterMapFold {
     public static <T> Node<T> filter(Predicate<T> pred, Node<T> list) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (Node.isEmpty(list)) {
             return list;
         } else {
@@ -28,21 +28,21 @@ public class ListFilterMapFold {
                 return filter(pred, tail);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <T, R> Node<R> map(Function<T, R> fun, Node<T> list) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (Node.isEmpty(list)) {
             return Node.empty();
         } else {
             return Node.cons(fun.apply(Node.head(list)), map(fun, Node.tail(list)));
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <T, R> R foldl(BiFunction<T, R, R> fun, R init, Node<T> list) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (Node.isEmpty(list)) {
             return init;
         } else {
@@ -50,18 +50,18 @@ public class ListFilterMapFold {
                          fun.apply(Node.head(list), init),
                          Node.tail(list));
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <T, R> R foldr(BiFunction<T, R, R> fun, R init, Node<T> list) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (Node.isEmpty(list)) {
             return init;
         } else {
             return fun.apply(Node.head(list),
                              foldr(fun, init, Node.tail(list)));
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

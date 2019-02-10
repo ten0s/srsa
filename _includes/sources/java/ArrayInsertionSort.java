@@ -1,6 +1,6 @@
 class ArrayInsertionSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int n = a.length;
         for (int i = 1; i < n; i++) {
             for (int j = i; j-1 >= 0 && less(a[j], a[j-1]); j = j-1) {
@@ -8,7 +8,7 @@ class ArrayInsertionSort {
             }
         }
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {

@@ -17,7 +17,7 @@ public class IteratorTest {
             return a.length;
         }
 
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         public Iterator<Item> iterator() {
             return new ArrayIterator();
         }
@@ -41,7 +41,7 @@ public class IteratorTest {
                 throw new UnsupportedOperationException();
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

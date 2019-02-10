@@ -12,7 +12,7 @@ public class Pair<A, B> {
 
 public class ListSplitInTwo {
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null) {
             throw new IllegalArgumentException();
         }
@@ -26,7 +26,7 @@ public class ListSplitInTwo {
         subs.second = slow.next;
         slow.next = null;
         return subs;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

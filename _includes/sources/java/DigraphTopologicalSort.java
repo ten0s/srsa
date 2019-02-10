@@ -1,28 +1,28 @@
 public class DigraphTopologicalSort {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private Iterable<Integer> order;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public DigraphTopologicalSort(Digraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         DigraphCycle cycleFinder = new DigraphCycle(G);
         if (!cycleFinder.hasCycle()) {
             DigraphOrders orders = new DigraphOrders(G);
             order = orders.reversedPostOrder();
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public boolean hasOrder() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return order != null;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> order() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return order;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

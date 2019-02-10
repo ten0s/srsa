@@ -7,48 +7,48 @@
 -type error(_E) :: no_return().
 
 -spec new() -> heap(_T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 new() ->
     nil.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(1)
 -spec is_empty(heap(_T)) -> boolean().
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 is_empty(nil) ->
     true;
 is_empty({_, _, _, _}) ->
     false.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(lg(n))
 -spec insert(T, heap(T)) -> heap(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 insert(T, H) ->
     merge({T, 0, nil, nil}, H).
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(1)
 -spec min(heap(T)) -> T | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 min(nil) ->
     error(empty);
 min({T, _, _, _}) ->
     T.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(lg(n))
 -spec deleteMin(heap(T)) -> heap(T) | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 deleteMin(nil) ->
     error(empty);
 deleteMin({_, _, L, R}) ->
     merge(L, R).
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(lg(n))
 -spec merge(heap(T), heap(T)) -> heap(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 merge(nil, H) ->
     H;
 merge(H, nil) ->
@@ -79,12 +79,12 @@ rank(nil) ->
     0;
 rank({_, R, _, _}) ->
     R.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(n)
 %% https://en.wikipedia.org/wiki/Leftist_tree#Initializing_a_height_biased_leftist_tree
 -spec from_list([T]) -> heap(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 from_list([]) ->
     nil;
 from_list(Ts) ->
@@ -98,17 +98,17 @@ from_queue(Q) ->
     { {value, H2}, Q2} ->
         from_queue(queue:in(merge(H1, H2), Q2))
     end.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 %% O(n)
 -spec to_list(heap(T)) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 to_list(nil) ->
     [];
 to_list(H) ->
     {Min, H1} = {min(H), deleteMin(H)},
     [Min | to_list(H1)].
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

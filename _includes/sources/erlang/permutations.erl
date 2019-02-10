@@ -3,12 +3,12 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec perms([T]) -> [[T]].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 perms([]) ->
     [[]];
 perms(L) ->
     [[H | T] || H <- L, T <- perms(L -- [H])].
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

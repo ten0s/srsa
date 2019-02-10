@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class ArrayShuffle {
     public static int[] shuffle(int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         // Knuth's shuffle O(n)
         int n = a.length;
         for (int i = 0; i < n; i++) {
@@ -13,7 +13,7 @@ public class ArrayShuffle {
             a[r] = tmp;
         }
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

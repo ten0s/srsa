@@ -1,13 +1,13 @@
 public class DigraphOrders {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private Queue<Integer> pre;
     private Queue<Integer> post;
     private Stack<Integer> revPost;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public DigraphOrders(Digraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         pre = new Queue<>();
         post = new Queue<>();
@@ -17,10 +17,10 @@ public class DigraphOrders {
                 dfs(G, v);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Digraph G, int v) {
         pre.enqueue(v);
         marked[v] = true;
@@ -32,24 +32,24 @@ public class DigraphOrders {
         post.enqueue(v);
         revPost.push(v);
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public Iterable<Integer> preOrder() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return pre;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> postOrder() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return post;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> reversedPostOrder() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return revPost;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

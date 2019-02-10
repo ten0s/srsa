@@ -1,13 +1,13 @@
 public class EdgeWeightedDigraphCycle {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private DirectedEdge[] edgeTo;
     private boolean[] onStack;
     private Stack<DirectedEdge> cycle;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public EdgeWeightedDigraphCycle(EdgeWeightedDigraph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         edgeTo = new DirectedEdge[G.V()];
         onStack = new boolean[G.V()];
@@ -16,10 +16,10 @@ public class EdgeWeightedDigraphCycle {
                 dfs(G, v);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(EdgeWeightedDigraph G, int v) {
         marked[v] = true;
         onStack[v] = true;
@@ -49,18 +49,18 @@ public class EdgeWeightedDigraphCycle {
         }
         onStack[v] = false;
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean hasCycle() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return cycle != null;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<DirectedEdge> cycle() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return cycle;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

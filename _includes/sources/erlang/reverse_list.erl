@@ -3,7 +3,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec reverse([T]) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 reverse(Xs) ->
     reverse(Xs, []).
 
@@ -11,7 +11,7 @@ reverse([X | Xs], Acc) ->
     reverse(Xs, [X | Acc]);
 reverse([], Acc) ->
     Acc.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

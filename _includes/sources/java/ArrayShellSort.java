@@ -1,6 +1,6 @@
 class ArrayShellSort {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int n = a.length;
         int h = 1;
         while (h < n/3) h = 3*h + 1; // 1, 4, 13, 40, 121, ...
@@ -13,7 +13,7 @@ class ArrayShellSort {
             h /= 3;
         }
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {

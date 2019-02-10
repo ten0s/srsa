@@ -3,7 +3,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec sort([T]) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 sort([]) ->
     [];
 sort(Xs) ->
@@ -22,7 +22,7 @@ min_rest(Min, [X | Xs], Acc) ->
     false ->
         min_rest(X, Xs, [Min | Acc])
     end.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

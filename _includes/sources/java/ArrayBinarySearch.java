@@ -1,6 +1,6 @@
 public class ArrayBinarySearch {
     public static int indexOf(int key, int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int lo = 0, hi = a.length - 1;
         while (lo <= hi) {
             // Key is in a[lo..hi] or not present.
@@ -10,7 +10,7 @@ public class ArrayBinarySearch {
             else return mid;
         }
         return -1;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

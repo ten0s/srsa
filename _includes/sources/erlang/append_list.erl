@@ -3,22 +3,22 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec append([T], [T]) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 append([], Ys) ->
     Ys;
 append(Xs, []) ->
     Xs;
 append([X | Xs], Ys) ->
     [X | append(Xs, Ys)].
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec append([[T]]) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 append([]) ->
     [];
 append([L | Ls]) ->
     append(L, append(Ls)).
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

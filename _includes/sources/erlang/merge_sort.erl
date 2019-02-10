@@ -3,7 +3,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec sort([T]) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 sort([]) ->
     [];
 sort([X]) ->
@@ -23,7 +23,7 @@ merge([A | L1], [B | L2]) ->
     false ->
         [B | merge([A | L1], L2)]
     end.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

@@ -3,13 +3,13 @@ import java.util.ArrayList;
 
 public class UnionFind {
     private int[] parent;
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private int[] size;
     private int count;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public UnionFind(int n) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         parent = new int[n];
         size = new int[n];
         for (int i = 0; i < n; i++) {
@@ -17,23 +17,23 @@ public class UnionFind {
             size[i] = 1;
         }
         count = n;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int count() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return count;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public boolean connected(int p, int q) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return find(p) == find(q);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int find(int p) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         // https://en.wikipedia.org/wiki/Disjoint-set_data_structure#Path_compression
         // Path compression (every node on the path points to the root)
         if (p != parent[p]) {
@@ -48,11 +48,11 @@ public class UnionFind {
         }
         */
         return p;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public void union(int p, int q) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int rootP = find(p);
         int rootQ = find(q);
         if (rootP == rootQ) return;
@@ -65,14 +65,14 @@ public class UnionFind {
             size[rootP] += size[rootQ];
         }
         count--;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     // size of p's component
     public int size(int p) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return size[find(p)];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private int height(int p) {

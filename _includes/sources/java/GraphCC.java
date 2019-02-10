@@ -1,13 +1,13 @@
 public class GraphCC {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private int[] id;
     private int[] size;
     private int count;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public GraphCC(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         id = new int[G.V()];
         size = new int[G.V()];
@@ -17,10 +17,10 @@ public class GraphCC {
                 count++;
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Graph G, int v) {
         marked[v] = true;
         id[v] = count;
@@ -31,31 +31,31 @@ public class GraphCC {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean connected(int v, int w) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return id(v) == id(w);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int id(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return id[v];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     // size of v's component
     private int size(int v) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return size[id[v]];
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int count() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return count;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

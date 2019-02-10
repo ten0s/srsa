@@ -35,13 +35,13 @@ public class HashMap<Key , Value> {
     }
 
     private int hash(Key key) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return (key.hashCode() & 0x7fffffff) % m;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private void resize(int capacity) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (this.m == capacity) return;
         HashMap<Key, Value> t = new HashMap<>(capacity);
         for (int i = 0; i < m; i++) {
@@ -51,11 +51,11 @@ public class HashMap<Key , Value> {
         }
         this.a = t.a;
         this.m = t.m;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Value get(Key key) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int i = hash(key);
         for (Node x = a[i]; x != null; x = x.next) {
             if (key.equals(x.key)) {
@@ -63,11 +63,11 @@ public class HashMap<Key , Value> {
             }
         }
         return null;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public void put(Key key, Value val) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int i = hash(key);
         for (Node x = a[i]; x != null; x = x.next) {
             if (key.equals(x.key)) {
@@ -78,11 +78,11 @@ public class HashMap<Key , Value> {
         a[i] = new Node(key, val, a[i]);
         n++;
         if (n >= 8*m) resize(Prime.nextPrime(2*m));
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public void delete(Key key) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int i = hash(key);
         Node x = a[i];
         if (x == null) return;
@@ -99,7 +99,7 @@ public class HashMap<Key , Value> {
             }
         }
         if (n <= 2*m) resize(Math.max(MIN_CAPACITY, Prime.nextPrime(m/2)));
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public boolean isEmpty() {

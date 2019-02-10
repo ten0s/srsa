@@ -10,33 +10,33 @@ public class BinTree.Node<T> {
 
 public class BinTreeTraversal {
     public static <T, R> R preOrder(BiFunction<T, R, R> fun, R init, BinTree.Node<T> tree) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (tree == null) return init;
         R n = fun.apply(tree.item, init);
         R l = preOrder(fun, n, tree.left);
         R r = preOrder(fun, l, tree.right);
         return r;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <T, R> R inOrder(BiFunction<T, R, R> fun, R init, BinTree.Node<T> tree) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (tree == null) return init;
         R l = inOrder(fun, init, tree.left);
         R n = fun.apply(tree.item, l);
         R r = inOrder(fun, n, tree.right);
         return r;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static <T, R> R postOrder(BiFunction<T, R, R> fun, R init, BinTree.Node<T> tree) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (tree == null) return init;
         R l = postOrder(fun, init, tree.left);
         R r = postOrder(fun, l, tree.right);
         R n = fun.apply(tree.item, r);
         return n;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

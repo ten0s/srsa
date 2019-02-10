@@ -12,15 +12,15 @@ public class PriorityQueue {
         }
 
         protected void insert(Key v) {
-            // BEGIN_SOLUTION
+            //+BEGIN_SOLUTION
             if (++n > capacity()) resize(2*capacity()+1);
             pq[n] = v;
             swim(n);
-            // END_SOLUTION
+            //+END_SOLUTION
         }
 
         protected Key delete() {
-            // BEGIN_SOLUTION
+            //+BEGIN_SOLUTION
             ensureNotEmpty();
             Key v = pq[1];
             pq[1] = pq[n];
@@ -28,14 +28,14 @@ public class PriorityQueue {
             if (--n <= capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
             sink(1);
             return v;
-            // END_SOLUTION
+            //+END_SOLUTION
         }
 
         protected Key top() {
-            // BEGIN_SOLUTION
+            //+BEGIN_SOLUTION
             ensureNotEmpty();
             return pq[1];
-            // END_SOLUTION
+            //+END_SOLUTION
         }
 
         public boolean isEmpty() {
@@ -46,7 +46,7 @@ public class PriorityQueue {
             return n;
         }
 
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         private void swim(int k) {
             // while i'm not at root and parent is less than me
             // swap me with parent and move up
@@ -69,7 +69,7 @@ public class PriorityQueue {
                 k = j;
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
 
         private boolean less(int i, int j) {
             return less(pq[i], pq[j]);
@@ -106,11 +106,11 @@ public class PriorityQueue {
         public Key delMax() { return delete(); }
         public Key max() { return top(); }
 
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         boolean less(Key v, Key w) {
             return v.compareTo(w) < 0;
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

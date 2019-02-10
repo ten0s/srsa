@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 
 public class ListStack<Item> {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private class Node {
         Item item;
         Node next;
@@ -9,32 +9,32 @@ public class ListStack<Item> {
 
     private Node first;
     private int size;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean isEmpty() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return size == 0;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public int size() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return size;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public void push(Item item) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         Node oldfirst = first;
         first = new Node();
         first.item = item;
         first.next = oldfirst;
         size++;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Item pop() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (first == null) {
             throw new NoSuchElementException();
         }
@@ -43,7 +43,7 @@ public class ListStack<Item> {
         first = first.next;
         size--;
         return item;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

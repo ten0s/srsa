@@ -16,7 +16,7 @@ public class Pair<A, B> {
 
 class ListShuffle {
     public static <T> Node<T> shuffle(Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null || node.next == null)
             return node;
         Pair<Node<T>, Node<T>> subs = Node.split(node);
@@ -25,10 +25,10 @@ class ListShuffle {
         } else {
             return merge(shuffle(subs.second), shuffle(subs.first));
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static <T> Node<T> merge(Node<T> left, Node<T> right) {
         if (left == null)
             return right;
@@ -42,7 +42,7 @@ class ListShuffle {
             return right;
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         final int N = 1000;

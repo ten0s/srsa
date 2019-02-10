@@ -1,11 +1,11 @@
 public class ArrayBitonicPoint {
     public static int indexOf(int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return indexOf(a, 0, a.length-1);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static int indexOf(int[] a, int lo, int hi) {
         int diff = hi - lo;
         if (diff < 0)
@@ -28,7 +28,7 @@ public class ArrayBitonicPoint {
                 return mid;
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, indexOf(new int[] {}));

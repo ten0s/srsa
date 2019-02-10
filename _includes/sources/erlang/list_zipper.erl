@@ -6,76 +6,76 @@
 -type error(_E) :: no_return().
 
 -spec new() -> zlist(_T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 new() ->
     {[], []}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec is_empty(zlist(_T)) -> boolean().
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 is_empty({[], []}) ->
     true;
 is_empty(_) ->
     false.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec from_list([T]) -> zlist(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 from_list(L) ->
     {[], L}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec to_list(zlist(T)) -> [T].
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 to_list({Prev, Next}) ->
     lists:reverse(Prev) ++ Next.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec prev(zlist(T)) -> zlist(T) | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 prev({[], _}) ->
     error(empty);
 prev({[P | Prev], Next}) ->
     {Prev, [P | Next]}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec next(zlist(T)) -> zlist(T) | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 next({_, []}) ->
     error(empty);
 next({Prev, [C | Next]}) ->
     {[C | Prev], Next}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec current(zlist(T)) -> T | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 current({_, []}) ->
     error(empty);
 current({_, [C | _]}) ->
     C.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec update(T, zlist(T)) -> zlist(T) | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 update(_V, {_, []}) ->
     error(empty);
 update(V, {Prev, [_ | Next]}) ->
     {Prev, [V | Next]}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec insert(T, zlist(T)) -> zlist(T).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 insert(V, {Prev, Next}) ->
     {Prev, [V | Next]}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 -spec delete(zlist(T)) -> zlist(T) | error(empty).
-%% BEGIN_SOLUTION
+%%+BEGIN_SOLUTION
 delete({_, []}) ->
     error(empty);
 delete({Prev, [_ | Next]}) ->
     {Prev, Next}.
-%% END_SOLUTION
+%%+END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

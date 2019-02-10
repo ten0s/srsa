@@ -1,5 +1,5 @@
 if __name__ == "__main__":
     print('Hello!')
-    ## SOLUTION_BEGIN
+    ##+BEGIN_SOLUTION
     print('Hello!!!')
-    ## SOLUTION_END
+    ##+END_SOLUTION

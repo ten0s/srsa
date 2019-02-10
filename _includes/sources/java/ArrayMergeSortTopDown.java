@@ -6,17 +6,17 @@ class ArrayMergeSortTopDown {
     }
 
     private static <T extends Comparable<T>> T[] sort(T[] a, T[] aux, int lo, int hi) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (lo >= hi) return a;
         int mid = lo + (hi - lo) / 2;
         sort(a, aux, lo, mid);
         sort(a, aux, mid+1, hi);
         merge(a, aux, lo, mid, hi);
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static <T extends Comparable<T>> void merge(T[] a, T[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++)
             aux[k] = a[k];
@@ -29,7 +29,7 @@ class ArrayMergeSortTopDown {
             else                           a[k] = aux[i++];
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;

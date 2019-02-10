@@ -14,17 +14,17 @@ public class Pair<A, B> {
 
 class ListMergeSort {
     public static <T extends Comparable<T>> Node<T> sort(Node<T> node) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (node == null || node.next == null)
             return node;
         Pair<Node<T>, Node<T>> sub = Node.split(node);
         Node<T> left = sort(sub.first);
         Node<T> right = sort(sub.second);
         return merge(left, right);
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private static <T extends Comparable<T>> Node<T> merge(Node<T> left, Node<T> right) {
         if (left == null)
             return right;
@@ -38,7 +38,7 @@ class ListMergeSort {
             return left;
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;

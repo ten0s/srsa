@@ -1,12 +1,12 @@
 public class GraphCycle {
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
     private Stack<Integer> cycle;
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public GraphCycle(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         if (hasSelfLoop(G)) return;
         if (hasParallelEdges(G)) return;
         marked = new boolean[G.V()];
@@ -16,11 +16,11 @@ public class GraphCycle {
                 dfs(G, -1, v);
             }
         }
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private boolean hasSelfLoop(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         for (int v = 0; v < G.V(); v++) {
             for (int w : G.adj(v)) {
                 if (v == w) {
@@ -32,11 +32,11 @@ public class GraphCycle {
             }
         }
         return false;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     private boolean hasParallelEdges(Graph G) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
             for (int w : G.adj(v)) {
@@ -54,10 +54,10 @@ public class GraphCycle {
             }
         }
         return false;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
-    // BEGIN_SOLUTION
+    //+BEGIN_SOLUTION
     private void dfs(Graph G, int u, int v) {
         marked[v] = true;
         for (int w : G.adj(v)) {
@@ -79,18 +79,18 @@ public class GraphCycle {
             }
         }
     }
-    // END_SOLUTION
+    //+END_SOLUTION
 
     public boolean hasCycle() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return cycle != null;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public Iterable<Integer> cycle() {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         return cycle;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

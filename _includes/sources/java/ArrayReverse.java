@@ -1,6 +1,6 @@
 class ArrayReverse {
     public static int[] reverse(int[] a) {
-        // BEGIN_SOLUTION
+        //+BEGIN_SOLUTION
         int n = a.length;
         for (int i = 0; i < n/2; i++) {
             int tmp = a[i];
@@ -8,7 +8,7 @@ class ArrayReverse {
             a[n-i-1] = tmp;
         }
         return a;
-        // END_SOLUTION
+        //+END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {
