@@ -3,15 +3,15 @@ class ArrayMergeSortBottomUp {
     public static <T extends Comparable<T>> T[] sort(T[] a) {
         int n = a.length;
         T[] aux = (T[]) new Comparable[n];
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         for (int len = 1; len < n; len *= 2)
             for (int lo = 0; lo+len < n; lo += 2*len)
                 merge(a, aux, lo, lo+len-1, Math.min(lo+len+len-1, n-1));
         return a;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private static <T extends Comparable<T>> void merge(T[] a, T[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++)
             aux[k] = a[k];
@@ -24,7 +24,7 @@ class ArrayMergeSortBottomUp {
             else                           a[k] = aux[i++];
         }
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;

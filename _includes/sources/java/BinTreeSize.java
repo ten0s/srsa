@@ -7,12 +7,12 @@ public class BinTree.Node<?> {
 
 public class BinTreeSize {
     public static int size(BinTree.Node<?> root) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (root == null) {
             return 0;
         }
         return 1 + size(root.left) + size(root.right);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

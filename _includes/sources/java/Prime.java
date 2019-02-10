@@ -1,6 +1,6 @@
 public class Prime {
     public static boolean isPrime(int n) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n < 2) return false;
         for (int f = 2; f*f <= n; f++) {
             if (n % f == 0) {
@@ -8,18 +8,18 @@ public class Prime {
             }
         }
         return true;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static int nextPrime(int n) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n < 2) return 2;
         int p = n % 2 == 0 ? n + 1 : n + 2;
         while (!isPrime(p)) {
             p += 2;
         }
         return p;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

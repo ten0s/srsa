@@ -4,7 +4,7 @@
 
 -type interval() :: {integer(), integer()}.
 -spec merge([interval()], [interval()]) -> [interval()].
-%% SOLUTION_BEGIN
+%% BEGIN_SOLUTION
 merge([], Ys) ->
     Ys;
 merge(Xs, []) ->
@@ -19,15 +19,15 @@ merge([X | Xs], [Y | Ys]) ->
     false ->
         [Y | merge([X | Xs], Ys)]
     end.
-%% SOLUTION_END
+%% END_SOLUTION
 
-%% SOLUTION_BEGIN
+%% BEGIN_SOLUTION
 are_overlapping({X1,X2}, {Y1,Y2}) ->
     max(X1,Y1) =< min(X2,Y2).
 
 merge_intervals({X1,X2}, {Y1,Y2}) ->
     {min(X1,Y1), max(X2,Y2)}.
-%% SOLUTION_END
+%% END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

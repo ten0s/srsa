@@ -1,20 +1,20 @@
-// SOLUTION_BEGIN
+// BEGIN_SOLUTION
 import java.util.Iterator;
-// SOLUTION_END
+// END_SOLUTION
 
 public class EdgeWeightedDAGLPs {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private EdgeWeightedDAGSPs sp;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public EdgeWeightedDAGLPs(EdgeWeightedDigraph G, int s) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         EdgeWeightedDigraph N = negate(G);
         sp = new EdgeWeightedDAGSPs(N, s);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private EdgeWeightedDigraph negate(EdgeWeightedDigraph G) {
         EdgeWeightedDigraph N = new EdgeWeightedDigraph(G.V());
         for (int v = 0; v < G.V(); v++) {
@@ -24,22 +24,22 @@ public class EdgeWeightedDAGLPs {
         }
         return N;
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     public double distTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return -1.0 * sp.distTo(v);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean hasPathTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return sp.hasPathTo(v);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<DirectedEdge> pathTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         Iterable<DirectedEdge> path = sp.pathTo(v);
         if (path == null) return null;
         Iterator<DirectedEdge> it = path.iterator();
@@ -61,7 +61,7 @@ public class EdgeWeightedDAGLPs {
                 };
             }
         };
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

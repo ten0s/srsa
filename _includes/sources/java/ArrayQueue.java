@@ -12,7 +12,7 @@ public class ArrayQueue<Item> {
     }
 
     public void enqueue(Item item) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         // if tail is at the end
         if (tail == a.length) {
             // if there's some place in the front
@@ -22,11 +22,11 @@ public class ArrayQueue<Item> {
                 resize(2*a.length);
         }
         a[tail++] = item;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Item dequeue() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
@@ -36,19 +36,19 @@ public class ArrayQueue<Item> {
             resize(Math.max(MIN_CAPACITY, a.length/2));
         }
         return item;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean isEmpty() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return size() == 0;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int size() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return tail - head;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     private void relocate() {

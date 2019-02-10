@@ -1,50 +1,50 @@
 public class EdgeWeightedGraph {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private final int V;
     private int E;
     private Bag<Edge>[] adj;
-    // SOLUTION_END
+    // END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public EdgeWeightedGraph(int V) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         this.V = V;
         adj = (Bag<Edge>[]) new Bag[V];
         for (int v = 0; v < V; v++) {
             adj[v] = new Bag<>();
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int V() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return V;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int E() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return E;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public void addEdge(Edge e) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         int v = e.either(), w = e.other(v);
         adj[v].add(e);
         adj[w].add(e);
         E++;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<Edge> adj(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return adj[v];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<Edge> edges() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         Bag<Edge> edges = new Bag<>();
         for (int v = 0; v < V; v++) {
             for (Edge e : adj[v]) {
@@ -54,7 +54,7 @@ public class EdgeWeightedGraph {
             }
         }
         return edges;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public String toString() {

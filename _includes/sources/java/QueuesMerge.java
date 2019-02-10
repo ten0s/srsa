@@ -4,7 +4,7 @@ public class QueuesMerge<Item extends Comparable<Item>> {
     private Queue<Item> out;
 
     public QueuesMerge(Queue<Item>[] in) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         int n = in.length;
         IndexMinPQ<Item> pq = new IndexMinPQ<>(n);
         for (int i = 0; i < n; i++) {
@@ -21,7 +21,7 @@ public class QueuesMerge<Item extends Comparable<Item>> {
                 pq.insert(i, in[i].dequeue());
             }
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Queue<Item> merged() {

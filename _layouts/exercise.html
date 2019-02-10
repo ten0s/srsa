@@ -68,9 +68,9 @@
 
        var solution_raw = `{% include {{ page.solution_file }} %}`;
        var question_src = solution_raw.replace(
-           /\s*[\/%#]+\s*SOLUTION_BEGIN[\s\S]*?[\/%#]+\s*SOLUTION_END/gi, "");
+           /\s*[\/%#]+\s*BEGIN_SOLUTION[\s\S]*?[\/%#]+\s*END_SOLUTION/gi, "");
        var solution_src = solution_raw.replace(
-           /\s*([\/%#]+\s*SOLUTION_BEGIN|[\/%#]+\s*SOLUTION_END)/gi, "");
+           /\s*([\/%#]+\s*BEGIN_SOLUTION|[\/%#]+\s*END_SOLUTION)/gi, "");
 
        var lang2mode = {
            "c"  : "c_cpp",

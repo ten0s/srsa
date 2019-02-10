@@ -10,7 +10,7 @@ public class BinTree.Node<T> {
 
 public class BinSearchTreeDelete {
     public static <K extends Comparable<K>> BinTree.Node<K> delete(K key, BinTree.Node<K> n) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n == null) return n;
         int cmp = key.compareTo(n.item);
         if      (cmp < 0) n.left  = delete(key, n.left);
@@ -24,7 +24,7 @@ public class BinSearchTreeDelete {
             n.left = t.left;               // n.right = t.right;
         }
         return n;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static <K extends Comparable<K>> BinTree.Node<K> min(BinTree.Node<K> n) {

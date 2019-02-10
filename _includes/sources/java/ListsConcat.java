@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListsConcat {
     public static <T> Node<T> concat(Node<T> n1, Node<T> n2) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n1 == null) {
             return n2;
         }
@@ -20,7 +20,7 @@ public class ListsConcat {
         }
         n.next = n2;
         return n1;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

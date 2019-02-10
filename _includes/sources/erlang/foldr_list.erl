@@ -3,12 +3,12 @@
 -include_lib("eunit/include/eunit.hrl").
 
 -spec foldr(fun ((T, Acc) -> Acc), Acc, [T]) -> Acc.
-%% SOLUTION_BEGIN
+%% BEGIN_SOLUTION
 foldr(_Fun2, Acc, []) ->
     Acc;
 foldr(Fun2, Acc, [X | Xs]) ->
     Fun2(X, foldr(Fun2, Acc, Xs)).
-%% SOLUTION_END
+%% END_SOLUTION
 
 main(_) ->
     case eunit:test(?MODULE) of

@@ -7,12 +7,12 @@ public class BinTree.Node<?> {
 
 public class BinTreeHeight {
     public static int height(BinTree.Node<?> n) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n == null) {
             return 0;
         }
         return 1 + Math.max(height(n.left), height(n.right));
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

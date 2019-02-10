@@ -5,16 +5,16 @@ class ArrayQuickSort {
     }
 
     private static <T extends Comparable<T>> T[] sort(T[] a, int lo, int hi) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (lo >= hi) return a;
         int p = partition(a, lo, hi);
         sort(a, lo, p-1);
         sort(a, p+1, hi);
         return a;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
         T v = a[lo];
         int i = lo, j = hi+1;
@@ -32,7 +32,7 @@ class ArrayQuickSort {
         swap(a, lo, j);
         return j;
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;

@@ -1,14 +1,14 @@
 public class GraphBFSPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
     private int[] distTo;
     private final int s;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public GraphBFSPaths(Graph G, int s) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         distTo = new int[G.V()];
@@ -17,10 +17,10 @@ public class GraphBFSPaths {
         }
         this.s = s;
         bfs(G, s);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private void bfs(Graph G, int s) {
         Queue<Integer> queue = new Queue<>();
         marked[s] = true;
@@ -38,16 +38,16 @@ public class GraphBFSPaths {
             }
         }
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     public boolean hasPathTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return marked[v];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<Integer> pathTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (!hasPathTo(v)) {
             return null;
         }
@@ -57,13 +57,13 @@ public class GraphBFSPaths {
         }
         path.push(s);
         return path;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int distTo(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return distTo[v];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

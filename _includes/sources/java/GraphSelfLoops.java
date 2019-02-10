@@ -1,6 +1,6 @@
 public class GraphSelfLoops {
     public static int selfLoops(Graph G) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         int count = 0;
         for (int v = 0; v < G.V(); v++) {
             for (int w : G.adj(v)) {
@@ -9,7 +9,7 @@ public class GraphSelfLoops {
         }
         // each edge added twice
         return count/2;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

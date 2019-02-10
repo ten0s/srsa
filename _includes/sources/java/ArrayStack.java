@@ -11,14 +11,14 @@ public class ArrayStack<Item> {
     }
 
     public void push(Item item) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (n == a.length) resize(2 * a.length);
         a[n++] = item;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Item pop() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
@@ -29,19 +29,19 @@ public class ArrayStack<Item> {
             resize(Math.max(MIN_CAPACITY, a.length/2));
         }
         return item;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean isEmpty() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return size() == 0;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int size() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return n;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

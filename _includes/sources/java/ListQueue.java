@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 
 public class ListQueue<Item> {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private class Node {
         Item item;
         Node next;
@@ -10,22 +10,22 @@ public class ListQueue<Item> {
     private Node first;
     private Node last;
     private int size;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public boolean isEmpty() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return size == 0;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int size() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return size;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public void enqueue(Item item) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         Node oldlast = last;
         last = new Node();
         last.item = item;
@@ -35,11 +35,11 @@ public class ListQueue<Item> {
             oldlast.next = last;
         }
         size++;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Item dequeue() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (first == null) {
             throw new NoSuchElementException();
         }
@@ -51,7 +51,7 @@ public class ListQueue<Item> {
         }
         size--;
         return item;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

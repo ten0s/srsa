@@ -7,7 +7,7 @@ public class Node<T> {
 
 public class ListsMergePoint {
     public static <T> Node<T> mergePoint(Node<T> l1, Node<T> l2) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (l1 == null || l2 == null) return null;
         if (l1 == l2) return l1;
         Node<T> n1 = l1,    n2 = l2;
@@ -28,10 +28,10 @@ public class ListsMergePoint {
             if (n1 == n2) return n1;
         }
         return null;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     public static <T> Node<T> mergePoint2(Node<T> l1, Node<T> l2) {
         Stack<Node<T>> s1 = new Stack<>();
         Stack<Node<T>> s2 = new Stack<>();
@@ -52,7 +52,7 @@ public class ListsMergePoint {
         }
         return null;
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     public static void main(String[] args) throws Throwable {
         Assert.assertNull(mergePoint(null, Node.fromIntArray(new int[] {1,2,3})));

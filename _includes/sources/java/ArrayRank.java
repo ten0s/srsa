@@ -1,6 +1,6 @@
 public class ArrayRank {
     public static int rank(int key, int[] a) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         // * if key is in the table, returns its index, which is the same as
         // the number of keys that are smaller than key
         // * if key is not in the table, returns the number of keys that are
@@ -13,7 +13,7 @@ public class ArrayRank {
             else return mid;
         }
         return lo;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

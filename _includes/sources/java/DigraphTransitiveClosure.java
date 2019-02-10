@@ -1,21 +1,21 @@
 public class DigraphTransitiveClosure {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private DigraphDFS[] all;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public DigraphTransitiveClosure(Digraph G) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         all = new DigraphDFS[G.V()];
         for (int v = 0; v < G.V(); v++) {
             all[v] = new DigraphDFS(G, v);
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean reachable(int v, int w) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return all[v].hasPathTo(w);
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

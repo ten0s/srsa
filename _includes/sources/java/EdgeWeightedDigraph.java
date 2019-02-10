@@ -1,48 +1,48 @@
 public class EdgeWeightedDigraph {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private final int V;
     private int E;
     private Bag<DirectedEdge>[] adj;
-    // SOLUTION_END
+    // END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public EdgeWeightedDigraph(int V) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         this.V = V;
         adj = (Bag<DirectedEdge>[]) new Bag[V];
         for (int v = 0; v < V; v++) {
             adj[v] = new Bag<>();
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int V() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return V;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int E() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return E;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public void addEdge(DirectedEdge e) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         adj[e.from()].add(e);
         E++;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<DirectedEdge> adj(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return adj[v];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<DirectedEdge> edges() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         Bag<DirectedEdge> edges = new Bag<>();
         for (int v = 0; v < V; v++) {
             for (DirectedEdge e : adj[v]) {
@@ -50,11 +50,11 @@ public class EdgeWeightedDigraph {
             }
         }
         return edges;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public EdgeWeightedDigraph reverse() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         EdgeWeightedDigraph R = new EdgeWeightedDigraph(V);
         for (int v = 0; v < V; v++) {
             for (DirectedEdge e : adj[v]) {
@@ -62,7 +62,7 @@ public class EdgeWeightedDigraph {
             }
         }
         return R;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public String toString() {

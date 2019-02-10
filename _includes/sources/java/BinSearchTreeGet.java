@@ -16,13 +16,13 @@ public class BinSearchTreeGet {
     public static <K extends Comparable<K>, V> V get(
         K key, BinTree.Node<Entry<K, V>> node
     ) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (node == null) return null;
         int cmp = key.compareTo(node.item.key);
         if (cmp < 0) return get(key, node.left);
         if (cmp > 0) return get(key, node.right);
         return node.item.val;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")

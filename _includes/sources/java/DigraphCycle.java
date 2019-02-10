@@ -1,13 +1,13 @@
 public class DigraphCycle {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
     private boolean[] onStack;
     private Stack<Integer> cycle;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public DigraphCycle(Digraph G) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         onStack = new boolean[G.V()];
@@ -16,10 +16,10 @@ public class DigraphCycle {
                 dfs(G, v);
             }
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private void dfs(Digraph G, int v) {
         marked[v] = true;
         onStack[v] = true;
@@ -40,22 +40,22 @@ public class DigraphCycle {
         }
         onStack[v] = false;
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     public boolean hasCycle() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return cycle != null;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<Integer> cycle() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return cycle;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean checkCycle(Iterable<Integer> cycle) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         int first = -1, last = -1, len = 0;
         for (int v : cycle) {
             if (first == -1) first = v;
@@ -63,7 +63,7 @@ public class DigraphCycle {
             len++;
         }
         return first == last && len > 0;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

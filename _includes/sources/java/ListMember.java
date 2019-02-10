@@ -7,13 +7,13 @@ public class Node<T> {
 
 public class ListMember {
     public static <T extends Comparable<T>>boolean isMember(T key, Node<T> node) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         for (Node<T> n = node; n != null; n = n.next) {
             if (n.item.compareTo(key) == 0)
                 return true;
         }
         return false;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

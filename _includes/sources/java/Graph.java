@@ -1,45 +1,45 @@
 public class Graph {
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private final int V;        // number of vertices
     private int E;              // number of edges
     private Bag<Integer>[] adj; // adjacency lists
-    // SOLUTION_END
+    // END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public Graph(int V) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         this.V = V;
         adj = (Bag<Integer>[]) new Bag[V];
         for (int v = 0; v < V; v++) {
             adj[v] = new Bag<>();
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int V() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return V;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public int E() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return E;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public void addEdge(int v, int w) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         adj[v].add(w);
         adj[w].add(v);
         E++;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<Integer> adj(int v) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return adj[v];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public String toString() {

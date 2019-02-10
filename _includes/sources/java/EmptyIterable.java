@@ -1,18 +1,18 @@
-// SOLUTION_BEGIN
+// BEGIN_SOLUTION
 import java.util.Iterator;
 import java.util.Collections;
-// SOLUTION_END
+// END_SOLUTION
 
 public class EmptyIterable {
     static class Test<Item> {
         public Iterable<Item> items() {
-            // SOLUTION_BEGIN
+            // BEGIN_SOLUTION
             return new Iterable<Item>() {
                 public Iterator<Item> iterator() {
                     return Collections.emptyIterator();
                 }
             };
-            // SOLUTION_END
+            // END_SOLUTION
         }
     }
 

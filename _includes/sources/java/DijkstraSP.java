@@ -1,14 +1,14 @@
 public class DijkstraSP {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
     private IndexMinPQ<Double> pq;
     private final int t;
-    // SOLUTION_END
+    // END_SOLUTION
 
     public DijkstraSP(EdgeWeightedDigraph G, int s, int t) {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
         pq = new IndexMinPQ<>(G.V());
@@ -25,10 +25,10 @@ public class DijkstraSP {
             if (v == t) return;
             relax(G, v);
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    // SOLUTION_BEGIN
+    // BEGIN_SOLUTION
     private void relax(EdgeWeightedDigraph G, int v) {
         for (DirectedEdge e : G.adj(v)) {
             int w = e.to();
@@ -40,29 +40,29 @@ public class DijkstraSP {
             }
         }
     }
-    // SOLUTION_END
+    // END_SOLUTION
 
     public double dist() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return distTo[t];
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public boolean hasPath() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         return distTo[t] < INFINITY;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public Iterable<DirectedEdge> path() {
-        // SOLUTION_BEGIN
+        // BEGIN_SOLUTION
         if (!hasPath()) return null;
         Stack<DirectedEdge> path = new Stack<>();
         for (DirectedEdge e = edgeTo[t]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
         return path;
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     public static void main(String[] args) throws Throwable {

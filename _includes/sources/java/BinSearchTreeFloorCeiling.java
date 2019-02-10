@@ -9,34 +9,32 @@ public class BinTree.Node<T> {
 */
 
 public class BinSearchTreeFloorCeiling {
-    public static <K extends Comparable<K>> BinTree.Node<K> floor(K key, BinTree.Node<K> n) {
-        // SOLUTION_BEGIN
-        if (n == null)
-            throw new NoSuchElementException();
-        int cmp = key.compareTo(n.item);
-        if (cmp == 0) return n;
-        if (cmp < 0) return floor(key, n.left);
+    public static <K extends Comparable<K>> BinTree.Node<K> floor(K key, BinTree.Node<K> node) {
+        // BEGIN_SOLUTION
+        if (node == null) throw new NoSuchElementException();
+        int cmp = key.compareTo(node.item);
+        if (cmp == 0) return node;
+        if (cmp < 0) return floor(key, node.left);
         try {
-            return floor(key, n.right);
+            return floor(key, node.right);
         } catch (NoSuchElementException e) {
-            return n;
+            return node;
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
-    public static <K extends Comparable<K>> BinTree.Node<K> ceiling(K key, BinTree.Node<K> n) {
-        // SOLUTION_BEGIN
-        if (n == null)
-            throw new NoSuchElementException();
-        int cmp = key.compareTo(n.item);
-        if (cmp == 0) return n;
-        if (cmp > 0) return ceiling(key, n.right);
+    public static <K extends Comparable<K>> BinTree.Node<K> ceiling(K key, BinTree.Node<K> node) {
+        // BEGIN_SOLUTION
+        if (node == null) throw new NoSuchElementException();
+        int cmp = key.compareTo(node.item);
+        if (cmp == 0) return node;
+        if (cmp > 0) return ceiling(key, node.right);
         try {
-            return ceiling(key, n.left);
+            return ceiling(key, node.left);
         } catch (NoSuchElementException e) {
-            return n;
+            return node;
         }
-        // SOLUTION_END
+        // END_SOLUTION
     }
 
     @SuppressWarnings("unchecked")
