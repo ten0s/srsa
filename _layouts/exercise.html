@@ -68,18 +68,6 @@
        errorOff();
 
        var solution_raw = `{% include {{ page.solution_file }} %}`;
-       var question_src = solution_raw.replace(
-           /\s*[\/%#]+\+BEGIN_SOLUTION[\s\S]*?[\/%#]+\+END_SOLUTION/gi, "");
-       var solution_src = solution_raw.replace(
-           /\s*([\/%#]+\+BEGIN_SOLUTION|[\/%#]+\+END_SOLUTION)/gi, "");
-
-       var question_ranges = fold_ranges(question_src);
-       var solution_ranges = fold_ranges(solution_src);
-
-       question_src = question_src.replace(
-           /\+BEGIN_FOLD|\+END_FOLD/gi, "");
-       solution_src = solution_src.replace(
-           /\+BEGIN_FOLD|\+END_FOLD/gi, "");
 
        var lang2mode = {
            "c"  : "c_cpp",
@@ -87,29 +75,8 @@
        };
        var mode = lang2mode["{{ page.language }}"] || "{{ page.language }}";
 
-       var qEditor = ace.edit("question-editor");
-       qEditor.setValue(question_src, -1);
-       qEditor.setTheme("ace/theme/monokai");
-       qEditor.setFontSize(15);
-       qEditor.session.setMode("ace/mode/" + mode);
-
-       window.setTimeout(function () {
-           _.each(question_ranges, function (range) {
-               qEditor.session.foldAll(range[0], range[1], 1);
-           });
-       }, 100);
-
-       var sEditor = ace.edit("solution-editor");
-       sEditor.setValue(solution_src, -1);
-       sEditor.setTheme("ace/theme/monokai");
-       sEditor.setFontSize(15);
-       sEditor.session.setMode("ace/mode/" + mode);
-
-       window.setTimeout(function () {
-           _.each(solution_ranges, function (range) {
-               sEditor.session.foldAll(range[0], range[1], 1);
-           });
-       }, 100);
+       var qEditor = make_editor("question", "question-editor", solution_raw, mode);
+       var sEditor = make_editor("solution", "solution-editor", solution_raw, mode);
 
        function infoOn(msg) {
            $("#res-info").show();
