@@ -66,6 +66,7 @@ public class DigraphCycle {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/digraph3.txt
         // no cycles
@@ -112,6 +113,7 @@ public class DigraphCycle {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

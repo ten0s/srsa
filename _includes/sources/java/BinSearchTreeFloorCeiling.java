@@ -37,7 +37,7 @@ public class BinSearchTreeFloorCeiling {
         //+END_SOLUTION
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1,3,5,6,7,9});
 
@@ -64,4 +64,5 @@ public class BinSearchTreeFloorCeiling {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

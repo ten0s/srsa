@@ -37,7 +37,7 @@ public class BinSearchTreeDeleteMinMax {
         //+END_SOLUTION
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree;
 
@@ -57,4 +57,5 @@ public class BinSearchTreeDeleteMinMax {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -88,6 +88,7 @@ public class EdgeWeightedDigraph {
         return "[label=" + Character.toString('"') + weight + Character.toString('"') + "]";
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
@@ -160,6 +161,7 @@ public class EdgeWeightedDigraph {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

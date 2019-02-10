@@ -75,6 +75,7 @@ public class ArrayQueue<Item> {
         return a.length;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         ArrayQueue<String> q = new ArrayQueue<>();
         Assert.assertTrue(q.isEmpty());
@@ -119,4 +120,5 @@ public class ArrayQueue<Item> {
         } catch (NoSuchElementException e) {}
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

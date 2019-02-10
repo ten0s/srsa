@@ -49,6 +49,7 @@ peek({[X | _], _}) ->
     X.
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -71,3 +72,4 @@ queue_test() ->
     ?assert(is_empty(Q8)),
     ?assertError(empty, peek(Q8)),
     ?assertError(empty, dequeue(Q8)).
+%%+END_FOLD }

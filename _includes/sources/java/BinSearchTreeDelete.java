@@ -57,7 +57,7 @@ public class BinSearchTreeDelete {
         return n;
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertNull(delete(1, null));
 
@@ -72,4 +72,5 @@ public class BinSearchTreeDelete {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

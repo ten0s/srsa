@@ -23,6 +23,7 @@ public class ListsConcat {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Node<Integer> n1 = Node.fromIntArray(new int[] {1,2,3});
         Node<Integer> n4 = Node.fromIntArray(new int[] {4,5,6});
@@ -32,4 +33,5 @@ public class ListsConcat {
         Assert.assertArrayEquals(new int[] {1,2,3,4,5,6}, Node.toIntArray(concat(n1, n4)));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

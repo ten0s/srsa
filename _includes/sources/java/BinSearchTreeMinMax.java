@@ -29,7 +29,7 @@ public class BinSearchTreeMinMax {
         //+END_SOLUTION
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1,2,3,4,5,6,7});
 
@@ -41,4 +41,5 @@ public class BinSearchTreeMinMax {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

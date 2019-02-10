@@ -58,6 +58,7 @@ public class GraphCC {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyG.txt
         Graph G = new Graph(13);
@@ -102,4 +103,5 @@ public class GraphCC {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

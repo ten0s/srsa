@@ -88,6 +88,7 @@ public class RedBlackBSTPut {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
         Entry[] arr = new Entry[] {
@@ -114,4 +115,5 @@ public class RedBlackBSTPut {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

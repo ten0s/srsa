@@ -44,6 +44,7 @@ class ListMergeSort {
         return v.compareTo(w) < 0;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new int[] {},
                                  Node.toIntArray(
@@ -73,4 +74,5 @@ class ListMergeSort {
                                                  new int[] {1,2,3,4,5,6})))));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

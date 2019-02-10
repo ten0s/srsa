@@ -30,7 +30,7 @@ public class BinSearchTreeRankSelect {
         //+END_SOLUTION
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         int[] keys = new int[] {1,3,5,6,7,9};
         BinTree.Node<Integer> tree = BinTree.fromIntArray(keys);
@@ -50,4 +50,5 @@ public class BinSearchTreeRankSelect {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

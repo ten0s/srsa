@@ -76,6 +76,7 @@ public class Graph {
         return s;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/graph1.txt
         Graph G = new Graph(10);
@@ -112,6 +113,7 @@ public class Graph {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

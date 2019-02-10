@@ -39,7 +39,7 @@ public class BinTreeTraversal {
         //+END_SOLUTION
     }
 
-    @SuppressWarnings("unchecked")
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1, 2, 3, 4, 5, 6 ,7});
         Assert.assertEquals(28,  preOrder((x, acc) -> x + acc, 0, tree));
@@ -53,4 +53,5 @@ public class BinTreeTraversal {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

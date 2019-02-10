@@ -10,6 +10,7 @@ foldr(Fun2, Acc, [X | Xs]) ->
     Fun2(X, foldr(Fun2, Acc, Xs)).
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -21,3 +22,4 @@ foldr_test() ->
     ?assertEqual(length(L), foldr(fun (_, Acc) -> 1 + Acc end, 0, L)),
     ?assertEqual(L, foldr(fun (X, Acc) -> [X | Acc] end, [], L)),
     ?assertEqual(lists:sum(L), foldr(fun erlang:'+'/2, 0, L)).
+%%+END_FOLD }

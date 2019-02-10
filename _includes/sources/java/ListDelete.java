@@ -24,6 +24,7 @@ public class ListDelete {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new int[] {}, Node.toIntArray(delete(1, null)));
 
@@ -41,4 +42,5 @@ public class ListDelete {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

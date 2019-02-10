@@ -29,6 +29,7 @@ public class ListSplitInTwo {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         try {
             split(null);
@@ -54,4 +55,5 @@ public class ListSplitInTwo {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

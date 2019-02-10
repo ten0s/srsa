@@ -113,6 +113,7 @@ public class PriorityQueue {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         MaxPQ<Integer> pq = new MaxPQ<>();
         Assert.assertTrue(pq.isEmpty());
@@ -156,4 +157,5 @@ public class PriorityQueue {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

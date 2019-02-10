@@ -110,6 +110,7 @@ to_list(H) ->
     [Min | to_list(H1)].
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -137,3 +138,4 @@ heap_test() ->
     ?assertEqual(1, min(from_list(L))),
     ?assertEqual([], to_list(new())),
     ?assertEqual(lists:sort(L), to_list(from_list(L))).
+%%+END_FOLD }

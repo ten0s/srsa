@@ -61,6 +61,7 @@ public class DijkstraSPs {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
@@ -108,6 +109,7 @@ public class DijkstraSPs {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

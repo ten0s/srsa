@@ -25,6 +25,7 @@ public class DigraphTopologicalSort {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/digraph4.txt
         // no cycles
@@ -63,6 +64,7 @@ public class DigraphTopologicalSort {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

@@ -64,6 +64,7 @@ public class ArrayLocalMinimum {
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, indexOf(new int[] {}));
         Assert.assertEquals(0, indexOf(new int[] {1}));
@@ -76,4 +77,5 @@ public class ArrayLocalMinimum {
         Assert.assertEquals(2, indexOf(new int[] {9,7,2,8,5,6,3,4}));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -84,6 +84,7 @@ public class Digraph {
         return s;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/graph1.txt
         Digraph G = new Digraph(10);
@@ -133,6 +134,7 @@ public class Digraph {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

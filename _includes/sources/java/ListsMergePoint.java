@@ -54,6 +54,7 @@ public class ListsMergePoint {
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertNull(mergePoint(null, Node.fromIntArray(new int[] {1,2,3})));
         Assert.assertNull(mergePoint(Node.fromIntArray(new int[] {1,2,3}), null));
@@ -81,6 +82,7 @@ public class ListsMergePoint {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

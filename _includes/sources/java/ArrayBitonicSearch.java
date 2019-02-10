@@ -79,6 +79,7 @@ public class ArrayBitonicSearch {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, bitonicSearch(0, new int[] {1,3,5,7,6,4,2}));
         Assert.assertEquals(-1, bitonicSearch(8, new int[] {1,3,5,7,6,4,2}));
@@ -88,4 +89,5 @@ public class ArrayBitonicSearch {
         Assert.assertEquals(6, bitonicSearch(2, new int[] {1,3,5,7,6,4,2}));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -16,6 +16,7 @@ public class ListMember {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertFalse(isMember(1, null));
 
@@ -27,4 +28,5 @@ public class ListMember {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

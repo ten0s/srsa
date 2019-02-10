@@ -80,6 +80,7 @@ public class EdgeWeightedGraph {
         return "[label=" + Character.toString('"') + weight + Character.toString('"') + "]";
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedGraph G = new EdgeWeightedGraph(8);
@@ -140,6 +141,7 @@ public class EdgeWeightedGraph {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

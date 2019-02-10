@@ -66,6 +66,7 @@ public class GraphBFSPaths {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyG.txt
         Graph G = new Graph(13);
@@ -135,6 +136,7 @@ public class GraphBFSPaths {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

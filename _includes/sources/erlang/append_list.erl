@@ -20,6 +20,7 @@ append([L | Ls]) ->
     append(L, append(Ls)).
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -38,3 +39,4 @@ append_list_of_lists_test() ->
     ?assertEqual([1,2,3], append([[1,2,3], []])),
     ?assertEqual([1,2,3], append([[], [1,2,3]])),
     ?assertEqual([1,2,3,4,5,6], append([[1,2,3], [4,5,6]])).
+%%+END_FOLD }

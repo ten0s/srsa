@@ -32,6 +32,7 @@ public class QueuesMerge<Item extends Comparable<Item>> {
         return out.size();
     }
 
+    //+BEGIN_FOLD Tests {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
         Queue<Integer>[] queues = (Queue<Integer>[]) new Queue[] {
@@ -46,6 +47,7 @@ public class QueuesMerge<Item extends Comparable<Item>> {
         Assert.assertArrayEquals(exp, act);
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

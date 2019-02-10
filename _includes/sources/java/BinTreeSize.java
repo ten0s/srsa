@@ -15,6 +15,7 @@ public class BinTreeSize {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = null;
         Assert.assertEquals(0, size(tree));
@@ -31,4 +32,5 @@ public class BinTreeSize {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

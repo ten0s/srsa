@@ -63,6 +63,7 @@ public class EdgeWeightedDigraphCycle {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/ewdigraph3.txt
         // no cycles
@@ -108,6 +109,7 @@ public class EdgeWeightedDigraphCycle {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

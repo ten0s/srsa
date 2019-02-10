@@ -77,6 +77,7 @@ delete({Prev, [_ | Next]}) ->
     {Prev, Next}.
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -109,3 +110,4 @@ zlist_test() ->
     ?assertError(empty, current(Z8)),
     ?assertError(empty, next(Z8)),
     ?assertError(empty, delete(Z8)).
+%%+END_FOLD }

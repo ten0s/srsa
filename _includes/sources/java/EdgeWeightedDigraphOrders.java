@@ -53,6 +53,7 @@ public class EdgeWeightedDigraphOrders {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
@@ -84,6 +85,7 @@ public class EdgeWeightedDigraphOrders {
         Assert.assertEquals("1-0-2-3-6-4-5-7", GraphUtil.pathToString(o.reversedPostOrder()));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

@@ -33,6 +33,7 @@ public class EqualsTest {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Entry e1 = new Entry<>(1, "one");
         Entry e2 = new Entry<>(1, "one");
@@ -45,4 +46,5 @@ public class EqualsTest {
         Assert.assertFalse(e1.equals(e3));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

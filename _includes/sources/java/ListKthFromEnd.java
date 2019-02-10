@@ -31,6 +31,7 @@ public class ListKthFromEnd {
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Node<Integer> list = Node.fromIntArray(new int[] {1,2,3,4,5,6,7,8,9,10});
 
@@ -52,4 +53,5 @@ public class ListKthFromEnd {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

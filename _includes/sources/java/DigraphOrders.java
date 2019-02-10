@@ -52,6 +52,7 @@ public class DigraphOrders {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/digraph4.txt
         Digraph G4 = new Digraph(7);
@@ -73,6 +74,7 @@ public class DigraphOrders {
         Assert.assertEquals("0-1-2-3-4-5-6", GraphUtil.pathToString(o4.reversedPostOrder()));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

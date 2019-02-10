@@ -15,6 +15,7 @@ public class BinTreeHeight {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = null;
         Assert.assertEquals(0, height(tree));
@@ -31,4 +32,5 @@ public class BinTreeHeight {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

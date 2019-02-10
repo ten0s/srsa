@@ -48,6 +48,7 @@ public class LazyPrimMST {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedGraph G = new EdgeWeightedGraph(8);
@@ -90,6 +91,7 @@ public class LazyPrimMST {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

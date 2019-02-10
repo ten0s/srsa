@@ -16,9 +16,11 @@ public class EmptyIterable {
         }
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Test<Integer> t = new Test<>();
         for (int x : t.items()) {}
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

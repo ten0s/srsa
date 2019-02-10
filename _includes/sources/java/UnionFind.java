@@ -92,6 +92,7 @@ public class UnionFind {
         return max;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         int n = 10;
         UnionFind uf = new UnionFind(n);
@@ -126,4 +127,5 @@ public class UnionFind {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

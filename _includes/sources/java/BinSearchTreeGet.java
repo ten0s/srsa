@@ -25,6 +25,7 @@ public class BinSearchTreeGet {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Throwable {
         Entry[] arr = new Entry[] {
@@ -49,4 +50,5 @@ public class BinSearchTreeGet {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

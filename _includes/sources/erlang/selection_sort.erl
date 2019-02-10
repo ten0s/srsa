@@ -24,6 +24,7 @@ min_rest(Min, [X | Xs], Acc) ->
     end.
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -36,3 +37,4 @@ sort_test() ->
     ?assertEqual([1,2,3,4,5], sort([1,2,3,4,5])),
     ?assertEqual([1,2,3,4,5], sort([5,4,3,2,1])),
     ?assertEqual([1,2,3,4,5], sort([5,1,3,2,4])).
+%%+END_FOLD }

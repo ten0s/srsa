@@ -110,6 +110,7 @@ public class HashMap<Key , Value> {
         return n;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         HashMap<Integer, Integer> t = new HashMap<>();
 
@@ -140,4 +141,5 @@ public class HashMap<Key , Value> {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -7,9 +7,11 @@ public class IsRotationString {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertTrue(isRotation("ABCDE", "CDEAB"));
         Assert.assertFalse(isRotation("ABCDE", "DCEAB"));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

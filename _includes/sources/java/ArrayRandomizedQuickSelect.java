@@ -51,6 +51,7 @@ class ArrayRandomizedQuickSelect {
         a[j] = tmp;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         try {
             kthMin(1, new int[] {});
@@ -88,4 +89,5 @@ class ArrayRandomizedQuickSelect {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

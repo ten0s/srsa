@@ -30,6 +30,7 @@ public class ArrayBitonicPoint {
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(-1, indexOf(new int[] {}));
         Assert.assertEquals(0, indexOf(new int[] {1}));
@@ -40,4 +41,5 @@ public class ArrayBitonicPoint {
         Assert.assertEquals(3, indexOf(new int[] {1,3,5,7,6,4,2}));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

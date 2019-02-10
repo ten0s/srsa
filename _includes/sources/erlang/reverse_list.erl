@@ -13,6 +13,7 @@ reverse([], Acc) ->
     Acc.
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
     ok -> halt(0);
@@ -22,3 +23,4 @@ main(_) ->
 reverse_test() ->
     ?assertEqual([], reverse([])),
     ?assertEqual([3,2,1], reverse([1,2,3])).
+%%+END_FOLD }

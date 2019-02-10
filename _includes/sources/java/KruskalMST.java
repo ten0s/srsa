@@ -39,6 +39,7 @@ public class KruskalMST {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyEWG.txt
         EdgeWeightedGraph G = new EdgeWeightedGraph(8);
@@ -81,6 +82,7 @@ public class KruskalMST {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

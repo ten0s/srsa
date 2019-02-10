@@ -56,6 +56,7 @@ public class ArrayStack<Item> {
         return a.length;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         ArrayStack<String> s = new ArrayStack<>();
         Assert.assertTrue(s.isEmpty());
@@ -87,4 +88,5 @@ public class ArrayStack<Item> {
         } catch (NoSuchElementException e) {}
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

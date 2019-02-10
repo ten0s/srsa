@@ -60,8 +60,4 @@ public class Edge implements Comparable<Edge> {
     public int hashCode() {
         return Objects.hash(v, w, weight);
     }
-
-    public static void main(String[] args) {
-
-    }
 }

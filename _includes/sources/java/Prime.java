@@ -22,6 +22,7 @@ public class Prime {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertFalse(isPrime(1));
         Assert.assertTrue(isPrime(2));
@@ -39,4 +40,5 @@ public class Prime {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

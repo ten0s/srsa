@@ -11,6 +11,7 @@ public class StringRotate {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals("", rotate(1, ""));
         Assert.assertEquals("1", rotate(1, "1"));
@@ -20,4 +21,5 @@ public class StringRotate {
         Assert.assertEquals("12345", rotate(10, "12345"));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

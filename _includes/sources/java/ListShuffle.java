@@ -44,6 +44,7 @@ class ListShuffle {
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         final int N = 1000;
         final int[] asc  = new int[] {1,2,3,4,5,6,7,8,9,10};
@@ -65,4 +66,5 @@ class ListShuffle {
         System.out.println(ArrayUtil.toString(sumsDesc));
         Histogram.print(sumsDesc);
     }
+    //+END_FOLD }
 }

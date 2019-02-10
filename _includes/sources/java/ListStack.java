@@ -46,6 +46,7 @@ public class ListStack<Item> {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         ListStack<String> s = new ListStack<>();
         Assert.assertTrue(s.isEmpty());
@@ -66,4 +67,5 @@ public class ListStack<Item> {
         } catch (NoSuchElementException e) {}
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

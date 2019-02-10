@@ -1,5 +1,7 @@
+//+BEGIN_SOLUTION
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+//+END_SOLUTION
 
 public class IteratorTest {
     static class Array<Item> implements Iterable<Item> {
@@ -44,6 +46,7 @@ public class IteratorTest {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Array<Integer> arr = new Array<>(new Integer[] {1,2,3,4,5});
 
@@ -66,4 +69,5 @@ public class IteratorTest {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

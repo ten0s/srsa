@@ -54,6 +54,7 @@ public class ListQueue<Item> {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         ListQueue<String> q = new ListQueue<>();
         Assert.assertTrue(q.isEmpty());
@@ -74,4 +75,5 @@ public class ListQueue<Item> {
         } catch (NoSuchElementException e) {}
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -64,6 +64,7 @@ public class ListFilterMapFold {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Node<Integer> intList = Node.fromIntArray(new int[] {1,2,3,4,5});
         // filter
@@ -85,4 +86,5 @@ public class ListFilterMapFold {
                                  Node.toIntArray(foldr(Node::cons, Node.empty(), intList)));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

@@ -59,6 +59,7 @@ public class DigraphSCC {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/tinyDG.txt
         Digraph G = new Digraph(13);
@@ -122,6 +123,7 @@ public class DigraphSCC {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*

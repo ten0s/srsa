@@ -24,6 +24,7 @@ public class GraphDegree {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/graph1.txt
         Graph G = new Graph(10);
@@ -54,12 +55,5 @@ public class GraphDegree {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
-
-/*
-public class Graph {
-    public int V()
-    public int E();
-    public Iterable<Integer> adj(int v);
-}
-*/

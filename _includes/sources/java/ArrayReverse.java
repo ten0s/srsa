@@ -11,6 +11,7 @@ class ArrayReverse {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new int[]{}, reverse(new int[] {}));
         Assert.assertArrayEquals(new int[]{1}, reverse(new int[] {1}));
@@ -18,4 +19,5 @@ class ArrayReverse {
         Assert.assertArrayEquals(new int[]{6,5,4,3,2,1}, reverse(new int[] {1,2,3,4,5,6}));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

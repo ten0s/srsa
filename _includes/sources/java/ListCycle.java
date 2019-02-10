@@ -19,6 +19,7 @@ public class ListCycle {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertFalse(hasCycle(null));
 
@@ -42,4 +43,5 @@ public class ListCycle {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

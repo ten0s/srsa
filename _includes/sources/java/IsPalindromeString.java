@@ -10,6 +10,7 @@ class IsPalindromeString {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertTrue(isPalindrome(""));
         Assert.assertTrue(isPalindrome("a"));
@@ -17,4 +18,5 @@ class IsPalindromeString {
         Assert.assertFalse(isPalindrome("abcde"));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

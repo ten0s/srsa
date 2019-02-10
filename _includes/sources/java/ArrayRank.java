@@ -16,6 +16,7 @@ public class ArrayRank {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertEquals(0, rank(-1, new int[] {}));
         Assert.assertEquals(0, rank(0, new int[] {}));
@@ -33,4 +34,5 @@ public class ArrayRank {
         Assert.assertEquals(7, rank(10, new int[] {1,3,4,6,7,8,9}));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

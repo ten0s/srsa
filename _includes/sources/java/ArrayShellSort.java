@@ -26,6 +26,7 @@ class ArrayShellSort {
         a[j] = tmp;
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         Assert.assertArrayEquals(new Integer[] {},
                                  sort(new Integer[] {}));
@@ -39,4 +40,5 @@ class ArrayShellSort {
                                  sort(ArrayUtil.shuffle(new Integer[] {1,2,3,4,5,6})));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }

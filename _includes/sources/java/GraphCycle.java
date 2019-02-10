@@ -93,6 +93,7 @@ public class GraphCycle {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         // /data/graph2.txt
         // self-loop
@@ -148,6 +149,7 @@ public class GraphCycle {
 
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
 /*
