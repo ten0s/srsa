@@ -57,6 +57,7 @@
 
       <script src="{{ "/assets/lib/jquery/jquery-3.3.1.min.js" | relative_url }}"></script>
       <script src="{{ "/assets/lib/bootstrap/bootstrap-4.1.3.min.js" | relative_url }}"></script>
+      <script src="{{ "/assets/lib/underscore/underscore-1.9.1.min.js" | relative_url }}"></script>
       <script src="{{ "/assets/lib/ace/src-noconflict/ace.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/util.js" | relative_url }}"></script>
       <script>
@@ -72,6 +73,14 @@
        var solution_src = solution_raw.replace(
            /\s*([\/%#]+\+BEGIN_SOLUTION|[\/%#]+\+END_SOLUTION)/gi, "");
 
+       var question_ranges = fold_ranges(question_src);
+       var solution_ranges = fold_ranges(solution_src);
+
+       question_src = question_src.replace(
+           /\+BEGIN_FOLD|\+END_FOLD/gi, "");
+       solution_src = solution_src.replace(
+           /\+BEGIN_FOLD|\+END_FOLD/gi, "");
+
        var lang2mode = {
            "c"  : "c_cpp",
            "c++": "c_cpp",
@@ -84,11 +93,23 @@
        qEditor.setFontSize(15);
        qEditor.session.setMode("ace/mode/" + mode);
 
+       window.setTimeout(function () {
+           _.each(question_ranges, function (range) {
+               qEditor.session.foldAll(range[0], range[1], 1);
+           });
+       }, 100);
+
        var sEditor = ace.edit("solution-editor");
        sEditor.setValue(solution_src, -1);
        sEditor.setTheme("ace/theme/monokai");
        sEditor.setFontSize(15);
        sEditor.session.setMode("ace/mode/" + mode);
+
+       window.setTimeout(function () {
+           _.each(solution_ranges, function (range) {
+               sEditor.session.foldAll(range[0], range[1], 1);
+           });
+       }, 100);
 
        function infoOn(msg) {
            $("#res-info").show();

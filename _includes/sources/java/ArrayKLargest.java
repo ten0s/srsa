@@ -16,6 +16,7 @@ public class ArrayKLargest {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         int[] a = new int[] {1,23,12,9,30,2,50};
         Assert.assertArrayEquals(new int[] {50}, largest(1, a));
@@ -23,8 +24,10 @@ public class ArrayKLargest {
         Assert.assertArrayEquals(new int[] {50,30,23,12,9,2,1}, largest(7, a));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
 
+//+BEGIN_FOLD Refs {
 /*
 class MinPQ<Key extends Comparable<Key>> {
     public MinPQ();
@@ -34,3 +37,4 @@ class MinPQ<Key extends Comparable<Key>> {
     public boolean isEmpty();
 }
 */
+//+END_FOLD}

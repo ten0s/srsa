@@ -14,3 +14,21 @@ function relative_url(url) {
         return "/" + prefix + (url[0] === "/" ? "" : "/") + url;
     }
 }
+
+function fold_ranges(text) {
+    var lines = text.split("\n");
+    var ranges = [];
+    var begin = -1;
+    _.each(lines, function (line, number) {
+        if (/\+BEGIN_FOLD/.exec(line)) {
+            //console.log("beg: " + number);
+            begin = number;
+        }
+        if (/\+END_FOLD/.exec(line)) {
+            //console.log("end: " + number);
+            ranges.push(new Array(begin, number));
+        }
+    });
+    //console.log(ranges);
+    return ranges;
+}
