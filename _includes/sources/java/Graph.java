@@ -42,6 +42,7 @@ public class Graph {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Utils {
     public String toString() {
         String s = V + " vertices, " + E + " edges" + System.lineSeparator();
         for (int v = 0; v < V; v++) {
@@ -75,6 +76,7 @@ public class Graph {
         s += "}" + System.lineSeparator();
         return s;
     }
+    //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {

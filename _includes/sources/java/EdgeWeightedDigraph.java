@@ -65,6 +65,7 @@ public class EdgeWeightedDigraph {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Utils {
     public String toString() {
         String s = V + " vertices, " + E + " edges" + System.lineSeparator();
         for (DirectedEdge e : edges()) {
@@ -87,6 +88,7 @@ public class EdgeWeightedDigraph {
     private String label(double weight) {
         return "[label=" + Character.toString('"') + weight + Character.toString('"') + "]";
     }
+    //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
