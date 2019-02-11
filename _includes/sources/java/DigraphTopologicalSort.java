@@ -39,6 +39,9 @@ public class DigraphTopologicalSort {
         G4.addEdge(2, 4);
         G4.addEdge(4, 5);
         G4.addEdge(4, 6);
+        //System.out.println(G4);
+        //System.out.println(G4.toDot());
+
         DigraphTopologicalSort ts4 = new DigraphTopologicalSort(G4);
         // NB:
         // Digraph.addEdge(v, w) prepends vertices,
@@ -58,6 +61,9 @@ public class DigraphTopologicalSort {
         G4C.addEdge(4, 5);
         G4C.addEdge(4, 6);
         G4C.addEdge(6, 0);
+        //System.out.println(G4C);
+        //System.out.println(G4C.toDot());
+
         DigraphTopologicalSort ts4c = new DigraphTopologicalSort(G4C);
         Assert.assertFalse(ts4c.hasOrder());
         Assert.assertNull(ts4c.order());
