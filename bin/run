@@ -9,8 +9,8 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
-EXE_DIR=exercises
-SRC_DIR=_includes/sources
+EXE_DIR=$(dirname $0)/../exercises
+SRC_DIR=$(dirname $0)/../_includes/sources
 
 function run() {
     local name=$1

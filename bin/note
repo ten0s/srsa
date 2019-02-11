@@ -10,7 +10,7 @@ fi
 ANKI_HOST=localhost
 ANKI_PORT=8765
 ANKI_CONNECT_VER=6
-EXE_DIR=exercises
+EXE_DIR=$(dirname $0)/../exercises
 EXE_URL="https://ten0s.github.io/srsa/exercises"
 
 if [[ -f srsa.conf ]]; then
