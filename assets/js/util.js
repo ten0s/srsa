@@ -62,7 +62,7 @@ function make_editor(type, id, text, mode) {
         _.each(ranges, function (range) {
             editor.session.foldAll(range[0], range[1], 0);
         });
-    }, 100);
+    }, 300);
 
     return editor;
 }
