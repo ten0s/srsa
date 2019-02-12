@@ -46,7 +46,7 @@ gen_gif() ->
 gen_png(H, N) ->
     DotName = gen_dot(H, N),
     PngName = [name(N), ".png"],
-    os:cmd(["dot -Tpng ", DotName, " > ", PngName]).
+    os:cmd(["dot -Tpng ", DotName, " -o ", PngName]).
 
 gen_dot(H, N) ->
     File = [name(N), ".dot"],

@@ -117,29 +117,22 @@ to_list(H) ->
 %%+BEGIN_REMOVE
 -spec to_dot(heap(_T)) -> iolist().
 to_dot(H) ->
-    ["graph {\n",
-      heap_to_dot(H),
+    %% https://gist.github.com/kstwrt/8591183
+    ["digraph {\n",
+      element(2, to_dot(H, {0, []})),
      "}\n"].
 
-heap_to_dot(nil) ->
-    "";
-heap_to_dot({T, Tr, nil, nil}) ->
-    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
-     io_lib:format("  ~p;~n", [T])];
-heap_to_dot({T, Tr, nil, {TR, _, _, _} = R}) ->
-    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
-     io_lib:format("  ~p -- ~p;~n", [T, TR]),
-     heap_to_dot(R)];
-heap_to_dot({T, Tr, {TL, _, _, _} = L, nil}) ->
-    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
-     io_lib:format("  ~p -- ~p;~n", [T, TL]),
-     heap_to_dot(L)];
-heap_to_dot({T, Tr, {TL, _, _, _} = L, {TR, _, _, _} = R}) ->
-    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
-     io_lib:format("  ~p -- ~p;~n", [T, TL]),
-     io_lib:format("  ~p -- ~p;~n", [T, TR]),
-     heap_to_dot(L),
-     heap_to_dot(R)].
+to_dot(nil, {N, Acc}) ->
+    {N+1, [Acc, io_lib:format("  ~p [shape=point];~n", [N])]};
+to_dot({T, Tr, L, R}, {N, Acc}) ->
+    {N2, Acc2} = to_dot(L, {N+1, Acc}),
+    {N3, Acc3} = to_dot(R, {N2, Acc2}),
+    Acc4 = [Acc3,
+        io_lib:format("  ~p [label=\"~p/~p\"];~n", [N, T, Tr]),
+        io_lib:format("  ~p -> ~p;~n", [N, N+1]),
+        io_lib:format("  ~p -> ~p;~n", [N, N2])
+    ],
+    {N3+1, Acc4}.
 %%+END_REMOVE
 
 %%+BEGIN_FOLD Utils {
