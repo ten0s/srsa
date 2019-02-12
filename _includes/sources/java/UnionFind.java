@@ -75,6 +75,7 @@ public class UnionFind {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Utils {
     private int height(int p) {
         int height = 0;
         while (p != parent[p]) {
@@ -91,6 +92,7 @@ public class UnionFind {
         }
         return max;
     }
+    //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
