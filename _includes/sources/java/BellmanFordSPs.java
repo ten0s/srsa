@@ -3,8 +3,8 @@ public class BellmanFordSPs {
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private boolean[] onQueue;
     private Queue<Integer> queue;
+    private boolean[] onQueue;
     private int counter;
     private Iterable<DirectedEdge> cycle;
     //+END_SOLUTION
@@ -13,8 +13,8 @@ public class BellmanFordSPs {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        onQueue = new boolean[G.V()];
         queue = new Queue<>();
+        onQueue = new boolean[G.V()];
 
         for (int v = 0; v < G.V(); v++) {
             distTo[v] = INFINITY;
