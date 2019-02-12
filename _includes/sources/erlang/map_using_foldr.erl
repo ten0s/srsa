@@ -4,8 +4,8 @@
 
 -spec map2(fun ((A) -> B), [A]) -> [B].
 %%+BEGIN_SOLUTION
-map2(Fun, L) ->
-    lists:foldr(fun (H, T) -> [Fun(H) | T] end, [], L).
+map2(Fun, Xs) ->
+    lists:foldr(fun (X, Acc) -> [Fun(X) | Acc] end, [], Xs).
 %%+END_SOLUTION
 
 %%+BEGIN_FOLD Tests {

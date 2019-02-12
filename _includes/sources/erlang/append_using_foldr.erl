@@ -4,8 +4,8 @@
 
 -spec append([T], [T]) -> [T].
 %%+BEGIN_SOLUTION
-append(L1, L2) ->
-    lists:foldr(fun (H, T) -> [H | T] end, L2, L1).
+append(Xs, Ys) ->
+    lists:foldr(fun (X, Acc) -> [X | Acc] end, Ys, Xs).
 %%+END_SOLUTION
 
 %%+BEGIN_FOLD Tests {
