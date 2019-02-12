@@ -111,8 +111,7 @@ from_queue(Q) ->
 to_list(nil) ->
     [];
 to_list(H) ->
-    {Min, H1} = {min(H), deleteMin(H)},
-    [Min | to_list(H1)].
+    [min(H) | to_list(deleteMin(H))].
 %%+END_SOLUTION
 
 %%+BEGIN_REMOVE

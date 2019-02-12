@@ -2,7 +2,7 @@
 layout: exercise
 title: Leftist Heap
 question_text: >-
-  Implement min-heap using height-biased leftist tree
+  Implement min-heap using weight-biased leftist tree
   <br>
   <img relative_src="/assets/images/leftist_heap.gif" title="leftist_heap"></td>
 solution_file: /sources/erlang/leftist_heap.erl
