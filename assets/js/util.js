@@ -48,6 +48,9 @@ function make_editor(type, id, text, mode) {
         throw new Error("Unknown editor type: " + type);
     }
 
+    // Remove +BEGIN_REMOVE, +END_REMOVE and everything in between
+    text = text.replace(/\s*[\/%#]+\+BEGIN_REMOVE[\s\S]*?[\/%#]+\+END_REMOVE/gi, "");
+
     var ranges = fold_ranges(text);
     // Remove +BEGIN_FOLD and +END_FOLD
     text = text.replace(/\+BEGIN_FOLD|\+END_FOLD/gi, "");

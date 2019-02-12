@@ -1,4 +1,8 @@
 -module(leftist_heap).
+-export([new/0, is_empty/1, insert/2, min/1, deleteMin/1, merge/2, from_list/1, to_list/1]).
+%%+BEGIN_REMOVE
+-export([to_dot/1]).
+%%+END_REMOVE
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
 
@@ -25,7 +29,7 @@ is_empty({_, _, _, _}) ->
 -spec insert(T, heap(T)) -> heap(T).
 %%+BEGIN_SOLUTION
 insert(T, H) ->
-    merge({T, 0, nil, nil}, H).
+    merge({T, 1, nil, nil}, H).
 %%+END_SOLUTION
 
 %% O(1)
@@ -66,11 +70,12 @@ merge({T1, _, L1, R1} = H1, {T2, _, L2, R2} = H2) ->
 balance(T, H1, H2) ->
     R1 = rank(H1),
     R2 = rank(H2),
+    R = R1 + R2 + 1,
     case R1 >= R2 of
     true ->
-        {T, R2+1, H1, H2};
+        {T, R, H1, H2};
     false ->
-        {T, R1+1, H2, H1}
+        {T, R, H2, H1}
     end.
 
 %% O(1)
@@ -88,7 +93,7 @@ rank({_, R, _, _}) ->
 from_list([]) ->
     nil;
 from_list(Ts) ->
-    from_queue(queue:from_list([{T, 0, nil, nil} || T <- Ts])).
+    from_queue(queue:from_list([{T, 1, nil, nil} || T <- Ts])).
 
 from_queue(Q) ->
     { {value, H1}, Q1} = queue:out(Q),
@@ -110,26 +115,35 @@ to_list(H) ->
     [Min | to_list(H1)].
 %%+END_SOLUTION
 
-%%+BEGIN_FOLD Utils {
+%%+BEGIN_REMOVE
 -spec to_dot(heap(_T)) -> iolist().
 to_dot(H) ->
-    ["graph {\n", node_to_dot(H), "}\n"].
-node_to_dot(nil) ->
-    "";
-node_to_dot({T, _, nil, nil}) ->
-    io_lib:format("  ~p;~n", [T]);
-node_to_dot({T, _, nil, {TR, _, _, _} = R}) ->
-    [io_lib:format("  ~p -- ~p;~n", [T, TR]),
-     node_to_dot(R)];
-node_to_dot({T, _, {TL, _, _, _} = L, nil}) ->
-    [io_lib:format("  ~p -- ~p;~n", [T, TL]),
-     node_to_dot(L)];
-node_to_dot({T, _, {TL, _, _, _} = L, {TR, _, _, _} = R}) ->
-    [io_lib:format("  ~p -- ~p;~n", [T, TL]),
-     io_lib:format("  ~p -- ~p;~n", [T, TR]),
-     node_to_dot(L),
-     node_to_dot(R)].
+    ["graph {\n",
+      heap_to_dot(H),
+     "}\n"].
 
+heap_to_dot(nil) ->
+    "";
+heap_to_dot({T, Tr, nil, nil}) ->
+    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
+     io_lib:format("  ~p;~n", [T])];
+heap_to_dot({T, Tr, nil, {TR, _, _, _} = R}) ->
+    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
+     io_lib:format("  ~p -- ~p;~n", [T, TR]),
+     heap_to_dot(R)];
+heap_to_dot({T, Tr, {TL, _, _, _} = L, nil}) ->
+    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
+     io_lib:format("  ~p -- ~p;~n", [T, TL]),
+     heap_to_dot(L)];
+heap_to_dot({T, Tr, {TL, _, _, _} = L, {TR, _, _, _} = R}) ->
+    [io_lib:format("  ~p [label=\"~p/~p\"];~n", [T, T, Tr]),
+     io_lib:format("  ~p -- ~p;~n", [T, TL]),
+     io_lib:format("  ~p -- ~p;~n", [T, TR]),
+     heap_to_dot(L),
+     heap_to_dot(R)].
+%%+END_REMOVE
+
+%%+BEGIN_FOLD Utils {
 -spec depth(heap(_T)) -> pos_integer().
 depth(nil) ->
     0;
@@ -170,5 +184,5 @@ heap_test() ->
     H20 = from_list(L),
     ?assertEqual(1, min(H20)),
     %io:format(user, to_dot(H20), []),
-    ?assertEqual(4, depth(H20)).
+    ?assertEqual(5, depth(H20)).
 %%+END_FOLD }
