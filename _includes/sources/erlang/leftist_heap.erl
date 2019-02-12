@@ -110,6 +110,33 @@ to_list(H) ->
     [Min | to_list(H1)].
 %%+END_SOLUTION
 
+%%+BEGIN_FOLD Utils {
+-spec to_dot(heap(_T)) -> iolist().
+to_dot(H) ->
+    ["graph {\n", node_to_dot(H), "}\n"].
+node_to_dot(nil) ->
+    "";
+node_to_dot({T, _, nil, nil}) ->
+    io_lib:format("  ~p;~n", [T]);
+node_to_dot({T, _, nil, {TR, _, _, _} = R}) ->
+    [io_lib:format("  ~p -- ~p;~n", [T, TR]),
+     node_to_dot(R)];
+node_to_dot({T, _, {TL, _, _, _} = L, nil}) ->
+    [io_lib:format("  ~p -- ~p;~n", [T, TL]),
+     node_to_dot(L)];
+node_to_dot({T, _, {TL, _, _, _} = L, {TR, _, _, _} = R}) ->
+    [io_lib:format("  ~p -- ~p;~n", [T, TL]),
+     io_lib:format("  ~p -- ~p;~n", [T, TR]),
+     node_to_dot(L),
+     node_to_dot(R)].
+
+-spec depth(heap(_T)) -> pos_integer().
+depth(nil) ->
+    0;
+depth({_, _, L, R}) ->
+    1 + max(depth(L), depth(R)).
+%%+END_FOLD }
+
 %%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
@@ -118,24 +145,30 @@ main(_) ->
     end.
 
 heap_test() ->
-    H0 = new(),
-    ?assert(is_empty(H0)),
-    H1 = insert(1, H0),
-    ?assertNot(is_empty(H1)),
-    H2 = insert(2, H1),
-    H3 = insert(3, H2),
-    ?assertEqual(1, min(H3)),
-    {1, H4} = {min(H3), deleteMin(H3)},
-    H5 = insert(4, H4),
-    {2, H6} = {min(H5), deleteMin(H5)},
-    {3, H7} = {min(H6), deleteMin(H6)},
-    {4, H8} = {min(H7), deleteMin(H7)},
-    ?assert(is_empty(H8)),
-    ?assertError(empty, min(H8)),
-    ?assertError(empty, deleteMin(H8)),
+    H10 = new(),
+    ?assert(is_empty(H10)),
+    H11 = insert(1, H10),
+    ?assertNot(is_empty(H11)),
+    H12 = insert(2, H11),
+    H13 = insert(3, H12),
+    ?assertEqual(1, min(H13)),
+    {1, H14} = {min(H13), deleteMin(H13)},
+    H15 = insert(4, H14),
+    {2, H16} = {min(H15), deleteMin(H15)},
+    {3, H17} = {min(H16), deleteMin(H16)},
+    {4, H18} = {min(H17), deleteMin(H17)},
+    ?assert(is_empty(H18)),
+    ?assertError(empty, min(H18)),
+    ?assertError(empty, deleteMin(H18)),
+
     ?assert(is_empty(from_list([]))),
+    ?assertEqual([], to_list(new())),
     L = [4,8,10,9,1,3,5,6,11],
     ?assertEqual(1, min(from_list(L))),
-    ?assertEqual([], to_list(new())),
-    ?assertEqual(lists:sort(L), to_list(from_list(L))).
+    ?assertEqual(lists:sort(L), to_list(from_list(L))),
+
+    H20 = from_list(L),
+    ?assertEqual(1, min(H20)),
+    %io:format(user, to_dot(H20), []),
+    ?assertEqual(4, depth(H20)).
 %%+END_FOLD }
