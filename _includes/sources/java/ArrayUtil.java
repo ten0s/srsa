@@ -32,6 +32,18 @@ public class ArrayUtil {
         return b;
     }
 
+    public static String toString(boolean[] a) {
+        String s = "[";
+        for (int i = 0; i < a.length; i++) {
+            s += a[i];
+            if (i != a.length-1) {
+                s += ",";
+            }
+        }
+        s += "]";
+        return s;
+    }
+
     public static String toString(int[] a) {
         String s = "[";
         for (int i = 0; i < a.length; i++) {
@@ -54,6 +66,10 @@ public class ArrayUtil {
         }
         s += "]";
         return s;
+    }
+
+    public static void println(boolean[] a) {
+        System.out.println(toString(a));
     }
 
     public static void println(int[] a) {
