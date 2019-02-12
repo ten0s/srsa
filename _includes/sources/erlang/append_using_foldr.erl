@@ -4,10 +4,8 @@
 
 -spec append([T], [T]) -> [T].
 %%+BEGIN_SOLUTION
-append(Xs, Ys) ->
-    lists:foldr(fun cons/2, Ys, Xs).
-
-cons(H, T) -> [H | T].
+append(L1, L2) ->
+    lists:foldr(fun (H, T) -> [H | T] end, L2, L1).
 %%+END_SOLUTION
 
 %%+BEGIN_FOLD Tests {
