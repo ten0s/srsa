@@ -59,7 +59,7 @@ public class ArrayQueue<Item> {
         }
         tail -= head;
         head = 0;
-    } //+END_FOLD
+    } //+END_FOLD To Use
 
     @SuppressWarnings("unchecked")
     private void resize(int capacity) { //+BEGIN_FOLD
@@ -70,7 +70,7 @@ public class ArrayQueue<Item> {
         tail -= head;
         head = 0;
         a = b;
-    } //+END_FOLD
+    } //+END_FOLD To Use
 
     //+BEGIN_FOLD Utils {
     private int capacity() {
