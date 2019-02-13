@@ -16,10 +16,11 @@ public class ArrayQueue<Item> {
         // if tail is at the end
         if (tail == a.length) {
             // if there's some place in the front
-            if (head > 0)
+            if (head > 0) {
                 relocate();
-            else
+            } else {
                 resize(2*a.length);
+            }
         }
         a[tail++] = item;
         //+END_SOLUTION
@@ -51,17 +52,17 @@ public class ArrayQueue<Item> {
         //+END_SOLUTION
     }
 
-    private void relocate() {
+    private void relocate() { //+BEGIN_FOLD
         for (int i = head; i < tail; i++) {
             a[i-head] = a[i];
             a[i] = null;
         }
         tail -= head;
         head = 0;
-    }
+    } //+END_FOLD
 
     @SuppressWarnings("unchecked")
-    private void resize(int capacity) {
+    private void resize(int capacity) { //+BEGIN_FOLD
         Item[] b = (Item[]) new Object[capacity];
         for (int i = head; i < tail; i++) {
             b[i-head] = a[i];
@@ -69,11 +70,13 @@ public class ArrayQueue<Item> {
         tail -= head;
         head = 0;
         a = b;
-    }
+    } //+END_FOLD
 
+    //+BEGIN_FOLD Utils {
     private int capacity() {
         return a.length;
     }
+    //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
