@@ -127,9 +127,9 @@ to_dot(nil, {N, Acc}) ->
     {N+1, [Acc, io_lib:format("  ~p [shape=point];~n", [N])]};
 to_dot({T, Tr, L, R}, {N, Acc}) ->
     %% N is me
-    %% N+1 is first left
+    %% N+1 is first left after me
     {N2, Acc2} = to_dot(L, {N+1, Acc}),
-    %% N2 is what returned after processing left
+    %% N2 is first right after processing left
     {N3, Acc3} = to_dot(R, {N2, Acc2}),
     {N3+1, [Acc3, io_lib:format("  ~p [label=\"~p/~p\"];~n", [N, T, Tr]),
                   io_lib:format("  ~p -> ~p;~n", [N, N+1]),
