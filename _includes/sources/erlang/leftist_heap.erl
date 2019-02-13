@@ -118,7 +118,6 @@ to_list(H) ->
 -spec to_dot(heap(_T)) -> iolist().
 to_dot(H) ->
     %% https://gist.github.com/kstwrt/8591183
-    %% https://eli.thegreenplace.net/2009/11/23/visualizing-binary-trees-with-graphviz
     ["digraph {\n",
       element(2, to_dot(H, {0, []})),
      "}\n"].
