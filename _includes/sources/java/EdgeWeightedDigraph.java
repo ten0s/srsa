@@ -53,18 +53,6 @@ public class EdgeWeightedDigraph {
         //+END_SOLUTION
     }
 
-    public EdgeWeightedDigraph reverse() {
-        //+BEGIN_SOLUTION
-        EdgeWeightedDigraph R = new EdgeWeightedDigraph(V);
-        for (int v = 0; v < V; v++) {
-            for (DirectedEdge e : adj[v]) {
-                R.addEdge(new DirectedEdge(e.to(), e.from(), e.weight()));
-            }
-        }
-        return R;
-        //+END_SOLUTION
-    }
-
     //+BEGIN_FOLD Utils {
     public String toString() {
         String s = V + " vertices, " + E + " edges" + System.lineSeparator();
@@ -148,18 +136,6 @@ public class EdgeWeightedDigraph {
             set.delete(e);
         }
         Assert.assertTrue(set.isEmpty());
-
-        EdgeWeightedDigraph R = G.reverse();
-        //System.out.println(R);
-        //System.out.println(R.toDot());
-        Assert.assertEquals(8, R.V());
-        Assert.assertEquals(16, R.E());
-        outdegree0 = 0; for (DirectedEdge e : R.adj(0)) outdegree0++;
-        Assert.assertEquals(1, outdegree0);
-        outdegree3 = 0; for (DirectedEdge e : R.adj(3)) outdegree3++;
-        Assert.assertEquals(2, outdegree3);
-        outdegree6 = 0; for (DirectedEdge e : R.adj(6)) outdegree6++;
-        Assert.assertEquals(1, outdegree6);
 
         System.out.println("OK");
     }

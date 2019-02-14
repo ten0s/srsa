@@ -41,18 +41,6 @@ public class Digraph {
         //+END_SOLUTION
     }
 
-    public Digraph reverse() {
-        //+BEGIN_SOLUTION
-        Digraph R = new Digraph(V);
-        for (int v = 0; v < V; v++) {
-            for (int w : adj[v]) {
-                R.addEdge(w, v);
-            }
-        }
-        return R;
-        //+END_SOLUTION
-    }
-
     //+BEGIN_FOLD Utils {
     public String toString() {
         String s = V + " vertices, " + E + " edges" + System.lineSeparator();
@@ -120,19 +108,6 @@ public class Digraph {
         Assert.assertEquals(4, outdegree1);
         int outdegree8 = 0; for (int v : G.adj(8)) outdegree8++;
         Assert.assertEquals(0, outdegree8);
-
-        Digraph R = G.reverse();
-        //System.out.println(R);
-        //System.out.println(R.toDot());
-
-        Assert.assertEquals(10, R.V());
-        Assert.assertEquals(16, R.E());
-        outdegree0 = 0; for (int v : R.adj(0)) outdegree0++;
-        Assert.assertEquals(0, outdegree0);
-        outdegree1 = 0; for (int v : R.adj(1)) outdegree1++;
-        Assert.assertEquals(1, outdegree1);
-        outdegree8 = 0; for (int v : R.adj(8)) outdegree8++;
-        Assert.assertEquals(4, outdegree8);
 
         System.out.println("OK");
     }

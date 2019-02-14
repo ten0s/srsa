@@ -11,7 +11,7 @@ public class DigraphSCC {
         marked = new boolean[G.V()];
         id = new int[G.V()];
         size = new int[G.V()];
-        DigraphOrders orders = new DigraphOrders(G.reverse());
+        DigraphOrders orders = new DigraphOrders(reverse(G));
         for (int v : orders.reversedPostOrder()) {
             if (!marked[v]) {
                 dfs(G, v);
@@ -31,6 +31,16 @@ public class DigraphSCC {
                 dfs(G, w);
             }
         }
+    }
+
+    private Digraph reverse(Digraph G) {
+        Digraph R = new Digraph(G.V());
+        for (int v = 0; v < G.V(); v++) {
+            for (int w : G.adj(v)) {
+                R.addEdge(w, v);
+            }
+        }
+        return R;
     }
     //+END_SOLUTION
 
@@ -130,7 +140,6 @@ public class DigraphSCC {
 /*+BEGIN_FOLD
 public class Digraph {
     public Iterable<Integer> adj(int v);
-    public Digraph reverse()
 }
 
 public class DigraphOrders {

@@ -6,7 +6,6 @@ question_text: >-
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/digraph1.png" title="digraph1"></td>
-      <td><img relative_src="/assets/images/digraph1-reversed.png" title="digraph1-reversed"></td>
     </tr>
   </table>
 solution_file: /sources/java/Digraph.java

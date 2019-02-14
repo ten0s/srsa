@@ -6,7 +6,6 @@ question_text: >-
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/tinyEWG-directed.png" title="tinyEWG-directed"></td>
-      <td><img relative_src="/assets/images/tinyEWG-directed-reversed.png" title="tinyEWG-directed-reversed"></td>
     </tr>
   </table>
 solution_file: /sources/java/EdgeWeightedDigraph.java
