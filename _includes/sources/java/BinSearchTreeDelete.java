@@ -9,53 +9,59 @@ public class BinTree.Node<T> {
 */
 
 public class BinSearchTreeDelete {
-    public static <K extends Comparable<K>> BinTree.Node<K> delete(K key, BinTree.Node<K> n) {
+    public static <K extends Comparable<K>> BinTree.Node<K> delete(K key, BinTree.Node<K> node) {
         //+BEGIN_SOLUTION
-        if (n == null) return n;
-        int cmp = key.compareTo(n.item);
-        if      (cmp < 0) n.left  = delete(key, n.left);
-        else if (cmp > 0) n.right = delete(key, n.right);
+        if (node == null) return node;
+        int cmp = key.compareTo(node.item);
+        if      (cmp < 0) node.left  = delete(key, node.left);
+        else if (cmp > 0) node.right = delete(key, node.right);
         else {
-            if (n.left == null)  return n.right;
-            if (n.right == null) return n.left;
-            BinTree.Node<K> t = n;
-            n = min(t.right);              // n = max(t.left);
-            n.right = deleteMin(t.right);  // n.left = deleteMax(t.left)
-            n.left = t.left;               // n.right = t.right;
+            if (node.left == null)  return node.right;
+            if (node.right == null) return node.left;
+            BinTree.Node<K> t = node;
+            if (Math.random() < 0.5) {
+                node = min(t.right);
+                node.right = deleteMin(t.right);
+                node.left = t.left;
+            } else {
+                node = max(t.left);
+                node.left = deleteMax(t.left);
+                node.right = t.right;
+            }
         }
-        return n;
+        return node;
         //+END_SOLUTION
     }
 
-    public static <K extends Comparable<K>> BinTree.Node<K> min(BinTree.Node<K> n) {
-        if (n == null) throw new NoSuchElementException();
-        if (n.left == null)
-            return n;
-        return min(n.left);
-    }
+    public static <K extends Comparable<K>> BinTree.Node<K> min(BinTree.Node<K> node) { //+BEGIN_FOLD
+        if (node == null) throw new NoSuchElementException();
+        if (node.left == null)
+            return node;
+        return min(node.left);
+    } //+END_FOLD To Use
 
-    public static <K extends Comparable<K>> BinTree.Node<K> max(BinTree.Node<K> n) {
-        if (n == null) throw new NoSuchElementException();
-        if (n.right == null)
-            return n;
-        return max(n.right);
-    }
+    public static <K extends Comparable<K>> BinTree.Node<K> max(BinTree.Node<K> node) { //+BEGIN_FOLD
+        if (node == null) throw new NoSuchElementException();
+        if (node.right == null)
+            return node;
+        return max(node.right);
+    } //+END_FOLD To Use
 
-    public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> n) {
-        if (n == null) throw new NoSuchElementException();
-        if (n.left == null)
-            return n.right;
-        n.left = deleteMin(n.left);
-        return n;
-    }
+    public static <K extends Comparable<K>> BinTree.Node<K> deleteMin(BinTree.Node<K> node) { //+BEGIN_FOLD
+        if (node == null) throw new NoSuchElementException();
+        if (node.left == null)
+            return node.right;
+        node.left = deleteMin(node.left);
+        return node;
+    } //+END_FOLD To Use
 
-    public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> n) {
-        if (n == null) throw new NoSuchElementException();
-        if (n.right == null)
-            return n.left;
-        n.right = deleteMax(n.right);
-        return n;
-    }
+    public static <K extends Comparable<K>> BinTree.Node<K> deleteMax(BinTree.Node<K> node) { //+BEGIN_FOLD
+        if (node == null) throw new NoSuchElementException();
+        if (node.right == null)
+            return node.left;
+        node.right = deleteMax(node.right);
+        return node;
+    } //+END_FOLD To Use
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
