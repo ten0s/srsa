@@ -2,7 +2,7 @@
 layout: exercise
 title: Digraph Strongly Connected Components
 question_text: >-
-  Preprocess digraph to answer the queries in <i>constant</i> time:
+  Preprocess digraph to answer the queries in O(1) time:
   <ul>
   <li>Are two vertices <i>v</i> and <i>w</i> are <i>strongly</i> connected?</li>
   <li>How many <i>strong</i> components does the digraph have?</li>
