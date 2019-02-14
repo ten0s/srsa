@@ -42,9 +42,9 @@ public class BinTreeTraversal {
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1, 2, 3, 4, 5, 6 ,7});
-        Assert.assertEquals(28,  preOrder((x, acc) -> x + acc, 0, tree));
-        Assert.assertEquals(28,   inOrder((x, acc) -> x + acc, 0, tree));
-        Assert.assertEquals(28, postOrder((x, acc) -> x + acc, 0, tree));
+        Assert.assertEquals(28,  (int)preOrder((x, acc) -> x + acc, 0, tree));
+        Assert.assertEquals(28,   (int)inOrder((x, acc) -> x + acc, 0, tree));
+        Assert.assertEquals(28, (int)postOrder((x, acc) -> x + acc, 0, tree));
 
         BinTree.Node<String> tree2 = BinTree.fromArray(new String[] {"1", "2", "3", "4", "5", "6", "7"});
         Assert.assertEquals("4213657",  preOrder((x, acc) -> acc + x, "", tree2));

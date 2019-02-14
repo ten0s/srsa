@@ -34,10 +34,10 @@ public class BinSearchTreeMinMax {
         BinTree.Node<Integer> tree = BinTree.fromIntArray(new int[] {1,2,3,4,5,6,7});
 
         try { min(null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertEquals(1, min(tree));
+        Assert.assertEquals(1, (int)min(tree));
 
         try { max(null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertEquals(7, max(tree));
+        Assert.assertEquals(7, (int)max(tree));
 
         System.out.println("OK");
     }

@@ -44,23 +44,23 @@ public class BinSearchTreeFloorCeiling {
         // test floor
         try { floor(1, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
         try { floor(0, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertEquals(1, floor(1, tree).item);
-        Assert.assertEquals(1, floor(2, tree).item);
-        Assert.assertEquals(3, floor(3, tree).item);
-        Assert.assertEquals(6, floor(6, tree).item);
-        Assert.assertEquals(7, floor(8, tree).item);
-        Assert.assertEquals(9, floor(9, tree).item);
-        Assert.assertEquals(9, floor(10, tree).item);
+        Assert.assertEquals(1, (int)floor(1, tree).item);
+        Assert.assertEquals(1, (int)floor(2, tree).item);
+        Assert.assertEquals(3, (int)floor(3, tree).item);
+        Assert.assertEquals(6, (int)floor(6, tree).item);
+        Assert.assertEquals(7, (int)floor(8, tree).item);
+        Assert.assertEquals(9, (int)floor(9, tree).item);
+        Assert.assertEquals(9, (int)floor(10, tree).item);
 
         // test ceiling
         try { ceiling(1, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
         try { ceiling(10, tree); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        Assert.assertEquals(1, ceiling(0, tree).item);
-        Assert.assertEquals(1, ceiling(1, tree).item);
-        Assert.assertEquals(3, ceiling(2, tree).item);
-        Assert.assertEquals(5, ceiling(4, tree).item);
-        Assert.assertEquals(9, ceiling(8, tree).item);
-        Assert.assertEquals(9, ceiling(9, tree).item);
+        Assert.assertEquals(1, (int)ceiling(0, tree).item);
+        Assert.assertEquals(1, (int)ceiling(1, tree).item);
+        Assert.assertEquals(3, (int)ceiling(2, tree).item);
+        Assert.assertEquals(5, (int)ceiling(4, tree).item);
+        Assert.assertEquals(9, (int)ceiling(8, tree).item);
+        Assert.assertEquals(9, (int)ceiling(9, tree).item);
 
         System.out.println("OK");
     }

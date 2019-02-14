@@ -33,11 +33,11 @@ class MinPQ<Key extends Comparable<Key>> extends PQ<Key> {
         Assert.assertEquals(10, pq.size());
         Assert.assertEquals(16, pq.capacity());
 
-        Assert.assertEquals(1, pq.min());
-        Assert.assertEquals(1, pq.delMin());
+        Assert.assertEquals(1, (int)pq.min());
+        Assert.assertEquals(1, (int)pq.delMin());
         for (int i = 0; i < 8; i++) pq.delMin();
-        Assert.assertEquals(10, pq.min());
-        Assert.assertEquals(10, pq.delMin());
+        Assert.assertEquals(10, (int)pq.min());
+        Assert.assertEquals(10, (int)pq.delMin());
 
         Assert.assertTrue(pq.isEmpty());
         Assert.assertEquals(0, pq.size());

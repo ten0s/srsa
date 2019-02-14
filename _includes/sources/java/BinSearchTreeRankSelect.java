@@ -39,13 +39,13 @@ public class BinSearchTreeRankSelect {
         // Property #1
         // for i in [0..size(keys)-1] { i == rank(select(i)) }
         for (int i = 0; i < keys.length; i++) {
-            Assert.assertEquals(i, rank(select(i, tree).item, tree));
+            Assert.assertEquals(i, (int)rank(select(i, tree).item, tree));
         }
 
         // Property #2
         // for all key in keys { key == select(rank(key)) }
         for (int key : keys) {
-            Assert.assertEquals(key, select(rank(key, tree), tree).item);
+            Assert.assertEquals(key, (int)select(rank(key, tree), tree).item);
         }
 
         System.out.println("OK");

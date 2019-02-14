@@ -16,8 +16,12 @@ public class EdgeWeightedDAGSPs {
         distTo[s] = 0.0;
 
         EdgeWeightedDigraphTopologicalSort top = new EdgeWeightedDigraphTopologicalSort(G);
-        for (int v : top.order()) {
-            relax(G, v);
+        if (top.hasOrder()) {
+            for (int v : top.order()) {
+                relax(G, v);
+            }
+        } else {
+            throw new IllegalArgumentException("Given graph is NOT a DAG!");
         }
         //+END_SOLUTION
     }
@@ -94,6 +98,12 @@ public class EdgeWeightedDAGSPs {
         Assert.assertTrue(sp5.hasPathTo(6));
         Assert.assertEquals(1.13, sp5.distTo(6));
         Assert.assertEquals("5->1->3->6", GraphUtil.directedWeightedPathToString(sp5.pathTo(6)));
+
+        G.addEdge(new DirectedEdge(2, 5, 0.0));
+        try {
+            new EdgeWeightedDAGSPs(G, 0);
+            Assert.assertTrue("No check if the graph is a DAG", false);
+        } catch (IllegalArgumentException e) {}
 
         System.out.println("OK");
     }

@@ -121,9 +121,9 @@ public class HashMap<Key , Value> {
 
         for (int i = 0; i < 1000; i++) {
             t.put(i, i);
-            Assert.assertEquals(i, t.get(i));
+            Assert.assertEquals(i, (int)t.get(i));
             t.put(i, i*i);
-            Assert.assertEquals(i*i, t.get(i));
+            Assert.assertEquals(i*i, (int)t.get(i));
         }
         Assert.assertEquals(1000, t.size());
         Assert.assertFalse(t.isEmpty());

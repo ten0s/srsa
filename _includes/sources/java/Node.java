@@ -154,8 +154,8 @@ public class Node<T> {
             last(null);
             Assert.assertTrue(false);
         } catch (NoSuchElementException e) {}
-        Assert.assertEquals(1, last(fromIntArray(new int[] {1})).item);
-        Assert.assertEquals(3, last(fromIntArray(new int[] {1,2,3})).item);
+        Assert.assertEquals(1, (int)last(fromIntArray(new int[] {1})).item);
+        Assert.assertEquals(3, (int)last(fromIntArray(new int[] {1,2,3})).item);
 
         Pair<Node<Integer>, Node<Integer>> subs = new Pair<>();
 

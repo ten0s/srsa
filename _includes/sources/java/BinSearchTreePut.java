@@ -21,6 +21,7 @@ public class BinSearchTreePut {
     ) {
         //+BEGIN_SOLUTION
         if (node == null) return new BinTree.Node<>(new Entry<>(key, val));
+
         int cmp = key.compareTo(node.item.key);
         if      (cmp < 0) node.left  = put(key, val, node.left);
         else if (cmp > 0) node.right = put(key, val, node.right);

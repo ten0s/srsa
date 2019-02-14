@@ -74,8 +74,8 @@ public class ListFilterMapFold {
         Assert.assertArrayEquals(new int[] {2,4,6,8,10},
                                  Node.toIntArray(map(i -> 2 * i, intList)));
         // fold{l,r}
-        Assert.assertEquals(Node.length(intList), foldl((i, acc) -> 1 + acc, 0, intList));
-        Assert.assertEquals(Node.length(intList), foldr((i, acc) -> 1 + acc, 0, intList));
+        Assert.assertEquals(Node.length(intList), (int)foldl((i, acc) -> 1 + acc, 0, intList));
+        Assert.assertEquals(Node.length(intList), (int)foldr((i, acc) -> 1 + acc, 0, intList));
 
         Assert.assertEquals(Node.max(intList), foldl(Math::max, Integer.MIN_VALUE, intList));
         Assert.assertEquals(Node.max(intList), foldr(Math::max, Integer.MIN_VALUE, intList));
