@@ -1,4 +1,6 @@
 import java.util.function.BiFunction;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class BinTree {
     public static final boolean RED   = true;
@@ -100,23 +102,23 @@ public class BinTree {
         return fromArray(b);
     }
 
-    private static <T> void inOrder(ListQueue<T> q, Node<T> n) {
+    private static <T> void inOrder(Queue<T> q, Node<T> n) {
         if (n == null) return;
         inOrder(q, n.left);
-        q.enqueue(n.item);
+        q.add(n.item);
         inOrder(q, n.right);
     }
 
     @SuppressWarnings("unchecked")
     public static <T> T[] toArray(Node<T> n) {
-        ListQueue<T> q = inOrder(
+        Queue<T> q = inOrder(
             (item, queue) -> {
-                queue.enqueue(item);
+                queue.add(item);
                 return queue;
-            }, new ListQueue<>(), n);
+            }, new LinkedList<>(), n);
         T[] a = (T[]) new Object[q.size()];
         for (int i = 0; i < a.length; i++) {
-            a[i] = q.dequeue();
+            a[i] = q.remove();
         }
         return a;
     }
@@ -139,8 +141,8 @@ public class BinTree {
         Assert.assertEquals(10, fromIntArray(a).size);
 
         BinTree.Node<Integer> t = fromIntArray(new int[] {0,1,2,3,4,5,6,7,8,9});
-        Assert.assertEquals(45,  preOrder((x, acc) -> x + acc, 0, t));
-        Assert.assertEquals(45,   inOrder((x, acc) -> x + acc, 0, t));
-        Assert.assertEquals(45, postOrder((x, acc) -> x + acc, 0, t));
+        Assert.assertEquals(45,  (int)preOrder((x, acc) -> x + acc, 0, t));
+        Assert.assertEquals(45,   (int)inOrder((x, acc) -> x + acc, 0, t));
+        Assert.assertEquals(45, (int)postOrder((x, acc) -> x + acc, 0, t));
     }
 }

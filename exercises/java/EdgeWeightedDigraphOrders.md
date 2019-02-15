@@ -16,8 +16,6 @@ library_files:
 - /sources/java/DirectedEdge.java
 - /sources/java/GraphUtil.java
 - /sources/java/Bag.java
-- /sources/java/Queue.java
-- /sources/java/Prime.java
 - /sources/java/Stack.java
 language: java
 command: javac EdgeWeightedDigraphOrders.java && java EdgeWeightedDigraphOrders

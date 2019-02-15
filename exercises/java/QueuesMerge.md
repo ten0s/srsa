@@ -7,7 +7,6 @@ solution_file: /sources/java/QueuesMerge.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Queue.java
 - /sources/java/IndexMinPQ.java
 - /sources/java/IndexPQ.java
 language: java

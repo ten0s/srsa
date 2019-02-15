@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Queue;
+import java.util.LinkedList;
+//+END_SOLUTION
+
 public class GraphBFSPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
     //+BEGIN_SOLUTION
@@ -22,18 +27,18 @@ public class GraphBFSPaths {
 
     //+BEGIN_SOLUTION
     private void bfs(Graph G, int s) {
-        Queue<Integer> queue = new Queue<>();
+        Queue<Integer> queue = new LinkedList<>();
         marked[s] = true;
         distTo[s] = 0;
-        queue.enqueue(s);
+        queue.add(s);
         while (!queue.isEmpty()) {
-            int v = queue.dequeue();
+            int v = queue.remove();
             for (int w : G.adj(v)) {
                 if (!marked[w]) {
                     marked[w] = true;
                     edgeTo[w] = v;
                     distTo[w] = distTo[v] + 1;
-                    queue.enqueue(w);
+                    queue.add(w);
                 }
             }
         }
@@ -141,13 +146,6 @@ public class GraphBFSPaths {
 
 // Refs
 /*+BEGIN_FOLD
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public Item dequeue();
-    public boolean isEmpty();
-}
-
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);

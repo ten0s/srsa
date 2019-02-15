@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Queue;
+import java.util.LinkedList;
+//+END_SOLUTION
+
 public class DigraphOrders {
     //+BEGIN_SOLUTION
     private boolean[] marked;
@@ -9,8 +14,8 @@ public class DigraphOrders {
     public DigraphOrders(Digraph G) {
         //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
-        pre = new Queue<>();
-        post = new Queue<>();
+        pre = new LinkedList<>();
+        post = new LinkedList<>();
         revPost = new Stack<>();
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
@@ -22,14 +27,14 @@ public class DigraphOrders {
 
     //+BEGIN_SOLUTION
     private void dfs(Digraph G, int v) {
-        pre.enqueue(v);
+        pre.add(v);
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 dfs(G, w);
             }
         }
-        post.enqueue(v);
+        post.add(v);
         revPost.push(v);
     }
     //+END_SOLUTION
@@ -79,11 +84,6 @@ public class DigraphOrders {
 
 // Refs
 /*+BEGIN_FOLD
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-}
-
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);

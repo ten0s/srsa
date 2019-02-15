@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Queue;
+import java.util.LinkedList;
+//+END_SOLUTION
+
 public class BellmanFordSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
@@ -13,7 +18,7 @@ public class BellmanFordSPs {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        queue = new Queue<>();
+        queue = new LinkedList<>();
         onQueue = new boolean[G.V()];
 
         for (int v = 0; v < G.V(); v++) {
@@ -21,11 +26,11 @@ public class BellmanFordSPs {
         }
         distTo[s] = 0.0;
 
-        queue.enqueue(s);
+        queue.add(s);
         onQueue[s] = true;
 
         while (!queue.isEmpty() && !hasNegativeCycle()) {
-            int v = queue.dequeue();
+            int v = queue.remove();
             onQueue[v] = false;
             relax(G, v);
         }
@@ -40,7 +45,7 @@ public class BellmanFordSPs {
                 distTo[w] = distTo[v] + e.weight();
                 edgeTo[w] = e;
                 if (!onQueue[w]) {
-                    queue.enqueue(w);
+                    queue.add(w);
                     onQueue[w] = true;
                 }
             }
@@ -181,13 +186,6 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public double weight();
     public int from();
     public int to();
-}
-
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public Item dequeue();
-    public boolean isEmpty();
 }
 
 public class public class Stack<Item> implements Iterable<Item> {

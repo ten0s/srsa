@@ -14,7 +14,6 @@ solution_file: /sources/java/BinSearchTreeDeleteMinMax.java
 library_files:
 - /sources/java/BinTree.java
 - /sources/java/Entry.java
-- /sources/java/ListQueue.java
 - /sources/java/Node.java
 - /sources/java/Pair.java
 - /sources/java/Assert.java

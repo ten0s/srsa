@@ -20,8 +20,6 @@ library_files:
 - /sources/java/Stack.java
 - /sources/java/DigraphCycle.java
 - /sources/java/DigraphOrders.java
-- /sources/java/Queue.java
-- /sources/java/Prime.java
 language: java
 command: javac DigraphTopologicalSort.java && java DigraphTopologicalSort
 ---
