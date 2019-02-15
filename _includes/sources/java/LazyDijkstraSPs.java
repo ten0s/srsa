@@ -1,16 +1,20 @@
+//+BEGIN_SOLUTION
+import java.util.PriorityQueue;
+//+END_SOLUTION
+
 public class LazyDijkstraSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private MinPQ<DirectedEdge> pq;
+    private PriorityQueue<Integer> pq;
     //+END_SOLUTION
 
     public LazyDijkstraSPs(EdgeWeightedDigraph G, int s) {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        pq = new MinPQ<>();
+        pq = new PriorityQueue<>();
 
         for (int v = 0; v < G.V(); v++) {
             distTo[v] = INFINITY;
@@ -19,8 +23,7 @@ public class LazyDijkstraSPs {
 
         relax(G, s);
         while (!pq.isEmpty()) {
-            DirectedEdge e = pq.delMin();
-            relax(G, e.to());
+            relax(G, pq.remove());
         }
         //+END_SOLUTION
     }
@@ -32,7 +35,7 @@ public class LazyDijkstraSPs {
             if (distTo[w] > distTo[v] + e.weight()) {
                 distTo[w] = distTo[v] + e.weight();
                 edgeTo[w] = e;
-                pq.insert(e);
+                pq.add(w);
             }
         }
     }
@@ -119,13 +122,6 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public double weight();
     public int from();
     public int to();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(int i, Key v);
-    public int delMin();
-    public boolean isEmpty();
 }
 
 public class public class Stack<Item> implements Iterable<Item> {

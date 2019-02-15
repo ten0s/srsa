@@ -20,8 +20,6 @@ library_files:
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/GraphUtil.java
 - /sources/java/Stack.java
-- /sources/java/MinPQ.java
-- /sources/java/PQ.java
 language: java
 command: javac LazyDijkstraSPs.java && java LazyDijkstraSPs
 ---

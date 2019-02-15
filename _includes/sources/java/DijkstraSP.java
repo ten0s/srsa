@@ -131,13 +131,6 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     public boolean isEmpty();
 }
 
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(int i, Key v);
-    public int delMin();
-    public boolean isEmpty();
-}
-
 public class public class Stack<Item> implements Iterable<Item> {
     public Stack();
     public void push(Item item);

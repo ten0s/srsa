@@ -1,16 +1,20 @@
+//+BEGIN_SOLUTION
+import java.util.PriorityQueue;
+//+END_SOLUTION
+
 public class ArrayKLargest {
     public static int[] largest(int k, int[] a) {
         //+BEGIN_SOLUTION
-        MinPQ<Integer> pq = new MinPQ<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int i = 0; i < a.length; i++) {
-            pq.insert(a[i]);
+            pq.add(a[i]);
             if (pq.size() > k) {
-                pq.delMin();
+                pq.remove();
             }
         }
         int[] r = new int[pq.size()];
         for (int i = r.length-1; i >= 0; i--) {
-            r[i] = pq.delMin();
+            r[i] = pq.remove();
         }
         return r;
         //+END_SOLUTION
@@ -26,14 +30,3 @@ public class ArrayKLargest {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(Key v);
-    public Key delMin();
-    public int size();
-    public boolean isEmpty();
-}
-+END_FOLD*/

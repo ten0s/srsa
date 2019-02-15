@@ -23,8 +23,6 @@ library_files:
 - /sources/java/Prime.java
 - /sources/java/IndexMinPQ.java
 - /sources/java/IndexPQ.java
-- /sources/java/MinPQ.java
-- /sources/java/PQ.java
 language: java
 command: javac DijkstraSP.java && java DijkstraSP
 ---
