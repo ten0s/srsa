@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 public class DijkstraSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
@@ -53,7 +58,7 @@ public class DijkstraSPs {
     public Iterable<DirectedEdge> pathTo(int v) {
         //+BEGIN_SOLUTION
         if (!hasPathTo(v)) return null;
-        Stack<DirectedEdge> path = new Stack<>();
+        Deque<DirectedEdge> path = new ArrayDeque<>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
@@ -128,10 +133,5 @@ class IndexMinPQ<Key extends Comparable<Key>> {
     public void changeKey(int i, key v);
     public int delMin();
     public boolean isEmpty();
-}
-
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
 }
 +END_FOLD*/

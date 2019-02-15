@@ -1,6 +1,6 @@
 //+BEGIN_SOLUTION
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 //+END_SOLUTION
 
 public class GraphBFSPaths {
@@ -27,7 +27,7 @@ public class GraphBFSPaths {
 
     //+BEGIN_SOLUTION
     private void bfs(Graph G, int s) {
-        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> queue = new ArrayDeque<>();
         marked[s] = true;
         distTo[s] = 0;
         queue.add(s);
@@ -56,7 +56,7 @@ public class GraphBFSPaths {
         if (!hasPathTo(v)) {
             return null;
         }
-        Stack<Integer> path = new Stack<>();
+        Deque<Integer> path = new ArrayDeque<>();
         for (int x = v; x != s; x = edgeTo[x]) {
             path.push(x);
         }
@@ -143,11 +143,3 @@ public class GraphBFSPaths {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/

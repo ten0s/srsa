@@ -16,7 +16,6 @@ library_files:
 - /sources/java/Pair.java
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Stack.java
 language: java
 command: javac ListsMergePoint.java && java ListsMergePoint
 ---

@@ -1,22 +1,22 @@
 //+BEGIN_SOLUTION
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 //+END_SOLUTION
 
 public class EdgeWeightedDigraphOrders {
     //+BEGIN_SOLUTION
     private boolean[] marked;
-    private Queue<Integer> pre;
-    private Queue<Integer> post;
-    private Stack<Integer> revPost;
+    private Deque<Integer> pre;
+    private Deque<Integer> post;
+    private Deque<Integer> revPost;
     //+END_SOLUTION
 
     public EdgeWeightedDigraphOrders(EdgeWeightedDigraph G) {
         //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
-        pre = new LinkedList<>();
-        post = new LinkedList<>();
-        revPost = new Stack<>();
+        pre = new ArrayDeque<>();
+        post = new ArrayDeque<>();
+        revPost = new ArrayDeque<>();
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
                 dfs(G, v);
@@ -92,11 +92,3 @@ public class EdgeWeightedDigraphOrders {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/

@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 /*
 public class Node<T> {
     T item;
@@ -33,8 +38,8 @@ public class ListsMergePoint {
 
     //+BEGIN_SOLUTION
     public static <T> Node<T> mergePoint2(Node<T> l1, Node<T> l2) {
-        Stack<Node<T>> s1 = new Stack<>();
-        Stack<Node<T>> s2 = new Stack<>();
+        Deque<Node<T>> s1 = new ArrayDeque<>();
+        Deque<Node<T>> s2 = new ArrayDeque<>();
         while (l1 != null || l2 != null) {
             if (l1 != null) {
                 s1.push(l1);
@@ -84,12 +89,3 @@ public class ListsMergePoint {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-    public Item pop();
-}
-+END_FOLD*/

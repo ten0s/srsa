@@ -21,7 +21,6 @@ library_files:
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/EdgeWeightedDigraphCycle.java
 - /sources/java/GraphUtil.java
-- /sources/java/Stack.java
 language: java
 command: javac BellmanFordSPs.java && java BellmanFordSPs
 ---

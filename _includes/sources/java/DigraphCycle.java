@@ -1,9 +1,14 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 public class DigraphCycle {
     //+BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
     private boolean[] onStack;
-    private Stack<Integer> cycle;
+    private Deque<Integer> cycle;
     //+END_SOLUTION
 
     public DigraphCycle(Digraph G) {
@@ -30,7 +35,7 @@ public class DigraphCycle {
                 edgeTo[w] = v;
                 dfs(G, w);
             } else if (onStack[w]) {
-                cycle = new Stack<>();
+                cycle = new ArrayDeque<>();
                 for (int x = v; x != w; x = edgeTo[x]) {
                     cycle.push(x);
                 }
@@ -115,11 +120,3 @@ public class DigraphCycle {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/

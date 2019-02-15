@@ -1,9 +1,14 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 public class EdgeWeightedDigraphCycle {
     //+BEGIN_SOLUTION
     private boolean[] marked;
     private DirectedEdge[] edgeTo;
     private boolean[] onStack;
-    private Stack<DirectedEdge> cycle;
+    private Deque<DirectedEdge> cycle;
     //+END_SOLUTION
 
     public EdgeWeightedDigraphCycle(EdgeWeightedDigraph G) {
@@ -31,7 +36,7 @@ public class EdgeWeightedDigraphCycle {
                 edgeTo[w] = e;
                 dfs(G, w);
             } else if (onStack[w]) {
-                cycle = new Stack<>();
+                cycle = new ArrayDeque<>();
                 DirectedEdge f = e;
                 while (f.from() != w) {
                     f = edgeTo[f.from()];
@@ -104,11 +109,3 @@ public class EdgeWeightedDigraphCycle {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/

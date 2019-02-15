@@ -19,7 +19,6 @@ library_files:
 - /sources/java/DirectedEdge.java
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/GraphUtil.java
-- /sources/java/Stack.java
 language: java
 command: javac LazyDijkstraSPs.java && java LazyDijkstraSPs
 ---

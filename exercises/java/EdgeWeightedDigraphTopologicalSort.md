@@ -17,7 +17,6 @@ library_files:
 - /sources/java/DirectedEdge.java
 - /sources/java/GraphUtil.java
 - /sources/java/Bag.java
-- /sources/java/Stack.java
 - /sources/java/EdgeWeightedDigraphCycle.java
 - /sources/java/EdgeWeightedDigraphOrders.java
 language: java

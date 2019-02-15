@@ -20,7 +20,6 @@ library_files:
 - /sources/java/GraphUtil.java
 - /sources/java/DirectedEdge.java
 - /sources/java/Bag.java
-- /sources/java/Stack.java
 - /sources/java/DigraphOrders.java
 language: java
 command: javac DigraphSCC.java && java DigraphSCC

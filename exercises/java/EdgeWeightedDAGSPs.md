@@ -19,7 +19,6 @@ library_files:
 - /sources/java/DirectedEdge.java
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/GraphUtil.java
-- /sources/java/Stack.java
 - /sources/java/EdgeWeightedDigraphTopologicalSort.java
 - /sources/java/EdgeWeightedDigraphCycle.java
 - /sources/java/EdgeWeightedDigraphOrders.java

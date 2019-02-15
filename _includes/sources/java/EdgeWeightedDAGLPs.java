@@ -128,11 +128,6 @@ public class EdgeWeightedDigraphTopologicalSort {
     public Iterable<Integer> order();
 }
 
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-
 public class EdgeWeightedDAGSPs {
     public EdgeWeightedDAGSPs(EdgeWeightedDigraph G, int s);
     public double distTo(int v);

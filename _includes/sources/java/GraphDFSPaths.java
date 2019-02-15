@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 public class GraphDFSPaths {
     //+BEGIN_SOLUTION
     private boolean[] marked;
@@ -34,10 +39,8 @@ public class GraphDFSPaths {
 
     public Iterable<Integer> pathTo(int v) {
         //+BEGIN_SOLUTION
-        if (!hasPathTo(v)) {
-            return null;
-        }
-        Stack<Integer> path = new Stack<>();
+        if (!hasPathTo(v)) return null;
+        Deque<Integer> path = new ArrayDeque<>();
         for (int x = v; x != s; x = edgeTo[x]) {
             path.push(x);
         }
@@ -93,11 +96,3 @@ public class GraphDFSPaths {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/

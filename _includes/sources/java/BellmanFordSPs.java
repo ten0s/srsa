@@ -1,6 +1,6 @@
 //+BEGIN_SOLUTION
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 //+END_SOLUTION
 
 public class BellmanFordSPs {
@@ -8,7 +8,7 @@ public class BellmanFordSPs {
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private Queue<Integer> queue;
+    private Deque<Integer> queue;
     private boolean[] onQueue;
     private int counter;
     private Iterable<DirectedEdge> cycle;
@@ -18,7 +18,7 @@ public class BellmanFordSPs {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        queue = new LinkedList<>();
+        queue = new ArrayDeque<>();
         onQueue = new boolean[G.V()];
 
         for (int v = 0; v < G.V(); v++) {
@@ -83,7 +83,7 @@ public class BellmanFordSPs {
     public Iterable<DirectedEdge> pathTo(int v) {
         //+BEGIN_SOLUTION
         if (!hasPathTo(v)) return null;
-        Stack<DirectedEdge> path = new Stack<>();
+        Deque<DirectedEdge> path = new ArrayDeque<>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
@@ -186,10 +186,5 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public double weight();
     public int from();
     public int to();
-}
-
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
 }
 +END_FOLD*/

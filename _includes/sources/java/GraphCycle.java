@@ -1,8 +1,13 @@
+//+BEGIN_SOLUTION
+import java.util.Deque;
+import java.util.ArrayDeque;
+//+END_SOLUTION
+
 public class GraphCycle {
     //+BEGIN_SOLUTION
     private boolean[] marked;
     private int[] edgeTo;
-    private Stack<Integer> cycle;
+    private Deque<Integer> cycle;
     //+END_SOLUTION
 
     public GraphCycle(Graph G) {
@@ -24,7 +29,7 @@ public class GraphCycle {
         for (int v = 0; v < G.V(); v++) {
             for (int w : G.adj(v)) {
                 if (v == w) {
-                    cycle = new Stack<>();
+                    cycle = new ArrayDeque<>();
                     cycle.push(v);
                     cycle.push(w);
                     return true;
@@ -41,7 +46,7 @@ public class GraphCycle {
         for (int v = 0; v < G.V(); v++) {
             for (int w : G.adj(v)) {
                 if (marked[w]) {
-                    cycle = new Stack<>();
+                    cycle = new ArrayDeque<>();
                     cycle.push(v);
                     cycle.push(w);
                     cycle.push(v);
@@ -69,7 +74,7 @@ public class GraphCycle {
             } else {
                 // if v's child is marked and is NOT v's parent
                 if (w != u) {
-                    cycle = new Stack<>();
+                    cycle = new ArrayDeque<>();
                     for (int x = v; x != w; x = edgeTo[x]) {
                         cycle.push(x);
                     }
@@ -151,11 +156,3 @@ public class GraphCycle {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Stack<Item> implements Iterable<Item> {
-    public Stack();
-    public void push(Item item);
-}
-+END_FOLD*/
