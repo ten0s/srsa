@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 
-public class PriorityQueue {
+public class ArrayPriorityQueue {
     static abstract class PQ<Key extends Comparable<Key>> {
         protected final int MIN_CAPACITY = 2;
         private Key[] pq;
