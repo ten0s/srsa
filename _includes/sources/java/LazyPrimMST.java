@@ -1,23 +1,31 @@
+//+BEGIN_FOLD Tests {
+import java.util.HashSet;
+//+END_FOLD }
+//+BEGIN_SOLUTION
+import java.util.PriorityQueue;
+import java.util.LinkedList;
+//+END_SOLUTION
+
 public class LazyPrimMST {
     //+BEGIN_SOLUTION
     private boolean[] marked;
-    private MinPQ<Edge> pq;
-    private Queue<Edge> mst;
+    private PriorityQueue<Edge> pq;
+    private LinkedList<Edge> mst;
     private double weight;
     //+END_SOLUTION
 
     public LazyPrimMST(EdgeWeightedGraph G) {
         //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
-        pq = new MinPQ<>();
-        mst = new Queue<>();
+        pq = new PriorityQueue<>();
+        mst = new LinkedList<>();
 
         visit(G, 0);
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
-            Edge e = pq.delMin();
+            Edge e = pq.remove();
             int v = e.either(), w = e.other(v);
             if (marked[v] && marked[w]) continue;
-            mst.enqueue(e);
+            mst.add(e);
             weight += e.weight();
             if (!marked[v]) visit(G, v);
             if (!marked[w]) visit(G, w);
@@ -30,7 +38,7 @@ public class LazyPrimMST {
         marked[v] = true;
         for (Edge e : G.adj(v)) {
             if (!marked[e.other(v)]) {
-                pq.insert(e);
+                pq.add(e);
             }
         }
     }
@@ -83,7 +91,7 @@ public class LazyPrimMST {
         LazyPrimMST mst = new LazyPrimMST(G);
         for (Edge e : mst.edges()) {
             Assert.assertTrue(set.contains(e));
-            set.delete(e);
+            set.remove(e);
         }
         Assert.assertTrue(set.isEmpty());
 
@@ -93,19 +101,3 @@ public class LazyPrimMST {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public int size();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(Key v);
-    public Key delMin();
-    public boolean isEmpty();
-}
-+END_FOLD*/

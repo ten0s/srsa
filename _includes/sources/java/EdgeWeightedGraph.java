@@ -1,3 +1,7 @@
+//+BEGIN_FOLD Tests {
+import java.util.HashSet;
+//+END_FOLD }
+
 public class EdgeWeightedGraph {
     //+BEGIN_SOLUTION
     private final int V;
@@ -137,7 +141,7 @@ public class EdgeWeightedGraph {
         set.add(new Edge(6, 4, 0.93));
         for (Edge e : G.edges()) {
             Assert.assertTrue(set.contains(e));
-            set.delete(e);
+            set.remove(e);
         }
         Assert.assertTrue(set.isEmpty());
 

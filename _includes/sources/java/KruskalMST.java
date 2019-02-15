@@ -1,26 +1,33 @@
+//+BEGIN_FOLD Tests {
+import java.util.HashSet;
+//+END_FOLD }
+//+BEGIN_SOLUTION
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+//+END_SOLUTION
+
 public class KruskalMST {
     //+BEGIN_SOLUTION
-    private Queue<Edge> mst;
+    private LinkedList<Edge> mst;
     private double weight;
     //+END_SOLUTION
 
     public KruskalMST(EdgeWeightedGraph G) {
         //+BEGIN_SOLUTION
-        mst = new Queue<>();
+        mst = new LinkedList<>();
 
-        MinPQ<Edge> pq = new MinPQ<>();
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
         for (Edge e : G.edges()) {
-            pq.insert(e);
+            pq.add(e);
         }
 
         UnionFind uf = new UnionFind(G.V());
-
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
-            Edge e = pq.delMin();
+            Edge e = pq.remove();
             int v = e.either(), w = e.other(v);
             if (!uf.connected(v, w)) {
                 uf.union(v, w);
-                mst.enqueue(e);
+                mst.add(e);
                 weight += e.weight();
             }
         }
@@ -74,7 +81,7 @@ public class KruskalMST {
         KruskalMST mst = new KruskalMST(G);
         for (Edge e : mst.edges()) {
             Assert.assertTrue(set.contains(e));
-            set.delete(e);
+            set.remove(e);
         }
         Assert.assertTrue(set.isEmpty());
 
@@ -87,19 +94,6 @@ public class KruskalMST {
 
 // Refs
 /*+BEGIN_FOLD
-public class public class Queue<Item> implements Iterable<Item> {
-    public Queue();
-    public void enqueue(Item item);
-    public int size();
-}
-
-class MinPQ<Key extends Comparable<Key>> {
-    public MinPQ();
-    public void insert(Key v);
-    public Key delMin();
-    public boolean isEmpty();
-}
-
 public class UnionFind {
     public UnionFind(int n);
     public boolean connected(int p, int q);

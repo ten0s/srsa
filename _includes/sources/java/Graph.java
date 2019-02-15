@@ -1,3 +1,7 @@
+//+BEGIN_FOLD Tests {
+import java.util.HashSet;
+//+END_FOLD }
+
 public class Graph {
     //+BEGIN_SOLUTION
     private final int V;        // number of vertices

@@ -14,9 +14,6 @@ library_files:
 - /sources/java/ArrayUtil.java
 - /sources/java/Bag.java
 - /sources/java/DirectedEdge.java
-- /sources/java/HashSet.java
-- /sources/java/Queue.java
-- /sources/java/Prime.java
 language: java
 command: javac EdgeWeightedDigraph.java && java EdgeWeightedDigraph
 ---

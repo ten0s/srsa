@@ -1,3 +1,7 @@
+//+BEGIN_FOLD Tests {
+import java.util.HashSet;
+//+END_FOLD }
+
 public class EdgeWeightedDigraph {
     //+BEGIN_SOLUTION
     private final int V;
@@ -133,7 +137,7 @@ public class EdgeWeightedDigraph {
         set.add(new DirectedEdge(6, 4, 0.93));
         for (DirectedEdge e : G.edges()) {
             Assert.assertTrue(set.contains(e));
-            set.delete(e);
+            set.remove(e);
         }
         Assert.assertTrue(set.isEmpty());
 

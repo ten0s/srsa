@@ -13,9 +13,6 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 - /sources/java/Bag.java
-- /sources/java/HashSet.java
-- /sources/java/Queue.java
-- /sources/java/Prime.java
 language: java
 command: javac Graph.java && java Graph
 ---

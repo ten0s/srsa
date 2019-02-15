@@ -19,7 +19,6 @@ library_files:
 - /sources/java/DirectedEdge.java
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/GraphUtil.java
-- /sources/java/HashSet.java
 - /sources/java/Queue.java
 - /sources/java/Stack.java
 - /sources/java/Prime.java
