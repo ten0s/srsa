@@ -111,6 +111,17 @@ public class Node<T> {
         return subs;
     }
 
+    public static <T> Node<T> reverse(Node<T> node) {
+        Node<T> prev = null;
+        while (node != null) {
+            Node<T> next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return prev;
+    }
+
     public static <T> Node<T> fromArray(T[] a) {
         Node<T> prev = null;
         for (int i = a.length-1; i >= 0; i--) {
@@ -193,5 +204,18 @@ public class Node<T> {
         subs = split(2, Node.fromIntArray(new int[] {1,2,3,4}));
         Assert.assertArrayEquals(new int[] {1,2}, Node.toIntArray(subs.first));
         Assert.assertArrayEquals(new int[] {3,4}, Node.toIntArray(subs.second));
+
+        Assert.assertArrayEquals(new int[] {},
+                                 Node.toIntArray(
+                                     reverse(
+                                         Node.fromIntArray(new int[] {}))));
+        Assert.assertArrayEquals(new int[] {1},
+                                 Node.toIntArray(
+                                     reverse(
+                                         Node.fromIntArray(new int[] {1}))));
+        Assert.assertArrayEquals(new int[] {5,4,3,2,1},
+                                 Node.toIntArray(
+                                     reverse(
+                                         Node.fromIntArray(new int[] {1,2,3,4,5}))));
     }
 }

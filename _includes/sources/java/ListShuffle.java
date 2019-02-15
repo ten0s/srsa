@@ -5,6 +5,7 @@ public class Node<T> {
     T item;
     Node<T> next;
 
+    public static <T> <Node<T> reverse(Node<T> node);
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node);
 }
 
@@ -17,9 +18,16 @@ public class Pair<A, B> {
 class ListShuffle {
     public static <T> Node<T> shuffle(Node<T> node) {
         //+BEGIN_SOLUTION
-        if (node == null || node.next == null)
+        if (node == null || node.next == null) {
             return node;
+        }
         Pair<Node<T>, Node<T>> subs = Node.split(node);
+        if (Math.random() < 0.5) {
+            subs.first = Node.reverse(subs.first);
+        }
+        if (Math.random() < 0.5) {
+            subs.second = Node.reverse(subs.second);
+        }
         if (Math.random() < 0.5) {
             return merge(shuffle(subs.first), shuffle(subs.second));
         } else {
@@ -30,17 +38,12 @@ class ListShuffle {
 
     //+BEGIN_SOLUTION
     private static <T> Node<T> merge(Node<T> left, Node<T> right) {
-        if (left == null)
-            return right;
-        if (right == null)
-            return left;
-        if (Math.random() < 0.5) {
-            left.next = merge(right, left.next);
-            return left;
-        } else {
-            right.next = merge(right.next, left);
-            return right;
-        }
+        if (left == null) return right;
+        if (right == null) return left;
+        Node<T> tmp = left.next;
+        left.next = right;
+        right.next = merge(tmp, right.next);
+        return left;
     }
     //+END_SOLUTION
 
