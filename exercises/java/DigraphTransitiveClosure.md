@@ -16,7 +16,6 @@ library_files:
 - /sources/java/DigraphDFS.java
 - /sources/java/GraphUtil.java
 - /sources/java/DirectedEdge.java
-- /sources/java/Bag.java
 language: java
 command: javac DigraphTransitiveClosure.java && java DigraphTransitiveClosure
 ---

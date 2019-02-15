@@ -74,13 +74,13 @@ public class GraphDFSPaths {
         Assert.assertTrue(sp0.hasPathTo(3));
         Assert.assertTrue(sp0.hasPathTo(4));
         Assert.assertTrue(sp0.hasPathTo(5));
+        Assert.assertTrue(sp0.hasPathTo(6));
 
         int l = 0;
-        for (int x : sp0.pathTo(5)) { l++; }
+        for (int x : sp0.pathTo(6)) { l++; }
         Assert.assertEquals(4, l);
-        Assert.assertEquals("0-6-4-5", GraphUtil.pathToString(sp0.pathTo(5)));
+        Assert.assertEquals("0-5-4-6", GraphUtil.pathToString(sp0.pathTo(6)));
 
-        Assert.assertTrue(sp0.hasPathTo(6));
         Assert.assertFalse(sp0.hasPathTo(7));
         Assert.assertFalse(sp0.hasPathTo(9));
 

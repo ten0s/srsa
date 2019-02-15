@@ -2,19 +2,19 @@
 import java.util.HashSet;
 //+END_FOLD }
 //+BEGIN_SOLUTION
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 //+END_SOLUTION
 
 public class KruskalMST {
     //+BEGIN_SOLUTION
-    private LinkedList<Edge> mst;
+    private ArrayList<Edge> mst;
     private double weight;
     //+END_SOLUTION
 
     public KruskalMST(EdgeWeightedGraph G) {
         //+BEGIN_SOLUTION
-        mst = new LinkedList<>();
+        mst = new ArrayList<>();
 
         PriorityQueue<Edge> pq = new PriorityQueue<>();
         for (Edge e : G.edges()) {

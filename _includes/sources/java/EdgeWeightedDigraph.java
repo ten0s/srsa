@@ -1,21 +1,25 @@
 //+BEGIN_FOLD Tests {
 import java.util.HashSet;
 //+END_FOLD }
+//+BEGIN_SOLUTION
+import java.util.List;
+import java.util.ArrayList;
+//+END_SOLUTION
 
 public class EdgeWeightedDigraph {
     //+BEGIN_SOLUTION
     private final int V;
     private int E;
-    private Bag<DirectedEdge>[] adj;
+    private List<DirectedEdge>[] adj;
     //+END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public EdgeWeightedDigraph(int V) {
         //+BEGIN_SOLUTION
         this.V = V;
-        adj = (Bag<DirectedEdge>[]) new Bag[V];
+        adj = (List<DirectedEdge>[]) new ArrayList[V];
         for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<>();
+            adj[v] = new ArrayList<>();
         }
         //+END_SOLUTION
     }
@@ -47,7 +51,7 @@ public class EdgeWeightedDigraph {
 
     public Iterable<DirectedEdge> edges() {
         //+BEGIN_SOLUTION
-        Bag<DirectedEdge> edges = new Bag<>();
+        List<DirectedEdge> edges = new ArrayList<>();
         for (int v = 0; v < V; v++) {
             for (DirectedEdge e : adj[v]) {
                 edges.add(e);
@@ -148,11 +152,6 @@ public class EdgeWeightedDigraph {
 
 // Refs
 /*+BEGIN_FOLD
-public class Bag<Item> implements Iterable<Item> {
-    public Bag();
-    public void add(Item item);
-}
-
 public class DirectedEdge implements Comparable<DirectedEdge> {
     public DirectedEdge(int v, int w, double weight);
     public double weight();

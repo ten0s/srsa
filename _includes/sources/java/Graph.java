@@ -1,21 +1,25 @@
 //+BEGIN_FOLD Tests {
 import java.util.HashSet;
 //+END_FOLD }
+//+BEGIN_SOLUTION
+import java.util.List;
+import java.util.ArrayList;
+//+END_SOLUTION
 
 public class Graph {
     //+BEGIN_SOLUTION
-    private final int V;        // number of vertices
-    private int E;              // number of edges
-    private Bag<Integer>[] adj; // adjacency lists
+    private final int V;         // number of vertices
+    private int E ;              // number of edges
+    private List<Integer>[] adj; // adjacency lists
     //+END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public Graph(int V) {
         //+BEGIN_SOLUTION
         this.V = V;
-        adj = (Bag<Integer>[]) new Bag[V];
+        adj = (List<Integer>[]) new ArrayList[V];
         for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<>();
+            adj[v] = new ArrayList<>();
         }
         //+END_SOLUTION
     }
@@ -121,11 +125,3 @@ public class Graph {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class Bag<Item> implements Iterable<Item> {
-    public Bag();
-    public void add(Item item);
-}
-+END_FOLD*/

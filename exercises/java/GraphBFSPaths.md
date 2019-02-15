@@ -16,7 +16,6 @@ library_files:
 - /sources/java/Graph.java
 - /sources/java/GraphUtil.java
 - /sources/java/DirectedEdge.java
-- /sources/java/Bag.java
 language: java
 command: javac GraphBFSPaths.java && java GraphBFSPaths
 ---

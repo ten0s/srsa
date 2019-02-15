@@ -13,7 +13,6 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 - /sources/java/Graph.java
-- /sources/java/Bag.java
 language: java
 command: javac GraphDegree.java && java GraphDegree
 ---

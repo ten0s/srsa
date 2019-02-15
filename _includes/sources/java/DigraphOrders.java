@@ -71,12 +71,9 @@ public class DigraphOrders {
         G4.addEdge(4, 5);
         G4.addEdge(4, 6);
         DigraphOrders o4 = new DigraphOrders(G4);
-        // NB:
-        // Digraph.addEdge(v, w) prepends vertices,
-        // so Digraph.adj(v) returns them in reverse order
-        Assert.assertEquals("0-6-5-2-4-3-1", GraphUtil.pathToString(o4.preOrder()));
-        Assert.assertEquals("6-5-4-3-2-1-0", GraphUtil.pathToString(o4.postOrder()));
-        Assert.assertEquals("0-1-2-3-4-5-6", GraphUtil.pathToString(o4.reversedPostOrder()));
+        Assert.assertEquals("0-1-3-2-4-5-6", GraphUtil.pathToString(o4.preOrder()));
+        Assert.assertEquals("3-1-5-6-4-2-0", GraphUtil.pathToString(o4.postOrder()));
+        Assert.assertEquals("0-2-4-6-5-1-3", GraphUtil.pathToString(o4.reversedPostOrder()));
         System.out.println("OK");
     }
     //+END_FOLD }

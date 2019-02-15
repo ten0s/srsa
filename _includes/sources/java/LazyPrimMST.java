@@ -3,14 +3,14 @@ import java.util.HashSet;
 //+END_FOLD }
 //+BEGIN_SOLUTION
 import java.util.PriorityQueue;
-import java.util.LinkedList;
+import java.util.ArrayList;
 //+END_SOLUTION
 
 public class LazyPrimMST {
     //+BEGIN_SOLUTION
     private boolean[] marked;
     private PriorityQueue<Edge> pq;
-    private LinkedList<Edge> mst;
+    private ArrayList<Edge> mst;
     private double weight;
     //+END_SOLUTION
 
@@ -18,7 +18,7 @@ public class LazyPrimMST {
         //+BEGIN_SOLUTION
         marked = new boolean[G.V()];
         pq = new PriorityQueue<>();
-        mst = new LinkedList<>();
+        mst = new ArrayList<>();
 
         visit(G, 0);
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {

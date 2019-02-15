@@ -105,7 +105,7 @@ public class GraphBFSPaths {
 
         Assert.assertTrue(sp0.hasPathTo(4));
         Assert.assertEquals(2, sp0.distTo(4));
-        Assert.assertEquals("0-6-4", GraphUtil.pathToString(sp0.pathTo(4)));
+        Assert.assertEquals("0-5-4", GraphUtil.pathToString(sp0.pathTo(4)));
 
         Assert.assertTrue(sp0.hasPathTo(5));
         Assert.assertEquals(1, sp0.distTo(5));

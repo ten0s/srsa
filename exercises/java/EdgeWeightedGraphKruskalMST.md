@@ -12,7 +12,6 @@ solution_file: /sources/java/KruskalMST.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Bag.java
 - /sources/java/Edge.java
 - /sources/java/EdgeWeightedGraph.java
 - /sources/java/UnionFind.java

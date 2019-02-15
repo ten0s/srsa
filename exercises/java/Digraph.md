@@ -12,7 +12,6 @@ solution_file: /sources/java/Digraph.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Bag.java
 language: java
 command: javac Digraph.java && java Digraph
 ---

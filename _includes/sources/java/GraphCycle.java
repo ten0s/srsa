@@ -149,8 +149,8 @@ public class GraphCycle {
         G4.addEdge(4, 6);
         GraphCycle c4 = new GraphCycle(G4);
         Assert.assertTrue(c4.hasCycle());
-        // ["0-1-3-2-0", "5-0-6-4-5", ...]
-        Assert.assertEquals("5-0-6-4-5", GraphUtil.pathToString(c4.cycle));
+        // ["0-1-3-2-0", "5-0-6-4-5", "2-0-1-3-2"]
+        Assert.assertEquals("2-0-1-3-2", GraphUtil.pathToString(c4.cycle));
 
         System.out.println("OK");
     }

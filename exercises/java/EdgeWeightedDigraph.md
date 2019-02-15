@@ -12,7 +12,6 @@ solution_file: /sources/java/EdgeWeightedDigraph.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Bag.java
 - /sources/java/DirectedEdge.java
 language: java
 command: javac EdgeWeightedDigraph.java && java EdgeWeightedDigraph

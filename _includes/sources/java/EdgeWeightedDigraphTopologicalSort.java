@@ -40,11 +40,8 @@ public class EdgeWeightedDigraphTopologicalSort {
         G4.addEdge(new DirectedEdge(4, 5, 0.19));
         G4.addEdge(new DirectedEdge(4, 6, 0.26));
         EdgeWeightedDigraphTopologicalSort ts4 = new EdgeWeightedDigraphTopologicalSort(G4);
-        // NB:
-        // EdgeWeightedDigraph.addEdge(v, w) prepends vertices,
-        // so EdgeWeightedDigraph.adj(v) returns them in reverse order
         Assert.assertTrue(ts4.hasOrder());
-        Assert.assertEquals("0-1-2-3-4-5-6", GraphUtil.pathToString(ts4.order()));
+        Assert.assertEquals("0-2-4-6-5-1-3", GraphUtil.pathToString(ts4.order()));
 
         // /data/digraph4-cycle.txt
         // one cycle

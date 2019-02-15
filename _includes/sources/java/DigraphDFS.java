@@ -1,3 +1,8 @@
+//+BEGIN_SOLUTION
+import java.util.List;
+import java.util.ArrayList;
+//+END_SOLUTION
+
 public class DigraphDFS {
     //+BEGIN_SOLUTION
     private boolean[] marked;
@@ -76,7 +81,7 @@ public class DigraphDFS {
         Assert.assertFalse(sp0.hasPathTo(7));
         Assert.assertFalse(sp0.hasPathTo(9));
 
-        Bag<Integer> s69 = new Bag<>();
+        List<Integer> s69 = new ArrayList<>();
         s69.add(6); s69.add(9);
         DigraphDFS sp69 = new DigraphDFS(G, s69);
         Assert.assertTrue(sp69.hasPathTo(0));

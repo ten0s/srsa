@@ -14,7 +14,6 @@ solution_file: /sources/java/DijkstraSP.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
-- /sources/java/Bag.java
 - /sources/java/DirectedEdge.java
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/GraphUtil.java

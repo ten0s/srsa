@@ -1,21 +1,25 @@
 //+BEGIN_FOLD Tests {
 import java.util.HashSet;
 //+END_FOLD }
+//+BEGIN_SOLUTION
+import java.util.List;
+import java.util.ArrayList;
+//+END_SOLUTION
 
 public class EdgeWeightedGraph {
     //+BEGIN_SOLUTION
     private final int V;
     private int E;
-    private Bag<Edge>[] adj;
+    private List<Edge>[] adj;
     //+END_SOLUTION
 
     @SuppressWarnings("unchecked")
     public EdgeWeightedGraph(int V) {
         //+BEGIN_SOLUTION
         this.V = V;
-        adj = (Bag<Edge>[]) new Bag[V];
+        adj = (List<Edge>[]) new ArrayList[V];
         for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<>();
+            adj[v] = new ArrayList<>();
         }
         //+END_SOLUTION
     }
@@ -49,7 +53,7 @@ public class EdgeWeightedGraph {
 
     public Iterable<Edge> edges() {
         //+BEGIN_SOLUTION
-        Bag<Edge> edges = new Bag<>();
+        List<Edge> edges = new ArrayList<>();
         for (int v = 0; v < V; v++) {
             for (Edge e : adj[v]) {
                 if (e.other(v) > v) {
@@ -152,11 +156,6 @@ public class EdgeWeightedGraph {
 
 // Refs
 /*+BEGIN_FOLD
-public class Bag<Item> implements Iterable<Item> {
-    public Bag();
-    public void add(Item item);
-}
-
 public class Edge implements Comparable<Edge> {
     public Edge(int v, int w, double weight);
     public double weight();

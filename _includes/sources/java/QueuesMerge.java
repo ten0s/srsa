@@ -6,7 +6,6 @@ import java.util.Queue;
 import java.util.LinkedList;
 //+END_SOLUTION
 
-
 public class QueuesMerge<Item extends Comparable<Item>> {
     private Queue<Item> out;
 

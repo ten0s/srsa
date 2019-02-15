@@ -1,6 +1,6 @@
 import java.util.function.BiFunction;
 import java.util.Queue;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 
 public class BinTree {
     public static final boolean RED   = true;
@@ -115,7 +115,7 @@ public class BinTree {
             (item, queue) -> {
                 queue.add(item);
                 return queue;
-            }, new LinkedList<>(), n);
+            }, new ArrayDeque<>(), n);
         T[] a = (T[]) new Object[q.size()];
         for (int i = 0; i < a.length; i++) {
             a[i] = q.remove();

@@ -60,34 +60,25 @@ public class EdgeWeightedDigraphOrders {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWG.txt
-        EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
-        G.addEdge(new DirectedEdge(4, 5, 0.35));
-        G.addEdge(new DirectedEdge(4, 7, 0.37));
-        G.addEdge(new DirectedEdge(5, 7, 0.28));
-        G.addEdge(new DirectedEdge(0, 7, 0.16));
-        G.addEdge(new DirectedEdge(1, 5, 0.32));
-        G.addEdge(new DirectedEdge(0, 4, 0.38));
-        G.addEdge(new DirectedEdge(2, 3, 0.17));
-        G.addEdge(new DirectedEdge(1, 7, 0.19));
-        G.addEdge(new DirectedEdge(0, 2, 0.26));
-        G.addEdge(new DirectedEdge(1, 2, 0.36));
-        G.addEdge(new DirectedEdge(1, 3, 0.29));
-        G.addEdge(new DirectedEdge(2, 7, 0.34));
-        G.addEdge(new DirectedEdge(6, 2, 0.40));
-        G.addEdge(new DirectedEdge(3, 6, 0.52));
-        G.addEdge(new DirectedEdge(6, 0, 0.58));
-        G.addEdge(new DirectedEdge(6, 4, 0.93));
+        // /data/ewdigraph4.txt
+        // no cycles
+        EdgeWeightedDigraph G = new EdgeWeightedDigraph(7);
+        G.addEdge(new DirectedEdge(0, 1, 0.35));
+        G.addEdge(new DirectedEdge(0, 2, 0.37));
+        G.addEdge(new DirectedEdge(0, 5, 0.28));
+        G.addEdge(new DirectedEdge(0, 6, 0.16));
+        G.addEdge(new DirectedEdge(1, 3, 0.32));
+        G.addEdge(new DirectedEdge(2, 3, 0.38));
+        G.addEdge(new DirectedEdge(2, 4, 0.17));
+        G.addEdge(new DirectedEdge(4, 5, 0.19));
+        G.addEdge(new DirectedEdge(4, 6, 0.26));
         //System.out.println(G);
         //System.out.println(G.toDot());
 
         EdgeWeightedDigraphOrders o = new EdgeWeightedDigraphOrders(G);
-        // NB:
-        // EdgeWeightedDigraph.addEdge(v, w) prepends vertices,
-        // so EdgeWeighedDigraph.adj(v) returns them in reverse order
-        Assert.assertEquals("0-2-7-3-6-4-5-1", GraphUtil.pathToString(o.preOrder()));
-        Assert.assertEquals("7-5-4-6-3-2-0-1", GraphUtil.pathToString(o.postOrder()));
-        Assert.assertEquals("1-0-2-3-6-4-5-7", GraphUtil.pathToString(o.reversedPostOrder()));
+        Assert.assertEquals("0-1-3-2-4-5-6", GraphUtil.pathToString(o.preOrder()));
+        Assert.assertEquals("3-1-5-6-4-2-0", GraphUtil.pathToString(o.postOrder()));
+        Assert.assertEquals("0-2-4-6-5-1-3", GraphUtil.pathToString(o.reversedPostOrder()));
         System.out.println("OK");
     }
     //+END_FOLD }
