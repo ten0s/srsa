@@ -12,8 +12,8 @@ public class ArrayKLargest {
                 pq.remove();
             }
         }
-        int[] r = new int[pq.size()];
-        for (int i = r.length-1; i >= 0; i--) {
+        int[] r = new int[k];
+        for (int i = k-1; i >= 0; i--) {
             r[i] = pq.remove();
         }
         return r;
