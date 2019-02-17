@@ -81,12 +81,17 @@ public class ArrayBitonicSearch {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        Assert.assertEquals(-1, bitonicSearch(0, new int[] {1,3,5,7,6,4,2}));
-        Assert.assertEquals(-1, bitonicSearch(8, new int[] {1,3,5,7,6,4,2}));
-        Assert.assertEquals(0, bitonicSearch(1, new int[] {1,3,5,7,6,4,2}));
-        Assert.assertEquals(2, bitonicSearch(5, new int[] {1,3,5,7,6,4,2}));
-        Assert.assertEquals(5, bitonicSearch(4, new int[] {1,3,5,7,6,4,2}));
-        Assert.assertEquals(6, bitonicSearch(2, new int[] {1,3,5,7,6,4,2}));
+        int[] a = new int[] {8,9,10,7,6,5,4,3,2,1};
+        Assert.assertEquals(-1, bitonicSearch(0, a));
+        Assert.assertEquals(-1, bitonicSearch(11, a));
+        Assert.assertEquals(0, bitonicSearch(8, a));
+        Assert.assertEquals(9, bitonicSearch(1, a));
+
+        int[] b = new int[] {1,2,3,4,5,6,7,10,9,8};
+        Assert.assertEquals(-1, bitonicSearch(0, b));
+        Assert.assertEquals(-1, bitonicSearch(11, b));
+        Assert.assertEquals(9, bitonicSearch(8, b));
+        Assert.assertEquals(0, bitonicSearch(1, b));
         System.out.println("OK");
     }
     //+END_FOLD }
