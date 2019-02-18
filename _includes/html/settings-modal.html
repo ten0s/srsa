@@ -24,6 +24,8 @@
           </div>
 
           <div id="settings-editor" class="tab-pane fade">
+            <label for="settings-editor-font-size" class="control-label">Font Size:</label>
+            <input type="number" id="settings-editor-font-size" class="form-control" min="5" max="50" value="15">
           </div>
 
         </div>
@@ -41,16 +43,16 @@
        function initSettingsBtn() {
            $("#settings-btn").click(function () {
                var glotIOToken = Storage.getGlotIOToken();
-               var fontSize = Storage.getFontSize();
+               var fontSize = Storage.getEditorFontSize();
                $("#settings-glot-io-token").val(glotIOToken);
-               $("#settings-font-size").val(fontSize);
+               $("#settings-editor-font-size").val(fontSize);
                $("#settings-modal").modal("show");
            });
            $("#settings-save-btn").click(function () {
                var glotIOToken = $("#settings-glot-io-token").val();
-               var fontSize = $("#settings-font-size").val();
+               var fontSize = $("#settings-editor-font-size").val();
                Storage.setGlotIOToken(glotIOToken);
-               Storage.setFontSize(parseInt(fontSize, 10));
+               Storage.setEditorFontSize(parseInt(fontSize, 10));
                $("#settings-modal").modal("hide");
            });
        }

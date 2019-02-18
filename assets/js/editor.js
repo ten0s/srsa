@@ -49,7 +49,7 @@ function make_editor(type, id, text, mode) {
     var editor = ace.edit(id);
     editor.setValue(text, -1);
     editor.setTheme("ace/theme/monokai");
-    editor.setFontSize(15);
+    editor.setFontSize(Storage.getEditorFontSize());
     editor.session.setMode("ace/mode/" + mode);
 
     window.setTimeout(function () {

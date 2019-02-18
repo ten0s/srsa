@@ -37,22 +37,22 @@ var Storage = (function () {
         return localStorage.getItem("glot-io-token");
     }
 
-    function getFontSize() {
-        var fs = localStorage.getItem("font-size");
+    function getEditorFontSize() {
+        var fs = localStorage.getItem("editor-font-size");
         if (fs) {
-            return parseInt(fs, 15);
+            return parseInt(fs, 10);
         }
-        return 11;
+        return 15;
     }
 
-    function setFontSize(size) {
-        localStorage.setItem("font-size", size);
+    function setEditorFontSize(size) {
+        localStorage.setItem("editor-font-size", size);
     }
 
     return {
         setGlotIOToken: setGlotIOToken,
         getGlotIOToken: getGlotIOToken,
-        getFontSize: getFontSize,
-        setFontSize: setFontSize,
+        getEditorFontSize: getEditorFontSize,
+        setEditorFontSize: setEditorFontSize,
     };
 }());
