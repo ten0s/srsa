@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="{{ "/assets/images/favicon.png" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/libs/bootstrap/dist/css/bootstrap.min.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/libs/font-awesome/css/font-awesome.min.css" | relative_url }}">
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Repetition System for Algorithms</a>
-    </nav>
+    {% include html/page-header.html %}
     <div class="container">
       {{ content }}
-      <hr>
-      <p>Powered by <a href="https://glot.io/">glot.io</a></p>
+      {% include html/page-footer.html %}
     </div>
     <script src="{{ "/assets/libs/jquery/dist/jquery.min.js" | relative_url }}"></script>
     <script src="{{ "/assets/libs/bootstrap/dist/js/bootstrap.min.js" | relative_url }}"></script>
+    {% include html/settings-modal.html %}
   </body>
 </html>

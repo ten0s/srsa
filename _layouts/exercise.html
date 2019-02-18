@@ -10,14 +10,11 @@
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Repetition System for Algorithms</a>
-    </nav>
-    <div class="container">
+    {% include html/page-header.html %}
 
+    <div class="container">
       <br>
       {{ page.question_text }}
-
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link active" id="question-tab" data-toggle="tab" role="tab" href="#question">Question</a>
@@ -26,12 +23,11 @@
           <a class="nav-link" id="solution-tab" data-toggle="tab" role="tab" href="#solution">Solution</a>
         </li>
       </ul>
-
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="question" role="tabpanel">
+        <div id="question" class="tab-pane fade show active">
           <div id="question-editor" class="editor"></div>
         </div>
-        <div class="tab-pane fade" id="solution" role="tabpanel">
+        <div id="solution" class="tab-pane fade">
           <div id="solution-editor" class="editor"></div>
         </div>
       </div>
@@ -178,8 +174,8 @@
            errorOff();
        });
       </script>
-      <hr>
-      <p>Powered by <a href="https://glot.io/">glot.io</a></p>
+      {% include html/page-footer.html %}
     </div>
+    {% include html/settings-modal.html %}
   </body>
 </html>
