@@ -10,8 +10,9 @@ public class BinTree {
         public int size;
         boolean color;
         public Node(T item, boolean color);
-        public int size(Node<T> node);
     }
+
+    public int size(Node<T> node);
 }
 
 public class Entry<K, V> {
