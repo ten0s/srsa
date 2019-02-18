@@ -51,8 +51,12 @@ function Editor(type, id, text, mode) {
 
         editor = ace.edit(id);
         editor.setValue(text, -1);
-        editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/" + mode);
+        editor.setTheme("ace/theme/monokai");
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            //enableLiveAutocompletion: true,
+        });
 
         window.setTimeout(function () {
             _.each(ranges, function (range) {
