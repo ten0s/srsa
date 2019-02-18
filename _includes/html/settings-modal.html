@@ -19,8 +19,8 @@
         <div class="tab-content">
 
           <div id="settings-engine" class="tab-pane fade show active">
-            <label for="glot_io_api_token" class="control-label"><a href="https://glot.io/">glot.io</a> API Token:</label>
-            <input type="string" id="glot_io_api_token" class="form-control">
+            <label for="settings-glot-io-token" class="control-label"><a href="https://glot.io/">glot.io</a> API Token:</label>
+            <input type="string" id="settings-glot-io-token" class="form-control">
           </div>
 
           <div id="settings-editor" class="tab-pane fade">
@@ -30,10 +30,31 @@
       </div>
 
       <div class="modal-footer">
-        <button "settings-save-btn" type="button" class="btn btn-primary">Save</button>
+        <button id="settings-save-btn" type="button" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
 
     </div>
   </div>
+  <script>
+   (function () {
+       function initSettingsBtn() {
+           $("#settings-btn").click(function () {
+               var glotIOToken = Storage.getGlotIOToken();
+               var fontSize = Storage.getFontSize();
+               $("#settings-glot-io-token").val(glotIOToken);
+               $("#settings-font-size").val(fontSize);
+               $("#settings-modal").modal("show");
+           });
+           $("#settings-save-btn").click(function () {
+               var glotIOToken = $("#settings-glot-io-token").val();
+               var fontSize = $("#settings-font-size").val();
+               Storage.setGlotIOToken(glotIOToken);
+               Storage.setFontSize(parseInt(fontSize, 10));
+               $("#settings-modal").modal("hide");
+           });
+       }
+       initSettingsBtn();
+   }());
+  </script>
 </div>

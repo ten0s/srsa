@@ -54,11 +54,9 @@
         <li class="list-group-item"><pre id="res-error-msg"></pre></li>
       </ul>
 
+      {% include html/common-js.html %}
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ace.js" | relative_url }}"></script>
-      <script src="{{ "/assets/libs/jquery/dist/jquery.min.js" | relative_url }}"></script>
-      <script src="{{ "/assets/libs/bootstrap/dist/js/bootstrap.min.js" | relative_url }}"></script>
-      <script src="{{ "/assets/libs/underscore/underscore-min.js" | relative_url }}"></script>
-      <script src="{{ "/assets/js/util.js" | relative_url }}"></script>
+      <script src="{{ "/assets/js/editor.js" | relative_url }}"></script>
       <script>
        fix_relative_srcs();
        infoOff();
@@ -121,7 +119,7 @@
                url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/{{ page.language }}/{{ page.version | default:'latest' }}",
                type: "POST",
                headers: {
-                   "Authorization": "Token 79e87d40-2dd7-4f81-a5e2-3fcde4179330",
+                   "Authorization": "Token " + Storage.getGlotIOToken(),
                    "Content-Type": "application/json"
                },
                data: JSON.stringify({
