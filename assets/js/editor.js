@@ -8,55 +8,67 @@
 
 "use strict";
 
-function fold_ranges(text) {
-    var lines = text.split(/\r\n|\r|\n/);
-    var ranges = [], begin = -1;
-    _.each(lines, function (line, number) {
-        if (/\+BEGIN_FOLD/.exec(line)) {
-            //console.log("beg: " + number);
-            begin = number;
-        }
-        if (/\+END_FOLD/.exec(line)) {
-            //console.log("end: " + number);
-            ranges.push([begin, number]);
-        }
-    });
-    //console.log(ranges);
-    return ranges;
-}
+function Editor(type, id, text, mode) {
+    var editor = null;
 
-function make_editor(type, id, text, mode) {
-    switch (type) {
-    case "question":
-        // Remove +BEGIN_SOLUTION, +END_SOLUTION and everything in between
-        text = text.replace(/\s*[\/%#]+\+BEGIN_SOLUTION[\s\S]*?[\/%#]+\+END_SOLUTION/gi, "");
-        break;
-    case "solution":
-        // Remove +BEGIN_SOLUTION and +END_SOLUTION
-        text = text.replace(/\s*([\/%#]+\+BEGIN_SOLUTION|[\/%#]+\+END_SOLUTION)/gi, "");
-        break;
-    default:
-        throw new Error("Unknown editor type: " + type);
+    function foldRanges(text) {
+        var lines = text.split(/\r\n|\r|\n/);
+        var ranges = [], begin = -1;
+        _.each(lines, function (line, number) {
+            if (/\+BEGIN_FOLD/.exec(line)) {
+                //console.log("beg: " + number);
+                begin = number;
+            }
+            if (/\+END_FOLD/.exec(line)) {
+                //console.log("end: " + number);
+                ranges.push([begin, number]);
+            }
+        });
+        //console.log(ranges);
+        return ranges;
     }
 
-    // Remove +BEGIN_REMOVE, +END_REMOVE and everything in between
-    text = text.replace(/\s*[\/%#]+\+BEGIN_REMOVE[\s\S]*?[\/%#]+\+END_REMOVE/gi, "");
+    function makeEditor(type, id, text, mode) {
+        switch (type) {
+        case "question":
+            // Remove +BEGIN_SOLUTION, +END_SOLUTION and everything in between
+            text = text.replace(/\s*[\/%#]+\+BEGIN_SOLUTION[\s\S]*?[\/%#]+\+END_SOLUTION/gi, "");
+            break;
+        case "solution":
+            // Remove +BEGIN_SOLUTION and +END_SOLUTION
+            text = text.replace(/\s*([\/%#]+\+BEGIN_SOLUTION|[\/%#]+\+END_SOLUTION)/gi, "");
+            break;
+        default:
+            throw new Error("Unknown editor type: " + type);
+        }
 
-    var ranges = fold_ranges(text);
-    // Remove +BEGIN_FOLD and +END_FOLD
-    text = text.replace(/\+BEGIN_FOLD|\+END_FOLD/gi, "");
+        // Remove +BEGIN_REMOVE, +END_REMOVE and everything in between
+        text = text.replace(/\s*[\/%#]+\+BEGIN_REMOVE[\s\S]*?[\/%#]+\+END_REMOVE/gi, "");
 
-    var editor = ace.edit(id);
-    editor.setValue(text, -1);
-    editor.setTheme("ace/theme/monokai");
-    editor.setFontSize(Storage.getEditorFontSize());
-    editor.session.setMode("ace/mode/" + mode);
+        var ranges = foldRanges(text);
+        // Remove +BEGIN_FOLD and +END_FOLD
+        text = text.replace(/\+BEGIN_FOLD|\+END_FOLD/gi, "");
 
-    window.setTimeout(function () {
-        _.each(ranges, function (range) {
-            editor.session.foldAll(range[0], range[1], 0);
-        });
-    }, 300);
+        editor = ace.edit(id);
+        editor.setValue(text, -1);
+        editor.setTheme("ace/theme/monokai");
+        editor.setFontSize(Storage.getEditorFontSize());
+        editor.session.setMode("ace/mode/" + mode);
 
-    return editor;
+        window.setTimeout(function () {
+            _.each(ranges, function (range) {
+                editor.session.foldAll(range[0], range[1], 0);
+            });
+        }, 300);
+    }
+
+    function getText() {
+        return editor.getValue();
+    }
+
+    makeEditor(type, id, text, mode);
+
+    return {
+        getText: getText
+    };
 }

@@ -72,8 +72,8 @@
        };
        var mode = lang2mode["{{ page.language }}"] || "{{ page.language }}";
 
-       var qEditor = make_editor("question", "question-editor", solution_raw, mode);
-       var sEditor = make_editor("solution", "solution-editor", solution_raw, mode);
+       var qEditor = new Editor("question", "question-editor", solution_raw, mode);
+       var sEditor = new Editor("solution", "solution-editor", solution_raw, mode);
 
        function infoOn(msg) {
            $("#res-info").show();
@@ -125,7 +125,7 @@
                data: JSON.stringify({
                    files: [
                        {name: "{{ page.solution_file | split: '/' | last }}",
-                        content: editor.getValue()},
+                        content: editor.getText()},
                        {% for file in page.library_files %}
                        {name: "{{ file | split: '/' | last }}",
                         content: `{% include {{ file }} %}`},
