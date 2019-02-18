@@ -11,7 +11,8 @@ assets/libs/bootstrap/*
 !assets/libs/bootstrap/dist/css/bootstrap.min.css
 !assets/libs/bootstrap/dist/js/bootstrap.min.js
 assets/libs/font-awesome/*
-assets/libs/font-awesome/css/font-awesome.min.css
+!assets/libs/font-awesome/fonts/
+!assets/libs/font-awesome/css/font-awesome.min.css
 assets/libs/jquery/*
 !assets/libs/jquery/dist/jquery.min.js
 assets/libs/underscore/*

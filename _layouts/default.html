@@ -12,10 +12,10 @@
     {% include html/page-header.html %}
     <div class="container">
       {{ content }}
+    </div>
+    <div class="container">
       {% include html/page-footer.html %}
     </div>
-    <script src="{{ "/assets/libs/jquery/dist/jquery.min.js" | relative_url }}"></script>
-    <script src="{{ "/assets/libs/bootstrap/dist/js/bootstrap.min.js" | relative_url }}"></script>
     {% include html/settings-modal.html %}
   </body>
 </html>
