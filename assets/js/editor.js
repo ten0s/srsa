@@ -52,7 +52,6 @@ function Editor(type, id, text, mode) {
         editor = ace.edit(id);
         editor.setValue(text, -1);
         editor.setTheme("ace/theme/monokai");
-        editor.setFontSize(Storage.getEditorFontSize());
         editor.session.setMode("ace/mode/" + mode);
 
         window.setTimeout(function () {
@@ -66,9 +65,14 @@ function Editor(type, id, text, mode) {
         return editor.getValue();
     }
 
+    function setFontSize(size) {
+        editor.setFontSize(size);
+    }
+
     makeEditor(type, id, text, mode);
 
     return {
-        getText: getText
+        getText: getText,
+        setFontSize: setFontSize,
     };
 }

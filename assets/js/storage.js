@@ -8,7 +8,6 @@
 "use strict";
 
 var Storage = (function () {
-    /*
     var observers = {};
 
     function subscribe(key, observer) {
@@ -23,11 +22,6 @@ var Storage = (function () {
             observer(key);
         });
     }
-
-    function onSomethingChange(observer) {
-        subscribe("something", observer);
-    }
-    */
 
     function setGlotIOToken(token) {
         localStorage.setItem("glot-io-token", token);
@@ -47,12 +41,19 @@ var Storage = (function () {
 
     function setEditorFontSize(size) {
         localStorage.setItem("editor-font-size", size);
+        notify("editor-font-size");
+    }
+
+    function onEditorFontSizeChange(observer) {
+        subscribe("editor-font-size", observer);
     }
 
     return {
         setGlotIOToken: setGlotIOToken,
         getGlotIOToken: getGlotIOToken,
+
         getEditorFontSize: getEditorFontSize,
         setEditorFontSize: setEditorFontSize,
+        onEditorFontSizeChange: onEditorFontSizeChange,
     };
 }());

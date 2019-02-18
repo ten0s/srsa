@@ -73,7 +73,14 @@
        var mode = lang2mode["{{ page.language }}"] || "{{ page.language }}";
 
        var qEditor = new Editor("question", "question-editor", solution_raw, mode);
+       qEditor.setFontSize(Storage.getEditorFontSize());
        var sEditor = new Editor("solution", "solution-editor", solution_raw, mode);
+       sEditor.setFontSize(Storage.getEditorFontSize());
+
+       Storage.onEditorFontSizeChange(function () {
+           qEditor.setFontSize(Storage.getEditorFontSize());
+           sEditor.setFontSize(Storage.getEditorFontSize());
+       });
 
        function infoOn(msg) {
            $("#res-info").show();
