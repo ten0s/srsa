@@ -22,6 +22,7 @@ public class ArrayKeyIndexedCounting {
         //+END_SOLUTION
     }
 
+    //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         int R = 6;
         int[] a = new int[] {3,1,4,0,5,2,5,4,3,2,1,0,0,1,2,3,4,5};
@@ -29,4 +30,5 @@ public class ArrayKeyIndexedCounting {
         Assert.assertArrayEquals(exp, sort(a, R));
         System.out.println("OK");
     }
+    //+END_FOLD }
 }
