@@ -57,15 +57,6 @@ function Editor(type, id, text, mode) {
             enableBasicAutocompletion: true,
             //enableLiveAutocompletion: true,
         });
-        /*
-        editor.session.clearAnnotations();
-        editor.session.setAnnotations([{
-            row: 1,                      // zero-based
-            column: 0,                   // zero-based
-            text: "Strange error",       // tooltip text
-            type: "error"                // "error" | "warning" | "info"
-        }]);
-        */
 
         window.setTimeout(function () {
             _.each(ranges, function (range) {
@@ -82,10 +73,28 @@ function Editor(type, id, text, mode) {
         editor.setFontSize(size);
     }
 
+    function clearAnnotations() {
+        editor.session.clearAnnotations();
+    }
+
+    /*
+      var annotations = [{
+          row: 1,                      // zero-based
+          column: 0,                   // zero-based
+          text: "Strange error",       // tooltip text
+          type: "error"                // "error" | "warning" | "info"
+      }];
+    */
+    function setAnnotations(annotations) {
+        editor.session.setAnnotations(annotations);
+    }
+
     makeEditor(type, id, text, mode);
 
     return {
         getText: getText,
         setFontSize: setFontSize,
+        clearAnnotations: clearAnnotations,
+        setAnnotations: setAnnotations,
     };
 }

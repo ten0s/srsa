@@ -58,6 +58,7 @@
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ace.js" | relative_url }}"></script>
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ext-language_tools.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/editor.js" | relative_url }}"></script>
+      <script src="{{ "/assets/js/error-parser.js" | relative_url }}"></script>
       <script>
        fix_relative_srcs();
        infoOff();
@@ -121,6 +122,8 @@
 
        $("#btn-run").click(function () {
            var editor = $("#question-tab").hasClass("active") ? qEditor : sEditor;
+           var solution_file = "{{ page.solution_file | split: '/' | last }}";
+           editor.clearAnnotations();
            $.ajax({
                // run.glot.io doesn't support cors
                // workaround through https://cors-anywhere.herokuapp.com/
@@ -132,7 +135,7 @@
                },
                data: JSON.stringify({
                    files: [
-                       {name: "{{ page.solution_file | split: '/' | last }}",
+                       {name: solution_file,
                         content: editor.getText()},
                        {% for file in page.library_files %}
                        {name: "{{ file | split: '/' | last }}",
@@ -153,6 +156,12 @@
                        stderrOn(data.stderr);
                    }
                    if (data.error) {
+                       editor.setAnnotations(
+                           ErrorParser.parse(
+                               "{{ page.language }}",
+                               solution_file,
+                               data.stdout,
+                               data.stderr));
                        errorOn(data.error);
                    }
                } else {
