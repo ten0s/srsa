@@ -8,17 +8,17 @@
 "use strict";
 
 var Storage = (function () {
-    var observers = {};
+    var _observers = {};
 
     function subscribe(key, observer) {
-        if (!observers[key]) {
-            observers[key] = [];
+        if (!_observers[key]) {
+            _observers[key] = [];
         }
-        observers[key].push(observer);
+        _observers[key].push(observer);
     }
 
     function notify(key) {
-        _.each(observers[key], function (observer) {
+        _.each(_observers[key], function (observer) {
             observer(key);
         });
     }

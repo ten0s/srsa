@@ -9,7 +9,8 @@
 "use strict";
 
 function Editor(type, id, text, mode) {
-    var editor = null;
+    var _editor = null;
+    var _ranges = null;
 
     function foldRanges(text) {
         var lines = text.split(/\r\n|\r|\n/);
@@ -45,36 +46,36 @@ function Editor(type, id, text, mode) {
         // Remove +BEGIN_REMOVE, +END_REMOVE and everything in between
         text = text.replace(/\s*[\/%#]+\+BEGIN_REMOVE[\s\S]*?[\/%#]+\+END_REMOVE/gi, "");
 
-        var ranges = foldRanges(text);
+        _ranges = foldRanges(text);
         // Remove +BEGIN_FOLD and +END_FOLD
         text = text.replace(/\+BEGIN_FOLD|\+END_FOLD/gi, "");
 
-        editor = ace.edit(id);
-        editor.setValue(text, -1);
-        editor.session.setMode("ace/mode/" + mode);
-        editor.setTheme("ace/theme/monokai");
-        editor.setOptions({
+        _editor = ace.edit(id);
+        _editor.setValue(text, -1);
+        _editor.session.setMode("ace/mode/" + mode);
+        _editor.setTheme("ace/theme/monokai");
+        _editor.setOptions({
             enableBasicAutocompletion: true,
             //enableLiveAutocompletion: true,
         });
 
         window.setTimeout(function () {
-            _.each(ranges, function (range) {
-                editor.session.foldAll(range[0], range[1], 0);
+            _.each(_ranges, function (range) {
+                _editor.session.foldAll(range[0], range[1], 0);
             });
-        }, 300);
+        }, 250);
     }
 
     function getText() {
-        return editor.getValue();
+        return _editor.getValue();
     }
 
     function setFontSize(size) {
-        editor.setFontSize(size);
+        _editor.setFontSize(size);
     }
 
     function clearAnnotations() {
-        editor.session.clearAnnotations();
+        _editor.session.clearAnnotations();
     }
 
     /*
@@ -86,7 +87,7 @@ function Editor(type, id, text, mode) {
       }];
     */
     function setAnnotations(annotations) {
-        editor.session.setAnnotations(annotations);
+        _editor.session.setAnnotations(annotations);
     }
 
     makeEditor(type, id, text, mode);
