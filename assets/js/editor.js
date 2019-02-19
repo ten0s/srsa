@@ -52,7 +52,6 @@ function Editor(type, id, text, mode) {
         _editor = ace.edit(id);
         _editor.setValue(text, -1);
         _editor.session.setMode("ace/mode/" + mode);
-        _editor.setTheme("ace/theme/monokai");
         _editor.setOptions({
             enableBasicAutocompletion: true,
             //enableLiveAutocompletion: true,
@@ -104,12 +103,22 @@ function Editor(type, id, text, mode) {
         _editor.session.setAnnotations(annotations);
     }
 
+    function setTheme(theme) {
+        _editor.setTheme(theme);
+    }
+
     makeEditor(type, id, text, mode);
 
     return {
         getText: getText,
         setFontSize: setFontSize,
+        setTheme: setTheme,
         clearAnnotations: clearAnnotations,
         setAnnotations: setAnnotations,
     };
 }
+
+Editor.getThemes = function () {
+    var themelist = ace.require("ace/ext/themelist");
+    return themelist.themes;
+};

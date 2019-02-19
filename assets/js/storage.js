@@ -40,12 +40,35 @@ var Storage = (function () {
     }
 
     function setEditorFontSize(size) {
+        var oldSize = getEditorFontSize();
         localStorage.setItem("editor-font-size", size);
-        notify("editor-font-size");
+        if (oldSize !== size) {
+            notify("editor-font-size");
+        }
     }
 
     function onEditorFontSizeChange(observer) {
         subscribe("editor-font-size", observer);
+    }
+
+    function getEditorTheme() {
+        var theme = localStorage.getItem("editor-theme");
+        if (!theme) {
+            return "ace/theme/monokai";
+        }
+        return theme;
+    }
+
+    function setEditorTheme(theme) {
+        var oldTheme = getEditorTheme();
+        localStorage.setItem("editor-theme", theme);
+        if (oldTheme !== theme) {
+            notify("editor-theme");
+        }
+    }
+
+    function onEditorThemeChange(observer) {
+        subscribe("editor-theme", observer);
     }
 
     return {
@@ -55,5 +78,9 @@ var Storage = (function () {
         getEditorFontSize: getEditorFontSize,
         setEditorFontSize: setEditorFontSize,
         onEditorFontSizeChange: onEditorFontSizeChange,
+
+        getEditorTheme: getEditorTheme,
+        setEditorTheme: setEditorTheme,
+        onEditorThemeChange: onEditorThemeChange,
     };
 }());

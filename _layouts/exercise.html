@@ -10,7 +10,7 @@
     <title>{{ page.title }}</title>
   </head>
   <body>
-    {% include html/page-header.html %}
+    {% include html/page-header.html settings=true %}
     <div class="container">
       <br>
       {{ page.question_text }}
@@ -57,6 +57,7 @@
       {% include html/common-js.html %}
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ace.js" | relative_url }}"></script>
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ext-language_tools.js" | relative_url }}"></script>
+      <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ext-themelist.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/editor.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/error-parser.js" | relative_url }}"></script>
       <script>
@@ -74,14 +75,24 @@
        };
        var mode = lang2mode["{{ page.language }}"] || "{{ page.language }}";
 
+       var fontSize = Storage.getEditorFontSize();
+       var theme = Storage.getEditorTheme();
        var qEditor = new Editor("question", "question-editor", solution_raw, mode);
-       qEditor.setFontSize(Storage.getEditorFontSize());
+       qEditor.setFontSize(fontSize);
+       qEditor.setTheme(theme);
        var sEditor = new Editor("solution", "solution-editor", solution_raw, mode);
-       sEditor.setFontSize(Storage.getEditorFontSize());
+       sEditor.setFontSize(fontSize);
+       sEditor.setTheme(theme);
 
        Storage.onEditorFontSizeChange(function () {
-           qEditor.setFontSize(Storage.getEditorFontSize());
-           sEditor.setFontSize(Storage.getEditorFontSize());
+           var fontSize = Storage.getEditorFontSize();
+           qEditor.setFontSize(fontSize);
+           sEditor.setFontSize(fontSize);
+       });
+       Storage.onEditorThemeChange(function () {
+           var theme = Storage.getEditorTheme();
+           qEditor.setTheme(theme);
+           sEditor.setTheme(theme);
        });
 
        function infoOn(msg) {

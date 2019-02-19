@@ -1,12 +1,13 @@
 assets/libs/ace-builds/*
 !assets/libs/ace-builds/src-min-noconflict/ace.js
 !assets/libs/ace-builds/src-min-noconflict/ext-language_tools.js
+!assets/libs/ace-builds/src-min-noconflict/ext-themelist.js
 !assets/libs/ace-builds/src-min-noconflict/mode-c_cpp.js
 !assets/libs/ace-builds/src-min-noconflict/mode-erlang.js
 !assets/libs/ace-builds/src-min-noconflict/mode-java.js
 !assets/libs/ace-builds/src-min-noconflict/mode-lisp.js
 !assets/libs/ace-builds/src-min-noconflict/mode-python.js
-!assets/libs/ace-builds/src-min-noconflict/theme-monokai.js
+!assets/libs/ace-builds/src-min-noconflict/theme-*.js
 assets/libs/bootstrap/*
 !assets/libs/bootstrap/dist/css/bootstrap.min.css
 !assets/libs/bootstrap/dist/js/bootstrap.min.js

@@ -4,26 +4,38 @@
    nomen: true,
    vars: true
 */
-/*global _, $, ace */
+/*global _, $, Editor, Storage */
 
 "use strict";
 
 (function () {
-    function initSettingsBtn() {
+    function init() {
         $("#settings-btn").click(function () {
             var glotIOToken = Storage.getGlotIOToken();
             var fontSize = Storage.getEditorFontSize();
+            var theme = Storage.getEditorTheme();
+            var themes = Editor.getThemes();
             $("#settings-glot-io-token").val(glotIOToken);
             $("#settings-editor-font-size").val(fontSize);
+            $("#settings-editor-themes").empty();
+            _.each(themes, function (t) {
+                var o = $("<option>")
+                    .val(t.theme)
+                    .text(t.caption)
+                    .attr("selected", t.theme === theme);
+                $("#settings-editor-themes").append(o);
+            });
             $("#settings-modal").modal("show");
         });
         $("#settings-save-btn").click(function () {
             var glotIOToken = $("#settings-glot-io-token").val();
             var fontSize = $("#settings-editor-font-size").val();
+            var theme = $("#settings-editor-themes").val();
             Storage.setGlotIOToken(glotIOToken);
             Storage.setEditorFontSize(parseInt(fontSize, 10));
+            Storage.setEditorTheme(theme);
             $("#settings-modal").modal("hide");
         });
     }
-    initSettingsBtn();
+    init();
 }());
