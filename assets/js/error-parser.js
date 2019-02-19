@@ -15,7 +15,7 @@ var ErrorParser = (function () {
         var annotations = [];
         var match = re.exec(stderr);
         while (match) {
-            console.log(match);
+            //console.log(match);
             annotations.push({
                 "row": match[1] - 1,
                 "column": match[2] - 1,
@@ -32,7 +32,7 @@ var ErrorParser = (function () {
         var annotations = [];
         var match = re.exec(stdout);
         while (match) {
-            console.log(match);
+            //console.log(match);
             annotations.push({
                 "row": match[1] - 1,
                 "column": 0,
@@ -49,7 +49,7 @@ var ErrorParser = (function () {
         var annotations = [];
         var match = re.exec(stderr);
         while (match) {
-            console.log(match);
+            //console.log(match);
             annotations.push({
                 "row": match[1] - 1,
                 "column": 0,
@@ -67,11 +67,11 @@ var ErrorParser = (function () {
         console.log(matchText);
         if (matchText) {
             var reRows = new RegExp("File \"" + file + "\", line (\\d+)", "g");
-            console.log(reRows);
+            //console.log(reRows);
             var annotations = [];
             var matchRows = reRows.exec(stderr);
             while (matchRows) {
-                console.log(matchRows);
+                //console.log(matchRows);
                 annotations.push({
                     "row": matchRows[1] - 1,
                     "column": 0,

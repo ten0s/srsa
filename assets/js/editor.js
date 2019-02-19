@@ -10,7 +10,6 @@
 
 function Editor(type, id, text, mode) {
     var _editor = null;
-    var _ranges = null;
 
     function foldRanges(text) {
         var lines = text.split(/\r\n|\r|\n/);
@@ -46,7 +45,7 @@ function Editor(type, id, text, mode) {
         // Remove +BEGIN_REMOVE, +END_REMOVE and everything in between
         text = text.replace(/\s*[\/%#]+\+BEGIN_REMOVE[\s\S]*?[\/%#]+\+END_REMOVE/gi, "");
 
-        _ranges = foldRanges(text);
+        var ranges = foldRanges(text);
         // Remove +BEGIN_FOLD and +END_FOLD
         text = text.replace(/\+BEGIN_FOLD|\+END_FOLD/gi, "");
 
@@ -60,7 +59,7 @@ function Editor(type, id, text, mode) {
         });
 
         window.setTimeout(function () {
-            _.each(_ranges, function (range) {
+            _.each(ranges, function (range) {
                 _editor.session.foldAll(range[0], range[1], 0);
             });
         }, 250);
@@ -87,6 +86,21 @@ function Editor(type, id, text, mode) {
       }];
     */
     function setAnnotations(annotations) {
+        // if some annotations are folded, add them to the fold's top
+        var folds = _editor.session.getAllFolds();
+        //console.log(folds);
+        _.each(annotations, function (a) {
+            _.each(folds, function (f) {
+                if (f.start.row <= a.row && a.row <= f.end.row) {
+                    annotations.push({
+                        "row": f.start.row,
+                        "column": a.column,
+                        "text": a.text,
+                        "type": a.type
+                    });
+                }
+            });
+        });
         _editor.session.setAnnotations(annotations);
     }
 
