@@ -12,11 +12,11 @@ sort([X | Xs]) ->
 insert(X, []) ->
     [X];
 insert(X, [Y | Ys]) ->
-    case X < Y of
+    case Y < X of
     true ->
-        [X, Y | Ys];
+        [Y | insert(X, Ys)];
     _ ->
-        [Y | insert(X, Ys)]
+        [X, Y | Ys]
     end.
 %%+END_SOLUTION
 

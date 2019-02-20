@@ -11,7 +11,7 @@ public class BellmanFordSPs {
     private Deque<Integer> queue;
     private boolean[] onQueue;
     private int counter;
-    private Iterable<DirectedEdge> cycle;
+    private Iterable<DirectedEdge> negCycle;
     //+END_SOLUTION
 
     public BellmanFordSPs(EdgeWeightedDigraph G, int s) {
@@ -29,7 +29,7 @@ public class BellmanFordSPs {
         queue.add(s);
         onQueue[s] = true;
 
-        while (!queue.isEmpty() && !hasNegativeCycle()) {
+        while (!queue.isEmpty() && !hasNegCycle()) {
             int v = queue.remove();
             onQueue[v] = false;
             relax(G, v);
@@ -50,12 +50,12 @@ public class BellmanFordSPs {
                 }
             }
             if (counter++ % G.V() == 0) {
-                findNegativeCycle();
+                findNegCycle();
             }
         }
     }
 
-    private void findNegativeCycle() {
+    private void findNegCycle() {
         int V = edgeTo.length;
         EdgeWeightedDigraph spt = new EdgeWeightedDigraph(V);
         for (int v = 0; v < V; v++) {
@@ -64,7 +64,7 @@ public class BellmanFordSPs {
             }
         }
         EdgeWeightedDigraphCycle cf = new EdgeWeightedDigraphCycle(spt);
-        cycle = cf.cycle();
+        negCycle = cf.cycle();
     }
     //+END_SOLUTION
 
@@ -91,15 +91,15 @@ public class BellmanFordSPs {
         //+END_SOLUTION
     }
 
-    public boolean hasNegativeCycle() {
+    public boolean hasNegCycle() {
         //+BEGIN_SOLUTION
-        return cycle != null;
+        return negCycle != null;
         //+END_SOLUTION
     }
 
-    public Iterable<DirectedEdge> negativeCycle() {
+    public Iterable<DirectedEdge> negCycle() {
         //+BEGIN_SOLUTION
-        return cycle;
+        return negCycle;
         //+END_SOLUTION
     }
 
@@ -126,7 +126,7 @@ public class BellmanFordSPs {
         //System.out.println(G.toDot());
 
         BellmanFordSPs sp0 = new BellmanFordSPs(G, 0);
-        Assert.assertFalse(sp0.hasNegativeCycle());
+        Assert.assertFalse(sp0.hasNegCycle());
 
         Assert.assertTrue(sp0.hasPathTo(0));
         Assert.assertEquals(0.0, sp0.distTo(0));
@@ -171,8 +171,8 @@ public class BellmanFordSPs {
         //System.out.println(G.toDot());
 
         sp0 = new BellmanFordSPs(G, 0);
-        Assert.assertTrue(sp0.hasNegativeCycle());
-        Assert.assertEquals("5->4->5", GraphUtil.directedWeightedPathToString(sp0.negativeCycle()));
+        Assert.assertTrue(sp0.hasNegCycle());
+        Assert.assertEquals("5->4->5", GraphUtil.directedWeightedPathToString(sp0.negCycle()));
 
         System.out.println("OK");
     }
@@ -187,4 +187,10 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public int from();
     public int to();
 }
+
+public class EdgeWeightedDigraphCycle {
+    public EdgeWeightedDigraphCycle(EdgeWeightedDigraph G);
+    public Iterable<DirectedEdge> cycle();
+}
+
 +END_FOLD*/
