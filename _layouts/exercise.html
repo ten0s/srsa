@@ -59,6 +59,7 @@
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ext-language_tools.js" | relative_url }}"></script>
       <script src="{{ "/assets/libs/ace-builds/src-min-noconflict/ext-themelist.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/editor.js" | relative_url }}"></script>
+      <script src="{{ "/assets/js/glot-io.js" | relative_url }}"></script>
       <script src="{{ "/assets/js/error-parser.js" | relative_url }}"></script>
       <script>
        fix_relative_srcs();
@@ -135,27 +136,18 @@
            var editor = $("#question-tab").hasClass("active") ? qEditor : sEditor;
            var solution_file = "{{ page.solution_file | split: '/' | last }}";
            editor.clearAnnotations();
-           $.ajax({
-               // run.glot.io doesn't support cors
-               // workaround through https://cors-anywhere.herokuapp.com/
-               url: "https://cors-anywhere.herokuapp.com/https://run.glot.io/languages/{{ page.language }}/{{ page.version | default:'latest' }}",
-               type: "POST",
-               headers: {
-                   "Authorization": "Token " + Storage.getGlotIOToken(),
-                   "Content-Type": "application/json"
-               },
-               data: JSON.stringify({
-                   files: [
-                       {name: solution_file,
-                        content: editor.getText()},
-                       {% for file in page.library_files %}
-                       {name: "{{ file | split: '/' | last }}",
-                        content: `{% include {{ file }} %}`},
-                       {% endfor %}
-
-                   ],
-                   command: `{{ page.command }}`
-               })
+           GlotIO.run({
+               language: "{{ page.language }}",
+               version: "{{ page.version | default:'latest' }}",
+               files: [
+                   {name: solution_file,
+                    content: editor.getText()},
+                   {% for file in page.library_files %}
+                   {name: "{{ file | split: '/' | last }}",
+                    content: `{% include {{ file }} %}`},
+                   {% endfor %}
+               ],
+               command: `{{ page.command }}`
            }).done(function (data) {
                infoOff();
                if (data) {
