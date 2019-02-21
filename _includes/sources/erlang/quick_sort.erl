@@ -14,9 +14,9 @@ partition(_, [], LEG) ->
     LEG;
 partition(P, [X | Xs], {L, E, G}) ->
     if
-        X < P -> partition(P, Xs, {[X | L], E, G});
-        X > P -> partition(P, Xs, {L, E, [X | G]});
-        true  -> partition(P, Xs, {L, [X | E], G})
+        X < P -> partition(P, Xs, {[X | L], E      , G      });
+        X > P -> partition(P, Xs, {L      , E      , [X | G]});
+        true  -> partition(P, Xs, {L      , [X | E], G      })
     end.
 %%+END_SOLUTION
 
