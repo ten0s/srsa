@@ -57,11 +57,11 @@ function Editor(type, id, text, mode) {
             //enableLiveAutocompletion: true,
         });
 
-        window.setTimeout(function () {
+        $(document).ready(function () {
             _.each(ranges, function (range) {
                 _editor.session.foldAll(range[0], range[1], 0);
             });
-        }, 250);
+        });
     }
 
     function getText() {
