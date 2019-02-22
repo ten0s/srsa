@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo '<a href="evincex:///home/ten0s/anki2/algs4.pdf#<PAGE>">Review: Algorithms (4th ed.), p. <PAGE></a>'
-echo '<a href="evincex:///home/ten0s/anki2/pfds.djvu#<PAGE>">Review: Pure Functional Data Structures, p. <PAGE></a>'
+echo '<a href="evincex:///home/ten0s/anki2/algs4.pdf#<PAGE>">Algorithms (4th ed.), p. <PAGE></a>'
+echo '<a href="evincex:///home/ten0s/anki2/pfds.djvu#<PAGE>">Pure Functional Data Structures, p. <PAGE></a>'
+echo '<a href="manx://grep#REGULAR+EXPRESSIONS">Grep: Regular Expressions</a>'
