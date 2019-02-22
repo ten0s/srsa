@@ -1,5 +1,7 @@
+//+BEGIN_FOLD Tests {
 import java.util.List;
 import java.util.ArrayList;
+//+END_FOLD }
 
 public class UnionFind {
     private int[] parent;
