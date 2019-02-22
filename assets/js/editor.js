@@ -76,14 +76,6 @@ function Editor(type, id, text, mode) {
         _editor.session.clearAnnotations();
     }
 
-    /*
-      var annotations = [{
-          row: 1,                      // zero-based
-          column: 0,                   // zero-based
-          text: "Strange error",       // tooltip text
-          type: "error"                // "error" | "warning" | "info"
-      }];
-    */
     function setAnnotations(annotations) {
         // if some annotations are folded, add them to the fold's top
         var folds = _editor.session.getAllFolds();
@@ -92,10 +84,10 @@ function Editor(type, id, text, mode) {
             _.each(folds, function (f) {
                 if (f.start.row <= a.row && a.row <= f.end.row) {
                     annotations.push({
-                        "row": f.start.row,
-                        "column": a.column,
-                        "text": a.text,
-                        "type": a.type
+                        "row": f.start.row, // zero-based
+                        "column": a.column, // zero-based
+                        "text": a.text,     // tooltip text
+                        "type": a.type      // "error" | "warning" | "info"
                     });
                 }
             });
