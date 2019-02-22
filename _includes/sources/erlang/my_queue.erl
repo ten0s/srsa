@@ -1,6 +1,8 @@
 -module(my_queue).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 %% Invariant must be maintained that F is empty only when R is empty.
 -type queue(T) :: {F::[T], R::[T]}.

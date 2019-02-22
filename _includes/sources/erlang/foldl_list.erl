@@ -1,6 +1,8 @@
 -module(foldl_list).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -spec foldl(fun ((T, Acc) -> Acc), Acc, [T]) -> Acc.
 %%+BEGIN_SOLUTION

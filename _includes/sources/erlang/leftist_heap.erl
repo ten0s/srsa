@@ -3,8 +3,10 @@
 %%+BEGIN_REMOVE
 -export([to_dot/1]).
 %%+END_REMOVE
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -type rank() :: non_neg_integer().
 -type heap(T) :: nil | {T, rank(), heap(T), heap(T)}.

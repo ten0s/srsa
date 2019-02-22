@@ -1,6 +1,8 @@
 -module(map_using_foldr).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -spec map2(fun ((A) -> B), [A]) -> [B].
 %%+BEGIN_SOLUTION

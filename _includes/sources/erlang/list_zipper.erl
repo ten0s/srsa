@@ -1,6 +1,8 @@
 -module(list_zipper).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -type zlist(T) :: {[T], [T]}. % {Prev, [Curr | Next]}
 -type error(_E) :: no_return().

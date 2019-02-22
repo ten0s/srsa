@@ -1,6 +1,8 @@
 -module(merge_lists).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -type interval() :: {integer(), integer()}.
 -spec merge([interval()], [interval()]) -> [interval()].

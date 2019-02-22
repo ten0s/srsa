@@ -1,6 +1,8 @@
 -module(append_list).
+%%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
+%%+END_FOLD }
 
 -spec append([T], [T]) -> [T].
 %%+BEGIN_SOLUTION
