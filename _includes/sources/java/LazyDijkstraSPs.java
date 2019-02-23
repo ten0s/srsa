@@ -1,22 +1,23 @@
 //+BEGIN_SOLUTION
 import java.util.Deque;
 import java.util.ArrayDeque;
-import java.util.PriorityQueue;
 //+END_SOLUTION
+
 
 public class LazyDijkstraSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private PriorityQueue<Integer> pq;
+    // TODO: Is this correct? Shouldn't be here PriorityQueue<Edge>?
+    private Deque<Integer> queue;
     //+END_SOLUTION
 
     public LazyDijkstraSPs(EdgeWeightedDigraph G, int s) {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        pq = new PriorityQueue<>();
+        queue = new ArrayDeque<>();
 
         for (int v = 0; v < G.V(); v++) {
             distTo[v] = INFINITY;
@@ -24,8 +25,8 @@ public class LazyDijkstraSPs {
         distTo[s] = 0.0;
 
         relax(G, s);
-        while (!pq.isEmpty()) {
-            relax(G, pq.remove());
+        while (!queue.isEmpty()) {
+            relax(G, queue.remove());
         }
         //+END_SOLUTION
     }
@@ -37,7 +38,7 @@ public class LazyDijkstraSPs {
             if (distTo[w] > distTo[v] + e.weight()) {
                 distTo[w] = distTo[v] + e.weight();
                 edgeTo[w] = e;
-                pq.add(w);
+                queue.add(w);
             }
         }
     }
