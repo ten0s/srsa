@@ -1,4 +1,5 @@
 -module(my_queue).
+-export([new/0, is_empty/1, enqueue/2, dequeue/1, peek/1]).
 %%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
