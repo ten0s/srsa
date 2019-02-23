@@ -58,9 +58,11 @@ function Editor(type, id, text, mode) {
         });
 
         $(document).ready(function () {
-            _.each(ranges, function (range) {
-                _editor.session.foldAll(range[0], range[1], 0);
-            });
+            window.setTimeout(function () {
+                _.each(ranges, function (range) {
+                    _editor.session.foldAll(range[0], range[1], 0);
+                });
+            }, 100);
         });
     }
 
