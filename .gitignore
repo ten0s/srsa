@@ -27,3 +27,4 @@ _includes/sources/java/*.class
 _includes/sources/python/*.pyc
 .idea
 srsa.conf
+yarn-error.log
