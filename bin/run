@@ -28,6 +28,7 @@ function run() {
     echo "Running $(lang_name $name)..."
     language=$(sed -En 's/language:\s*(.*)/\1/p' $exercise)
     command=$(sed -En 's/command:\s*(.*)/\1/p' $exercise)
+    #echo $command
     pushd $SRC_DIR/$language/ >/dev/null
     bash -c "$command"
     popd >/dev/null
