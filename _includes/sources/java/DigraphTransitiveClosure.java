@@ -1,3 +1,10 @@
+/*
+public class DigraphDFS {
+    public DigraphDFS(Digraph G, int s);
+    public boolean hasPathTo(int v);
+}
+*/
+
 public class DigraphTransitiveClosure {
     //+BEGIN_SOLUTION
     private DigraphDFS[] all;
@@ -66,11 +73,3 @@ public class DigraphTransitiveClosure {
     }
     //+END_FOLD }
 }
-
-// Refs
-/*+BEGIN_FOLD
-public class DigraphDFS {
-    public DigraphDFS(Digraph G, int s);
-    public boolean hasPathTo(int v);
-}
-+END_FOLD*/
