@@ -16,5 +16,5 @@ question_text: >-
 solution_file: /sources/erlang/merge_lists.erl
 library_files:
 language: erlang
-command: erlc merge_lists.erl && erl -noshell -eval "merge_lists:main({})."
+command: erlc merge_lists.erl && erl -noshell -eval "merge_lists:main([])."
 ---
