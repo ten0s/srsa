@@ -43,14 +43,14 @@ public class HashMap<Key , Value> {
     private void resize(int capacity) {
         //+BEGIN_SOLUTION
         if (this.m == capacity) return;
-        HashMap<Key, Value> t = new HashMap<>(capacity);
+        HashMap<Key, Value> hm = new HashMap<>(capacity);
         for (int i = 0; i < m; i++) {
             for (Node x = a[i]; x != null; x = x.next) {
-                t.put(x.key, x.val);
+                hm.put(x.key, x.val);
             }
         }
-        this.a = t.a;
-        this.m = t.m;
+        this.a = hm.a;
+        this.m = hm.m;
         //+END_SOLUTION
     }
 
@@ -112,32 +112,32 @@ public class HashMap<Key , Value> {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        HashMap<Integer, Integer> t = new HashMap<>();
+        HashMap<Integer, Integer> hm = new HashMap<>();
 
-        Assert.assertEquals(0, t.size());
-        Assert.assertTrue(t.isEmpty());
-        Assert.assertEquals(MIN_CAPACITY, t.m);
-        Assert.assertNull(t.get(1));
-
-        for (int i = 0; i < 1000; i++) {
-            t.put(i, i);
-            Assert.assertEquals(i, (int)t.get(i));
-            t.put(i, i*i);
-            Assert.assertEquals(i*i, (int)t.get(i));
-        }
-        Assert.assertEquals(1000, t.size());
-        Assert.assertFalse(t.isEmpty());
-        Assert.assertTrue(t.m > MIN_CAPACITY);
-        Assert.assertTrue(Prime.isPrime(t.m));
-        Assert.assertNull(t.get(1001));
+        Assert.assertEquals(0, hm.size());
+        Assert.assertTrue(hm.isEmpty());
+        Assert.assertEquals(MIN_CAPACITY, hm.m);
+        Assert.assertNull(hm.get(1));
 
         for (int i = 0; i < 1000; i++) {
-            t.delete(i);
+            hm.put(i, i);
+            Assert.assertEquals(i, (int)hm.get(i));
+            hm.put(i, i*i);
+            Assert.assertEquals(i*i, (int)hm.get(i));
         }
-        Assert.assertEquals(0, t.size());
-        Assert.assertTrue(t.isEmpty());
-        Assert.assertEquals(MIN_CAPACITY, t.m);
-        Assert.assertNull(t.get(1));
+        Assert.assertEquals(1000, hm.size());
+        Assert.assertFalse(hm.isEmpty());
+        Assert.assertTrue(hm.m > MIN_CAPACITY);
+        Assert.assertTrue(Prime.isPrime(hm.m));
+        Assert.assertNull(hm.get(1001));
+
+        for (int i = 0; i < 1000; i++) {
+            hm.delete(i);
+        }
+        Assert.assertEquals(0, hm.size());
+        Assert.assertTrue(hm.isEmpty());
+        Assert.assertEquals(MIN_CAPACITY, hm.m);
+        Assert.assertNull(hm.get(1));
 
         System.out.println("OK");
     }
