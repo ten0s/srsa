@@ -5,7 +5,7 @@ question_text: >-
   Sort the array of strings of different lengths using MSD sort
   <table border="1">
     <tr>
-      <td><img relative_src="/assets/images/msd.png" title="MSD" width="600" height="400"></td>
+      <td><img relative_src="/assets/images/msd.png" title="MSD" style="width:100%;height=auto;"></td>
     </tr>
   </table>
 
