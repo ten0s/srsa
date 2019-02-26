@@ -5,7 +5,7 @@ question_text: >-
   Implement Lazy Prim's Minimum Spanning Tree
   <table border="1">
     <tr>
-      <td><img relative_src="/assets/images/tinyEWG.png" title="tinyEWG"></td>
+      <td><img relative_src="/assets/images/edge-weighted-graph.png" title="tinyEWG"></td>
     </tr>
   </table>
 solution_file: /sources/java/LazyPrimMST.java
