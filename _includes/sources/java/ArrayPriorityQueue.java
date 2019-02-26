@@ -11,7 +11,7 @@ public class ArrayPriorityQueue {
             pq = (Key[]) new Comparable[MIN_CAPACITY+1];
         }
 
-        protected void insert(Key v) {
+        public void add(Key v) {
             //+BEGIN_SOLUTION
             if (++n > capacity()) resize(2*capacity()+1);
             pq[n] = v;
@@ -19,7 +19,7 @@ public class ArrayPriorityQueue {
             //+END_SOLUTION
         }
 
-        protected Key delete() {
+        public Key remove() {
             //+BEGIN_SOLUTION
             ensureNotEmpty();
             Key v = pq[1];
@@ -31,7 +31,7 @@ public class ArrayPriorityQueue {
             //+END_SOLUTION
         }
 
-        protected Key top() {
+        public Key peek() {
             //+BEGIN_SOLUTION
             ensureNotEmpty();
             return pq[1];
@@ -103,9 +103,6 @@ public class ArrayPriorityQueue {
     }
 
     private static class MaxPQ<Key extends Comparable<Key>> extends PQ<Key> {
-        public Key delMax() { return delete(); }
-        public Key max() { return top(); }
-
         //+BEGIN_SOLUTION
         boolean less(Key v, Key w) {
             return v.compareTo(w) < 0;
@@ -120,38 +117,38 @@ public class ArrayPriorityQueue {
         Assert.assertEquals(0, pq.size());
         Assert.assertEquals(pq.MIN_CAPACITY, pq.capacity());
 
-        pq.insert(1);
-        pq.insert(3);
-        pq.insert(5);
-        pq.insert(7);
-        pq.insert(9);
-        pq.insert(2);
-        pq.insert(4);
-        pq.insert(6);
-        pq.insert(8);
-        pq.insert(10);
+        pq.add(1);
+        pq.add(3);
+        pq.add(5);
+        pq.add(7);
+        pq.add(9);
+        pq.add(2);
+        pq.add(4);
+        pq.add(6);
+        pq.add(8);
+        pq.add(10);
 
         Assert.assertFalse(pq.isEmpty());
         Assert.assertEquals(10, pq.size());
         Assert.assertEquals(16, pq.capacity());
 
-        Assert.assertEquals(10, (int)pq.max());
-        Assert.assertEquals(10, (int)pq.delMax());
-        for (int i = 0; i < 8; i++) pq.delMax();
-        Assert.assertEquals(1, (int)pq.max());
-        Assert.assertEquals(1, (int)pq.delMax());
+        Assert.assertEquals(10, (int)pq.peek());
+        Assert.assertEquals(10, (int)pq.remove());
+        for (int i = 0; i < 8; i++) pq.remove();
+        Assert.assertEquals(1, (int)pq.peek());
+        Assert.assertEquals(1, (int)pq.remove());
 
         Assert.assertTrue(pq.isEmpty());
         Assert.assertEquals(0, pq.size());
         Assert.assertEquals(pq.MIN_CAPACITY, pq.capacity());
 
         try {
-            pq.max();
+            pq.peek();
             Assert.assertTrue(false);
         } catch (NoSuchElementException e) {}
 
         try {
-            pq.delMax();
+            pq.remove();
             Assert.assertTrue(false);
         } catch (NoSuchElementException e) {}
 
