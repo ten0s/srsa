@@ -63,7 +63,7 @@ public class EdgeWeightedDigraphCycle {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/ewdigraph3.txt
+        // data/ewdigraph3.txt
         // no cycles
         EdgeWeightedDigraph G3 = new EdgeWeightedDigraph(6);
         G3.addEdge(new DirectedEdge(0, 2, 0.35));
@@ -74,7 +74,7 @@ public class EdgeWeightedDigraphCycle {
         EdgeWeightedDigraphCycle c3 = new EdgeWeightedDigraphCycle(G3);
         Assert.assertFalse(c3.hasCycle());
 
-        // /data/ewdigraph4.txt
+        // data/ewdigraph4.txt
         // no cycles
         EdgeWeightedDigraph G4 = new EdgeWeightedDigraph(7);
         G4.addEdge(new DirectedEdge(0, 1, 0.35));
@@ -89,7 +89,7 @@ public class EdgeWeightedDigraphCycle {
         EdgeWeightedDigraphCycle c4 = new EdgeWeightedDigraphCycle(G4);
         Assert.assertFalse(c4.hasCycle());
 
-        // /data/ewdigraph4-cycle.txt
+        // data/ewdigraph4-cycle.txt
         // one cycle
         EdgeWeightedDigraph G4C = new EdgeWeightedDigraph(7);
         G4C.addEdge(new DirectedEdge(0, 1, 0.35));

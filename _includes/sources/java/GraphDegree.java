@@ -26,7 +26,7 @@ public class GraphDegree {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/graph1.txt
+        // data/graph1.txt
         Graph G = new Graph(10);
         G.addEdge(0, 1);
         G.addEdge(0, 7);

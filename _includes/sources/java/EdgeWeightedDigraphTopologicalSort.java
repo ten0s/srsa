@@ -27,7 +27,7 @@ public class EdgeWeightedDigraphTopologicalSort {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/ewdigraph4.txt
+        // data/ewdigraph4.txt
         // no cycles
         EdgeWeightedDigraph G4 = new EdgeWeightedDigraph(7);
         G4.addEdge(new DirectedEdge(0, 1, 0.35));
@@ -43,7 +43,7 @@ public class EdgeWeightedDigraphTopologicalSort {
         Assert.assertTrue(ts4.hasOrder());
         Assert.assertEquals("0-2-4-6-5-1-3", GraphUtil.pathToString(ts4.order()));
 
-        // /data/digraph4-cycle.txt
+        // data/digraph4-cycle.txt
         // one cycle
         EdgeWeightedDigraph G4C = new EdgeWeightedDigraph(7);
         G4C.addEdge(new DirectedEdge(0, 1, 0.35));

@@ -41,7 +41,7 @@ public class GraphBipartite {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/graph1.txt
+        // data/graph1.txt
         Graph G = new Graph(10);
         G.addEdge(0, 1);
         G.addEdge(0, 7);
@@ -62,8 +62,8 @@ public class GraphBipartite {
         GraphBipartite b = new GraphBipartite(G);
         Assert.assertFalse(b.isBipartite());
 
-        // /data/graph4.txt
-        // /data/graph-bipartite.txt
+        // data/graph4.txt
+        // data/graph-bipartite.txt
         Graph G4 = new Graph(7);
         G4.addEdge(0, 1);
         G4.addEdge(0, 2);

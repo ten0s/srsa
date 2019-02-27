@@ -68,7 +68,7 @@ public class EdgeWeightedDAGSPs {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWDAG.txt
+        // data/tinyEWDAG.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
         G.addEdge(new DirectedEdge(5, 4, 0.35));
         G.addEdge(new DirectedEdge(4, 7, 0.37));

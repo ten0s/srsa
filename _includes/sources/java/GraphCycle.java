@@ -100,7 +100,7 @@ public class GraphCycle {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/graph2.txt
+        // data/graph2.txt
         // self-loop
         Graph G2 = new Graph(3);
         G2.addEdge(0, 0);
@@ -111,7 +111,7 @@ public class GraphCycle {
         Assert.assertTrue(c2.hasCycle());
         Assert.assertEquals("0-0", GraphUtil.pathToString(c2.cycle));
 
-        // /data/graph5.txt
+        // data/graph5.txt
         // parallel edge
         Graph G5 = new Graph(6);
         G5.addEdge(0, 2);
@@ -124,7 +124,7 @@ public class GraphCycle {
         Assert.assertTrue(c5.hasCycle());
         Assert.assertEquals("2-3-2", GraphUtil.pathToString(c5.cycle));
 
-        // /data/graph3.txt
+        // data/graph3.txt
         // no cycles
         Graph G3 = new Graph(6);
         G3.addEdge(0, 2);
@@ -135,7 +135,7 @@ public class GraphCycle {
         GraphCycle c3 = new GraphCycle(G3);
         Assert.assertFalse(c3.hasCycle());
 
-        // /data/graph4.txt
+        // data/graph4.txt
         // some cycles
         Graph G4 = new Graph(7);
         G4.addEdge(0, 1);

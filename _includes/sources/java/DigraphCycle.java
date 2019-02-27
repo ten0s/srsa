@@ -73,7 +73,7 @@ public class DigraphCycle {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/digraph3.txt
+        // data/digraph3.txt
         // no cycles
         Digraph G3 = new Digraph(6);
         G3.addEdge(0, 2);
@@ -84,7 +84,7 @@ public class DigraphCycle {
         DigraphCycle c3 = new DigraphCycle(G3);
         Assert.assertFalse(c3.hasCycle());
 
-        // /data/digraph4.txt
+        // data/digraph4.txt
         // no cycles
         Digraph G4 = new Digraph(7);
         G4.addEdge(0, 1);
@@ -99,7 +99,7 @@ public class DigraphCycle {
         DigraphCycle c4 = new DigraphCycle(G4);
         Assert.assertFalse(c4.hasCycle());
 
-        // /data/digraph4-cycle.txt
+        // data/digraph4-cycle.txt
         // one cycle
         Digraph G4C = new Digraph(7);
         G4C.addEdge(0, 1);

@@ -60,7 +60,7 @@ public class EdgeWeightedDigraphOrders {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/ewdigraph4.txt
+        // data/ewdigraph4.txt
         // no cycles
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(7);
         G.addEdge(new DirectedEdge(0, 1, 0.35));

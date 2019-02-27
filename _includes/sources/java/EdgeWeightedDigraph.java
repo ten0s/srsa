@@ -88,7 +88,7 @@ public class EdgeWeightedDigraph {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWG.txt
+        // data/tinyEWG.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
         Assert.assertEquals(8, G.V());
         Assert.assertEquals(0, G.E());
@@ -121,7 +121,7 @@ public class EdgeWeightedDigraph {
         int outdegree6 = 0; for (DirectedEdge e : G.adj(6)) outdegree6++;
         Assert.assertEquals(3, outdegree6);
 
-        // the same set of edges as in /data/tinyEWG.txt
+        // the same set of edges as in data/tinyEWG.txt
         HashSet<DirectedEdge> set = new HashSet<>();
         set.add(new DirectedEdge(4, 5, 0.35));
         set.add(new DirectedEdge(4, 7, 0.37));

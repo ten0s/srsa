@@ -92,7 +92,7 @@ public class EdgeWeightedGraph {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWG.txt
+        // data/tinyEWG.txt
         EdgeWeightedGraph G = new EdgeWeightedGraph(8);
         Assert.assertEquals(8, G.V());
         Assert.assertEquals(0, G.E());
@@ -125,7 +125,7 @@ public class EdgeWeightedGraph {
         int degree6 = 0; for (Edge e : G.adj(6)) degree6++;
         Assert.assertEquals(4, degree6);
 
-        // the same set of edges as in /data/tinyEWG.txt
+        // the same set of edges as in data/tinyEWG.txt
         HashSet<Edge> set = new HashSet<>();
         set.add(new Edge(4, 5, 0.35));
         set.add(new Edge(4, 7, 0.37));

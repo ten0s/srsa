@@ -27,7 +27,7 @@ public class DigraphTransitiveClosure {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyDG.txt
+        // data/tinyDG.txt
         Digraph G = new Digraph(13);
         G.addEdge(4, 2);
         G.addEdge(2, 3);

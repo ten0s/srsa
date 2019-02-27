@@ -59,7 +59,7 @@ public class DigraphOrders {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/digraph4.txt
+        // data/digraph4.txt
         Digraph G4 = new Digraph(7);
         G4.addEdge(0, 1);
         G4.addEdge(0, 2);

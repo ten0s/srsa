@@ -59,7 +59,7 @@ public class LazyPrimMST {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWG.txt
+        // data/tinyEWG.txt
         EdgeWeightedGraph G = new EdgeWeightedGraph(8);
         G.addEdge(new Edge(4, 5, 0.35));
         G.addEdge(new Edge(4, 7, 0.37));

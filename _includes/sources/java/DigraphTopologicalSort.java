@@ -27,7 +27,7 @@ public class DigraphTopologicalSort {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/digraph4.txt
+        // data/digraph4.txt
         // no cycles
         Digraph G4 = new Digraph(7);
         G4.addEdge(0, 1);
@@ -46,7 +46,7 @@ public class DigraphTopologicalSort {
         Assert.assertTrue(ts4.hasOrder());
         Assert.assertEquals("0-2-4-6-5-1-3", GraphUtil.pathToString(ts4.order()));
 
-        // /data/digraph4-cycle.txt
+        // data/digraph4-cycle.txt
         // one cycle
         Digraph G4C = new Digraph(7);
         G4C.addEdge(0, 1);

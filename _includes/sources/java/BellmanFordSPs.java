@@ -105,7 +105,7 @@ public class BellmanFordSPs {
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
-        // /data/tinyEWDn.txt
+        // data/tinyEWDn.txt
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(8);
         G.addEdge(new DirectedEdge(4, 5,  0.35));
         G.addEdge(new DirectedEdge(5, 4,  0.35));
@@ -150,7 +150,7 @@ public class BellmanFordSPs {
 
         Assert.assertTrue(sp0.hasPathTo(7));
 
-        // /data/tinyEWDnc.txt
+        // data/tinyEWDnc.txt
         G = new EdgeWeightedDigraph(8);
         G.addEdge(new DirectedEdge(4, 5,  0.35));
         G.addEdge(new DirectedEdge(5, 4, -0.66));
