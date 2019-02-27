@@ -1,5 +1,5 @@
 /*
-public class BinTree { {
+public class BinTree {
     public static class Node<T> {
         public T item;
         public Node<T> left;

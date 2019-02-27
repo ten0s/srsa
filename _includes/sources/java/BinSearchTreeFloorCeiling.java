@@ -43,7 +43,7 @@ public class BinSearchTreeFloorCeiling {
 
         // test floor
         try { floor(1, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
-        try { floor(0, null); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
+        try { floor(0, tree); Assert.assertTrue(false); } catch (NoSuchElementException e) {}
         Assert.assertEquals(1, (int)floor(1, tree).item);
         Assert.assertEquals(1, (int)floor(2, tree).item);
         Assert.assertEquals(3, (int)floor(3, tree).item);
