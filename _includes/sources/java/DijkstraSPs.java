@@ -22,9 +22,9 @@ public class DijkstraSPs {
         }
         distTo[s] = 0.0;
 
-        pq.insert(s, distTo[s]);
+        pq.add(s, distTo[s]);
         while (!pq.isEmpty()) {
-            relax(G, pq.delMin());
+            relax(G, pq.remove());
         }
         //+END_SOLUTION
     }
@@ -37,7 +37,7 @@ public class DijkstraSPs {
                 distTo[w] = distTo[v] + e.weight();
                 edgeTo[w] = e;
                 if (pq.contains(w)) pq.changeKey(w, distTo[w]);
-                else                pq.insert(w, distTo[w]);
+                else                pq.add(w, distTo[w]);
             }
         }
     }
@@ -129,9 +129,9 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
 class IndexMinPQ<Key extends Comparable<Key>> {
     public IndexMinPQ();
     public boolean contains(int i);
-    public void insert(int i, Key v);
+    public void add(int i, Key v);
     public void changeKey(int i, key v);
-    public int delMin();
+    public int remove();
     public boolean isEmpty();
 }
 +END_FOLD*/

@@ -18,7 +18,7 @@ public abstract class IndexPQ<Key extends Comparable<Key>> {
         }
     }
 
-    protected void insert(int i, Key key) {
+    public void add(int i, Key key) {
         if (i < 0 || i >= maxN) throw new IllegalArgumentException();
         if (contains(i)) throw new IllegalArgumentException("Index is already in the priority queue");
         n++;
@@ -28,23 +28,23 @@ public abstract class IndexPQ<Key extends Comparable<Key>> {
         swim(n);
     }
 
-    protected int delete() {
+    public int remove() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         int top = pq[1];
         swap(1, n--);
         sink(1);
-        qp[top] = -1;        // delete
+        qp[top] = -1;        // remove
         keys[top] = null;    // to help with garbage collection
         pq[n+1] = -1;        // not needed
         return top;
     }
 
-    protected int topIndex() {
+    public int peekIndex() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         return pq[1];
     }
 
-    protected Key topKey() {
+    public Key peekKey() {
         if (n == 0) throw new NoSuchElementException("Priority queue underflow");
         return keys[pq[1]];
     }
@@ -94,7 +94,7 @@ public abstract class IndexPQ<Key extends Comparable<Key>> {
         sink(qp[i]);
     }
 
-    public void delete(int i) {
+    public void remove(int i) {
         if (i < 0 || i >= maxN) throw new IllegalArgumentException();
         if (!contains(i)) throw new NoSuchElementException("Index is not in the priority queue");
         int index = qp[i];

@@ -13,16 +13,16 @@ public class QueuesMerge<Item extends Comparable<Item>> {
         IndexMinPQ<Item> pq = new IndexMinPQ<>(n);
         for (int i = 0; i < n; i++) {
             if (!in[i].isEmpty()) {
-                pq.insert(i, in[i].remove());
+                pq.add(i, in[i].remove());
             }
         }
 
         out = new LinkedList<>();
         while (!pq.isEmpty()) {
-            out.add(pq.minKey());
-            int i = pq.delMin();
+            out.add(pq.peekKey());
+            int i = pq.remove();
             if (!in[i].isEmpty()) {
-                pq.insert(i, in[i].remove());
+                pq.add(i, in[i].remove());
             }
         }
         //+END_SOLUTION
@@ -58,8 +58,9 @@ public class QueuesMerge<Item extends Comparable<Item>> {
 /*+BEGIN_FOLD
 class IndexMinPQ<Key extends Comparable<Key>> {
     public IndexMinPQ();
-    public void insert(int i, Key v);
-    public int delMin();
+    public void add(int i, Key v);
+    public int remove();
+    public Key peekKey();
     public int size();
     public boolean isEmpty();
 }
