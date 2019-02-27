@@ -20,16 +20,16 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 public class BSTMapPut<Key extends Comparable<Key>, Value> extends BSTMap<Key, Value> {
     public void put(Key key, Value val) {
         //+BEGIN_SOLUTION
-        root = put(key, val, root);
+        root = put(root, key, val);
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Node put(Key key, Value val, Node x) {
+    private Node put(Node x, Key key, Value val) {
         if (x == null) return new Node(key, val);
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) x.left  = put(key, val, x.left);
-        else if (cmp > 0) x.right = put(key, val, x.right);
+        if      (cmp < 0) x.left  = put(x.left, key, val);
+        else if (cmp > 0) x.right = put(x.right, key, val);
         else              x.val = val;
         x.size = 1 + size(x.left) + size(x.right);
         return x;

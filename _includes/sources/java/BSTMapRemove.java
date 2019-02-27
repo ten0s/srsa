@@ -19,16 +19,16 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 public class BSTMapRemove<Key extends Comparable<Key>, Value> extends BSTMap<Key, Value> {
     public void remove(Key key) {
         //+BEGIN_SOLUTION
-        root = remove(key, root);
+        root = remove(root, key);
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Node remove(Key key, Node x) {
+    private Node remove(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) x.left  = remove(key, x.left);
-        else if (cmp > 0) x.right = remove(key, x.right);
+        if      (cmp < 0) x.left  = remove(x.left, key);
+        else if (cmp > 0) x.right = remove(x.right, key);
         else {
             if (x.left == null)  return x.right;
             if (x.right == null) return x.left;

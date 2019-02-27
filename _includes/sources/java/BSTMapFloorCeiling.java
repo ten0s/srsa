@@ -14,19 +14,19 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 public class BSTMapFloorCeiling<Key extends Comparable<Key>, Value> extends BSTMap<Key, Value> {
     public Key floor(Key key) {
         //+BEGIN_SOLUTION
-        Node x = floor(key, root);
+        Node x = floor(root, key);
         if (x == null) throw new NoSuchElementException();
         return x.key;
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Node floor(Key key, Node x) {
+    private Node floor(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
-        if (cmp < 0) return floor(key, x.left);
-        Node t = floor(key, x.right);
+        if (cmp < 0) return floor(x.left, key);
+        Node t = floor(x.right, key);
         if (t != null) return t;
         else           return x;
     }
@@ -34,19 +34,19 @@ public class BSTMapFloorCeiling<Key extends Comparable<Key>, Value> extends BSTM
 
     public Key ceiling(Key key) {
         //+BEGIN_SOLUTION
-        Node x = ceiling(key, root);
+        Node x = ceiling(root, key);
         if (x == null) throw new NoSuchElementException();
         return x.key;
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Node ceiling(Key key, Node x) {
+    private Node ceiling(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
-        if (cmp > 0) return ceiling(key, x.right);
-        Node t = ceiling(key, x.left);
+        if (cmp > 0) return ceiling(x.right, key);
+        Node t = ceiling(x.left, key);
         if (t != null) return t;
         else           return x;
     }

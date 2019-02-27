@@ -22,40 +22,40 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
     }
 
     public Value get(Key key) {
-        return get(key, root);
+        return get(root, key);
     }
 
-    private Value get(Key key, Node x) {
+    private Value get(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) return get(key, x.left);
-        else if (cmp > 0) return get(key, x.right);
+        if      (cmp < 0) return get(x.left, key);
+        else if (cmp > 0) return get(x.right, key);
         else              return x.val;
     }
 
     public void put(Key key, Value val) {
-        root = put(key, val, root);
+        root = put(root, key, val);
     }
 
-    private Node put(Key key, Value val, Node x) {
+    private Node put(Node x, Key key, Value val) {
         if (x == null) return new Node(key, val);
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) x.left  = put(key, val, x.left);
-        else if (cmp > 0) x.right = put(key, val, x.right);
+        if      (cmp < 0) x.left  = put(x.left, key, val);
+        else if (cmp > 0) x.right = put(x.right, key, val);
         else              x.val = val;
         x.size = 1 + size(x.left) + size(x.right);
         return x;
     }
 
     public void remove(Key key) {
-        root = remove(key, root);
+        root = remove(root, key);
     }
 
-    private Node remove(Key key, Node x) {
+    private Node remove(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) x.left = remove(key, x.left);
-        else if (cmp > 0) x.right = remove(key, x.right);
+        if      (cmp < 0) x.left = remove(x.left, key);
+        else if (cmp > 0) x.right = remove(x.right, key);
         else {
             if (x.left == null) return x.right;
             if (x.right == null) return x.left;
@@ -145,59 +145,59 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
     }
 
     public int rank(Key key) {
-        return rank(key, root);
+        return rank(root, key);
     }
 
-    private int rank(Key key, Node x) {
+    private int rank(Node x, Key key) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) return rank(key, x.left);
-        else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
+        if      (cmp < 0) return rank(x.left, key);
+        else if (cmp > 0) return 1 + size(x.left) + rank(x.right, key);
         else              return size(x.left);
     }
 
     public Key select(int k) {
         if (k < 0 || k >= size())
             throw new IllegalArgumentException();
-        return select(k, root).key;
+        return select(root, k).key;
     }
 
-    private Node select(int k, Node x) {
+    private Node select(Node x, int k) {
         if (x == null) return null;
         int t = size(x.left);
-        if      (t > k) return select(k, x.left);
-        else if (t < k) return select(k-t-1, x.right);
+        if      (t > k) return select(x.left, k);
+        else if (t < k) return select(x.right, k-t-1);
         else            return x;
     }
 
     public Key floor(Key key) {
-        Node x = floor(key, root);
+        Node x = floor(root, key);
         if (x == null) throw new NoSuchElementException();
         return x.key;
     }
 
-    private Node floor(Key key, Node x) {
+    private Node floor(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
-        if (cmp < 0) return floor(key, x.left);
-        Node t = floor(key, x.right);
+        if (cmp < 0) return floor(x.left, key);
+        Node t = floor(x.right, key);
         if (t != null) return t;
         else           return x;
     }
 
     public Key ceiling(Key key) {
-        Node x = ceiling(key, root);
+        Node x = ceiling(root, key);
         if (x == null) throw new NoSuchElementException();
         return x.key;
     }
 
-    private Node ceiling(Key key, Node x) {
+    private Node ceiling(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
-        if (cmp > 0) return ceiling(key, x.right);
-        Node t = ceiling(key, x.left);
+        if (cmp > 0) return ceiling(x.right, key);
+        Node t = ceiling(x.left, key);
         if (t != null) return t;
         else           return x;
     }
@@ -214,17 +214,17 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 
     public Iterable<Key> keys(Key lo, Key hi) {
         Deque<Key> queue = new ArrayDeque<>();
-        keys(queue, lo, hi, root);
+        keys(root, lo, hi, queue);
         return queue;
     }
 
-    private void keys(Deque<Key> queue, Key lo, Key hi, Node x) {
+    private void keys(Node x, Key lo, Key hi, Deque<Key> queue) {
         if (x == null) return;
         int cmpLo = lo.compareTo(x.key);
         int cmpHi = hi.compareTo(x.key);
-        if (cmpLo < 0) keys(queue, lo, hi, x.left);
+        if (cmpLo < 0) keys(x.left, lo, hi, queue);
         if (cmpLo <= 0 && cmpHi >= 0) queue.add(x.key);
-        if (cmpHi > 0) keys(queue, lo, hi, x.right);
+        if (cmpHi > 0) keys(x.right, lo, hi, queue);
     }
 
     public String toDot() {

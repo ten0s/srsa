@@ -16,16 +16,16 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 public class BSTMapRankSelect<Key extends Comparable<Key>, Value> extends BSTMap<Key, Value> {
     public int rank(Key key) {
         //+BEGIN_SOLUTION
-        return rank(key, root);
+        return rank(root, key);
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private int rank(Key key, Node x) {
+    private int rank(Node x, Key key) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) return rank(key, x.left);
-        else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
+        if      (cmp < 0) return rank(x.left, key);
+        else if (cmp > 0) return 1 + size(x.left) + rank(x.right, key);
         else              return size(x.left);
     }
     //+END_SOLUTION
@@ -34,16 +34,16 @@ public class BSTMapRankSelect<Key extends Comparable<Key>, Value> extends BSTMap
         //+BEGIN_SOLUTION
         if (k < 0 || k >= size())
             throw new IllegalArgumentException();
-        return select(k, root).key;
+        return select(root, k).key;
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Node select(int k, Node x) {
+    private Node select(Node x, int k) {
         if (x == null) return null;
         int t = size(x.left);
-        if      (t > k) return select(k, x.left);
-        else if (t < k) return select(k-t-1, x.right);
+        if      (t > k) return select(x.left, k);
+        else if (t < k) return select(x.right, k-t-1);
         else            return x;
     }
     //+END_SOLUTION

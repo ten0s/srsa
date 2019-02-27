@@ -13,16 +13,16 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
 public class BSTMapGet<Key extends Comparable<Key>, Value> extends BSTMap<Key, Value> {
     public Value get(Key key) {
         //+BEGIN_SOLUTION
-        return get(key, root);
+        return get(root, key);
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private Value get(Key key, Node x) {
+    private Value get(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if      (cmp < 0) return get(key, x.left);
-        else if (cmp > 0) return get(key, x.right);
+        if      (cmp < 0) return get(x.left, key);
+        else if (cmp > 0) return get(x.right, key);
         else              return x.val;
     }
     //+END_SOLUTION
