@@ -46,10 +46,10 @@ public class RWayTrieMap<Value> {
         if (d == key.length()) {
             if (x.val == null) size++;
             x.val = val;
-            return x;
+        } else {
+            char c = key.charAt(d);
+            x.next[c] = put(x.next[c], key, val, d+1);
         }
-        char c = key.charAt(d);
-        x.next[c] = put(x.next[c], key, val, d+1);
         return x;
     }
 
