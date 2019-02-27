@@ -111,8 +111,7 @@ public class BinTree {
 
     @SuppressWarnings("unchecked")
     public static <T> T[] toArray(Node<T> n) {
-        Queue<T> q = inOrder(
-            (item, queue) -> {
+        Queue<T> q = inOrder((item, queue) -> {
                 queue.add(item);
                 return queue;
             }, new ArrayDeque<>(), n);
