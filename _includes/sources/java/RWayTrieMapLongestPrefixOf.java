@@ -3,8 +3,7 @@ import java.util.Deque;
 import java.util.ArrayDeque;
 //+END_SOLUTION
 
-// Refs
-/*+BEGIN_FOLD
+/*
 public class RWayTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
@@ -14,7 +13,7 @@ public class RWayTrieMap<Value> {
         Node[] next = new Node[R];
     }
 }
-+END_FOLD*/
+*/
 
 public class RWayTrieMapLongestPrefixOf<Value> extends RWayTrieMap<Value> {
     public String longestPrefixOf(String s) {

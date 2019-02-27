@@ -1,5 +1,4 @@
-// Refs
-/*+BEGIN_FOLD
+/*
 public class RWayTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
@@ -10,7 +9,7 @@ public class RWayTrieMap<Value> {
         Node[] next = new Node[R];
     }
 }
-+END_FOLD*/
+*/
 
 public class RWayTrieMapPut<Value> extends RWayTrieMap<Value> {
     public void put(String key, Value val) {
