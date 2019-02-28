@@ -3,25 +3,15 @@ import java.util.Queue;
 import java.util.ArrayDeque;
 
 public class BinTree {
-    public static final boolean RED   = true;
-    public static final boolean BLACK = false;
-
     public static class Node<T> {
         public T item;
         public Node<T> left;
         public Node<T> right;
         public int size;
-        public boolean color;
 
         public Node(T item) {
             this.item = item;
             this.size = 1;
-        }
-
-        public Node(T item, boolean color) {
-            this.item = item;
-            this.size = 1;
-            this.color = color;
         }
     }
 
