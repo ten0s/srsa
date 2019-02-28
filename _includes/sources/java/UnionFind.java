@@ -1,6 +1,6 @@
 //+BEGIN_FOLD Tests {
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 //+END_FOLD }
 
 public class UnionFind {
@@ -94,13 +94,35 @@ public class UnionFind {
         }
         return max;
     }
+
+    public String toDot() {
+        StringBuilder sb = new StringBuilder();
+        Deque<Integer> roots = new ArrayDeque<>();
+        sb.append("digraph {");
+        sb.append(System.lineSeparator());
+        sb.append("  rankdir=BT");
+        sb.append(System.lineSeparator());
+        for (int i = 0; i < parent.length; i++) {
+            if (i != parent[i]) {
+                sb.append("  " + i + " -> " + parent[i]);
+                sb.append(System.lineSeparator());
+            } else {
+                roots.add(i);
+            }
+        }
+        sb.append("  {rank=same"); for (int r : roots) sb.append(" " + r); sb.append("}");
+        sb.append(System.lineSeparator());
+        sb.append("}");
+        sb.append(System.lineSeparator());
+        return sb.toString();
+    }
     //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         int n = 10;
         UnionFind uf = new UnionFind(n);
-        List<Pair<Integer,Integer>> pairs = new ArrayList<>();
+        Deque<Pair<Integer,Integer>> pairs = new ArrayDeque<>();
         pairs.add(new Pair<Integer,Integer>(4,3));
         pairs.add(new Pair<Integer,Integer>(3,8));
         pairs.add(new Pair<Integer,Integer>(6,5));
@@ -118,6 +140,7 @@ public class UnionFind {
                 uf.union(p.first, p.second);
             }
         }
+        //System.out.println(uf.toDot());
         Assert.assertEquals(2, uf.count());
 
         Assert.assertEquals(6, uf.size(0));
