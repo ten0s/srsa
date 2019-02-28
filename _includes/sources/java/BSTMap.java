@@ -13,11 +13,20 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
         Node left;
         Node right;
         int size;
+        boolean color; // for RedBlackBSTMap
 
         public Node(Key key, Value val) {
             this.key = key;
             this.val = val;
             this.size = 1;
+        }
+
+        // for RedBlackBSTMap
+        public Node(Key key, Value val, boolean color) {
+            this.key = key;
+            this.val = val;
+            this.size = 1;
+            this.color = color;
         }
     }
 
