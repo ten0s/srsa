@@ -13,6 +13,7 @@ public class RedBlackBSTMap<Key extends Comparable<Key>, Value> extends BSTMap<K
 
     private Node put(Node h, Key key, Value val) {
         if (h == null) return new Node(key, val, RED);
+
         int cmp = key.compareTo(h.key);
         if      (cmp < 0) h.left  = put(h.left, key, val);
         else if (cmp > 0) h.right = put(h.right, key, val);

@@ -33,6 +33,7 @@ public class RedBlackBSTMapPut<Key extends Comparable<Key>, Value> extends RedBl
     private Node put(Node h, Key key, Value val) {
         //+BEGIN_SOLUTION
         if (h == null) return new Node(key, val, RED);
+
         int cmp = key.compareTo(h.key);
         if      (cmp < 0) h.left  = put(h.left, key, val);
         else if (cmp > 0) h.right = put(h.right, key, val);
@@ -97,16 +98,18 @@ public class RedBlackBSTMapPut<Key extends Comparable<Key>, Value> extends RedBl
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         RedBlackBSTMapPut<Integer, String> map = new RedBlackBSTMapPut<>();
-        map.put(4, "four");
-        map.put(2, "two");
-        map.put(5, "five");
         map.put(1, "one");
+        map.put(2, "two");
         map.put(3, "three");
+        map.put(4, "four");
+        map.put(5, "five");
         map.put(6, "six");
         map.put(7, "seven");
         map.put(8, "eight");
         map.put(9, "nine");
         map.put(10, "ten");
+
+        Assert.assertEquals(BLACK, map.root.color);
         Assert.assertArrayEquals(new Integer[] {1,2,3,4,5,6,7,8,9,10},
                                  ArrayUtil.toArray(map.keys()));
         Assert.assertEquals(10, map.size());

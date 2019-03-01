@@ -14,7 +14,7 @@ public class RWayTrieMap<Value> {
 public class RWayTrieMapRemove<Value> extends RWayTrieMap<Value> {
     public void remove(String key) {
         //+BEGIN_SOLUTION
-        root = remove(root, key, 0);
+        remove(root, key, 0);
         //+END_SOLUTION
     }
 

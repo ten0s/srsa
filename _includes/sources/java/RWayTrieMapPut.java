@@ -14,7 +14,7 @@ public class RWayTrieMap<Value> {
 public class RWayTrieMapPut<Value> extends RWayTrieMap<Value> {
     public void put(String key, Value val) {
         //+BEGIN_SOLUTION
-        root = put(root, key, val, 0);
+        put(root, key, val, 0);
         //+END_SOLUTION
     }
 

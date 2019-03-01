@@ -45,9 +45,11 @@ public class RWayTrieMapLongestPrefixOf<Value> extends RWayTrieMap<Value> {
             trie.put(key, id++);
         }
         //System.out.println(trie.toDot());
+        Assert.assertEquals("she",    trie.longestPrefixOf("she"));
         Assert.assertEquals("she",    trie.longestPrefixOf("shell"));
         Assert.assertEquals("shells", trie.longestPrefixOf("shellsort"));
         Assert.assertEquals("",       trie.longestPrefixOf(""));
+        Assert.assertEquals("",       trie.longestPrefixOf("abc"));
         System.out.println("OK");
     }
     //+END_FOLD }
