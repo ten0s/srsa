@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 //+END_SOLUTION
 
 /*
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
 
@@ -15,11 +15,11 @@ public class RWayTrieMap<Value> {
 }
 */
 
-public class RWayTrieMapKeys<Value> extends RWayTrieMap<Value> {
-    public Iterable<String> keys() {
+public class RWTrieMapKeysWithPrefix<Value> extends RWTrieMap<Value> {
+    public Iterable<String> keysWithPrefix(String prefix) {
         //+BEGIN_SOLUTION
         Deque<String> queue = new ArrayDeque<>();
-        collect(root, "", queue);
+        collect(get(root, prefix, 0), prefix, queue);
         return queue;
         //+END_SOLUTION
     }
@@ -31,6 +31,13 @@ public class RWayTrieMapKeys<Value> extends RWayTrieMap<Value> {
         for (char c = 0; c < R; c++)
             collect(x.next[c], prefix + c, queue);
     }
+
+    private Node get(Node x, String key, int d) {
+        if (x == null) return null;
+        if (d == key.length()) return x;
+        char c = key.charAt(d);
+        return get(x.next[c], key, d+1);
+    }
     //+END_SOLUTION
 
     //+BEGIN_FOLD Tests {
@@ -39,17 +46,19 @@ public class RWayTrieMapKeys<Value> extends RWayTrieMap<Value> {
         String[] keys = new String[] {
             "she", "sells", "sea", "shells", "by", "the", "sea", "shore"
         };
-        RWayTrieMapKeys<Integer> trie = new RWayTrieMapKeys<>();
+        RWTrieMapKeysWithPrefix<Integer> trie = new RWTrieMapKeysWithPrefix<>();
         Assert.assertArrayEquals(new String[] {},
-                                 ArrayUtil.toArray(trie.keys()));
+                                 ArrayUtil.toArray(trie.keysWithPrefix("sh")));
 
         int id = 0;
         for (String key : keys) {
             trie.put(key, id++);
         }
         //System.out.println(trie.toDot());
-        Assert.assertArrayEquals(ArrayUtil.usort(keys),
-                                 ArrayUtil.toArray(trie.keys()));
+        Assert.assertArrayEquals(new String[] {"she", "shells", "shore"},
+                                 ArrayUtil.toArray(trie.keysWithPrefix("sh")));
+        Assert.assertArrayEquals(new String[] {},
+                                 ArrayUtil.toArray(trie.keysWithPrefix("sha")));
         System.out.println("OK");
     }
     //+END_FOLD }

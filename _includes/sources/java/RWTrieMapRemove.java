@@ -1,5 +1,5 @@
 /*
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
     protected int size;
@@ -11,7 +11,7 @@ public class RWayTrieMap<Value> {
 }
 */
 
-public class RWayTrieMapRemove<Value> extends RWayTrieMap<Value> {
+public class RWTrieMapRemove<Value> extends RWTrieMap<Value> {
     public void remove(String key) {
         //+BEGIN_SOLUTION
         remove(root, key, 0);
@@ -44,7 +44,7 @@ public class RWayTrieMapRemove<Value> extends RWayTrieMap<Value> {
         String[] keys = new String[] {
             "she", "sells", "sea", "shells", "by", "the", "sea", "shore"
         };
-        RWayTrieMapRemove<Integer> trie = new RWayTrieMapRemove<>();
+        RWTrieMapRemove<Integer> trie = new RWTrieMapRemove<>();
         int id = 0;
         for (String key : keys) {
             trie.put(key, id++);

@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 //+END_SOLUTION
 
 /*
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
 
@@ -15,7 +15,7 @@ public class RWayTrieMap<Value> {
 }
 */
 
-public class RWayTrieMapKeysThatMatch<Value> extends RWayTrieMap<Value> {
+public class RWTrieMapKeysThatMatch<Value> extends RWTrieMap<Value> {
     public Iterable<String> keysThatMatch(String pattern) {
         //+BEGIN_SOLUTION
         Deque<String> queue = new ArrayDeque<>();
@@ -44,7 +44,7 @@ public class RWayTrieMapKeysThatMatch<Value> extends RWayTrieMap<Value> {
         String[] keys = new String[] {
             "she", "sells", "sea", "shells", "by", "the", "sea", "shore"
         };
-        RWayTrieMapKeysThatMatch<Integer> trie = new RWayTrieMapKeysThatMatch<>();
+        RWTrieMapKeysThatMatch<Integer> trie = new RWTrieMapKeysThatMatch<>();
         int id = 0;
         for (String key : keys) {
             trie.put(key, id++);

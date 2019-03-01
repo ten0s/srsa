@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 //+END_SOLUTION
 
 /*
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
 
@@ -15,7 +15,7 @@ public class RWayTrieMap<Value> {
 }
 */
 
-public class RWayTrieMapLongestPrefixOf<Value> extends RWayTrieMap<Value> {
+public class RWTrieMapLongestPrefixOf<Value> extends RWTrieMap<Value> {
     public String longestPrefixOf(String s) {
         //+BEGIN_SOLUTION
         int length = search(root, s, 0, 0);
@@ -39,7 +39,7 @@ public class RWayTrieMapLongestPrefixOf<Value> extends RWayTrieMap<Value> {
         String[] keys = new String[] {
             "she", "sells", "sea", "shells", "by", "the", "sea", "shore"
         };
-        RWayTrieMapLongestPrefixOf<Integer> trie = new RWayTrieMapLongestPrefixOf<>();
+        RWTrieMapLongestPrefixOf<Integer> trie = new RWTrieMapLongestPrefixOf<>();
         int id = 0;
         for (String key : keys) {
             trie.put(key, id++);

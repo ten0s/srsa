@@ -1,5 +1,5 @@
 /*
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
     protected int size;
@@ -11,7 +11,7 @@ public class RWayTrieMap<Value> {
 }
 */
 
-public class RWayTrieMapPut<Value> extends RWayTrieMap<Value> {
+public class RWTrieMapPut<Value> extends RWTrieMap<Value> {
     public void put(String key, Value val) {
         //+BEGIN_SOLUTION
         put(root, key, val, 0);
@@ -38,7 +38,7 @@ public class RWayTrieMapPut<Value> extends RWayTrieMap<Value> {
         String[] keys = new String[] {
             "she", "sells", "sea", "shells", "by", "the", "sea", "shore"
         };
-        RWayTrieMapPut<Integer> trie = new RWayTrieMapPut<>();
+        RWTrieMapPut<Integer> trie = new RWTrieMapPut<>();
         Assert.assertEquals(0, trie.size());
         Assert.assertNull(trie.get("she"));
         int id = 0;

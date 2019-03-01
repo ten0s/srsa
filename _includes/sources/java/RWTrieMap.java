@@ -1,7 +1,7 @@
 import java.util.Deque;
 import java.util.ArrayDeque;
 
-public class RWayTrieMap<Value> {
+public class RWTrieMap<Value> {
     protected final static int R = 256; // extended ASCII
     protected Node root = new Node();
     protected int size;
