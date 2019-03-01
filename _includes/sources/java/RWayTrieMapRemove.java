@@ -22,16 +22,18 @@ public class RWayTrieMapRemove<Value> extends RWayTrieMap<Value> {
     private Node remove(Node x, String key, int d) {
         if (x == null) return null;
         if (d == key.length()) {
-            if (x.val != null) size--;
-            x.val = null;
+            if (x.val != null) {
+                size--;
+                x.val = null;
+            }
         } else {
             char c = key.charAt(d);
             x.next[c] = remove(x.next[c], key, d+1);
         }
         if (x.val != null) return x;
-
-        for (char c = 0; c < R; c++)
+        for (char c = 0; c < R; c++) {
             if (x.next[c] != null) return x;
+        }
         return null;
     }
     //+END_SOLUTION
