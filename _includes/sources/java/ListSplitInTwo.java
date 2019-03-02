@@ -1,3 +1,5 @@
+import java.lang.IllegalArgumentException;
+
 /*
 public class Node<T> {
     T item;
@@ -13,9 +15,7 @@ public class Pair<A, B> {
 public class ListSplitInTwo {
     public static <T> Pair<Node<T>, Node<T>> split(Node<T> node) {
         //+BEGIN_SOLUTION
-        if (node == null) {
-            throw new IllegalArgumentException();
-        }
+        if (node == null) throw new IllegalArgumentException();
         Node<T> slow = node, fast = node;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
