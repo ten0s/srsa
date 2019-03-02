@@ -1,9 +1,4 @@
-//+BEGIN_SOLUTION
-import java.util.Deque;
-import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.Iterator;
-//+END_SOLUTION
+import java.util.*;
 
 /*
 public class BSTMap<Key extends Comparable<Key>, Value> {
