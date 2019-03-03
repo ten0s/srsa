@@ -1,10 +1,4 @@
-//+BEGIN_FOLD Tests {
-import java.util.HashSet;
-//+END_FOLD }
-//+BEGIN_SOLUTION
-import java.util.List;
-import java.util.ArrayList;
-//+END_SOLUTION
+import java.util.*;
 
 public class EdgeWeightedGraph {
     //+BEGIN_SOLUTION

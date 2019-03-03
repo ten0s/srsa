@@ -1,7 +1,4 @@
-//+BEGIN_SOLUTION
-import java.util.Deque;
-import java.util.ArrayDeque;
-//+END_SOLUTION
+import java.util.*;
 
 public class GraphDFSPaths {
     //+BEGIN_SOLUTION
