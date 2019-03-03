@@ -1,8 +1,4 @@
-//+BEGIN_SOLUTION
-import java.util.Deque;
-import java.util.ArrayDeque;
-import java.util.PriorityQueue;
-//+END_SOLUTION
+import java.util.*;
 
 public class LazyDijkstraSPs {
     private static final double INFINITY = Double.POSITIVE_INFINITY;

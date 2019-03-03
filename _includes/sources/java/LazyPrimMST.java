@@ -1,11 +1,4 @@
-//+BEGIN_FOLD Tests {
-import java.util.HashSet;
-//+END_FOLD }
-//+BEGIN_SOLUTION
-import java.util.Deque;
-import java.util.ArrayDeque;
-import java.util.PriorityQueue;
-//+END_SOLUTION
+import java.util.*;
 
 public class LazyPrimMST {
     //+BEGIN_SOLUTION

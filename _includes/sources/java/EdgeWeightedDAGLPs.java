@@ -102,7 +102,7 @@ public class EdgeWeightedDAGLPs {
 
         G.addEdge(new DirectedEdge(2, 5, 0.0));
         try {
-            new EdgeWeightedDAGSPs(G, 0);
+            new EdgeWeightedDAGLPs(G, 0);
             Assert.assertTrue("No check if the graph is a DAG", false);
         } catch (IllegalArgumentException e) {}
 
