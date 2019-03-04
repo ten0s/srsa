@@ -6,12 +6,12 @@ public class BinTree.Node<?> {
 */
 
 public class BinTreeSize {
-    public static int size(BinTree.Node<?> root) {
+    public static int size(BinTree.Node<?> node) {
         //+BEGIN_SOLUTION
-        if (root == null) {
+        if (node == null) {
             return 0;
         }
-        return 1 + size(root.left) + size(root.right);
+        return 1 + size(node.left) + size(node.right);
         //+END_SOLUTION
     }
 

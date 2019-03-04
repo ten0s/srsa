@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class DijkstraSP {
-    private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
@@ -17,7 +16,7 @@ public class DijkstraSP {
         this.t = t;
 
         for (int v = 0; v < G.V(); v++) {
-            distTo[v] = INFINITY;
+            distTo[v] = Double.POSITIVE_INFINITY;
         }
         distTo[s] = 0.0;
 
@@ -52,7 +51,7 @@ public class DijkstraSP {
 
     public boolean hasPath() {
         //+BEGIN_SOLUTION
-        return distTo[t] < INFINITY;
+        return distTo[t] < Double.POSITIVE_INFINITY;
         //+END_SOLUTION
     }
 
@@ -97,7 +96,7 @@ public class DijkstraSP {
 
         DijkstraSP sp01 = new DijkstraSP(G, 0, 1);
         Assert.assertFalse(sp01.hasPath());
-        Assert.assertEquals(INFINITY, sp01.dist());
+        Assert.assertEquals(Double.POSITIVE_INFINITY, sp01.dist());
         Assert.assertNull(sp01.path());
 
         DijkstraSP sp02 = new DijkstraSP(G, 0, 2);

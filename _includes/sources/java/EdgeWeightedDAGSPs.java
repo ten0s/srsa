@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class EdgeWeightedDAGSPs {
-    private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
@@ -13,7 +12,7 @@ public class EdgeWeightedDAGSPs {
         distTo = new double[G.V()];
 
         for (int v = 0; v < G.V(); v++) {
-            distTo[v] = INFINITY;
+            distTo[v] = Double.POSITIVE_INFINITY;
         }
         distTo[s] = 0.0;
 
@@ -48,7 +47,7 @@ public class EdgeWeightedDAGSPs {
 
     public boolean hasPathTo(int v) {
         //+BEGIN_SOLUTION
-        return distTo[v] < INFINITY;
+        return distTo[v] < Double.POSITIVE_INFINITY;
         //+END_SOLUTION
     }
 
@@ -89,7 +88,7 @@ public class EdgeWeightedDAGSPs {
         Assert.assertEquals("", GraphUtil.directedWeightedPathToString(sp0.pathTo(0)));
 
         Assert.assertFalse(sp0.hasPathTo(5));
-        Assert.assertEquals(INFINITY, sp0.distTo(5));
+        Assert.assertEquals(Double.POSITIVE_INFINITY, sp0.distTo(5));
         Assert.assertNull(sp0.pathTo(5));
 
         EdgeWeightedDAGSPs sp5 = new EdgeWeightedDAGSPs(G, 5);

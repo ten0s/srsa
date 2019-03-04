@@ -1,10 +1,6 @@
-//+BEGIN_SOLUTION
-import java.util.Deque;
-import java.util.ArrayDeque;
-//+END_SOLUTION
+import java.util.*;
 
 public class BellmanFordSPs {
-    private static final double INFINITY = Double.POSITIVE_INFINITY;
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
@@ -22,7 +18,7 @@ public class BellmanFordSPs {
         onQueue = new boolean[G.V()];
 
         for (int v = 0; v < G.V(); v++) {
-            distTo[v] = INFINITY;
+            distTo[v] = Double.POSITIVE_INFINITY;
         }
         distTo[s] = 0.0;
 
@@ -76,7 +72,7 @@ public class BellmanFordSPs {
 
     public boolean hasPathTo(int v) {
         //+BEGIN_SOLUTION
-        return distTo[v] < INFINITY;
+        return distTo[v] < Double.POSITIVE_INFINITY;
         //+END_SOLUTION
     }
 

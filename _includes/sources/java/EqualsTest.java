@@ -19,12 +19,12 @@ public class EqualsTest {
 
         //+BEGIN_SOLUTION
         public boolean equals(Object x) {
-            if (this == x) return true;
+            if (x == this) return true;
             if (x == null) return false;
-            if (this.getClass() != x.getClass()) return false;
+            if (x.getClass() != this.getClass()) return false;
             Entry that = (Entry) x;
-            return this.key.equals(that.key) &&
-                   this.val.equals(that.val);
+            return that.key.equals(this.key) &&
+                   that.val.equals(this.val);
         }
 
         public int hashCode() {

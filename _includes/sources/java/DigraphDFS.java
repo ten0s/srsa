@@ -1,7 +1,4 @@
-//+BEGIN_FOLD Tests {
-import java.util.List;
-import java.util.ArrayList;
-//+END_FOLD }
+import java.util.*;
 
 public class DigraphDFS {
     //+BEGIN_SOLUTION
