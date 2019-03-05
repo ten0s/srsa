@@ -15,6 +15,7 @@ solution_file: /sources/java/GraphCycle.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
+- /sources/java/Either.java
 - /sources/java/Graph.java
 - /sources/java/GraphUtil.java
 - /sources/java/DirectedEdge.java
