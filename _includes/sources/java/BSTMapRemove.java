@@ -62,14 +62,17 @@ public class BSTMapRemove<Key extends Comparable<Key>, Value> extends BSTMap<Key
         map.remove(1);
         Assert.assertArrayEquals(new Integer[] {2,3,4,5,6,7},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(6, map.size());
 
         map.remove(7);
         Assert.assertArrayEquals(new Integer[] {2,3,4,5,6},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(5, map.size());
 
         map.remove(4);
         Assert.assertArrayEquals(new Integer[] {2,3,5,6},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(4, map.size());
 
         System.out.println("OK");
     }

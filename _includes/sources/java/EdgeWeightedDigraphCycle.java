@@ -100,7 +100,8 @@ public class EdgeWeightedDigraphCycle {
         G4C.addEdge(new DirectedEdge(6, 0, 0.16));
         EdgeWeightedDigraphCycle c4c = new EdgeWeightedDigraphCycle(G4C);
         Assert.assertTrue(c4c.hasCycle());
-        Assert.assertEquals("6->0->2->4->6", GraphUtil.directedWeightedPathToString(c4c.cycle));
+        Assert.assertEquals(new Either("6->0->2->4->6", "0->2->4->6->0"),
+                            GraphUtil.directedWeightedPathToString(c4c.cycle));
 
         System.out.println("OK");
     }
