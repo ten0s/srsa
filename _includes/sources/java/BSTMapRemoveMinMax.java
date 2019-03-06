@@ -7,8 +7,10 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
         Key key;
         Node left;
         Node right;
+        int size;
     }
     public boolean isEmpty();
+    protected int size(Node x);
 }
 */
 

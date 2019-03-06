@@ -4,7 +4,7 @@ public class LazyDijkstraSPs {
     //+BEGIN_SOLUTION
     private DirectedEdge[] edgeTo;
     private double[] distTo;
-    private PriorityQueue<DirectedEdge> pq;
+    private PriorityQueue<DirectedEdge> pq; // NB: sorted by weight
     //+END_SOLUTION
 
     public LazyDijkstraSPs(EdgeWeightedDigraph G, int s) {

@@ -27,9 +27,9 @@ move(N, From, To, Spare, Board) ->
     move(N-1, Spare, To, From, Board2).
 
 move_from_to(From, To, Board) ->
-    [Top | Froms] = maps:get(From, Board),
-    Tos           = maps:get(To, Board),
-    Board#{From => Froms, To => [Top | Tos]}.
+    [Top | FromL] = maps:get(From, Board),
+    ToL           = maps:get(To, Board),
+    Board#{From => FromL, To => [Top | ToL]}.
 %%+END_SOLUTION
 
 %%+BEGIN_FOLD Tests {
