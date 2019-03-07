@@ -4,19 +4,21 @@ class ArrayMergeSortBottomUp {
         int n = a.length;
         T[] aux = (T[]) new Comparable[n];
         //+BEGIN_SOLUTION
-        for (int len = 1; len < n; len *= 2)
-            for (int lo = 0; lo+len < n; lo += 2*len)
+        for (int len = 1; len < n; len *= 2) {
+            for (int lo = 0; lo+len < n; lo += 2*len) {
                 merge(a, aux, lo, lo+len-1, Math.min(lo+len+len-1, n-1));
+            }
+        }
         return a;
         //+END_SOLUTION
     }
 
-
     private static <T extends Comparable<T>> T[] merge(T[] a, T[] aux, int lo, int mid, int hi) {
         //+BEGIN_SOLUTION
-        for (int k = lo; k <= hi; k++)
+        for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
-        int i = lo, j = mid + 1;
+        }
+        int i = lo, j = mid+1;
         for (int k = lo; k <= hi; k++) {
             if      (i > mid)              a[k] = aux[j++];
             else if (j > hi)               a[k] = aux[i++];
