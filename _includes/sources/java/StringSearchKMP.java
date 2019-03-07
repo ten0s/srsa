@@ -29,7 +29,7 @@ public class StringSearchKMP {
             for (i = 0, j = 0; i < N && j < M; i++)
                 j = dfa[txt.charAt(i)][j];
             if (j == M) return i-M;
-            return -1;
+            else        return -1;
             //+END_SOLUTION
         }
     }
