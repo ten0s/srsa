@@ -40,8 +40,8 @@ public class StringSearchBoyerMoore {
 
     public static int search(String pat, String txt) {
         //+BEGIN_SOLUTION
-        BoyerMoore kmp = new BoyerMoore(pat);
-        return kmp.search(txt);
+        BoyerMoore bm = new BoyerMoore(pat);
+        return bm.search(txt);
         //+END_SOLUTION
     }
 
