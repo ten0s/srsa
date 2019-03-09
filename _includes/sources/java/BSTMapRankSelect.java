@@ -8,7 +8,6 @@ public class BSTMap<Key extends Comparable<Key>, Value> {
         Node left;
         Node right;
     }
-    public int size();
     protected int size(Node x);
 }
 */

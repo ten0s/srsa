@@ -1,8 +1,4 @@
-//+BEGIN_FOLD Tests {
-import java.util.Arrays;
-//+END_FOLD }
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 public class QueuesMerge<Item extends Comparable<Item>> {
     private Queue<Item> out;
