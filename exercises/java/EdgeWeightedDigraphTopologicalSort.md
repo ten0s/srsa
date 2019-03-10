@@ -13,6 +13,7 @@ solution_file: /sources/java/EdgeWeightedDigraphTopologicalSort.java
 library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
+- /sources/java/Either.java
 - /sources/java/EdgeWeightedDigraph.java
 - /sources/java/DirectedEdge.java
 - /sources/java/GraphUtil.java
