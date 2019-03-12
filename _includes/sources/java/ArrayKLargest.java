@@ -1,6 +1,4 @@
-//+BEGIN_SOLUTION
-import java.util.PriorityQueue;
-//+END_SOLUTION
+import java.util.*;
 
 public class ArrayKLargest {
     public static int[] largest(int k, int[] a) {
