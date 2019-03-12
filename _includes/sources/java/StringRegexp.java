@@ -4,8 +4,8 @@ public class StringRegexp {
     private static class Regexp {
         //+BEGIN_SOLUTION
         private char[] re;
+        private final int M;
         private Digraph G;
-        private int M;
         //+END_SOLUTION
 
         public Regexp(String regexp) {
@@ -76,8 +76,8 @@ public class StringRegexp {
 
                 states = new ArrayDeque<>();
                 dfs = new DigraphDFS(G, matches);
-                for (int s = 0; s < G.V(); s++)
-                    if (dfs.hasPathTo(s)) states.add(s);
+                for (int v = 0; v < G.V(); v++)
+                    if (dfs.hasPathTo(v)) states.add(v);
             }
 
             for (int s : states)
