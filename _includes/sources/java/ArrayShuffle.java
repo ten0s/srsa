@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ArrayShuffle {
     public static int[] shuffle(int[] a) {
         //+BEGIN_SOLUTION
@@ -35,15 +33,13 @@ public class ArrayShuffle {
         Histogram.print(sumsAsc);
         System.out.println(ArrayUtil.toString(sumsDesc));
         Histogram.print(sumsDesc);
-        /*
-        for (int i = 0; i < 100; i++) {
-            Assert.assertFalse(
-                Arrays.equals(
-                    new Integer[] {1,2,3,4,5,6,7,8,9,10},
-                    shuffle(new Integer[] {1,2,3,4,5,6,7,8,9,10})));
-        }
+
+        double stdDevAsc = Stat.stdDev(sumsAsc);
+        Assert.assertTrue("" + stdDevAsc, stdDevAsc < 150.0);
+        double stdDevDesc = Stat.stdDev(sumsDesc);
+        Assert.assertTrue("" + stdDevDesc, stdDevDesc < 150.0);
+
         System.out.println("OK");
-        */
     }
     //+END_FOLD }
 }

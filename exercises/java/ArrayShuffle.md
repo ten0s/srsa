@@ -7,6 +7,7 @@ library_files:
 - /sources/java/Assert.java
 - /sources/java/ArrayUtil.java
 - /sources/java/Histogram.java
+- /sources/java/Stat.java
 language: java
 command: javac ArrayShuffle.java && java ArrayShuffle
 ---
