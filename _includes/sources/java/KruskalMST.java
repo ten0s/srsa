@@ -1,14 +1,8 @@
-//+BEGIN_FOLD Tests {
-import java.util.HashSet;
-//+END_FOLD }
-//+BEGIN_SOLUTION
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-//+END_SOLUTION
+import java.util.*;
 
 public class KruskalMST {
     //+BEGIN_SOLUTION
-    private ArrayList<Edge> mst;
+    private List<Edge> mst;
     private double weight;
     //+END_SOLUTION
 

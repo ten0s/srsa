@@ -1,7 +1,4 @@
-//+BEGIN_SOLUTION
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-//+END_SOLUTION
+import java.util.*;
 
 public class IteratorTest {
     static class Array<Item> implements Iterable<Item> {
