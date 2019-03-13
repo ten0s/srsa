@@ -1,61 +1,64 @@
 import java.util.*;
 
-public class EdgeWeightedDAGLPs {
+public class EdgeWeightedDAGLPs2 {
     //+BEGIN_SOLUTION
-    private DirectedEdge[] edgeTo;
-    private double[] distTo;
+    private EdgeWeightedDAGSPs sp;
     //+END_SOLUTION
 
-    public EdgeWeightedDAGLPs(EdgeWeightedDigraph G, int s) {
+    public EdgeWeightedDAGLPs2(EdgeWeightedDigraph G, int s) {
         //+BEGIN_SOLUTION
-        edgeTo = new DirectedEdge[G.V()];
-        distTo = new double[G.V()];
-        for (int v = 0; v < G.V(); v++)
-            distTo[v] = Double.NEGATIVE_INFINITY;
-        distTo[s] = 0.0;
-        EdgeWeightedDigraphTopologicalSort ts = new EdgeWeightedDigraphTopologicalSort(G);
-        if (ts.hasOrder()) {
-            for (int v : ts.order()) {
-                relax(G, v);
-            }
-        } else {
-            throw new IllegalArgumentException("Given graph is NOT a DAG!");
-        }
+        EdgeWeightedDigraph N = negate(G);
+        sp = new EdgeWeightedDAGSPs(N, s);
         //+END_SOLUTION
     }
 
     //+BEGIN_SOLUTION
-    private void relax(EdgeWeightedDigraph G, int v) {
-        for (DirectedEdge e : G.adj(v)) {
-            int w = e.to();
-            if (distTo[w] < distTo[v] + e.weight()) {
-                distTo[w] = distTo[v] + e.weight();
-                edgeTo[w] = e;
+    private EdgeWeightedDigraph negate(EdgeWeightedDigraph G) {
+        EdgeWeightedDigraph N = new EdgeWeightedDigraph(G.V());
+        for (int v = 0; v < G.V(); v++) {
+            for (DirectedEdge e : G.adj(v)) {
+                N.addEdge(new DirectedEdge(e.from(), e.to(), -1.0 * e.weight()));
             }
         }
+        return N;
     }
     //+END_SOLUTION
 
     public double distTo(int v) {
         //+BEGIN_SOLUTION
-        return distTo[v];
+        return -1.0 * sp.distTo(v);
         //+END_SOLUTION
     }
 
     public boolean hasPathTo(int v) {
         //+BEGIN_SOLUTION
-        return distTo[v] > Double.NEGATIVE_INFINITY;
+        return sp.hasPathTo(v);
         //+END_SOLUTION
     }
 
     public Iterable<DirectedEdge> pathTo(int v) {
         //+BEGIN_SOLUTION
-        if (!hasPathTo(v)) return null;
-        Deque<DirectedEdge> path = new ArrayDeque<>();
-        for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
-            path.push(e);
-        }
-        return path;
+        Iterable<DirectedEdge> path = sp.pathTo(v);
+        if (path == null) return null;
+        Iterator<DirectedEdge> it = path.iterator();
+        return new Iterable<DirectedEdge>() {
+            public Iterator<DirectedEdge> iterator() {
+                return new Iterator<DirectedEdge>() {
+                    public boolean hasNext() {
+                        return it.hasNext();
+                    }
+
+                    public DirectedEdge next() {
+                        DirectedEdge e = it.next();
+                        return new DirectedEdge(e.from(), e.to(), -1.0 * e.weight());
+                    }
+
+                    public void remove() {
+                        throw new UnsupportedOperationException();
+                    }
+                };
+            }
+        };
         //+END_SOLUTION
     }
 
@@ -79,7 +82,7 @@ public class EdgeWeightedDAGLPs {
         //System.out.println(G);
         //System.out.println(G.toDot());
 
-        EdgeWeightedDAGLPs lp0 = new EdgeWeightedDAGLPs(G, 0);
+        EdgeWeightedDAGLPs2 lp0 = new EdgeWeightedDAGLPs2(G, 0);
         Assert.assertTrue(lp0.hasPathTo(0));
         Assert.assertEquals(0.0, lp0.distTo(0), 10e-4);
         Assert.assertEquals("", GraphUtil.directedWeightedPathToString(lp0.pathTo(0)));
@@ -88,7 +91,7 @@ public class EdgeWeightedDAGLPs {
         Assert.assertEquals(Double.NEGATIVE_INFINITY, lp0.distTo(5));
         Assert.assertNull(lp0.pathTo(5));
 
-        EdgeWeightedDAGLPs lp5 = new EdgeWeightedDAGLPs(G, 5);
+        EdgeWeightedDAGLPs2 lp5 = new EdgeWeightedDAGLPs2(G, 5);
         Assert.assertTrue(lp5.hasPathTo(0));
         Assert.assertEquals(2.44, lp5.distTo(0));
         Assert.assertEquals("5->1->3->6->4->0", GraphUtil.directedWeightedPathToString(lp5.pathTo(0)));
@@ -99,7 +102,7 @@ public class EdgeWeightedDAGLPs {
 
         G.addEdge(new DirectedEdge(2, 5, 0.0));
         try {
-            new EdgeWeightedDAGLPs(G, 0);
+            new EdgeWeightedDAGLPs2(G, 0);
             Assert.assertTrue("No check if the graph is a DAG", false);
         } catch (IllegalArgumentException e) {}
 
@@ -121,5 +124,12 @@ public class EdgeWeightedDigraphTopologicalSort {
     public EdgeWeightedDigraphTopologicalSort(EdgeWeightedDigraph G);
     public boolean hasOrder();
     public Iterable<Integer> order();
+}
+
+public class EdgeWeightedDAGSPs {
+    public EdgeWeightedDAGSPs(EdgeWeightedDigraph G, int s);
+    public double distTo(int v);
+    public boolean hasPathTo(int v);
+    public Iterable<DirectedEdge> pathTo(int v)
 }
 +END_FOLD*/
