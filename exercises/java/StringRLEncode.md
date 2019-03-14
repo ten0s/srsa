@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: String Run-Length Encoding
+title: String Run-Length Encode
 question_text: >-
   Implement run-length encoding. For example, encode("AAABBC") => "A3B2C1".
 solution_file: /sources/java/StringRLEncode.java

@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: String Run-Length Decoding
+title: String Run-Length Decode
 question_text: >-
   Implement run-length decoding. For example, decode("A3B2C1") => "AAABBC".
 solution_file: /sources/java/StringRLDecode.java
