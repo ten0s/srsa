@@ -17,10 +17,14 @@ public class EdgeWeightedDAGLPs2 {
         EdgeWeightedDigraph N = new EdgeWeightedDigraph(G.V());
         for (int v = 0; v < G.V(); v++) {
             for (DirectedEdge e : G.adj(v)) {
-                N.addEdge(new DirectedEdge(e.from(), e.to(), -1.0 * e.weight()));
+                N.addEdge(negate(e));
             }
         }
         return N;
+    }
+
+    private DirectedEdge negate(DirectedEdge e) {
+        return new DirectedEdge(e.from(), e.to(), -1.0 * e.weight());
     }
     //+END_SOLUTION
 
@@ -47,14 +51,11 @@ public class EdgeWeightedDAGLPs2 {
                     public boolean hasNext() {
                         return it.hasNext();
                     }
-
                     public DirectedEdge next() {
-                        DirectedEdge e = it.next();
-                        return new DirectedEdge(e.from(), e.to(), -1.0 * e.weight());
+                        return negate(it.next());
                     }
-
                     public void remove() {
-                        throw new UnsupportedOperationException();
+                        it.remove();
                     }
                 };
             }
