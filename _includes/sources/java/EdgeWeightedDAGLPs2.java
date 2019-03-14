@@ -7,8 +7,7 @@ public class EdgeWeightedDAGLPs2 {
 
     public EdgeWeightedDAGLPs2(EdgeWeightedDigraph G, int s) {
         //+BEGIN_SOLUTION
-        EdgeWeightedDigraph N = negate(G);
-        sp = new EdgeWeightedDAGSPs(N, s);
+        sp = new EdgeWeightedDAGSPs(negate(G), s);
         //+END_SOLUTION
     }
 
