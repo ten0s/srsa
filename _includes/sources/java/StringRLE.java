@@ -38,7 +38,7 @@ public class StringRLE {
                 }
             }
             int count = Integer.parseInt(digits.toString());
-            for (int k = 0; k < count; k++) {
+            for (int j = 0; j < count; j++) {
                 sb.append(symbol);
             }
         }
