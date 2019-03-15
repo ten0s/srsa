@@ -18,10 +18,10 @@ public class HuffmanEncodeFromTrie extends Huffman {
     public static String encode(Node root, String text) {
         //+BEGIN_SOLUTION
         StringBuilder sb = new StringBuilder();
-        String[] codes = codes(root);
+        String[] st = codes(root);
         int n = text.length();
         for (int i = 0; i < n; i++) {
-            sb.append(codes[text.charAt(i)]);
+            sb.append(st[text.charAt(i)]);
         }
         return sb.toString();
         //+END_SOLUTION
@@ -38,7 +38,7 @@ public class HuffmanEncodeFromTrie extends Huffman {
         if (x.isLeaf()) {
             st[x.ch] = prefix;
         } else {
-            codes(x.left, prefix + '0', st);
+            codes(x.left , prefix + '0', st);
             codes(x.right, prefix + '1', st);
         }
     }
