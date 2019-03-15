@@ -28,6 +28,8 @@ public class StringRLEncode extends StringRLE {
         Assert.assertEquals("", encode(decode("")));
         Assert.assertEquals("A", decode(encode("A")));
         Assert.assertEquals("A1", encode(decode("A1")));
+        Assert.assertEquals("AAAAAAAAAA", decode(encode("AAAAAAAAAA")));
+        Assert.assertEquals("A10", encode(decode("A10")));
         Assert.assertEquals("AAABBC", decode(encode("AAABBC")));
         Assert.assertEquals("A3B2C1", encode(decode("A3B2C1")));
         System.out.println("OK");
