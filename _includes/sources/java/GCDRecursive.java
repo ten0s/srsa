@@ -1,4 +1,4 @@
-public class GCD {
+public class GCDRecursive {
     public static int gcd(int a, int b) {
         //+BEGIN_SOLUTION
         if (b == 0) {
