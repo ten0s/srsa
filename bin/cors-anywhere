@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR=$(dirname $0)
+
+if ! docker images | grep cors-anywhere > /dev/null; then
+   $DIR/../docker/cors-anywhere/build-image
+fi
+
+$DIR/../docker/cors-anywhere/run-image
