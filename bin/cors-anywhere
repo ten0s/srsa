@@ -3,7 +3,7 @@
 DIR=$(dirname $0)
 
 if ! docker images | grep cors-anywhere > /dev/null; then
-   $DIR/../docker/cors-anywhere/build-image
+   $DIR/../docker/cors-anywhere/build
 fi
 
-$DIR/../docker/cors-anywhere/run-image
+$DIR/../docker/cors-anywhere/run
