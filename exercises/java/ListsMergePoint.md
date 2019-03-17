@@ -4,7 +4,7 @@ title: Lists Merge Point
 question_text: >-
   Given two lists of different lengths that merge at a point, determine the merge point
   <pre>
-    A-->B-->C
+    9-->8-->7
             |
             V
     1-->2-->3-->4-->5
