@@ -31,6 +31,21 @@ var Storage = (function () {
         return localStorage.getItem("glot-io-token");
     }
 
+    function setCORSAnywhereUrl(url) {
+        if (url[url.length - 1] !== "/") {
+            url += "/";
+        }
+        localStorage.setItem("cors-anywhere-url", url);
+    }
+
+    function getCORSAnywhereUrl() {
+        var url = localStorage.getItem("cors-anywhere-url");
+        if (!url) {
+            url = "https://cors-anywhere.herokuapp.com/";
+        }
+        return url;
+    }
+
     function getEditorFontSize() {
         var fs = localStorage.getItem("editor-font-size");
         if (fs) {
@@ -74,6 +89,8 @@ var Storage = (function () {
     return {
         setGlotIOToken: setGlotIOToken,
         getGlotIOToken: getGlotIOToken,
+        setCORSAnywhereUrl: setCORSAnywhereUrl,
+        getCORSAnywhereUrl: getCORSAnywhereUrl,
 
         getEditorFontSize: getEditorFontSize,
         setEditorFontSize: setEditorFontSize,
