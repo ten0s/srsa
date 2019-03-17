@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+DIR=$(dirname $0)
+VER=4814647
+
+if [[ ! -d $DIR/app/ ]]; then
+   git clone https://github.com/Rob--W/cors-anywhere.git $DIR/app/
+   cd $DIR/app/
+   git checkout $VER
+else
+   cd $DIR/app/
+fi
+
+npm install
+cd ..
+
+docker build -t cors-anywhere .

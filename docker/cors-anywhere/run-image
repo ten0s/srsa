@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+PORT=8081
+docker run -it --rm --init --env PORT=$PORT --publish $PORT:$PORT cors-anywhere
