@@ -1,5 +1,6 @@
 /*
 public class SuffixArray {
+    public SuffixArray(String text);
     public int index(int i );
     public int length();
     public int lcp(int i);
