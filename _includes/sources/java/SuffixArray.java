@@ -42,8 +42,10 @@ public class SuffixArray {
     }
 
     private Suffix[] suffixes;
+    private String text;
 
     public SuffixArray(String text) {
+        this.text = text;
         //+BEGIN_SOLUTION
         int n = text.length();
         suffixes = new Suffix[n];
@@ -72,10 +74,11 @@ public class SuffixArray {
 
     public int lcp(int i) {
         //+BEGIN_SOLUTION
-        int n = Math.min(suffixes[i-1].length(), suffixes[i].length());
+        Suffix s1 = suffixes[i-1];
+        Suffix s2 = suffixes[i];
+        int n = Math.min(s1.length(), s2.length());
         for (int j = 0; j < n; j++)
-            if (suffixes[i-1].charAt(j) != suffixes[i].charAt(j))
-                return j;
+            if (s1.charAt(j) != s2.charAt(j)) return j;
         return n;
         //+END_SOLUTION
     }
@@ -95,18 +98,54 @@ public class SuffixArray {
     }
 
     //+BEGIN_SOLUTION
-    private int compare(String key, Suffix suffix) {
-        int n = Math.min(key.length(), suffix.length());
+    private int compare(String s1, Suffix s2) {
+        int n = Math.min(s1.length(), s2.length());
         for (int i = 0; i < n; i++) {
-            if (key.charAt(i) < suffix.charAt(i)) return -1;
-            if (key.charAt(i) > suffix.charAt(i)) return +1;
+            if (s1.charAt(i) < s2.charAt(i)) return -1;
+            if (s1.charAt(i) > s2.charAt(i)) return +1;
         }
-        return key.length() - suffix.length();
+        return s1.length() - s2.length();
     }
     //+END_SOLUTION
 
+    //+BEGIN_FOLD Utils {
+    private void overall() {
+        System.out.println("  i ind lcp rnk select");
+        System.out.println("---------------------------");
+        for (int i = 0; i < text.length(); i++) {
+            int index = index(i);
+            String ith =
+                Character.toString('"') +
+                text.substring(index, Math.min(index + 50, text.length())) +
+                Character.toString('"');
+            int rank = rank(text.substring(index));
+            if (i == 0) {
+                System.out.printf("%3d %3d %3s %3d %s", i, index, "-", rank, ith);
+                System.out.println();
+            }
+            else {
+                int lcp = lcp(i);
+                System.out.printf("%3d %3d %3d %3d %s", i, index, lcp, rank, ith);
+                System.out.println();
+            }
+        }
+    }
+    //+END_FOLD }
+
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
+        SuffixArray sa = new SuffixArray("mississippi");
+        //sa.overall();
+        Assert.assertEquals(11, sa.length());
+        Assert.assertEquals(10, sa.index(0));
+        Assert.assertEquals(9, sa.index(5));
+        Assert.assertEquals("i", sa.select(0));
+        Assert.assertEquals("pi", sa.select(5));
+        Assert.assertEquals(1, sa.lcp(1));
+        Assert.assertEquals(4, sa.lcp(3));
+        Assert.assertEquals(0, sa.rank("i"));
+        Assert.assertEquals(5, sa.rank("pi"));
+        Assert.assertEquals(7, sa.rank("random"));
         System.out.println("OK");
     }
     //+END_FOLD }
