@@ -52,6 +52,7 @@ public class SuffixArray {
         for (int i = 0; i < n; i++)
             suffixes[i] = new Suffix(text, i);
         Arrays.sort(suffixes);
+        //+END_SOLUTION
     }
 
     public int index(int i ) {
