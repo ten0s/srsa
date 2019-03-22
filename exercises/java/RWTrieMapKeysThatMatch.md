@@ -2,7 +2,8 @@
 layout: exercise
 title: R-Way Trie Keys that Match
 question_text: >-
-  Fetch keys that match a given pattern from a R-way trie
+  Fetch keys that match a given pattern from a R-way trie.
+  For example, keysThatMatch(".he") => ["she", "the"]
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/she-sells.png" title="she-sells" style="height:70%; width:auto;"></td>
