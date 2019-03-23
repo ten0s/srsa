@@ -68,6 +68,13 @@ class ListShuffle {
         Histogram.print(sumsAsc);
         System.out.println(ArrayUtil.toString(sumsDesc));
         Histogram.print(sumsDesc);
+
+        double stdDevAsc = Stat.stdDev(sumsAsc);
+        Assert.assertTrue("" + stdDevAsc, stdDevAsc < 150.0);
+        double stdDevDesc = Stat.stdDev(sumsDesc);
+        Assert.assertTrue("" + stdDevDesc, stdDevDesc < 150.0);
+
+        System.out.println("OK");
     }
     //+END_FOLD }
 }

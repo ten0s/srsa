@@ -9,6 +9,7 @@ library_files:
 - /sources/java/Node.java
 - /sources/java/Pair.java
 - /sources/java/Histogram.java
+- /sources/java/Stat.java
 language: java
 command: javac ListShuffle.java && java ListShuffle
 ---
