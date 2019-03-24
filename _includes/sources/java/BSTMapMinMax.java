@@ -22,8 +22,9 @@ public class BSTMapMinMax<Key extends Comparable<Key>, Value> extends BSTMap<Key
 
     //+BEGIN_SOLUTION
     protected Node min(Node x) {
-        if (x.left == null) return x;
-        return min(x.left);
+        // iterative
+        while (x.left != null) x = x.left;
+        return x;
     }
     //+END_SOLUTION
 
@@ -36,6 +37,7 @@ public class BSTMapMinMax<Key extends Comparable<Key>, Value> extends BSTMap<Key
 
     //+BEGIN_SOLUTION
     protected Node max(Node x) {
+        // recursive
         if (x.right == null) return x;
         return max(x.right);
     }
