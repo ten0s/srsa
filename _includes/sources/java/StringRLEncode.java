@@ -8,16 +8,14 @@ public class StringRLEncode extends StringRLE {
         int count = 1;
         for (int i = 1; i < n; i++) {
             if (s.charAt(i) != symbol) {
-                sb.append(symbol);
-                sb.append(count);
+                sb.append(symbol).append(count);
                 symbol = s.charAt(i);
                 count = 1;
             } else {
                 count++;
             }
         }
-        sb.append(symbol);
-        sb.append(count);
+        sb.append(symbol).append(count);
         return sb.toString();
         //+END_SOLUTION
     }

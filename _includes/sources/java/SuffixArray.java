@@ -16,7 +16,7 @@ public class SuffixArray {
             //+END_SOLUTION
         }
 
-        private char charAt(int i ) {
+        private char charAt(int i) {
             //+BEGIN_SOLUTION
             return text.charAt(index + i);
             //+END_SOLUTION
