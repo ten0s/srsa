@@ -10,9 +10,12 @@ public class EdgeWeightedDAGLPs {
         //+BEGIN_SOLUTION
         edgeTo = new DirectedEdge[G.V()];
         distTo = new double[G.V()];
-        for (int v = 0; v < G.V(); v++)
+
+        for (int v = 0; v < G.V(); v++) {
             distTo[v] = Double.NEGATIVE_INFINITY;
+        }
         distTo[s] = 0.0;
+
         EdgeWeightedDigraphTopologicalSort ts = new EdgeWeightedDigraphTopologicalSort(G);
         if (ts.hasOrder()) {
             for (int v : ts.order()) {

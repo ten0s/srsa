@@ -12,13 +12,16 @@ public class StringLRS {
         //+BEGIN_SOLUTION
         SuffixArray sa = new SuffixArray(s);
         int n = s.length();
-        String lrs = "";
+        int length = 0;
+        int index = 0;
         for (int i = 1; i < n; i++) {
-            int length = sa.lcp(i);
-            if (length > lrs.length())
-                lrs = s.substring(sa.index(i), sa.index(i)+length);
+            int len = sa.lcp(i);
+            if (len > length) {
+                length = len;
+                index = sa.index(i);
+            }
         }
-        return lrs;
+        return s.substring(index, index + length);
         //+END_SOLUTION
     }
 
