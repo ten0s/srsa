@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo '<a href="pdfx:///home/ten0s/anki2/algs4.pdf::<PAGE>">Algorithms (4th ed.), p. <PAGE></a>'
+echo '<a href="pdfx:///home/ten0s/anki2/skiena2.pdf::<PAGE>">The Algorithm Design Manual (2nd ed.), p. <PAGE></a>'
 echo '<a href="djvux:///home/ten0s/anki2/pfds.djvu::<PAGE>">Pure Functional Data Structures, p. <PAGE></a>'
 echo '<a href="manx:grep::REGULAR+EXPRESSIONS">Grep: Regular Expressions</a>'
