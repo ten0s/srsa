@@ -65,17 +65,22 @@ public class BSTMapRemoveMinMax<Key extends Comparable<Key>, Value> extends BSTM
         map.removeMin();
         Assert.assertArrayEquals(new Integer[] {2,3,4,5,6,7},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(6, map.size());
+
         map.removeMin();
         Assert.assertArrayEquals(new Integer[] {3,4,5,6,7},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(5, map.size());
 
         map.removeMax();
         Assert.assertArrayEquals(new Integer[] {3,4,5,6},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(4, map.size());
 
         map.removeMax();
         Assert.assertArrayEquals(new Integer[] {3,4,5},
                                  ArrayUtil.toArray(map.keys()));
+        Assert.assertEquals(3, map.size());
 
         System.out.println("OK");
     }
