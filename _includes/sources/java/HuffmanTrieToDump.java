@@ -26,8 +26,7 @@ public class HuffmanTrieToDump extends Huffman {
     //+BEGIN_SOLUTION
     private static void dump(Node x, StringBuilder sb) {
         if (x.isLeaf()) {
-            sb.append('1');
-            sb.append(x.ch);
+            sb.append('1').append(x.ch);
         } else {
             sb.append('0');
             dump(x.left, sb);
