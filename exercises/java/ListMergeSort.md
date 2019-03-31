@@ -10,6 +10,7 @@ library_files:
 - /sources/java/Pair.java
 - /sources/java/ListShuffle.java
 - /sources/java/Histogram.java
+- /sources/java/Stat.java
 language: java
 command: javac ListMergeSort.java && java ListMergeSort
 ---

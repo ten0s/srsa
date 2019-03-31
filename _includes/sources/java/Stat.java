@@ -1,22 +1,18 @@
 public class Stat {
     public static double mean(int[] a) {
         //+BEGIN_SOLUTION
-        int n = a.length;
         double sum = 0.0;
-        for (int i = 0; i < n; i++)
-            sum += a[i];
-        return sum / n;
+        for (int i : a) sum += i;
+        return sum / a.length;
         //+END_SOLUTION
     }
 
     public static double variance(int[] a) {
         //+BEGIN_SOLUTION
-        int n = a.length;
         double mean = mean(a);
         double sum = 0.0;
-        for (int i = 0; i < n; i++)
-            sum += Math.pow(a[i] - mean, 2);
-        return sum / n;
+        for (int i : a) sum += Math.pow(i - mean, 2);
+        return sum / a.length;
         //+END_SOLUTION
     }
 
