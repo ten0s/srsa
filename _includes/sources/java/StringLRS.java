@@ -1,12 +1,3 @@
-/*
-public class SuffixArray {
-    public SuffixArray(String text);
-    public int index(int i );
-    public int length();
-    public int lcp(int i);
-}
-*/
-
 public class StringLRS {
     public static String lrs(String s) {
         //+BEGIN_SOLUTION
@@ -35,3 +26,13 @@ public class StringLRS {
     }
     //+END_FOLD }
 }
+
+// Refs
+/*+BEGIN_FOLD
+public class SuffixArray {
+    public SuffixArray(String text);
+    public int index(int i );
+    public int length();
+    public int lcp(int i);
+}
++END_FOLD*/

@@ -1,13 +1,5 @@
 import java.util.*;
 
-/*
-public class SuffixArray {
-    public SuffixArray(String text);
-    public int index(int i );
-    public int rank(String query);
-}
-*/
-
 public class StringKWIC {
     public static Iterable<String> kwic(String text, int context, String query) {
         //+BEGIN_SOLUTION
@@ -42,3 +34,12 @@ public class StringKWIC {
     }
     //+END_FOLD }
 }
+
+// Refs
+/*+BEGIN_FOLD
+public class SuffixArray {
+    public SuffixArray(String text);
+    public int index(int i );
+    public int rank(String query);
+}
++END_FOLD*/
