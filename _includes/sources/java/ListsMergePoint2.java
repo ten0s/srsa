@@ -7,27 +7,25 @@ public class Node<T> {
 }
 */
 
-public class ListsMergePoint {
+public class ListsMergePoint2 {
     public static <T> Node<T> mergePoint(Node<T> l1, Node<T> l2) {
         //+BEGIN_SOLUTION
-        if (l1 == null || l2 == null) return null;
-        if (l1 == l2) return l1;
-        Node<T> n1 = l1,    n2 = l2;
-        boolean f1 = false, f2 = false;
-        while (true) {
-            n1 = n1.next;
-            n2 = n2.next;
-            if (n1 == null) {
-                if (f1) break;
-                f1 = true;
-                n1 = l2;
+        Deque<Node<T>> s1 = new ArrayDeque<>();
+        Deque<Node<T>> s2 = new ArrayDeque<>();
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                s1.push(l1);
+                l1 = l1.next;
             }
-            if (n2 == null) {
-                if (f2) break;
-                f2 = true;
-                n2 = l1;
+            if (l2 != null) {
+                s2.push(l2);
+                l2 = l2.next;
             }
-            if (n1 == n2) return n1;
+        }
+        while (!s1.isEmpty() && !s2.isEmpty()) {
+            Node<T> n1 = s1.pop();
+            Node<T> n2 = s2.pop();
+            if (n1 != n2) return n1.next;
         }
         return null;
         //+END_SOLUTION
