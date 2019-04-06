@@ -42,6 +42,12 @@ public class GraphBFSPaths {
     }
     //+END_SOLUTION
 
+    public int distTo(int v) {
+        //+BEGIN_SOLUTION
+        return distTo[v];
+        //+END_SOLUTION
+    }
+
     public boolean hasPathTo(int v) {
         //+BEGIN_SOLUTION
         return marked[v];
@@ -59,12 +65,6 @@ public class GraphBFSPaths {
         }
         path.push(s);
         return path;
-        //+END_SOLUTION
-    }
-
-    public int distTo(int v) {
-        //+BEGIN_SOLUTION
-        return distTo[v];
         //+END_SOLUTION
     }
 
