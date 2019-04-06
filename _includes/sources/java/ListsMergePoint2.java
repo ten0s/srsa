@@ -8,23 +8,21 @@ public class Node<T> {
 */
 
 public class ListsMergePoint2 {
-    public static <T> Node<T> mergePoint(Node<T> l1, Node<T> l2) {
+    public static <T> Node<T> mergePoint(Node<T> n1, Node<T> n2) {
         //+BEGIN_SOLUTION
         Deque<Node<T>> s1 = new ArrayDeque<>();
         Deque<Node<T>> s2 = new ArrayDeque<>();
-        while (l1 != null || l2 != null) {
-            if (l1 != null) {
-                s1.push(l1);
-                l1 = l1.next;
-            }
-            if (l2 != null) {
-                s2.push(l2);
-                l2 = l2.next;
-            }
+        while (n1 != null) {
+            s1.push(n1);
+            n1 = n1.next;
+        }
+        while (n2 != null) {
+            s2.push(n2);
+            n2 = n2.next;
         }
         while (!s1.isEmpty() && !s2.isEmpty()) {
-            Node<T> n1 = s1.pop();
-            Node<T> n2 = s2.pop();
+            n1 = s1.pop();
+            n2 = s2.pop();
             if (n1 != n2) return n1.next;
         }
         return null;
