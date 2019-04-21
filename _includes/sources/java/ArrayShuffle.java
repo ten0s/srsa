@@ -3,7 +3,7 @@ public class ArrayShuffle {
         //+BEGIN_SOLUTION
         // Knuth's shuffle O(n)
         int n = a.length;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             // choose uniformly [0, i]
             int r = (int) (Math.random() * (i + 1));
             int tmp = a[i];
