@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.lang.UnsupportedOperationException;
 
 public class IteratorTest {
     static class Array<Item> implements Iterable<Item> {
