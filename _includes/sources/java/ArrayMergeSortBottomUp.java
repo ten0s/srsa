@@ -13,8 +13,8 @@ class ArrayMergeSortBottomUp {
         //+END_SOLUTION
     }
 
+    //+BEGIN_SOLUTION
     private static <T extends Comparable<T>> T[] merge(T[] a, T[] aux, int lo, int mid, int hi) {
-        //+BEGIN_SOLUTION
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
@@ -26,8 +26,8 @@ class ArrayMergeSortBottomUp {
             else                           a[k] = aux[i++];
         }
         return a;
-        //+END_SOLUTION
     }
+    //+END_SOLUTION
 
     private static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;
