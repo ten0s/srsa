@@ -1,5 +1,5 @@
 {
-  "systemParams": "linux-x64-48",
+  "systemParams": "linux-x64-57",
   "modulesFolders": [
     "assets/libs"
   ],
@@ -9,14 +9,14 @@
     "ace-builds@1.4.2",
     "bootstrap@4.3.1",
     "font-awesome@4.7.0",
-    "jquery@3.3.1",
+    "jquery@3.4.0",
     "underscore@1.9.1"
   ],
   "lockfileEntries": {
     "ace-builds@1.4.2": "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.4.2.tgz#6afc2e43a7b5effdc44d8407436112852568e80d",
     "bootstrap@4.3.1": "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac",
     "font-awesome@4.7.0": "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133",
-    "jquery@3.3.1": "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca",
+    "jquery@3.4.0": "https://registry.yarnpkg.com/jquery/-/jquery-3.4.0.tgz#8de513fa0fa4b2c7d2e48a530e26f0596936efdf",
     "underscore@1.9.1": "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
   },
   "files": [],
