@@ -14,10 +14,8 @@ public class EdgeWeightedDAGLPs2 {
     //+BEGIN_SOLUTION
     private EdgeWeightedDigraph negate(EdgeWeightedDigraph G) {
         EdgeWeightedDigraph N = new EdgeWeightedDigraph(G.V());
-        for (int v = 0; v < G.V(); v++) {
-            for (DirectedEdge e : G.adj(v)) {
-                N.addEdge(negate(e));
-            }
+        for (DirectedEdge e : G.edges()) {
+            N.addEdge(negate(e));
         }
         return N;
     }
@@ -113,17 +111,20 @@ public class EdgeWeightedDAGLPs2 {
 
 // Refs
 /*+BEGIN_FOLD
+public class EdgeWeightedDigraph {
+    public EdgeWeightedDigraph(int V);
+    public int V();
+    public int E();
+    public void addEdge(DirectedEdge e);
+    public Iterable<DirectedEdge> adj(int v)
+    public Iterable<DirectedEdge> edges();
+}
+
 public class DirectedEdge implements Comparable<DirectedEdge> {
     public DirectedEdge(int v, int w, double weight);
     public double weight();
     public int from();
     public int to();
-}
-
-public class EdgeWeightedDigraphTopologicalSort {
-    public EdgeWeightedDigraphTopologicalSort(EdgeWeightedDigraph G);
-    public boolean hasOrder();
-    public Iterable<Integer> order();
 }
 
 public class EdgeWeightedDAGSPs {

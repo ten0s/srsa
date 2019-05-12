@@ -114,6 +114,15 @@ public class EdgeWeightedDAGSPs {
 
 // Refs
 /*+BEGIN_FOLD
+public class EdgeWeightedDigraph {
+    public EdgeWeightedDigraph(int V);
+    public int V();
+    public int E();
+    public void addEdge(DirectedEdge e);
+    public Iterable<DirectedEdge> adj(int v)
+    public Iterable<DirectedEdge> edges();
+}
+
 public class DirectedEdge implements Comparable<DirectedEdge> {
     public DirectedEdge(int v, int w, double weight);
     public double weight();
