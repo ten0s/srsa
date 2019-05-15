@@ -45,16 +45,18 @@ public class ArrayStack<Item> {
     }
 
     @SuppressWarnings("unchecked")
-    private void resize(int capacity) {
+    private void resize(int capacity) { //+BEGIN_FOLD
         Item[] b = (Item[]) new Object[capacity];
         for (int i = 0; i < n; i++)
             b[i] = a[i];
         a = b;
-    }
+    } //+END_FOLD To Use
 
+    //+BEGIN_FOLD Utils {
     private int capacity() {
         return a.length;
     }
+    //+END_FOLD }
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
