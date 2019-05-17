@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: List Merge Sort
-question_text: Merge sort list
+question_text: Sort list using Merge sort
 solution_file: /sources/java/ListMergeSort.java
 library_files:
 - /sources/java/Assert.java
