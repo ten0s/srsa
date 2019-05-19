@@ -1,6 +1,6 @@
 ---
 layout: exercise
-title: Optimal Scheduling
+title: Optimal Scheduling2
 question_text: What is the largest subset of mutually non-overlapping intervals which can be selected?
 solution_file: /sources/erlang/optimal_scheduling.erl
 library_files:
