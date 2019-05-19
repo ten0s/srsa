@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Quick Sort
-question_text: Sort list using schematic Quick sort
+question_text: Sort list using schematic 3-way Quick sort
 solution_file: /sources/erlang/quick_sort.erl
 library_files:
 language: erlang

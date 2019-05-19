@@ -4,8 +4,6 @@ import java.util.function.BiFunction;
 
 /*
 public class Node<T> {
-    T item;
-    Node<T> next;
     public static <T> Node<T> empty();
     public static <T> Node<T> cons(T value, Node<T> list);
     public static <T> T head(Node<T> list);
