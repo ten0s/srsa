@@ -4,7 +4,9 @@
 -include_lib("eunit/include/eunit.hrl").
 %%+END_FOLD }
 
--type interval() :: {integer(), integer()}.
+-type from() :: integer().
+-type to()   :: integer().
+-type interval() :: {from(), to()}.
 -spec merge([interval()], [interval()]) -> [interval()].
 %%+BEGIN_SOLUTION
 merge([], Ys) ->
