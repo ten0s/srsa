@@ -10,16 +10,16 @@
 
 -spec schedule([interval()]) -> [interval()].
 %%+BEGIN_SOLUTION
-schedule(Intervals) ->
-    Intervals2 = lists:sort(
-        fun ({_, To1}, {_, To2}) -> To1 =< To2 end, Intervals),
-    schedule(Intervals2, []).
+schedule(Ints) ->
+    Ints2 = lists:sort(
+        fun ({_, To1}, {_, To2}) -> To1 =< To2 end, Ints),
+    schedule(Ints2, []).
 
 schedule([], Acc) ->
     lists:reverse(Acc);
-schedule([Interval | Intervals], Acc) ->
-    Intervals2 = lists:dropwhile(fun (I) -> overlap(I, Interval) end, Intervals),
-    schedule(Intervals2, [Interval | Acc]).
+schedule([Int | Ints], Acc) ->
+    Ints2 = lists:dropwhile(fun (I) -> overlap(I, Int) end, Ints),
+    schedule(Ints2, [Int | Acc]).
 
 overlap({X1,X2}, {Y1,Y2}) ->
     max(X1,Y1) =< min(X2,Y2).
