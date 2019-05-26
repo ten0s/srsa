@@ -110,7 +110,7 @@ public class SuffixArray {
     //+END_SOLUTION
 
     //+BEGIN_FOLD Utils {
-    private void overall() {
+    public void debug() {
         System.out.println("  i ind lcp rnk select");
         System.out.println("---------------------------");
         for (int i = 0; i < text.length(); i++) {
@@ -136,7 +136,7 @@ public class SuffixArray {
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
         SuffixArray sa = new SuffixArray("mississippi");
-        //sa.overall();
+        //sa.debug();
         Assert.assertEquals(11, sa.length());
         Assert.assertEquals(10, sa.index(0));
         Assert.assertEquals(9, sa.index(5));

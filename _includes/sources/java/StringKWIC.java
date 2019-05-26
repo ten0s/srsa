@@ -41,5 +41,6 @@ public class SuffixArray {
     public SuffixArray(String text);
     public int index(int i );
     public int rank(String query);
+    public int debug();
 }
 +END_FOLD*/

@@ -17,16 +17,16 @@
 %%+BEGIN_SOLUTION
 move(From, To, Spare, Board) ->
     N = length(maps:get(From, Board)),
-    move(N, From, To, Spare, Board).
+    move_n(N, From, To, Spare, Board).
 
-move(0, _From, _To, _Spare, Board) ->
+move_n(0, _From, _To, _Spare, Board) ->
     Board;
-move(N, From, To, Spare, Board) ->
-    Board1 = move(N-1, From, Spare, To, Board),
-    Board2 = move_from_to(From, To, Board1),
-    move(N-1, Spare, To, From, Board2).
+move_n(N, From, To, Spare, Board) ->
+    Board1 = move_n(N-1, From, Spare, To, Board),
+    Board2 = move_1(From, To, Board1),
+    move_n(N-1, Spare, To, From, Board2).
 
-move_from_to(From, To, Board) ->
+move_1(From, To, Board) ->
     [Top | FromL] = maps:get(From, Board),
     ToL           = maps:get(To, Board),
     Board#{From => FromL, To => [Top | ToL]}.
