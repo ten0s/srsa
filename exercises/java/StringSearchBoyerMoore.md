@@ -6,6 +6,19 @@ question_text: >-
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/boyer-moore.png" title="boyer-moore"></td>
+      <td>
+        <pre>
+   right
+   ------
+   . | -1
+   E |  5
+   D |  3
+   . | -1
+   L |  4
+   N |  0
+   . | -1
+        </pre>
+      </td>
     </tr>
   </table>
 solution_file: /sources/java/StringSearchBoyerMoore.java
