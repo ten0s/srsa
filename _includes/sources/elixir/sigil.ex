@@ -1,6 +1,6 @@
-#+BEGIN_FOLD Tests {
-ExUnit.start()
-#+END_FOLD }
+#+BEGIN_FOLD Tests do
+  ExUnit.start()
+#+END_FOLD end
 
 defmodule Sigils do
   #+BEGIN_SOLUTION
@@ -10,14 +10,14 @@ defmodule Sigils do
   #+END_SOLUTION
 end
 
-#+BEGIN_FOLD Tests {
-defmodule SigilsTest do
-  use ExUnit.Case
+#+BEGIN_FOLD Tests do
+  defmodule SigilsTest do
+    use ExUnit.Case
 
-  import Sigils
+    import Sigils
 
-  test "" do
-    assert ~u/Hello World!/ == "HELLO WORLD!"
+    test "" do
+      assert ~u/Hello World!/ == "HELLO WORLD!"
+    end
   end
-end
-#+END_FOLD }
+#+END_FOLD end
