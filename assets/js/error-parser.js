@@ -13,8 +13,7 @@ var ErrorParser = (function () {
     /*
        file = "endianness.c"
        stdout = ""
-       stderr =
-`
+       stderr = `
 endianness.c:11:1: error: control reaches end of non-void function [-Werror=return-type]
  }
  ^
@@ -84,8 +83,7 @@ endianness.c:11:1: error: control reaches end of non-void function [-Werror=retu
     /*
        file = "ArrayBinarySearch.java"
        stdout = ""
-       stderr =
-`
+       stderr = `
 ArrayBinarySearch.java:3: error: missing return statement
     }
     ^
@@ -112,8 +110,7 @@ ArrayBinarySearch.java:3: error: missing return statement
     /*
        file = "list_comprehension.py"
        stdout = ""
-       stderr =
-`
+       stderr = `
 File "list_comprehension.py", line 5
   def odds(min, max):
     ^
