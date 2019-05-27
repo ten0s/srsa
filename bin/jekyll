@@ -8,6 +8,8 @@
 # $ jekyll build
 # $ jekyll serve
 
+mkdir -p _site
+
 opts[k++]=-it
 opts[k++]=--rm
 opts[k++]=--volume="$PWD:/srv/jekyll"
