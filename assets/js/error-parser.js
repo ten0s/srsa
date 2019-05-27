@@ -37,6 +37,27 @@ endianness.c:11:1: error: control reaches end of non-void function [-Werror=retu
         return annotations;
     }
 
+    /*
+       file = "sigil.ex"
+       stdout = ""
+       stderr = "** (CompileError) sigil.ex:15: undefined function sigil_u/2"
+    */
+    function elixirParse(file, stdout, stderr) {
+        var re = new RegExp(".*" + file + ":(\\d+): (.*)", "g");
+        var annotations = [];
+        var match = re.exec(stderr);
+        while (match) {
+            //console.log(match);
+            annotations.push({
+                "row": match[1] - 1,
+                "column": 0,
+                "text": match[2],
+                "type": "error"
+            });
+            match = re.exec(stdout);
+        }
+        return annotations;
+    }
 
     /*
        file = "insertion_sort.erl"
@@ -129,6 +150,8 @@ IndentationError: expected an indented block
             return cppParse(file, stdout, stderr);
         case "c++":
             return cppParse(file, stdout, stderr);
+        case "elixir":
+            return elixirParse(file, stdout, stderr);
         case "erlang":
             return erlangParse(file, stdout, stderr);
         case "java":
