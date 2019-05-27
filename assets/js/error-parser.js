@@ -10,6 +10,16 @@
 "use strict";
 
 var ErrorParser = (function () {
+    /*
+       file = "endianness.c"
+       stdout = ""
+       stderr =
+`
+endianness.c:11:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+`
+    */
     function cppParse(file, stdout, stderr) {
         var re = new RegExp(file + ":(\\d+):(\\d+): (error|warning): ([\\s\\S]*?\\^)", "g");
         var annotations = [];
@@ -27,6 +37,12 @@ var ErrorParser = (function () {
         return annotations;
     }
 
+
+    /*
+       file = "insertion_sort.erl"
+       stdout = "insertion_sort.erl:7: spec for undefined function sort/1"
+       stderr = ""
+    */
     function erlangParse(file, stdout, stderr) {
         var re = new RegExp(file + ":(\\d+): (.*)", "g");
         var annotations = [];
@@ -44,6 +60,17 @@ var ErrorParser = (function () {
         return annotations;
     }
 
+    /*
+       file = "ArrayBinarySearch.java"
+       stdout = ""
+       stderr =
+`
+ArrayBinarySearch.java:3: error: missing return statement
+    }
+    ^
+1 error
+`
+    */
     function javaParse(file, stdout, stderr) {
         var re = new RegExp(file + ":(\\d+): (error|warning): ([\\s\\S]*?\\^)", "g");
         var annotations = [];
@@ -61,10 +88,21 @@ var ErrorParser = (function () {
         return annotations;
     }
 
+    /*
+       file = "list_comprehension.py"
+       stdout = ""
+       stderr =
+`
+File "list_comprehension.py", line 5
+  def odds(min, max):
+    ^
+IndentationError: expected an indented block
+`
+    */
     function pythonParse(file, stdout, stderr) {
         var reText = new RegExp(".*Error: (.*)");
         var matchText = reText.exec(stderr);
-        console.log(matchText);
+        //console.log(matchText);
         if (matchText) {
             var reRows = new RegExp("File \"" + file + "\", line (\\d+)", "g");
             //console.log(reRows);
