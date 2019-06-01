@@ -29,8 +29,10 @@ from_list(L) ->
 
 -spec to_list(zlist(T)) -> [T].
 %%+BEGIN_SOLUTION
-to_list({Prev, Next}) ->
-    lists:reverse(Prev) ++ Next.
+to_list({[], Next}) ->
+    Next;
+to_list({[P | Prev], Next}) ->
+    to_list({Prev, [P | Next]}).
 %%+END_SOLUTION
 
 -spec prev(zlist(T)) -> zlist(T) | error(empty).
