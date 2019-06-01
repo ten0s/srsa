@@ -8,9 +8,8 @@ public class Node<T> {
 public class ListCycle {
     public static <T> boolean hasCycle(Node<T> node) {
         //+BEGIN_SOLUTION
-        if (node == null) return false;
         Node<T> slow = node, fast = node;
-        while (fast.next != null && fast.next.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) return true;
