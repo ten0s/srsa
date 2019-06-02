@@ -13,6 +13,7 @@
 %%+END_FOLD }
 
 -type bintree(T) :: nil | {node, T, bintree(T), bintree(T)}.
+-export_type([bintree/1]).
 
 -spec new() -> bintree(_T).
 %%+BEGIN_SOLUTION
