@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 
-public class ArrayPriorityQueue {
+public class ArrayMaxPriorityQueue {
     static abstract class PQ<Key extends Comparable<Key>> {
         protected final int MIN_CAPACITY = 2;
         private Key[] pq;
@@ -12,38 +12,11 @@ public class ArrayPriorityQueue {
         }
 
         public void add(Key v) {
-            //+BEGIN_SOLUTION
             if (++n > capacity()) resize(2*capacity()+1);
+            //+BEGIN_SOLUTION
             pq[n] = v;
             swim(n);
             //+END_SOLUTION
-        }
-
-        public Key remove() {
-            //+BEGIN_SOLUTION
-            ensureNotEmpty();
-            Key v = pq[1];
-            pq[1] = pq[n];
-            pq[n] = null;
-            if (--n <= capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
-            sink(1);
-            return v;
-            //+END_SOLUTION
-        }
-
-        public Key peek() {
-            //+BEGIN_SOLUTION
-            ensureNotEmpty();
-            return pq[1];
-            //+END_SOLUTION
-        }
-
-        public boolean isEmpty() {
-            return size() == 0;
-        }
-
-        public int size() {
-            return n;
         }
 
         //+BEGIN_SOLUTION
@@ -55,7 +28,23 @@ public class ArrayPriorityQueue {
                 k = k/2;
             }
         }
+        //+END_SOLUTION
 
+        public Key remove() {
+            ensureNotEmpty();
+            //+BEGIN_SOLUTION
+            Key v = pq[1];
+            pq[1] = pq[n];
+            pq[n] = null;
+            //+END_SOLUTION
+            if (--n <= capacity()/4) resize(Math.max(MIN_CAPACITY, capacity()/2)+1);
+            //+BEGIN_SOLUTION
+            sink(1);
+            return v;
+            //+END_SOLUTION
+        }
+
+        //+BEGIN_SOLUTION
         private void sink(int k) {
             // while left child is in the tree
             while (2*k <= n) {
@@ -71,15 +60,31 @@ public class ArrayPriorityQueue {
         }
         //+END_SOLUTION
 
+        public Key peek() {
+            ensureNotEmpty();
+            //+BEGIN_SOLUTION
+            return pq[1];
+            //+END_SOLUTION
+        }
+
+        public boolean isEmpty() {
+            return size() == 0;
+        }
+
+        public int size() {
+            return n;
+        }
+
+
         private boolean less(int i, int j) {
             return less(pq[i], pq[j]);
         }
 
-        abstract boolean less(Key v, Key w);
-
         private void swap(int i, int j) {
             Key tmp = pq[i]; pq[i] = pq[j]; pq[j] = tmp;
         }
+
+        abstract boolean less(Key v, Key w);
 
         @SuppressWarnings("unchecked")
         private void resize(int capacity) {
