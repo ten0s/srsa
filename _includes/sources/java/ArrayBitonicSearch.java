@@ -51,8 +51,7 @@ public class ArrayBitonicSearch {
         //+END_SOLUTION
     }
 
-    public static int binarySearchASC(int key, int[] a, int lo, int hi) {
-        //+BEGIN_SOLUTION
+    public static int binarySearchASC(int key, int[] a, int lo, int hi) { //+BEGIN_FOLD
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -62,11 +61,9 @@ public class ArrayBitonicSearch {
         } else {
             return mid;
         }
-        //+END_SOLUTION
-    }
+    } //+END_FOLD To Use
 
-    public static int binarySearchDESC(int key, int[] a, int lo, int hi) {
-        //+BEGIN_SOLUTION
+    public static int binarySearchDESC(int key, int[] a, int lo, int hi) { //+BEGIN_FOLD
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (key < a[mid]) {
@@ -76,8 +73,8 @@ public class ArrayBitonicSearch {
         } else {
             return mid;
         }
-        //+END_SOLUTION
-    }
+    } //+END_FOLD To Use
+
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
