@@ -8,7 +8,6 @@ question_text: >-
       <td><img relative_src="/assets/images/msd.png" title="MSD" style="width:100%;height=auto;"></td>
     </tr>
   </table>
-
 solution_file: /sources/java/ArrayOfStringsMSDSort.java
 library_files:
 - /sources/java/Assert.java

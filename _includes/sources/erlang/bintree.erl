@@ -1,7 +1,7 @@
 -module(bintree).
 -export([
-    new/0, is_empty/1, size/1, depth/1,
-    from_ordlist/1, to_ordlist/1, map/2,
+    new/0, is_empty/1, size/1, height/1,
+    from_list/1, to_list/1, map/2,
     preorder/3, inorder/3, revinorder/3, postorder/3
 ]).
 %%+BEGIN_FOLD Tests {
@@ -13,7 +13,6 @@
 %%+END_FOLD }
 
 -type bintree(T) :: nil | {node, T, bintree(T), bintree(T)}.
--type ordlist(T) :: list(T).
 
 -spec new() -> bintree(_T).
 %%+BEGIN_SOLUTION
@@ -37,26 +36,29 @@ size({node, _, L, R}) ->
     1 + size(L) + size(R).
 %%+END_SOLUTION
 
--spec depth(bintree(_T)) -> non_neg_integer().
+%% The height of a tree is the depth of its deepest node.
+-spec height(bintree(_T)) -> non_neg_integer().
 %%+BEGIN_SOLUTION
-depth(nil) ->
+height(nil) ->
     0;
-depth({node, _, L, R}) ->
-    1 + max(depth(L), depth(R)).
+height({node, _, nil, nil}) ->
+    0;
+height({node, _, L, R}) ->
+    1 + max(height(L), height(R)).
 %%+END_SOLUTION
 
--spec from_ordlist(ordlist(T)) -> bintree(T).
+-spec from_list(list(T)) -> bintree(T).
 %%+BEGIN_SOLUTION
-from_ordlist([]) ->
+from_list([]) ->
     nil;
-from_ordlist(Vs) ->
+from_list(Vs) ->
     {Ls, [V | Rs]} = lists:split(length(Vs) div 2, Vs),
-    {node, V, from_ordlist(Ls), from_ordlist(Rs)}.
+    {node, V, from_list(Ls), from_list(Rs)}.
 %%+END_SOLUTION
 
--spec to_ordlist(bintree(T)) -> ordlist(T).
+-spec to_list(bintree(T)) -> list(T).
 %%+BEGIN_SOLUTION
-to_ordlist(T) ->
+to_list(T) ->
     revinorder(fun (V, Acc) -> [V | Acc] end, [], T).
 %%+END_SOLUTION
 
@@ -119,19 +121,19 @@ bintree_test() ->
     T0 = new(),
     ?assert(is_empty(T0)),
     ?assertEqual(0, size(T0)),
-    ?assertEqual(0, depth(T0)),
+    ?assertEqual(0, height(T0)),
 
-    T1 = from_ordlist([1]),
+    T1 = from_list([1]),
     ?assertNot(is_empty(T1)),
     ?assertEqual(1, size(T1)),
-    ?assertEqual(1, depth(T1)),
-    ?assertEqual([1], to_ordlist(T1)),
+    ?assertEqual(0, height(T1)),
+    ?assertEqual([1], to_list(T1)),
 
-    T4 = from_ordlist([1,2,3,4]),
+    T4 = from_list([1,2,3,4]),
     ?assertEqual(4, size(T4)),
-    ?assertEqual(3, depth(T4)),
-    ?assertEqual([1,2,3,4], to_ordlist(T4)),
-    ?assertEqual([2,4,6,8], to_ordlist(map(fun (X) -> 2*X end, T4))),
+    ?assertEqual(2, height(T4)),
+    ?assertEqual([1,2,3,4], to_list(T4)),
+    ?assertEqual([2,4,6,8], to_list(map(fun (X) -> 2*X end, T4))),
 
     ?assertEqual([3,2,1,4], preorder(fun (V, Acc) -> Acc ++ [V] end, [], T4)),
     ?assertEqual(10, preorder(fun erlang:'+'/2, 0, T4)),
@@ -143,5 +145,17 @@ bintree_test() ->
     ?assertEqual(10, revinorder(fun erlang:'+'/2, 0, T4)),
 
     ?assertEqual([1,2,4,3], postorder(fun (V, Acc) -> Acc ++ [V] end, [], T4)),
-    ?assertEqual(10, postorder(fun erlang:'+'/2, 0, T4)).
+    ?assertEqual(10, postorder(fun erlang:'+'/2, 0, T4)),
+
+    T5 = from_list([1,2,3,4,5]),
+    ?assertEqual(5, size(T5)),
+    ?assertEqual(2, height(T5)),
+    ?assertEqual([1,2,3,4,5], to_list(T5)),
+
+    T7 = {node, 4, {node, 3, {node, 1, nil, nil},
+                             {node, 2, nil, nil}},
+                   {node, 5, nil,
+                             {node, 6, {node, 7, nil, nil},
+                                       nil}}},
+   ?assertEqual(3, height(T7)).
 %%+END_FOLD }

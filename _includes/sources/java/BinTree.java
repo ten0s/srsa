@@ -121,6 +121,48 @@ public class BinTree {
         return b;
     }
 
+    public static <T> String toDot(Node<T> root) {
+        // credits
+        // https://gist.github.com/kstwrt/8591183
+        // https://eli.thegreenplace.net/2009/11/23/visualizing-binary-trees-with-graphviz
+        StringBuilder sb = new StringBuilder();
+        sb.append("digraph {");
+        sb.append(System.lineSeparator());
+        toDot(root, 0, sb);
+        sb.append("}");
+        sb.append(System.lineSeparator());
+        return sb.toString();
+    }
+
+    private static <T> int toDot(Node<T> node, int id, StringBuilder sb) {
+        if (node == null) {
+            sb.append("  " + id + " " + attrs(point()) + ";");
+            sb.append(System.lineSeparator());
+            return id+1;
+        }
+        int id2 = toDot(node.left, id+1, sb);
+        int id3 = toDot(node.right, id2, sb);
+        sb.append("  " + id + " " + attrs(label(node.item)) + ";");
+        sb.append(System.lineSeparator());
+        sb.append("  " + id + " -> " + (id+1) + ";");
+        sb.append(System.lineSeparator());
+        sb.append("  " + id + " -> " + id2  + ";");
+        sb.append(System.lineSeparator());
+        return id3+1;
+    }
+
+    private static String attrs(String attr) {
+        return "[" + attr + "]";
+    }
+
+    private static String label(Object o) {
+        return "label=" + Character.toString('"') + o + Character.toString('"');
+    }
+
+    private static String point() {
+        return "shape=point";
+    }
+
     public static void main(String[] args) throws Throwable {
         int[] a = new int[] {0,1,2,3,4,5,6,7,8,9};
         Assert.assertArrayEquals(a, toIntArray(fromIntArray(a)));
