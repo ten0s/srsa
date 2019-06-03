@@ -55,7 +55,7 @@ public class SuffixArray {
         //+END_SOLUTION
     }
 
-    public int index(int i ) {
+    public int index(int i) {
         //+BEGIN_SOLUTION
         return suffixes[i].index;
         //+END_SOLUTION
