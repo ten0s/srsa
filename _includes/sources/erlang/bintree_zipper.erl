@@ -14,14 +14,14 @@
 
 -spec from_bintree(bintree(T)) -> zipper(T).
 %%+BEGIN_SOLUTION
-from_bintree(N) ->
-    {N, []}.
+from_bintree(T) ->
+    {T, []}.
 %%+END_SOLUTION
 
 -spec to_bintree(zipper(T)) -> bintree(T).
 %%+BEGIN_SOLUTION
 to_bintree(Z) ->
-    {N, []} = top(Z), N.
+    {T, []} = top(Z), T.
 %%+END_SOLUTION
 
 -spec left(zipper(T)) -> {ok, zipper(T)} | error.
@@ -52,12 +52,10 @@ up({R, [{right, V, L} | Ts]}) ->
 
 -spec top(zipper(T)) -> zipper(T).
 %%+BEGIN_SOLUTION
-top({N, Ts}) ->
-    case up({N, Ts}) of
-    {ok, {N2, Ts2}} ->
-        top({N2, Ts2});
-    error ->
-        {N, Ts}
+top(Z) ->
+    case up(Z) of
+    {ok, Z2} -> top(Z2);
+    error    -> Z
     end.
 %%+END_SOLUTION
 
