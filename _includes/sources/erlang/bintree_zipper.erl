@@ -9,8 +9,8 @@
 %%+END_FOLD }
 
 -type bintree(T) :: nil | {node, T, bintree(T), bintree(T)}.
--type turn(T) :: {left, T, bintree(T)} | {right, T, bintree(T)}.
--type zipper(T) :: {bintree(T), list(turn(T))}.
+-type direction(T) :: {left, T, bintree(T)} | {right, T, bintree(T)}.
+-type zipper(T) :: {bintree(T), list(direction(T))}.
 
 -spec from_bintree(bintree(T)) -> zipper(T).
 %%+BEGIN_SOLUTION
@@ -28,34 +28,34 @@ to_bintree(Z) ->
 %%+BEGIN_SOLUTION
 left({nil, _}) ->
     error;
-left({ {node, V, L, R}, Ts}) ->
-    {ok, {L, [{left, V, R} | Ts]}}.
+left({ {node, V, L, R}, Ds}) ->
+    {ok, {L, [{left, V, R} | Ds]}}.
 %%+END_SOLUTION
 
 -spec right(zipper(T)) -> {ok, zipper(T)} | error.
 %%+BEGIN_SOLUTION
 right({nil, _}) ->
     error;
-right({ {node, V, L, R}, Ts}) ->
-    {ok, {R, [{right, V, L} | Ts]}}.
+right({ {node, V, L, R}, Ds}) ->
+    {ok, {R, [{right, V, L} | Ds]}}.
 %%+END_SOLUTION
 
 -spec up(zipper(T)) -> {ok, zipper(T)} | error.
 %%+BEGIN_SOLUTION
 up({_, []}) ->
     error;
-up({L, [{left, V, R} | Ts]}) ->
-    {ok, { {node, V, L, R}, Ts}};
-up({R, [{right, V, L} | Ts]}) ->
-    {ok, { {node, V, L, R}, Ts}}.
+up({L, [{left, V, R} | Ds]}) ->
+    {ok, { {node, V, L, R}, Ds}};
+up({R, [{right, V, L} | Ds]}) ->
+    {ok, { {node, V, L, R}, Ds}}.
 %%+END_SOLUTION
 
 -spec top(zipper(T)) -> zipper(T).
 %%+BEGIN_SOLUTION
-top(Z) ->
-    case up(Z) of
-    {ok, Z2} -> top(Z2);
-    error    -> Z
+top(Z0) ->
+    case up(Z0) of
+    {ok, Z} -> top(Z);
+    error   -> Z0
     end.
 %%+END_SOLUTION
 
