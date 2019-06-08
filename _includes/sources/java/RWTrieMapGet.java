@@ -46,6 +46,8 @@ public class RWTrieMapGet<Value> extends RWTrieMap<Value> {
         Assert.assertEquals(7, trie.size());
         Assert.assertEquals(0, (int)trie.get("she"));
         Assert.assertEquals(1, (int)trie.get("sells"));
+        Assert.assertNull(trie.get("shell"));
+        Assert.assertEquals(3, (int)trie.get("shells"));
         Assert.assertEquals(6, (int)trie.get("sea"));
         Assert.assertEquals(7, (int)trie.get("shore"));
         Assert.assertNull(trie.get("shellfish"));
