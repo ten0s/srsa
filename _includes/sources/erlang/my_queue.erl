@@ -1,5 +1,5 @@
 -module(my_queue).
--export([new/0, is_empty/1, enqueue/2, dequeue/1, peek/1]).
+-export([new/0, is_empty/1, enqueue/2, dequeue/1, peek/1, from_list/1, to_list/1]).
 %%+BEGIN_FOLD Tests {
 -export([main/1]).
 -include_lib("eunit/include/eunit.hrl").
@@ -52,6 +52,18 @@ peek({[X | _], _}) ->
     X.
 %%+END_SOLUTION
 
+-spec from_list(list(T)) -> queue(T).
+%%+BEGIN_SOLUTION
+from_list(L) ->
+    {L, []}.
+%%+END_SOLUTION
+
+-spec to_list(queue(T)) -> list(T).
+%%+BEGIN_SOLUTION
+to_list({F, R}) ->
+    F ++ lists:reverse(R).
+%%+END_SOLUTION
+
 %%+BEGIN_FOLD Tests {
 main(_) ->
     case eunit:test(?MODULE) of
@@ -71,8 +83,16 @@ queue_test() ->
     Q5 = {[2,3], [4]} = enqueue(4, Q4),
     {2, Q6} = dequeue(Q5),
     {3, Q7 = {[4], []}} = dequeue(Q6),
+
     {4, Q8} = dequeue(Q7),
     ?assert(is_empty(Q8)),
     ?assertError(empty, peek(Q8)),
-    ?assertError(empty, dequeue(Q8)).
+    ?assertError(empty, dequeue(Q8)),
+
+    L = [1,2,3,4],
+    ?assertEqual(L, to_list(from_list(L))),
+    Q9 = {L, []} = from_list(L),
+    {1, Q10 = {[2,3,4], []}} = dequeue(Q9),
+    Q11 = {[2,3,4], [5]} = enqueue(5, Q10),
+    ?assertEqual([2,3,4,5], to_list(Q11)).
 %%+END_FOLD }
