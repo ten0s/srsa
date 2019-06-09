@@ -153,10 +153,10 @@ precondition(_S, _Call) ->
 next_state(S, _Ret, {call, ?MODULE, is_empty, [_Q0]}) ->
     S;
 next_state(S, Q1, {call, ?MODULE, enqueue, [V, _Q0]}) ->
-    S#st{queue = Q1, model = S#st.model ++ [V]};
+    S#st{queue = Q1, model = append(S#st.model, V)};
 next_state(S, T_Q1,  {call, ?MODULE, dequeue, [_Q0]}) ->
     Q1 = {call,erlang,element,[2, T_Q1]},
-    S#st{queue = Q1, model = tl(S#st.model)};
+    S#st{queue = Q1, model = tail(S#st.model)};
 next_state(S, _Ret, _Call) ->
     S.
 
@@ -167,6 +167,15 @@ postcondition(S, {call, ?MODULE, enqueue, [_V, _Q0]}, _Q1) ->
 postcondition(S, {call, ?MODULE, dequeue, [_Q]}, {_V, _Q1}) ->
     to_list(S#st.queue) == S#st.model;
 postcondition(S, {call, ?MODULE, peek, [_Q]}, Res) ->
-    Res == hd(S#st.model).
+    Res == head(S#st.model).
+
+head(L) ->
+    hd(L).
+
+tail(L) ->
+    tl(L).
+
+append(L, V) ->
+    L ++ [V].
 
 %%+END_FOLD }
