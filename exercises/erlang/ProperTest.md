@@ -8,4 +8,3 @@ library_files:
 - /sources/erlang/lib/proper-1.3.tar.gz.base64
 language: erlang
 command: bash run.sh proper_test.erl
----

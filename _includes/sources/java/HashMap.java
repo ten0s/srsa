@@ -128,7 +128,7 @@ public class HashMap<Key , Value> {
         Assert.assertEquals(1000, hm.size());
         Assert.assertFalse(hm.isEmpty());
         Assert.assertTrue(hm.m > MIN_CAPACITY);
-        Assert.assertTrue(Prime.isPrime(hm.m));
+        Assert.assertTrue("Buckets count MUST be prime", Prime.isPrime(hm.m));
         Assert.assertNull(hm.get(1001));
 
         for (int i = 0; i < 1000; i++) {
