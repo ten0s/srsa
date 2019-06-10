@@ -47,21 +47,21 @@ to_list({F, R}) ->
 %%+END_SOLUTION
 
 %% O(1)
--spec in_r(T, deque(T)) -> deque(T).
-%%+BEGIN_SOLUTION
-in_r(X, {[], [R]}) ->
-    {[R], [X]};
-in_r(X, {F, R}) ->
-    {F, [X | R]}.
-%%+END_SOLUTION
-
-%% O(1)
 -spec in_l(T, deque(T)) -> deque(T).
 %%+BEGIN_SOLUTION
 in_l(X, {[F], []}) ->
     {[X], [F]};
 in_l(X, {F, R}) ->
     {[X | F], R}.
+%%+END_SOLUTION
+
+%% O(1)
+-spec in_r(T, deque(T)) -> deque(T).
+%%+BEGIN_SOLUTION
+in_r(X, {[], [R]}) ->
+    {[R], [X]};
+in_r(X, {F, R}) ->
+    {F, [X | R]}.
 %%+END_SOLUTION
 
 %% O(n)
