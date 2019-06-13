@@ -2,7 +2,8 @@
 layout: exercise
 title: R-Way Trie Longest Prefix of
 question_text: >-
-  Fetch longest prefix of a string from a R-way trie
+  Fetch longest prefix of a string from a R-way trie.
+  For example, trie.longestPrefixOf("shellsort") => "shells"
   <table border="1">
     <tr>
       <td><img relative_src="/assets/images/she-sells.png" title="she-sells" style="height:70%; width:auto;"></td>
