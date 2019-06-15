@@ -1,7 +1,7 @@
 -module(bintree).
 -export([
     new/0, is_empty/1, size/1, height/1,
-    from_list/1, to_list/1, map/2,
+    from_list/1, to_list/1, map/2, traverse/4,
     preorder/3, inorder/3, revinorder/3, postorder/3
 ]).
 %%+BEGIN_FOLD Tests {
@@ -71,44 +71,49 @@ map(Fun1, {node, V, L, R}) ->
     {node, Fun1(V), map(Fun1, L), map(Fun1, R)}.
 %%+END_SOLUTION
 
+%% This is not fold until I figure how to implement
+%% map/2, size1, height/1 and is_empty/1 using it
+-type promise(A) :: fun ((A) -> A).
+-spec traverse(
+    fun ((bintree(T), Acc) -> Acc),
+    fun ((promise(A), promise(A), promise(A), Acc) -> Acc),
+    Acc,
+    bintree(T)
+) -> Acc.
+%%+BEGIN_SOLUTION
+traverse(_Fun2, _Gun4, Acc, nil) ->
+    Acc;
+traverse(Fun2, Gun4, Acc, {node, V, L, R}) ->
+    Gun4(
+      fun (A) -> Fun2(V, A) end,
+      fun (A) -> traverse(Fun2, Gun4, A, L) end,
+      fun (A) -> traverse(Fun2, Gun4, A, R) end,
+      Acc
+    ).
+%%+END_SOLUTION
+
 -spec preorder(fun ((bintree(T), Acc) -> Acc), Acc, bintree(T)) -> Acc.
 %%+BEGIN_SOLUTION
-preorder(_Fun2, Acc, nil) ->
-    Acc;
-preorder(Fun2, Acc0, {node, V, L, R}) ->
-    Acc1 = Fun2(V, Acc0),
-    Acc2 = preorder(Fun2, Acc1, L),
-    preorder(Fun2, Acc2, R).
+preorder(Fun2, Init, Tree) ->
+    traverse(Fun2, fun (VFun, LFun, RFun, Acc) -> RFun(LFun(VFun(Acc))) end, Init, Tree).
 %%+END_SOLUTION
 
 -spec inorder(fun ((bintree(T), Acc) -> Acc), Acc, bintree(T)) -> Acc.
 %%+BEGIN_SOLUTION
-inorder(_Fun2, Acc, nil) ->
-    Acc;
-inorder(Fun2, Acc0, {node, V, L, R}) ->
-    Acc1 = inorder(Fun2, Acc0, L),
-    Acc2 = Fun2(V, Acc1),
-    inorder(Fun2, Acc2, R).
+inorder(Fun2, Init, Tree) ->
+    traverse(Fun2, fun (VFun, LFun, RFun, Acc) -> RFun(VFun(LFun(Acc))) end, Init, Tree).
 %%+END_SOLUTION
 
 -spec revinorder(fun ((bintree(T), Acc) -> Acc), Acc, bintree(T)) -> Acc.
 %%+BEGIN_SOLUTION
-revinorder(_Fun2, Acc, nil) ->
-    Acc;
-revinorder(Fun2, Acc0, {node, V, L, R}) ->
-    Acc1 = revinorder(Fun2, Acc0, R),
-    Acc2 = Fun2(V, Acc1),
-    revinorder(Fun2, Acc2, L).
+revinorder(Fun2, Init, Tree) ->
+    traverse(Fun2, fun (VFun, LFun, RFun, Acc) -> LFun(VFun(RFun(Acc))) end, Init, Tree).
 %%+END_SOLUTION
 
 -spec postorder(fun ((bintree(T), Acc) -> Acc), Acc, bintree(T)) -> Acc.
 %%+BEGIN_SOLUTION
-postorder(_Fun2, Acc, nil) ->
-    Acc;
-postorder(Fun2, Acc0, {node, V, L, R}) ->
-    Acc1 = postorder(Fun2, Acc0, L),
-    Acc2 = postorder(Fun2, Acc1, R),
-    Fun2(V, Acc2).
+postorder(Fun2, Init, Tree) ->
+    traverse(Fun2, fun (VFun, LFun, RFun, Acc) -> VFun(RFun(LFun(Acc))) end, Init, Tree).
 %%+END_SOLUTION
 
 %%+BEGIN_FOLD Tests {
