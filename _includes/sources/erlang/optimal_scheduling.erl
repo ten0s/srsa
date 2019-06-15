@@ -11,8 +11,7 @@
 -spec schedule([interval()]) -> [interval()].
 %%+BEGIN_SOLUTION
 schedule(Ints) ->
-    Ints2 = lists:sort(
-        fun ({_, To1}, {_, To2}) -> To1 =< To2 end, Ints),
+    Ints2 = lists:sort(fun ({_, To1}, {_, To2}) -> To1 =< To2 end, Ints),
     schedule(Ints2, []).
 
 schedule([], Acc) ->
