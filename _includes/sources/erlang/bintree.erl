@@ -1,7 +1,7 @@
 -module(bintree).
 -export([
     new/0, is_empty/1, size/1, height/1,
-    from_list/1, to_list/1, map/2, traverse/4,
+    from_list/1, to_list/1, map/2, fold/3, traverse/4,
     preorder/3, inorder/3, revinorder/3, postorder/3
 ]).
 %%+BEGIN_FOLD Tests {
@@ -37,7 +37,8 @@ size({node, _, L, R}) ->
     1 + size(L) + size(R).
 %%+END_SOLUTION
 
-%% The height of a tree is the depth of its deepest node.
+%% The height of a tree is the depth of its deepest node, i.e.
+%% the longest number of edges.
 -spec height(bintree(_T)) -> non_neg_integer().
 %%+BEGIN_SOLUTION
 height(nil) ->
@@ -71,8 +72,17 @@ map(Fun1, {node, V, L, R}) ->
     {node, Fun1(V), map(Fun1, L), map(Fun1, R)}.
 %%+END_SOLUTION
 
-%% This is not fold until I figure how to implement height/1 using it
-%% See below examples of is_empty/1, size/1, map2
+-spec fold(fun ((T, Acc, Acc) -> Acc), Acc, bintree(T)) -> Acc.
+%%+BEGIN_SOLUTION
+fold(_Fun3, Acc, nil) ->
+    Acc;
+fold(Fun3, Acc, {node, V, L, R}) ->
+    Fun3(V, fold(Fun3, Acc, L), fold(Fun3, Acc, R)).
+%%+END_SOLUTION
+
+%% traverse/4 is even more general than fold/3.
+%% See below examples of using traverse/4 to implement
+%% is_empty/1, size/1, map/2, fold/3
 -type promise(A) :: fun ((A) -> A).
 -spec traverse(
     fun ((bintree(T), Acc) -> Acc),
@@ -141,6 +151,11 @@ bintree_test() ->
     ?assertEqual([1,2,3,4], to_list(T4)),
     ?assertEqual([2,4,6,8], to_list(map(fun (X) -> 2*X end, T4))),
 
+    %% map/2 using fold/3
+    ?assertEqual([2,4,6,8], to_list(fold(fun (V, L, R) -> {node, 2*V, L, R} end, nil, T4))),
+    %% mirror
+    ?assertEqual([4,3,2,1], to_list(fold(fun (V, L, R) -> {node, V, R, L} end, nil, T4))),
+
     ?assertEqual([3,2,1,4], preorder(fun (V, Acc) -> Acc ++ [V] end, [], T4)),
     ?assertEqual(10, preorder(fun erlang:'+'/2, 0, T4)),
 
@@ -166,6 +181,11 @@ bintree_test() ->
    ?assertEqual(3, height(T7)).
 %%+END_FOLD }
 
+%% is_empty/1 using fold/3
+%% is_empty(Tree) ->
+%%     fold(fun (_, _, _) -> fales end, true, Tree).
+
+%% is_empty/1 using traverse/4
 %% is_empty(Tree) ->
 %%     traverse(
 %%         fun (_, Acc) -> Acc end,
@@ -174,6 +194,11 @@ bintree_test() ->
 %%         Tree
 %%     ).
 
+%% size/1 using fold/3
+%% size(Tree) ->
+%%     fold(fun (_, LA, RA) -> 1 + LA + RA end, 0, Tree).
+
+%% size/1 using traverse/4
 %% size(Tree) ->
 %%     traverse(
 %%         fun (_, Acc) -> 1 + Acc end,
@@ -182,10 +207,24 @@ bintree_test() ->
 %%         Tree
 %%     ).
 
+%% map/2 using fold/3
+%% map(Fun1, Tree) ->
+%%     fold(fun (V, L, R) -> {node, Fun1(V), L, R) end, nil, Tree).
+
+%% map/2 using traverse/4
 %% map(Fun, Tree) ->
 %%     traverse(
 %%         fun (V, {L, R}) -> {node, Fun(V), L, R} end,
 %%         fun (VF, LF, RF, Acc) -> VF({LF(Acc), RF(Acc)}) end,
 %%         nil,
+%%         Tree
+%%     ).
+
+%% fold/3 using traverse/4
+%% fold(Fun3, Init, Tree) ->
+%%     traverse(
+%%         fun (V, {LA, RA}) -> Fun3(V, LA, RA) end,
+%%         fun (VF, LF, RF, Acc) -> VF({LF(Acc), RF(Acc)}) end,
+%%         Init,
 %%         Tree
 %%     ).
