@@ -181,6 +181,8 @@ bintree_test() ->
    ?assertEqual(3, height(T7)).
 %%+END_FOLD }
 
+%%+BEGIN_FOLD Examples {
+
 %% is_empty/1 using fold/3
 %% is_empty(Tree) ->
 %%     fold(fun (_, _, _) -> false end, true, Tree).
@@ -228,3 +230,5 @@ bintree_test() ->
 %%         Init,
 %%         Tree
 %%     ).
+
+%%+END_FOLD }
