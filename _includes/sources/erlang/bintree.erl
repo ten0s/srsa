@@ -183,7 +183,7 @@ bintree_test() ->
 
 %% is_empty/1 using fold/3
 %% is_empty(Tree) ->
-%%     fold(fun (_, _, _) -> fales end, true, Tree).
+%%     fold(fun (_, _, _) -> false end, true, Tree).
 
 %% is_empty/1 using traverse/4
 %% is_empty(Tree) ->
