@@ -71,12 +71,12 @@ map(Fun1, {node, V, L, R}) ->
     {node, Fun1(V), map(Fun1, L), map(Fun1, R)}.
 %%+END_SOLUTION
 
-%% This is not fold until I figure how to implement
-%% map/2, size1, height/1 and is_empty/1 using it
+%% This is not fold until I figure how to implement height/1 using it
+%% See below examples of is_empty/1, size/1, map2
 -type promise(A) :: fun ((A) -> A).
 -spec traverse(
     fun ((bintree(T), Acc) -> Acc),
-    fun ((promise(A), promise(A), promise(A), Acc) -> Acc),
+    fun ((promise(Acc), promise(Acc), promise(Acc), Acc) -> Acc),
     Acc,
     bintree(T)
 ) -> Acc.
@@ -165,3 +165,27 @@ bintree_test() ->
                                        nil}}},
    ?assertEqual(3, height(T7)).
 %%+END_FOLD }
+
+%% is_empty(Tree) ->
+%%     traverse(
+%%         fun (_, Acc) -> Acc end,
+%%         fun (_VF, _LF, _RF, _Acc) -> false end,
+%%         true,
+%%         Tree
+%%     ).
+
+%% size(Tree) ->
+%%     traverse(
+%%         fun (_, Acc) -> 1 + Acc end,
+%%         fun (VF, LF, RF, Acc) -> VF(RF(LF(Acc))) end,
+%%         0,
+%%         Tree
+%%     ).
+
+%% map(Fun, Tree) ->
+%%     traverse(
+%%         fun (V, {L, R}) -> {node, Fun(V), L, R} end,
+%%         fun (VF, LF, RF, Acc) -> VF({LF(Acc), RF(Acc)}) end,
+%%         nil,
+%%         Tree
+%%     ).
