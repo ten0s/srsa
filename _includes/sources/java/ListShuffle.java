@@ -36,7 +36,6 @@ class ListShuffle {
         //+END_SOLUTION
     }
 
-    //+BEGIN_SOLUTION
     private static <T> Node<T> merge(Node<T> left, Node<T> right) {
         if (left == null) return right;
         if (right == null) return left;
@@ -45,7 +44,6 @@ class ListShuffle {
         right.next = merge(tmp, right.next);
         return left;
     }
-    //+END_SOLUTION
 
     //+BEGIN_FOLD Tests {
     public static void main(String[] args) throws Throwable {
