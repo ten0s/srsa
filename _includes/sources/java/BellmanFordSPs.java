@@ -54,9 +54,9 @@ public class BellmanFordSPs {
     private void findNegCycle() {
         int V = edgeTo.length;
         EdgeWeightedDigraph spt = new EdgeWeightedDigraph(V);
-        for (int v = 0; v < V; v++) {
-            if (edgeTo[v] != null) {
-                spt.addEdge(edgeTo[v]);
+        for (DirectedEdge e : edgeTo) {
+            if (e != null) {
+                spt.addEdge(e);
             }
         }
         EdgeWeightedDigraphCycle cf = new EdgeWeightedDigraphCycle(spt);
