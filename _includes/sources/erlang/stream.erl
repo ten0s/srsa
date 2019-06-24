@@ -109,7 +109,7 @@ zip(_, {}) ->
 zip({}, _) ->
     {};
 zip({X, P}, {Y, R}) ->
-    {{X, Y}, ?DELAY(zip(?FORCE(P), ?FORCE(R)))}.
+    { {X, Y}, ?DELAY(zip(?FORCE(P), ?FORCE(R)))}.
 %%+END_SOLUTION
 
 -spec cycle([T]) -> stream(T).
