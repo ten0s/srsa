@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# https://pages.github.com/versions/
 # https://github.com/envygeeks/jekyll-docker
 
 # usage:
@@ -17,5 +18,5 @@ if echo "$@" | grep serve > /dev/null; then
     opts[k++]=--publish=4000:4000
 fi
 
-JEKYLL_VERSION=3.8
+JEKYLL_VERSION=3.8.5
 docker run "${opts[@]}" jekyll/jekyll:$JEKYLL_VERSION jekyll "$@"
