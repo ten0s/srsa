@@ -3,7 +3,7 @@
     "ace-builds": "1.4.2",
     "bootstrap": "4.3.1",
     "font-awesome": "4.7.0",
-    "jquery": "3.4.0",
+    "jquery": "3.5.0",
     "underscore": "1.9.1"
   }
 }
