@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# If it fails with 'convert-im6.q16: not authorized'
+# $ sudo mv /etc/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml.bak
+
 erlc leftist_heap.erl
 escript leftist_heap_anim.erl
 
