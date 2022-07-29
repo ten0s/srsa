@@ -32,7 +32,8 @@ var Storage = (function () {
     }
 
     function setCORSAnywhereUrl(url) {
-        if (url[url.length - 1] !== "/") {
+        url = url.trim()
+        if (url.length && url[url.length - 1] !== "/") {
             url += "/";
         }
         localStorage.setItem("cors-anywhere-url", url);
@@ -41,7 +42,10 @@ var Storage = (function () {
     function getCORSAnywhereUrl() {
         var url = localStorage.getItem("cors-anywhere-url");
         if (!url) {
-            url = "https://cors-anywhere.herokuapp.com/";
+            //url = "https://cors-anywhere.herokuapp.com/";
+
+            // Run $ bin/cors-anywhere
+            url = "http://localhost:8080/";
         }
         return url;
     }

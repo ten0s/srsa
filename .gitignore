@@ -19,6 +19,8 @@ assets/libs/jquery/*
 assets/libs/underscore/*
 !assets/libs/underscore/underscore-min.js
 
+docker/cors-anywhere/app
+
 _site
 _includes/sources/c/a.out
 _includes/sources/erlang/*.beam
